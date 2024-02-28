@@ -5,18 +5,24 @@ TriOrb AMRのための自律移動パッケージのうちOS起動と同時に�
 ## [triorb_os_setting](./triorb_os_setting/README.md)
 ## [triorb_node_manager](./triorb_node_manager/README.md)
 ## [triorb_camera_capture](./triorb_camera_capture/README.md)
+## [triorb_project_manager](./triorb_project_manager/README.md)
 
 # Types
 ## [triorb_static_interface](./TriOrb-ROS2-Types/triorb_static_interface/README.md)
 ## [triorb_sensor_interface](./TriOrb-ROS2-Types/triorb_sensor_interface/README.md)
+## [triorb_cv_interface](./TriOrb-ROS2-Types/triorb_cv_interface/README.md)
+## [triorb_drive_interface](./TriOrb-ROS2-Types/triorb_drive_interface/README.md)
+## [triorb_field_interface](./TriOrb-ROS2-Types/triorb_drive_interface/README.md)
+## [triorb_project_interface](./TriOrb-ROS2-Types/triorb_project_interface/README.md)
+
 
 # Develop
-## [Setup] install ros2 foxy [Ref](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
+## install ros2 foxy [Ref](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)
 ```bash
 sh foxy_install.sh
 ```
 
-## [Develop] ros2 run
+## ros2 setup
 ```bash
 export ROS_LOCALHOST_ONLY=$(cat /triorb/params/ROS_LOCALHOST_ONLY)
 export ROS_DOMAIN_ID=$(cat /triorb/params/ROS_DOMAIN_ID)
@@ -24,7 +30,13 @@ export ROS_PREFIX=$(cat /triorb/params/ROS_PREFIX)
 source /opt/ros/foxy/setup.bash
 ```
 
-## [Develop] build on host & install
+## create new python package
+```bash
+python new_pkg_py.py -h
+#python new_pkg_py.py triorb_new_package new_node
+```
+
+## build on host & install
 ```bash
 export ROS_LOCALHOST_ONLY=$(cat /triorb/params/ROS_LOCALHOST_ONLY)
 export ROS_DOMAIN_ID=$(cat /triorb/params/ROS_DOMAIN_ID)
@@ -34,14 +46,10 @@ colcon --log-base /triorb/log/${ROS_DISTRO} build --symlink-install --allow-over
 source /triorb/install/${ROS_DISTRO}/setup.bash
 ```
 
-## [Develop] run on host
+## run on host
 ```bash
 sh launch.sh
 ```
-
-# Packages
-## - [triorb_os_setting](./triorb_os_setting/README.md)
-
 
 # dockerコンテナでは実行不可（reboot / shutdownが不可能）
 ## [Develop] docker run

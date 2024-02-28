@@ -3,7 +3,7 @@
 ## camera_capture API
 ### カメラ画像受信
 - Topic：(prefix)/camera(0-N) # 末尾の整数はカメラのID
-- Node：(prefix)_ camera_capture
+- Node：(prefix)_camera_capture
 - Type：sensor_msgs/Image
 - Frequency：最大1/0.02 Hz
 - Usage：

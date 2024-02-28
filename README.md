@@ -9,5 +9,6 @@
 ## [triorb_static_interface](./TriOrb-AMR-Static/TriOrb-ROS2-Types/triorb_static_interface/README.md)
 ## [triorb_sensor_interface](./TriOrb-AMR-Static/TriOrb-ROS2-Types/triorb_sensor_interface/README.md)
 ## [triorb_drive_interface](./TriOrb-AMR-Static/TriOrb-ROS2-Types/triorb_drive_interface/README.md)
+## [triorb_field_interface](./TriOrb-AMR-Static/TriOrb-ROS2-Types/triorb_field_interface/README.md)
 ## [triorb_cv_interface](./TriOrb-AMR-Static/TriOrb-ROS2-Types/triorb_cv_interface/README.md)
 ## [triorb_project_interface](./TriOrb-AMR-Static/TriOrb-ROS2-Types/triorb_project_interface/README.md)
