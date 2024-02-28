@@ -2,3 +2,6 @@
 
 # Package: triorb_cv_interface
 ## triorb_cv_interface Types
+### triorb_cv_interface/msg/Sample
+```bash
+```
