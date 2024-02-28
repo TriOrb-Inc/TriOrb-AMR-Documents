@@ -4,9 +4,11 @@ TriOrb AMRのための自律移動パッケージのうちOS起動と同時に�
 # Packages
 ## [triorb_os_setting](./triorb_os_setting/README.md)
 ## [triorb_node_manager](./triorb_node_manager/README.md)
+## [triorb_camera_capture](./triorb_camera_capture/README.md)
 
 # Types
 ## [triorb_static_interface](./TriOrb-ROS2-Types/triorb_static_interface/README.md)
+## [triorb_sensor_interface](./TriOrb-ROS2-Types/triorb_sensor_interface/README.md)
 
 # Develop
 ## [Setup] install ros2 foxy [Ref](https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html)

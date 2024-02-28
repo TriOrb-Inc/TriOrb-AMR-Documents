@@ -1,3 +1,5 @@
+[../](../README.md)
+
 # Package: triorb_static_interface
 ### triorb_static_interface/msg/SettingIPv4
 ```bash
@@ -35,7 +37,6 @@ uint16 ros_domain_id # ROS_DOMAIN_ID
 string ros_prefix # ROS_PREFIX
 ```
 
-
 ### triorb_static_interface/srv/SettingROS
 ```bash
 std_msgs/Empty request
@@ -43,3 +44,28 @@ std_msgs/Empty request
 SettingROS result
 ```
 
+### triorb_static_interface/msg/NodeInfo
+```bash
+string name # Node name
+string state # Node state ( sleep | wakeup | awake )
+```
+
+### triorb_static_interface/srv/NodeInfo
+```bash
+std_msgs/Empty request
+---
+NodeInfo[] result
+```
+
+### triorb_static_interface/msg/HostStatus
+```bash
+std_msgs/Header header      # Timestamp
+float32 memory_percent      # Memory usage
+float32 cpu_percent         # CPU usage
+float32 host_temperature    # Temperature of the host computer
+string wlan_ssid            # SSID of the access point
+uint8 wlan_signal           # Signal strength of the access point 
+uint32 wlan_freq            # Communication speed of the access point
+float32 ping                # Ping speed to the default gateway
+uint8[] gateway             # Address of the default gateway
+```
