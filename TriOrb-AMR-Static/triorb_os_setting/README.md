@@ -90,6 +90,7 @@ triorb@orin-nx-XXX:~/$ nmcli -f ALL dev wifi | grep yes # 確認
 ```bash
 triorb@orin-nx-XXX:~/$ ros2 topic pub -1 /os/setting/network/wire triorb_static_interface/msg/SettingIPv4 '{method: manual, adress: [192,168,21,155], mask: 24, gateway: [192,168,21,1]}' # 手動設定
 triorb@orin-nx-XXX:~/$ ros2 topic pub -1 /os/setting/network/wire triorb_static_interface/msg/SettingIPv4 '{method: auto}' # 自動取得
+triorb@orin-nx-XXX:~/$ ros2 topic pub -1 /os/setting/network/wire triorb_static_interface/msg/SettingIPv4 '{method: shared}' # DHCPサーバー化
 ```
 
 ### Wi-Fiアクセスポイントを構築する
@@ -102,50 +103,4 @@ triorb@orin-nx-XXX:~/$ ros2 topic pub -1 /os/setting/network/wifi triorb_static_
 triorb@orin-nx-XXX:~/$ ros2 topic pub -1 /os/setting/network/ssid triorb_static_interface/msg/SettingSSID '{ssid: TriOrb-wifi, passphrase: password}' # 元に戻す（数分かかる）
 ```
 
-
-
-## OS制御、環境設定Type
-### triorb_static_interface/msg/SettingIPv4
-```bash
-string device # device name
-string method # device mode: auto | manual | shared | disabled
-uint8[] adress # IP adress
-uint8 mask # Subnet mask
-uint8[] gateway # Default gateway adress
-uint8[] mac # Hardware adress
-```
-### triorb_static_interface/msg/SettingSSID
-```bash
-string ssid # Wi-Fi SSID name
-string passphrase # Wi-Fi passphrase
-string security # Wi-Fi security type
-uint8 signal # Signal strength (0-100)
-```
-### triorb_static_interface/srv/SettingIPv4
-```bash
-std_msgs/Empty request
----
-SettingIPv4[] result 
-```
-### triorb_static_interface/srv/SettingSSID
-```bash
-std_msgs/Empty request
----
-SettingSSID[] result 
-```
-
-### triorb_static_interface/msg/SettingROS
-```bash
-bool ros_localhost_only # ROS_LOCALHOST_ONLY
-uint16 ros_domain_id # ROS_DOMAIN_ID
-string ros_prefix # ROS_PREFIX
-```
-
-
-### triorb_static_interface/srv/SettingROS
-```bash
-std_msgs/Empty request
----
-SettingROS result
-```
-
+## [OS制御、環境設定Types](../TriOrb-ROS2-Types/triorb_static_interface/README.md)

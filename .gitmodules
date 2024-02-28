@@ -1,0 +1,3 @@
+[submodule "submodules/TriOrb-AMR-Static"]
+	path = submodules/TriOrb-AMR-Static
+	url = git@github.com:TriOrb-Inc/TriOrb-AMR-Static.git
