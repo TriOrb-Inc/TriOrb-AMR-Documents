@@ -145,3 +145,17 @@ TriorbPos3 now           # Current robot position
 ---
 TriorbRunResult result   # Result of completion of movement to final destination
 ```
+
+### triorb_drive_interface/msg/Route
+```bash
+uint32 id               # ID
+string name             # Name
+TriorbPos3[] waypoint   # Waypoints
+```
+
+### triorb_drive_interface/srv/GetRoute
+```bash
+std_msgs/Empty request
+---
+Route result
+```
