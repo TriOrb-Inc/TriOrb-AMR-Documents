@@ -7,8 +7,8 @@ import pprint
 submodule_root = "./submodules/"
 
 # TriOrb-AMR-Static
-subprocess.run(f"git submodule update --init --recursive".split())
-subprocess.run(f"git submodule update --recursive --force --checkout --remote".split())
+#subprocess.run(f"git submodule update --init --recursive".split())
+#subprocess.run(f"git submodule update --recursive --force --checkout --remote".split())
 
 # Gather
 copy_files = {}
