@@ -1,33 +1,4 @@
 # Package: triorb_path_search_server
 
-## Subscriber
-### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
 
-## Publisher
-### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
-
-## Service
-### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
-
-## Action
-### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
+## [triorb_path_search_server Types](../TriOrb-ROS2-Types/triorb_path_search_server/README.md)

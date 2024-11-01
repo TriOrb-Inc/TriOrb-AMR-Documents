@@ -1,5 +1,5 @@
 # TriOrb-ROS2-Types
-TriOrb AMRのROS2パッケージのためのInterface
+TriOrb AMRのROS2パッケージのためのTypes
 
 # Clone and install
 ```bash
@@ -10,4 +10,10 @@ colcon build &&\
 source install/setup.bash
 ```
 
-# [Interface list](./README_types.md)
+# Packages
+## [triorb_static_interface](./triorb_static_interface/README.md)
+## [triorb_sensor_interface](./triorb_sensor_interface/README.md)
+## [triorb_cv_interface](./triorb_cv_interface/README.md)
+## [triorb_drive_interface](./triorb_drive_interface/README.md)
+## [triorb_field_interface](./triorb_drive_interface/README.md)
+## [triorb_project_interface](./triorb_project_interface/README.md)

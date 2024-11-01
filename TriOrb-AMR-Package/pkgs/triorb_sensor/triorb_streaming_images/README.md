@@ -1,11 +1,4 @@
 # Package: triorb_streaming_images
 
-## Subscriber
-### Imageトピックを受信し配信する
-- Topic: (可変)
-- Type: sensor_msgs/msg/Image
 
-
-### CompressedImageトピックを受信し配信する
-- Topic: (可変)
-- Type: sensor_msgs/msg/CompressedImage
+## [triorb_streaming_images Types](../TriOrb-ROS2-Types/triorb_streaming_images/README.md)

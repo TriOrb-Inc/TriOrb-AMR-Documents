@@ -1,33 +1,4 @@
 # Package: triorb_static_broadcast
 
-## Subscriber
-### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
 
-## Publisher
-### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
-
-## Service
-### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
-
-## Action
-### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
+## [triorb_static_broadcast Types](../TriOrb-ROS2-Types/triorb_static_broadcast/README.md)
