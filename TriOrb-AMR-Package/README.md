@@ -19,3 +19,10 @@ git submodule update --init --recursive &&\
 git submodule update --recursive --force --checkout --remote
 ```
 
+## Split bag file
+```bash
+sh dev_container.sh
+tmux new-session -s record -d "source /install/humble/setup.bash && ros2 bag record -a -o {OUTPUT_BAG_PATH} -b 5153960755" # 4.8GB : 5153960755
+ros2 bag play {INPUT_BAG_PATH} &&\
+tmux send-keys -t record C-c
+```

@@ -1,9 +1,7 @@
 # Package: triorb_host_info
 
-
 ## ホストコンピュータのシステムモニター
 Topic：(prefix)/host/status
-Node：(prefix)_device
 Type：triorb_static_interface/msg/HostStatus
 Frequency：1/1.0 Hz
 Usage：
