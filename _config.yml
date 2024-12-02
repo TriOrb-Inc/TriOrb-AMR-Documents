@@ -9,3 +9,4 @@ sticky_navigation: true
 prev_next_buttons_location: bottom
 search_enabled: true
 hljs_style: github-gist
+style_nav_header_background: '#223b80'
