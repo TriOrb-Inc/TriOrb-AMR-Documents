@@ -1,5 +1,11 @@
 # camera capture node
 
+## 更新履歴
+### 1.1.0
+- 画像のENQUEUEをtimer_callbackの最後に全カメラ同時に行うように変更
+- gainを設定可能
+- gain, exposureを設定時にauto_exposureをオフにするように変更
+
 ## camera_capture API
 ### カメラ画像受信
 - Topic：(prefix)/camera(0-N) # 末尾の整数はカメラのID
@@ -37,7 +43,7 @@ triorb_sensor_interface.srv.CameraDevice_Response(result=[triorb_sensor_interfac
 - Type：triorb_sensor_interface/srv/CameraCapture
 - Usage：
 ```bash
-root@orin-nx-XXX:~/$ ros2 service call /set/camera/state triorb_sensor_interface/srv/CameraCamture '{request: [{device: /dev/video0, topic: /camera0, id: camera0, state: wakeup, rotation: 0, exposure: 500, gamma: 1.0, timer: 0.1}, {device: /dev/video2, topic: /camera1, id: camera1, state: wakeup, rotation: 0, exposure: 500, gamma: 1.0, timer: 0.1}]}'
+root@orin-nx-XXX:~/$ ros2 service call /set/camera/state triorb_sensor_interface/srv/CameraCapture '{request: [{device: /dev/video0, topic: /camera0, id: camera0, state: wakeup, rotation: 0, exposure: 500, gamma: 1.0, timer: 0.1}, {device: /dev/video2, topic: /camera1, id: camera1, state: wakeup, rotation: 0, exposure: 500, gamma: 1.0, timer: 0.1}]}'
 ...
 response:
 triorb_sensor_interface.srv.CameraCamture_Response(result=['success','success'])
