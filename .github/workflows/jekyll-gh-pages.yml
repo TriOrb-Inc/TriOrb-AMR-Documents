@@ -3,6 +3,8 @@ name: Deploy Jekyll with GitHub Pages dependencies preinstalled
 
 on:
   # Runs on pushes targeting the default branch
+  pull_request:
+    paths: ['**.md']   # mdのファイルが変更されたら実行
   push:
     branches: ["master"]
 
