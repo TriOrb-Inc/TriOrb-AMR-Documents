@@ -5,3 +5,10 @@ remote_theme: carlosperate/jekyll-theme-rtd
 site_author: TriOrb Inc.
 logo: 'https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png'
 site_favicon: 'https://triorb.co.jp/favicon.ico'
+sticky_navigation: true
+prev_next_buttons_location: None
+prev_next_buttons_location: top
+prev_next_buttons_location: bottom
+prev_next_buttons_location: both
+search_enabled: true
+hljs_style: github-gist
