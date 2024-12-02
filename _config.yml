@@ -1,6 +1,7 @@
 title: TriOrb BASE Developer guides
 description: TriOrb BASE 開発者ガイド
-remote_theme: https://github.com/JV-conseil/jekyll-theme-read-the-docs
+theme: null
+remote_theme: carlosperate/jekyll-theme-rtd
 site_author: TriOrb Inc.
 logo: 'https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png'
 site_favicon: 'https://triorb.co.jp/favicon.ico'
