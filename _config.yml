@@ -8,6 +8,6 @@ logo: 'https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png'
 site_favicon: 'https://triorb.co.jp/favicon.ico'
 sticky_navigation: false
 prev_next_buttons_location: bottom
-search_enabled: true
+search_enabled: false
 hljs_style: github-gist
 edit_on_github: false
