@@ -14,6 +14,8 @@ submodule_root = "./submodules/"
 copy_files = {}
 for curDir, dirs, files in os.walk(submodule_root):
     files = [_f for _f in files if (_f.endswith('.md') or _f.endswith('.ipynb'))]
+    files = [_f for _f in files if not _f.startswith('.')]
+    files = [_f for _f in files if not _f.startswith('_')]
     copy_files.update({os.path.join(curDir, _f):os.path.join(curDir, _f).replace(submodule_root,"") for _f in files})
 
 for src, dst in copy_files.items():
