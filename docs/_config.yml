@@ -1,0 +1,14 @@
+title: TriOrb BASE Developer guides
+description: TriOrb BASE 開発者ガイド
+theme: null
+remote_theme: TriOrb-Inc/jekyll-theme-rtd
+site_author: TriOrb Inc.
+repo_url: 'https://github.com/TriOrb-Inc/TriOrb-AMR-Documents'
+logo: 'https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png'
+site_favicon: 'https://triorb.co.jp/favicon.ico'
+sticky_navigation: true
+prev_next_buttons_location: bottom
+search_enabled: true
+hljs_style: github-gist
+edit_on_github: false
+github_docs_folder: true
