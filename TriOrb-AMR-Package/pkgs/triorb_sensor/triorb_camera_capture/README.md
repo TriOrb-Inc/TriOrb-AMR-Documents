@@ -1,4 +1,4 @@
-# camera capture node
+# Package: triorb_camera_capture
 
 ## 更新履歴
 ### 1.1.0

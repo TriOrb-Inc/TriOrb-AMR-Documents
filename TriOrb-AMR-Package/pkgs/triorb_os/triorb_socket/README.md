@@ -1,4 +1,4 @@
-# triorb_socket
+# Package: triorb_socket
 
 ## Publisher
 ### ソケットで受信したゲームパッド信号をJoyコマンドとしてPublishする
