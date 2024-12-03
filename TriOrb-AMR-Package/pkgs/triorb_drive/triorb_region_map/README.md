@@ -1,0 +1,33 @@
+# Package: triorb_region_map
+
+## Subscriber
+### Description
+- Topic: 
+- Type: 
+- Usage: 
+```bash
+```
+
+## Publisher
+### Description
+- Topic: 
+- Type: 
+- Usage: 
+```bash
+```
+
+## Service
+### Description
+- Topic: 
+- Type: 
+- Usage: 
+```bash
+```
+
+## Action
+### Description
+- Topic: 
+- Type: 
+- Usage: 
+```bash
+```
