@@ -1,6 +1,12 @@
 # Package: triorb_drive_pico
 
 ## 更新履歴
+### 1.2.0
+- 各バージョン取得serviceを10秒に1回publishする形式に変更
+- picoから最大速度・最小速度を取得し、Jetson内に保存するコードを追加
+- picoからエラー履歴を取得するservice追加
+- 特定の条件で速度指示を無視していたバグ修正
+
 ### 1.1.0
 - nodeのバージョン取得serviceを追加（有効になるようにバグ修正）
 - picoのバージョン取得serviceを追加
@@ -11,18 +17,18 @@
 ## Subscriber
 
 ### 励磁オン
-- Topic: (prefix)/drive/restart
+- Topic: (prefix)/drive/wakeup
 - Type: std_msgs/msg/Empty
 - Usage: 
 ```bash
-root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/restart std_msgs/msg/Empty 
+root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/wakeup std_msgs/msg/Empty 
 ```
 
 ### 励磁オフ
-- Topic: (prefix)/drive/pause
+- Topic: (prefix)/drive/sleep
 - Type: std_msgs/msg/Empty
 ```bash
-root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/pause std_msgs/msg/Empty
+root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/sleep std_msgs/msg/Empty
 ```
 
 ### 速度ベクトル指示による移動
@@ -49,6 +55,15 @@ root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/pause std_msgs/msg/Empty
 root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/stop std_msgs/msg/Empty
 ```
 
+### トルク設定変更
+- Topic: (prefix)/set/motor/torque
+- Type: std_msgs/msg/Float32
+- Usage: 
+```bash
+root@orin-nx-XXX:~/$ ros2 topic pub -1 /set/motor/torque std_msgs/msg/Float32 "data: 100.0" # 100%
+```
+
+
 ## Publisher
 
 ### ロボットステータスの定期送信
@@ -73,6 +88,14 @@ error: 0
 - Topic: (prefix)/triorb/odom
 - Type: geometry_msgs/msg/Vector3Stamped
 - Note: 0.2秒間隔で送信される.
+
+
+### バージョン情報の定期送信
+- Topic: (prefix)/triorb/version/drive
+- Topic: (prefix)/triorb/version/pico
+- Topic: (prefix)/triorb/version/core
+- Type: std_msgs/msg/String
+- Note: 10秒間隔で送信される.
 
 
 ## Service
@@ -116,4 +139,18 @@ requester: making request: triorb_drive_interface.srv.MotorStatus_Request(reques
 
 response:
 triorb_drive_interface.srv.MotorStatus_Response(result=triorb_drive_interface.msg.MotorStatus(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1709711017, nanosec=956667335), frame_id='serial'), last_error_value=0, last_error_motor=255, voltage=0.0, state=0, power=0.0))
+```
+
+### エラー履歴の取得
+- Topic：(prefix)/get/error/history
+- Type： triorb_static_interface/srv/ErrorList
+- Note: Responseに表示されるstampはpicoが起動してから経過した時間を表しており, Jetson内のタイムスタンプとは関係がない.
+- Usage：
+```bash
+triorb@orin-nx-XXX:~/$ ros2 service call /get/error/history triorb_static_interface/srv/ErrorList
+waiting for service to become available...
+requester: making request: triorb_static_interface.srv.ErrorList_Request(request=std_msgs.msg.Empty())
+
+response:
+triorb_static_interface.srv.ErrorList_Response(errors=[triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error0'), error=0), triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error1'), error=0), triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error2'), error=0), triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error3'), error=0), triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error4'), error=0)])
 ```

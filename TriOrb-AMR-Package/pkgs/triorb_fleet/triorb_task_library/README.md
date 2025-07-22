@@ -14,6 +14,34 @@ response:
 triorb_static_interface.srv.SetString_Response(result='{"task_info":[{"mode":"pararell_move","move":[{"robot":"hostname1","route":[]},{"robot":"hostname2","route":[]}]},{"mode":"pararell_into","move":[{"robot":"hostname1","route":[]},{"robot":"hostname2","route":[]}]},{"direction":"up","mode":"sync_lift","move":[{"robot":"hostname1"},{"robot":"hostname2"}]},{"mode":"sync_move","robots":["hostname1","hostname2"],"waypoint_list":[[1.414,1.414,45.0,0.1,0.1,5.0],[2.0,2.0,90.0,0.01,0.01,1.0,0.1,0.3]]},{"direction":"down","mode":"sync_lift","move":[{"robot":"hostname1"},{"robot":"hostname2"}]},{"mode":"pararell_outof","move":[{"robot":"hostname1","route":[]},{"robot":"hostname2","route":[]}]}],"task_name":"sample_task_01","workers":["hostname1","hostname2"]}')
 ```
 
+
+### Task Listの要求
+- Service: (prefix)/fleet/srv/get_task_list
+- Type: [triorb_static_interface/srv/GetStringList](../../TriOrb-ROS2-Types/triorb_static_interface/README.md#triorb_static_interfacesrvgetstringlist)
+- Usage: 
+```bash
+root@aws-dev-arm-ubuntu22:/ws# ros2 service call /fleet/srv/get_task_list triorb_static_interface/srv/GetStringList
+requester: making request: triorb_static_interface.srv.GetStringList_Request(request=std_msgs.msg.Empty())
+
+response:
+triorb_static_interface.srv.GetStringList_Response(result=['sync_task2', 'sync_task_copt', 'sync_task'])
+```
+
+### Task保存の要求
+- Note: requestリストの第一要素に保存名, 第二要素にタスク内容を記述したjson stringを渡す. json形式か否かは判定するが内容が適切かどうかは判定しないので, 以下の例でも成功する(その内判定できるようにしたい).
+- Service: (prefix)/fleet/srv/save_task
+- Type: [triorb_static_interface/srv/SetString](../../TriOrb-ROS2-Types/triorb_static_interface/README.md#triorb_static_interfacesrvsetstring)
+- Usage: 
+```bash
+root@aws-dev-arm-ubuntu22:/ws# ros2 service call /fleet/srv/save_task triorb_static_interface/srv/SetString 'request: ["task_name", "{ \"test\": 111 }"]'
+requester: making request: triorb_static_interface.srv.SetString_Request(request=['task_name', '{ "test": 111 }'])
+
+response:
+triorb_static_interface.srv.SetString_Response(result='success')
+```
+
+
+
 # Unit test
 ## 異常系
 ### 空リクエスト

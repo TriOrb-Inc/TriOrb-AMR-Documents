@@ -39,6 +39,17 @@ transform:
     w: 0.9999643110221774
 ```
 
+### ロボット現在位置（平面内）
+- Topic: (prefix)/vslam/robot_pose
+- Type: triorb_drive_interface/msg/TriorbPos3
+- Usage: 
+```bash
+triorb@orin-nx-XXX:~/$ ros2 topic echo --once /vslam/robot_pose
+x: 0.06437481194734573
+y: 0.05932913348078728
+deg: 4.468038082122803
+```
+
 ## Service
 ### Description
 - Topic: 

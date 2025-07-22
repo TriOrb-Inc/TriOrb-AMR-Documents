@@ -146,7 +146,7 @@ docker run -it --rm --name dev_local --privileged --net=host --ipc=host --pid=ho
 ## モーター制御Node、カメラキャプチャNode、タグ検出Node、の起動（docker内）
 ```bash
 source /install/humble/setup.bash
-tmux new-session -s camera -d "ros2 run triorb_camera_capture camera_capture --ros-args --param dev:=/dev/video-csi0,/dev/video-usb0,/dev/video-usb1,/dev/video-usb2 --param pub:=/camera0,/camera3,/camera4,/camera2 --param rot:=0,0,0,180"
+tmux new-session -s camera -d "sh ./ros2_run_camera.sh"
 tmux new-session -s stream_camera -d "ros2 run triorb_streaming_images streaming_image_node --port 3332 --ip "0.0.0.0" --ros-args --param topic_name_raw:=/camera0 --param sub_path:=/camera --param scale:=0.5 --param fps:=1.0"
 tmux new-session -s drive -d "ros2 run triorb_drive_pico drive"
 
