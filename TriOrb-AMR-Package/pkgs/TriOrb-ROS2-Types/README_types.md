@@ -1,4 +1,4 @@
-# TriOrb-ROS2-Types v1.2.0 (2025-07-22)
+# TriOrb-ROS2-Types v1.2.0 (2025-07-17)
 
 # triorb_cv_interface 
 ## triorb_cv_interface/msg 
