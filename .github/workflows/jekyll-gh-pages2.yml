@@ -2,7 +2,7 @@ name: Deploy Jekyll site to GitHub Pages
 
 on:
   push:
-    branches: [ "**" ]  # すべてのブランチでトリガー
+    branches: [ "**" ]  # 全ブランチ対象
 
 permissions:
   contents: read
@@ -31,16 +31,26 @@ jobs:
       - name: Build site with Jekyll
         run: bundle exec jekyll build --destination _build_site
 
-      - name: Prepare branch-specific path
+      - name: Debug build output
+        run: ls -R _build_site
+
+      - name: Prepare branch-specific path and set deploy URL
         run: |
           echo "branch_name=${GITHUB_REF_NAME}" >> $GITHUB_ENV
+
           if [ "$GITHUB_REF_NAME" = "master" ]; then
             echo "publish_dir=_build_site" >> $GITHUB_ENV
+            echo "deploy_url=https://triorb-inc.github.io/TriOrb-AMR-Documents/" >> $GITHUB_ENV
           else
-            mkdir -p _build_site_branch/branch/$GITHUB_REF_NAME
-            cp -rT _build_site _build_site_branch/branch/$GITHUB_REF_NAME
-            echo "publish_dir=_build_site_branch/branch/$GITHUB_REF_NAME" >> $GITHUB_ENV
+            export TARGET=_build_site_branch/branch/$GITHUB_REF_NAME
+            mkdir -p "$TARGET"
+            rsync -av _build_site/ "$TARGET/"
+            echo "publish_dir=$TARGET" >> $GITHUB_ENV
+            echo "deploy_url=https://triorb-inc.github.io/TriOrb-AMR-Documents/branch/$GITHUB_REF_NAME/" >> $GITHUB_ENV
           fi
+
+      - name: Show deployment URL
+        run: echo "✅ Deployed to: ${{ env.deploy_url }}"
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
@@ -53,9 +63,6 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
