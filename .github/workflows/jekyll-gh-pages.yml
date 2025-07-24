@@ -17,9 +17,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    outputs:
-      deploy_url: ${{ steps.set-output.outputs.deploy_url }}
-
     steps:
       - uses: actions/checkout@v4
 
@@ -34,52 +31,32 @@ jobs:
       - name: Build site with Jekyll
         run: bundle exec jekyll build --destination _build_site
 
-      - name: "Debug: Built files"
-        run: ls -alR _build_site
-
-      - name: "Prepare deploy structure"
-        id: set-output
+      - name: Clone current gh-pages branch
         run: |
-          echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}"
+          git clone --depth=1 --branch=gh-pages https://github.com/${{ github.repository }} gh-pages-temp || mkdir gh-pages-temp
 
+      - name: Prepare combined gh-pages output
+        run: |
+          mkdir -p _gh_pages_output
+
+          # masterブランチはルートに配置、それ以外は /branch/{branch} に配置
           if [ "$GITHUB_REF_NAME" = "master" ]; then
-            DEPLOY_URL="https://triorb-inc.github.io/TriOrb-AMR-Documents/"
-            mkdir -p _build_site_branch
-            rsync -av _build_site/ _build_site_branch/
+            echo "Deploying master to root"
+            rsync -av _build_site/ _gh_pages_output/
           else
-            DEPLOY_URL="https://triorb-inc.github.io/TriOrb-AMR-Documents/branch/$GITHUB_REF_NAME/"
-            mkdir -p _build_site_branch/branch/$GITHUB_REF_NAME
-            rsync -av _build_site/ _build_site_branch/branch/$GITHUB_REF_NAME/
+            echo "Deploying branch $GITHUB_REF_NAME to /branch/$GITHUB_REF_NAME"
+            mkdir -p _gh_pages_output/branch/$GITHUB_REF_NAME
+            rsync -av _build_site/ _gh_pages_output/branch/$GITHUB_REF_NAME/
           fi
 
-          echo "deploy_url=$DEPLOY_URL" >> $GITHUB_OUTPUT
-          echo "✅ Deployment URL: $DEPLOY_URL"
+          # 既存gh-pagesの中身をマージ（ただし対象ブランチの場所は上書き）
+          rsync -av --ignore-existing gh-pages-temp/ _gh_pages_output/
 
-      - name: "Debug: Prepared build output"
-        run: ls -alR _build_site_branch
+      - name: Debug: Merged content to be published
+        run: ls -alR _gh_pages_output
 
-      - name: Upload artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: site-content
-          path: _build_site_branch/**
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: site-content
-          path: ./deploy_dir
-
-      - name: "Debug: Downloaded deploy_dir"
-        run: ls -alR ./deploy_dir
-
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (merged)
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.GH_PAGES_TOKEN }}
-          publish_dir: ./deploy_dir
+          publish_dir: _gh_pages_output
