@@ -38,7 +38,7 @@ jobs:
       - name: "Debug: Built files"
         run: ls -alR _build_site
 
-      - name: Prepare branch-specific path and set deploy URL
+      - name: "Prepare branch-specific path and set deploy URL"
         id: set-output
         run: |
           echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}"
@@ -64,7 +64,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: site-content
-          path: ${{ steps.set-output.outputs.artifact_path }}
+          path: ${{ steps.set-output.outputs.artifact_path }}/  # ← 末尾スラッシュで中身だけアップロード
 
   deploy:
     needs: build
