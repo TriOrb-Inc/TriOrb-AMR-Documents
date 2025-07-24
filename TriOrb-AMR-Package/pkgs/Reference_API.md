@@ -20,8 +20,6 @@ SLAMで推定した位置姿勢をTriOrb BASEの位置姿勢へ変換しPublish�
 TODO: Package description
 ### [triorb_job_scheduler](./triorb_fleet/triorb_job_scheduler/README.md)
 Taskの順序管理及び実行を行うパッケージ
-### [triorb_map_share](./triorb_fleet/triorb_map_share/README.md)
-複数台ロボットでの地図共有のためのパッケージ
 ### [triorb_rmf_bridge](./triorb_fleet/triorb_rmf_bridge/README.md)
 OpenRMF用のTopicのGloal⇔Localバイパスを行う
 ### [triorb_task_library](./triorb_fleet/triorb_task_library/README.md)
