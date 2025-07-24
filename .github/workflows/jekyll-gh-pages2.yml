@@ -18,7 +18,6 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs:
-      artifact_path: ${{ steps.set-output.outputs.artifact_path }}
       deploy_url: ${{ steps.set-output.outputs.deploy_url }}
 
     steps:
@@ -38,33 +37,32 @@ jobs:
       - name: "Debug: Built files"
         run: ls -alR _build_site
 
-      - name: "Prepare branch-specific path and set deploy URL"
+      - name: "Prepare deploy structure"
         id: set-output
         run: |
           echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}"
 
           if [ "$GITHUB_REF_NAME" = "master" ]; then
-            export PUBLISH_DIR=_build_site
-            export DEPLOY_URL="https://triorb-inc.github.io/TriOrb-AMR-Documents/"
+            DEPLOY_URL="https://triorb-inc.github.io/TriOrb-AMR-Documents/"
+            mkdir -p _build_site_branch
+            rsync -av _build_site/ _build_site_branch/
           else
-            export PUBLISH_DIR=_build_site_branch/branch/$GITHUB_REF_NAME
-            mkdir -p "$PUBLISH_DIR"
-            rsync -av _build_site/ "$PUBLISH_DIR/"
-            export DEPLOY_URL="https://triorb-inc.github.io/TriOrb-AMR-Documents/branch/$GITHUB_REF_NAME/"
+            DEPLOY_URL="https://triorb-inc.github.io/TriOrb-AMR-Documents/branch/$GITHUB_REF_NAME/"
+            mkdir -p _build_site_branch/branch/$GITHUB_REF_NAME
+            rsync -av _build_site/ _build_site_branch/branch/$GITHUB_REF_NAME/
           fi
 
-          echo "artifact_path=$PUBLISH_DIR" >> $GITHUB_OUTPUT
           echo "deploy_url=$DEPLOY_URL" >> $GITHUB_OUTPUT
           echo "✅ Deployment URL: $DEPLOY_URL"
 
-      - name: "Debug: Files to be published"
-        run: ls -alR ${{ steps.set-output.outputs.artifact_path }}
+      - name: "Debug: Prepared build output"
+        run: ls -alR _build_site_branch
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: site-content
-          path: ${{ steps.set-output.outputs.artifact_path }}/  # ← 末尾スラッシュで中身だけアップロード
+          path: _build_site_branch/**
 
   deploy:
     needs: build
@@ -77,7 +75,7 @@ jobs:
           name: site-content
           path: ./deploy_dir
 
-      - name: "Debug: Downloaded deploy content"
+      - name: "Debug: Downloaded deploy_dir"
         run: ls -alR ./deploy_dir
 
       - name: Deploy to GitHub Pages
