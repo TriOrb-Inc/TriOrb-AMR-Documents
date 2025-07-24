@@ -2,7 +2,7 @@ name: Deploy Jekyll site to GitHub Pages
 
 on:
   push:
-    branches: [ "**" ]  # 全ブランチ対象
+    branches: [ "**" ]
 
 permissions:
   contents: read
@@ -35,12 +35,14 @@ jobs:
       - name: Build site with Jekyll
         run: bundle exec jekyll build --destination _build_site
 
-      - name: Debug build output
-        run: ls -R _build_site
+      - name: Debug: Built files
+        run: ls -alR _build_site
 
       - name: Prepare branch-specific path and set deploy URL
         id: set-output
         run: |
+          echo "GITHUB_REF_NAME=${GITHUB_REF_NAME}"
+
           if [ "$GITHUB_REF_NAME" = "master" ]; then
             export PUBLISH_DIR=_build_site
             export DEPLOY_URL="https://triorb-inc.github.io/TriOrb-AMR-Documents/"
@@ -53,7 +55,10 @@ jobs:
 
           echo "artifact_path=$PUBLISH_DIR" >> $GITHUB_OUTPUT
           echo "deploy_url=$DEPLOY_URL" >> $GITHUB_OUTPUT
-          echo "✅ Deployed to: $DEPLOY_URL"
+          echo "✅ Deployment URL: $DEPLOY_URL"
+
+      - name: Debug: Files to be published
+        run: ls -alR ${{ steps.set-output.outputs.artifact_path }}
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -72,8 +77,8 @@ jobs:
           name: site-content
           path: ./deploy_dir
 
-      - name: Debug downloaded content
-        run: ls -R ./deploy_dir
+      - name: Debug: Downloaded deploy content
+        run: ls -alR ./deploy_dir
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
