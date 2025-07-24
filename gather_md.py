@@ -10,6 +10,10 @@ submodule_root = "./submodules/"
 #subprocess.run(f"git submodule update --init --recursive".split())
 #subprocess.run(f"git submodule update --recursive --force --checkout --remote".split())
 
+EXCLUDE_KWDS = [
+    'triorb_stub_pico/',
+]
+
 # Gather
 copy_files = {}
 for curDir, dirs, files in os.walk(submodule_root):
@@ -19,6 +23,8 @@ for curDir, dirs, files in os.walk(submodule_root):
     copy_files.update({os.path.join(curDir, _f):os.path.join(curDir, _f).replace(submodule_root,"") for _f in files})
 
 for src, dst in copy_files.items():
+    if any([exclude_kwd in dst for exclude_kwd in EXCLUDE_KWDS]):
+        continue
     os.makedirs(os.path.dirname(dst), exist_ok=True)
     shutil.copy2(src, dst)
     print(f"{src} > {dst}")

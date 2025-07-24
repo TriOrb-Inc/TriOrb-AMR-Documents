@@ -14,10 +14,6 @@ TODO: Package description
 自律移動を行うためのパッケージ
 ### [triorb_navigation_manager](./triorb_drive/triorb_navigation_manager/README.md)
 TODO: Package description
-### [triorb_relative_alignment](./triorb_drive/triorb_relative_alignment/README.md)
-TODO: Package description
-### [triorb_stub_pico](./triorb_drive/triorb_stub_pico/README.md)
-ROS2メッセージを用いてモーター制御ECUと通信するための代替パッケージ
 ### [triorb_vslam_tf](./triorb_drive/triorb_vslam_tf/README.md)
 SLAMで推定した位置姿勢をTriOrb BASEの位置姿勢へ変換しPublishするためのパッケージ
 ### [triorb_job_monitor](./triorb_fleet/triorb_job_monitor/README.md)
