@@ -2,7 +2,7 @@ name: Deploy Jekyll site to GitHub Pages
 
 on:
   push:
-    branches: [ "**" ]
+    branches: [ "**" ]  # すべてのブランチでトリガー
 
 permissions:
   contents: read
@@ -18,8 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
@@ -30,17 +29,17 @@ jobs:
         run: bundle install
 
       - name: Build site with Jekyll
-        run: bundle exec jekyll build
+        run: bundle exec jekyll build --destination _build_site
 
       - name: Prepare branch-specific path
         run: |
           echo "branch_name=${GITHUB_REF_NAME}" >> $GITHUB_ENV
-          if [ "$GITHUB_REF_NAME" != "master" ]; then
-            mkdir -p ./_site/branch/$GITHUB_REF_NAME
-            cp -rT ./_site ./_site/branch/$GITHUB_REF_NAME
-            echo "publish_dir=_site/branch/$GITHUB_REF_NAME" >> $GITHUB_ENV
+          if [ "$GITHUB_REF_NAME" = "master" ]; then
+            echo "publish_dir=_build_site" >> $GITHUB_ENV
           else
-            echo "publish_dir=_site" >> $GITHUB_ENV
+            mkdir -p _build_site_branch/branch/$GITHUB_REF_NAME
+            cp -rT _build_site _build_site_branch/branch/$GITHUB_REF_NAME
+            echo "publish_dir=_build_site_branch/branch/$GITHUB_REF_NAME" >> $GITHUB_ENV
           fi
 
       - name: Setup Pages
