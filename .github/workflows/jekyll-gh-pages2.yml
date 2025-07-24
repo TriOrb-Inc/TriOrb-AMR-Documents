@@ -35,7 +35,7 @@ jobs:
       - name: Build site with Jekyll
         run: bundle exec jekyll build --destination _build_site
 
-      - name: Debug: Built files
+      - name: "Debug: Built files"
         run: ls -alR _build_site
 
       - name: Prepare branch-specific path and set deploy URL
@@ -57,7 +57,7 @@ jobs:
           echo "deploy_url=$DEPLOY_URL" >> $GITHUB_OUTPUT
           echo "✅ Deployment URL: $DEPLOY_URL"
 
-      - name: Debug: Files to be published
+      - name: "Debug: Files to be published"
         run: ls -alR ${{ steps.set-output.outputs.artifact_path }}
 
       - name: Upload artifact
@@ -77,7 +77,7 @@ jobs:
           name: site-content
           path: ./deploy_dir
 
-      - name: Debug: Downloaded deploy content
+      - name: "Debug: Downloaded deploy content"
         run: ls -alR ./deploy_dir
 
       - name: Deploy to GitHub Pages
