@@ -52,7 +52,7 @@ jobs:
           # 既存gh-pagesの中身をマージ（ただし対象ブランチの場所は上書き）
           rsync -av --ignore-existing gh-pages-temp/ _gh_pages_output/
 
-      - name: Debug: Merged content to be published
+      - name: "Debug: Merged content to be published"
         run: ls -alR _gh_pages_output
 
       - name: Deploy to GitHub Pages (merged)
