@@ -17,6 +17,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
+    outputs:
+      artifact_path: ${{ steps.set-output.outputs.artifact_path }}
+      deploy_url: ${{ steps.set-output.outputs.deploy_url }}
+
     steps:
       - uses: actions/checkout@v4
 
@@ -35,38 +39,44 @@ jobs:
         run: ls -R _build_site
 
       - name: Prepare branch-specific path and set deploy URL
+        id: set-output
         run: |
-          echo "branch_name=${GITHUB_REF_NAME}" >> $GITHUB_ENV
-
           if [ "$GITHUB_REF_NAME" = "master" ]; then
-            echo "publish_dir=_build_site" >> $GITHUB_ENV
-            echo "deploy_url=https://triorb-inc.github.io/TriOrb-AMR-Documents/" >> $GITHUB_ENV
+            export PUBLISH_DIR=_build_site
+            export DEPLOY_URL="https://triorb-inc.github.io/TriOrb-AMR-Documents/"
           else
-            export TARGET=_build_site_branch/branch/$GITHUB_REF_NAME
-            mkdir -p "$TARGET"
-            rsync -av _build_site/ "$TARGET/"
-            echo "publish_dir=$TARGET" >> $GITHUB_ENV
-            echo "deploy_url=https://triorb-inc.github.io/TriOrb-AMR-Documents/branch/$GITHUB_REF_NAME/" >> $GITHUB_ENV
+            export PUBLISH_DIR=_build_site_branch/branch/$GITHUB_REF_NAME
+            mkdir -p "$PUBLISH_DIR"
+            rsync -av _build_site/ "$PUBLISH_DIR/"
+            export DEPLOY_URL="https://triorb-inc.github.io/TriOrb-AMR-Documents/branch/$GITHUB_REF_NAME/"
           fi
 
-      - name: Show deployment URL
-        run: echo "✅ Deployed to: ${{ env.deploy_url }}"
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+          echo "artifact_path=$PUBLISH_DIR" >> $GITHUB_OUTPUT
+          echo "deploy_url=$DEPLOY_URL" >> $GITHUB_OUTPUT
+          echo "✅ Deployed to: $DEPLOY_URL"
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
-          path: ${{ env.publish_dir }}
+          name: site-content
+          path: ${{ steps.set-output.outputs.artifact_path }}
 
   deploy:
     needs: build
     runs-on: ubuntu-latest
+
     steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: site-content
+          path: ./deploy_dir
+
+      - name: Debug downloaded content
+        run: ls -R ./deploy_dir
+
       - name: Deploy to GitHub Pages
-        id: deployment
         uses: peaceiris/actions-gh-pages@v3
         with:
           personal_token: ${{ secrets.GH_PAGES_TOKEN }}
-          publish_dir: ${{ env.publish_dir }}
+          publish_dir: ./deploy_dir
