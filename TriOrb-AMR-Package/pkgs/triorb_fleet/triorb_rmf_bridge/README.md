@@ -1,4 +1,4 @@
-# Package: triorb_mutex_manager
+# Package: triorb_rmf_bridge
 
 ## Description
 - 単体自律移動のFMS用Topicのバイパスを行う。

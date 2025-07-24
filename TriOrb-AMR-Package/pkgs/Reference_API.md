@@ -36,7 +36,7 @@
 ```bash
 ```
 
-### triorb_gpio
+### Package: triorb_gpio
 
 このパッケージは、AMRに搭載されたGPIOインターフェースを通じて、外部デバイス（例：ランプ、ブザー、リレーなど）を制御するノードを提供します。
 
@@ -83,11 +83,6 @@ root@agx-orin-XXXX:/ws# ros2 topic pub -1 /gpios/set_value std_msgs/msg/Int8Mult
 - Type: std_msgs/msg/Int8MultiArray
 - Values: -1: None, 0: Low, 1: High
 - Frequency: 1Hz + エッジトリガ
-
-### Package: triorb_bridge
-
-
-#### [triorb_bridge Types](../TriOrb-ROS2-Types/triorb_bridge/README.md)
 
 ### Package: triorb_os_setting
 #### OS制御、環境設定API
@@ -225,11 +220,6 @@ gateway:
 ---
 ```
 
-### Package: triorb_camera_calibration
-
-
-#### [triorb_camera_calibration Types](../TriOrb-ROS2-Types/triorb_camera_calibration/README.md)
-
 ### Package: triorb_sls_drive_manager
 
 #### Description
@@ -363,80 +353,6 @@ If you want use other formats, change following variables.
 - Topic: (可変)
 - Type: sensor_msgs/msg/CompressedImage
 
-
-### Package: triorb_calibration
-
-### Active API
-### カメラ内部パラメータのキャリブレーションプロセス開始 【closed beta】
-- Topic：(prefix)/action/camera/calibration/internal
-- Node：(prefix)_camera_calibration
-- Type： triorb_sensor_interface/action/CameraCalibrationInternal
-- Usage：
-```
-root@orin-nx-XXX:~/$ ros2 action send_goal /action/camera/calibration/internal triorb_sensor_interface/action/CameraCalibrationInternal "{rows: 11, cols: 8, spacing: 20, diameter: 12, src: '/data/dev/ken/220321/'}"
-Waiting for an action server to become available...
-Sending goal:
-     rows: 11
-cols: 8
-spacing: 20.0
-diameter: 12.0
-src: /data/dev/ken/220321/
-
-Goal accepted with ID: 1335f4b8b55c46509d6e7b838fd988fe
-
-Result:
-    image:
-  header:
-    stamp:
-      sec: 0
-      nanosec: 0
-    frame_id: ''
-  format: ''
-  data: []
-fx: 650.124267578125
-fy: 647.412353515625
-cx: 807.5310668945312
-cy: 651.3446044921875
-k1: 0.3168344795703888
-k2: -1.5004156827926636
-k3: 0.4790266454219818
-k4: -0.041176315397024155
-```
-
-
-### Package: triorb_path_search_server
-
-#### Subscriber
-##### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
-
-#### Publisher
-##### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
-
-#### Service
-##### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
-
-#### Action
-##### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
 
 ### Package: triorb_navigation_manager
 
@@ -627,45 +543,6 @@ requester: making request: triorb_static_interface.srv.ErrorList_Request(request
 
 response:
 triorb_static_interface.srv.ErrorList_Response(errors=[triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error0'), error=0), triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error1'), error=0), triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error2'), error=0), triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error3'), error=0), triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error4'), error=0)])
-```
-
-### Package: triorb_static_broadcast
-
-#### 更新履歴
-##### 1.1.0
-- 変換先の robot および rig にprefixを追加
-  - ROS_LOCALHOST_ONLY=0のロボットが複数いる場合に別ロボットの姿勢を参照することがある問題の対策のため
-
-#### Subscriber
-##### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
-
-#### Publisher
-##### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
-
-#### Service
-##### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
-
-#### Action
-##### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
 ```
 
 ### Package: triorb_dead_reckoning
@@ -943,40 +820,6 @@ Result:
 Goal finished with status: SUCCEEDED 
 ```
 
-### Package: triorb_region_map
-
-#### Subscriber
-##### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
-
-#### Publisher
-##### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
-
-#### Service
-##### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
-
-#### Action
-##### Description
-- Topic: 
-- Type: 
-- Usage: 
-```bash
-```
-
 ### Package: triorb_drive_vector
 
 #### Description
@@ -1018,158 +861,59 @@ Goal finished with status: SUCCEEDED
 #### Action
 本パッケージではActionは利用していません。
 
-### stella_vslam_ros
-The ROS2 package for stella_vslam
+### Package: stella_vslam_ros
+
+このドキュメントは、`/run_slam` ノードにおける ROS2 Publish / Subscribe トピックの一覧を示します。
+
+---
+
+#### 🔄 Publish トピック一覧
+
+| トピック名 | メッセージ型 | 説明 |
+|------------|---------------|------|
+| `/run_slam/camera_pose` | `nav_msgs::msg::Odometry` | 推定されたカメラ姿勢 |
+| `/run_slam/keyframes` | `geometry_msgs::msg::PoseArray` | キーフレーム群 |
+| `/run_slam/keyframes_2d` | `geometry_msgs::msg::PoseArray` | 平面に投影されたキーフレーム |
+| `/run_slam/pose_2d` | `geometry_msgs::msg::Pose2D` | 2D平面上のカメラ姿勢 |
+| `/run_slam/keyframe_landmarks` | `triorb_slam_interface::msg::UInt32MultiArrayStamped` | キーフレームごとのランドマーク数 |
+| `/run_slam/matched_landmarks` | `triorb_slam_interface::msg::UInt32MultiArrayStamped` | マッチしたランドマーク数 |
+| `/run_slam/matched_points` | `triorb_slam_interface::msg::PointArrayStamped` | マッチした3D点群 |
+| `/run_slam/camera_pose_dev` | `triorb_slam_interface::msg::PoseDevStamped` | カメラ姿勢推定結果（validフラグ付き） |
+| `/run_slam/matched_landmarks_per_camera` | `triorb_slam_interface::msg::CamerasLandmarkInfo` | カメラごとのランドマーク情報 |
+| `/run_slam/cameras_pose` | `triorb_slam_interface::msg::CamerasPose` | 複数カメラの姿勢 |
+| `/run_slam/enable_camera` | `std_msgs::msg::Int8MultiArray` | 使用カメラの有効/無効状態 |
+| `/run_slam/marker_only` | `std_msgs::msg::Bool` | マーカーのみを使うか |
+| `/run_slam/marker_exclude` | `std_msgs::msg::Bool` | マーカー領域の除外フラグ |
+| `/run_slam/map_file_path` | `std_msgs::msg::String` | 現在のマップファイルパス |
+| `/run_slam/map_file_changed` | `std_msgs::msg::String` | マップファイル変更通知 |
+| `/run_slam/local_map_file_path` | `std_msgs::msg::String` | ローカルマップファイルパス |
+| `/run_slam/current_keyframes` | `triorb_slam_interface::msg::KeyframeArray` | 現在のキーフレーム情報 |
+| `/run_slam/map_freeze` | `std_msgs::msg::Bool` | 地図固定モードの状態 |
+| `/except_handl/node/add` | `std_msgs::msg::String` | 例外発生ノード通知 |
+| `/triorb/error/str/add` | `std_msgs::msg::String` | エラーメッセージ通知 |
+| `/triorb/warn/str/add` | `std_msgs::msg::String` | ワーニング通知 |
+
+---
+
+#### 📥 Subscribe トピック一覧
+
+| トピック名 | メッセージ型 | 説明 |
+|------------|---------------|------|
+| `/run_slam/set/enable_camera` | `std_msgs::msg::Int8MultiArray` | 使用カメラ切り替え |
+| `/run_slam/set/mask_positive` | `triorb_slam_interface::msg::XyArrayStamped` | 特徴点マスク（許容） |
+| `/run_slam/set/mask_negative` | `triorb_slam_interface::msg::XyArrayStamped` | 特徴点マスク（除外） |
+| `/run_slam/set/clear_mask_all` | `std_msgs::msg::Empty` | マスク初期化 |
+| `/run_slam/set/save_mask_to_yaml` | `std_msgs::msg::Empty` | マスクYAML保存指示 |
+| `/run_slam/set/marker_only` | `std_msgs::msg::Bool` | マーカーのみ利用設定 |
+| `/run_slam/set/marker_exclude` | `std_msgs::msg::Bool` | マーカー領域除外設定 |
+| `/run_slam/set/change_map_file_path` | `std_msgs::msg::String` | 地図ファイル変更指示 |
+| `/run_slam/set/enter_local_map_file_path` | `std_msgs::msg::String` | ローカル地図ファイル切替 |
+| `/run_slam/set/map_freeze` | `std_msgs::msg::Bool` | 地図固定切替 |
+| `/run_slam/set/manual_keyframes` | `triorb_slam_interface::msg::KeyframeArray` | 手動リローカライズ要求 |
+| `/triorb/odom` | `geometry_msgs::msg::Vector3Stamped` | オドメトリ情報（Odomono/OdoRig） |
 
 
-
-### Package: triorb_job_monitor
-
-
-#### [triorb_job_monitor Types](../TriOrb-ROS2-Types/triorb_job_monitor/README.md)
-
-
-##### jobに参加しているロボットの一覧要求
-- Note: request[0]にjob名を設定するとカンマで区切られたhostnameのstringを返す.
-- Service: (prefix)/fleet/srv/job_workers
-- Type: [triorb_static_interface/srv/SetString](../../TriOrb-ROS2-Types/triorb_static_interface/README.md#triorb_static_interfacesrvsetstring)
-- Usage: 
-```bash
-root@aws-dev-arm-ubuntu22:/ws# ros2 service call /fleet/srv/job_workers triorb_static_interface/srv/SetString "{ request: [sync_group] }"
-requester: making request: triorb_static_interface.srv.SetString_Request(request=['sync_group'])
-
-response:
-triorb_static_interface.srv.SetString_Response(result='raspberrypi,orin-nx-721X')
-```
-
-### Package: triorb_task_library
-- タスク名とタスク内容の紐付け管理を行うパッケージ
-
-#### Service server
-##### Task descriptionの要求
-- Service: (prefix)/fleet/srv/get_task_description
-- Type: [triorb_static_interface/srv/SetString](../../TriOrb-ROS2-Types/triorb_static_interface/README.md#triorb_static_interfacesrvsetstring)
-- Usage: 
-```bash
-root@aws-dev-arm-ubuntu22:/ws# ros2 service call /fleet/srv/get_task_description triorb_static_interface/srv/SetString 'request: ["sample_task_01"]'
-requester: making request: triorb_static_interface.srv.SetString_Request(request=['sample_task_01'])
-
-response:
-triorb_static_interface.srv.SetString_Response(result='{"task_info":[{"mode":"pararell_move","move":[{"robot":"hostname1","route":[]},{"robot":"hostname2","route":[]}]},{"mode":"pararell_into","move":[{"robot":"hostname1","route":[]},{"robot":"hostname2","route":[]}]},{"direction":"up","mode":"sync_lift","move":[{"robot":"hostname1"},{"robot":"hostname2"}]},{"mode":"sync_move","robots":["hostname1","hostname2"],"waypoint_list":[[1.414,1.414,45.0,0.1,0.1,5.0],[2.0,2.0,90.0,0.01,0.01,1.0,0.1,0.3]]},{"direction":"down","mode":"sync_lift","move":[{"robot":"hostname1"},{"robot":"hostname2"}]},{"mode":"pararell_outof","move":[{"robot":"hostname1","route":[]},{"robot":"hostname2","route":[]}]}],"task_name":"sample_task_01","workers":["hostname1","hostname2"]}')
-```
-
-
-##### Task Listの要求
-- Service: (prefix)/fleet/srv/get_task_list
-- Type: [triorb_static_interface/srv/GetStringList](../../TriOrb-ROS2-Types/triorb_static_interface/README.md#triorb_static_interfacesrvgetstringlist)
-- Usage: 
-```bash
-root@aws-dev-arm-ubuntu22:/ws# ros2 service call /fleet/srv/get_task_list triorb_static_interface/srv/GetStringList
-requester: making request: triorb_static_interface.srv.GetStringList_Request(request=std_msgs.msg.Empty())
-
-response:
-triorb_static_interface.srv.GetStringList_Response(result=['sync_task2', 'sync_task_copt', 'sync_task'])
-```
-
-##### Task保存の要求
-- Note: requestリストの第一要素に保存名, 第二要素にタスク内容を記述したjson stringを渡す. json形式か否かは判定するが内容が適切かどうかは判定しないので, 以下の例でも成功する(その内判定できるようにしたい).
-- Service: (prefix)/fleet/srv/save_task
-- Type: [triorb_static_interface/srv/SetString](../../TriOrb-ROS2-Types/triorb_static_interface/README.md#triorb_static_interfacesrvsetstring)
-- Usage: 
-```bash
-root@aws-dev-arm-ubuntu22:/ws# ros2 service call /fleet/srv/save_task triorb_static_interface/srv/SetString 'request: ["task_name", "{ \"test\": 111 }"]'
-requester: making request: triorb_static_interface.srv.SetString_Request(request=['task_name', '{ "test": 111 }'])
-
-response:
-triorb_static_interface.srv.SetString_Response(result='success')
-```
-
-
-
-### Unit test
-#### 異常系
-##### 空リクエスト
-```bash
-root@aws-dev-arm-ubuntu22:/ws# ros2 service call /fleet/srv/get_task_description triorb_static_interface/srv/SetString 'request: []'
-requester: making request: triorb_static_interface.srv.SetString_Request(request=[])
-
-response:
-triorb_static_interface.srv.SetString_Response(result='{"error":"request is empty"}')
-```
-
-##### 存在しないタスク名
-```bash
-root@aws-dev-arm-ubuntu22:/ws# ros2 service call /fleet/srv/get_task_description triorb_static_interface/srv/SetString 'request: ["invalid_task_name"]'
-requester: making request: triorb_static_interface.srv.SetString_Request(request=['invalid_task_name'])
-
-response:
-triorb_static_interface.srv.SetString_Response(result='{"error":"file not found: /triorb/params/fleet/task/invalid_task_name.json"}')
-```
-
-##### json記法に誤りのあるタスク
-```bash
-root@aws-dev-arm-ubuntu22:/ws# ros2 service call /fleet/srv/get_task_description triorb_static_interface/srv/SetString 'request: ["invalid_json_name"]'
-requester: making request: triorb_static_interface.srv.SetString_Request(request=['invalid_json_name'])
-
-response:
-triorb_static_interface.srv.SetString_Response(result='{"error":"[json.exception.parse_error.101] parse error at line 2, column 5: syntax error while parsing object key - invalid literal; last read: \'{<U+000A>    i\'; expected string literal"}')
-```
-
-
-### Package: triorb_job_scheduler
-- Taskの順序管理及び実行を行うパッケージ
-- 制御フローは以下の通り
-    1. スケジュールの新規開始を受け付ける（実行順、ループ回数）
-    2. Task名に基づきJobを新規発行する
-    3. Jobのresultを待ち、successが返ってきたら次のJobを発行する、その他であればスケジュールを終了する
-    4. スケジュール終了要求があった場合は即座にJob中断リクエストを発行し、スケジュールを終了する
-    5. なおStatusが一定期間（NO_STATUS_TIMEOUT）届かない場合はTimeoutと判断し即座にJob中断リクエストを発行し、スケジュールを終了する
-
-#### Subscription
-##### Jobスケジュールの新規開始
-- Topic: (prefix)/fleet/schedule/new
-- Type: std_msgs/msg/String
-- Note: 既に実行中のスケジュールがある場合は即時中断されるため注意
-- Note: loopする場合は'loop'のvalueにloop回数を設定する(0としも1回は実行される)
-- Usage: 
-```bash
-root@orin-nx-4260:/ws# ros2 topic pub -1 /fleet/schedule/new std_msgs/msg/String \
-"{data : '{\
-    "'"loop"'" : 99,\
-    "'"task"'" : \
-    [\
-        "'"sample_task_01"'",\
-        "'"sample_task_02"'",\
-        "'"sample_task_03"'"\
-    ]\
-}'}"
-```
-
-##### Jobスケジュールの中断終了
-- Topic: (prefix)/fleet/schedule/terminate
-- Type: std_msgs/msg/Empty
-- Usage: 
-```bash
-root@orin-nx-4260:/ws# ros2 topic pub -1 /fleet/schedule/terminate std_msgs/msg/Empty
-```
-
-##### [JobのResult](../../triorb_collaboration/triorb_job_state_manager/README.md#剛体グループjobのresult)
-
-#### Publisher
-##### [Jobの開始](../../triorb_collaboration/triorb_collab_find_workers/README.md#jobの開始要求)
-
-##### [現在実行中のJob（剛体グループ）を終了削除する](../../triorb_collaboration/triorb_job_state_manager/README.md#剛体グループjobを終了削除する)
-
-#### Service client
-##### [Task descriptionの取得](../triorb_task_library/README.md#task-descriptionの要求)
-
-#### Parameter
-- NO_STATUS_TIMEOUT : ステータスが返ってこない場合にタイムアウト判断する時間 [ms]
-
-### triorb_rmf_bridge
-OpenRMF用のTopicのGloal⇔Localバイパスを行う
-
-### Package: triorb_mutex_manager
+### Package: triorb_rmf_bridge
 
 #### Description
 - 単体自律移動のFMS用Topicのバイパスを行う。
@@ -1283,38 +1027,4 @@ OpenRMF用のTopicのGloal⇔Localバイパスを行う
 - BRIDGE_IP : Global ⇔ Local ブリッジに使うIPアドレス（recommend: 127.0.0.1）
 - BRIDGE_PORT_G2L : Global ⇒ Local ブリッジに使うポート (default 60000)
 - BRIDGE_PORT_L2G : Global ⇒ Local ブリッジに使うポート (default 60001)
-
-### Package: triorb_node_manager
-
-##### Node一覧取得
-- Topic：(prefix)/get/node/state
-- Node：(prefix)_node_manager
-- Type：triorb_static_interface/srv/NodeInfo
-- Usage：
-```bash
-triorb@orin-nx-XXX:~/$ ros2 service call /get/node/state triorb_static_interface/srv/NodeInfo
-...
-response:
-triorb_static_interface.srv.NodeInfo_Response(result=[triorb_static_interface.msg.NodeInfo(name='/node_manager', state='awake'), triorb_static_interface.msg.NodeInfo(name='/os_setting', state='awake')])
-```
-
-##### Node起動/終了
-- Topic：(prefix)/node/state
-- Node：(prefix)_node_manager
-- Type：triorb_static_interface/msg/NodeInfo
-- Usage：
-```bash
-triorb@orin-nx-XXX:~/$ ros2 topic pub -1 /node/state triorb_static_interface/msg/NodeInfo '{name: }'
-...
-response:
-triorb_static_interface.srv.NodeInfo_Response(result=[triorb_static_interface.msg.NodeInfo(name='/node_manager', state='awake'), triorb_static_interface.msg.NodeInfo(name='/os_setting', state='awake'), triorb_static_interface.msg.NodeInfo(name='', state='awake'), ..., triorb_static_interface.msg.NodeInfo(name='triorb_navigate_cpp', state='sleep')])
-```
-
-
-#### [ROSノード制御Types](../TriOrb-ROS2-Types/triorb_static_interface/README.md)
-
-### Package: triorb_project_manager
-
-
-#### [triorb_project_manager Types](../TriOrb-ROS2-Types/triorb_project_interface/README.md)
 
