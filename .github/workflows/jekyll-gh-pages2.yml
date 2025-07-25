@@ -1,0 +1,62 @@
+name: Deploy Jekyll site to GitHub Pages
+
+on:
+  push:
+    branches: [ "**" ]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+
+      - name: Install dependencies
+        run: bundle install
+
+      - name: Build site with Jekyll
+        run: bundle exec jekyll build --destination _build_site
+
+      - name: Clone current gh-pages branch
+        run: |
+          git clone --depth=1 --branch=gh-pages https://github.com/${{ github.repository }} gh-pages-temp || mkdir gh-pages-temp
+
+      - name: Prepare combined gh-pages output
+        run: |
+          mkdir -p _gh_pages_output
+
+          # masterブランチはルートに配置、それ以外は /branch/{branch} に配置
+          if [ "$GITHUB_REF_NAME" = "master" ]; then
+            echo "Deploying master to root"
+            rsync -av _build_site/ _gh_pages_output/
+          else
+            echo "Deploying branch $GITHUB_REF_NAME to /branch/$GITHUB_REF_NAME"
+            mkdir -p _gh_pages_output/branch/$GITHUB_REF_NAME
+            rsync -av _build_site/ _gh_pages_output/branch/$GITHUB_REF_NAME/
+          fi
+
+          # 既存gh-pagesの中身をマージ（ただし対象ブランチの場所は上書き）
+          rsync -av --ignore-existing gh-pages-temp/ _gh_pages_output/
+
+      - name: "Debug: Merged content to be published"
+        run: ls -alR _gh_pages_output
+
+      - name: Deploy to GitHub Pages (merged)
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          personal_token: ${{ secrets.GH_PAGES_TOKEN }}
+          publish_dir: _gh_pages_output

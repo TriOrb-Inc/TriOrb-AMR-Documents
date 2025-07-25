@@ -1,0 +1,6054 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../..">
+      
+      
+        <link rel="next" href="../../pkgs-collab/Reference_API/">
+      
+      
+      <link rel="icon" href="https://triorb.co.jp/favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+    
+    
+      
+        <title>自律移動API - TriOrb BASE 開発ガイド</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#api-reference-v120-2025-07-17" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="TriOrb BASE 開発ガイド" class="md-header__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
+      
+  <img src="https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            TriOrb BASE 開発ガイド
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              自律移動API
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="blue"  aria-label="ダークモードに切り替え"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="ダークモードに切り替え" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="blue"  aria-label="ライトモードに切り替え"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="ライトモードに切り替え" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="TriOrb BASE 開発ガイド" class="md-nav__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
+      
+  <img src="https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png" alt="logo">
+
+    </a>
+    TriOrb BASE 開発ガイド
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    自律移動API
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    自律移動API
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_gpio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_gpio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      主な機能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      利用可能なGPIOピン
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      設定の保存
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpio_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIOの入出力モード設定（複数）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpio_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIOの出力値設定（複数）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpiohilo" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIOのHi/Lo値（複数）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_host_info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_host_info
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_host_info">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ホストコンピュータのシステムモニター
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_sls_drive_manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_sls_drive_manager
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_sls_drive_manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      install &amp; setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボットへの絶対位置指示を受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      推定された運転ベクトル（進行方向・速度など）を受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボット状態を受信（励磁やステータス等）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      一時停止指示(障害物検知)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      障害物消失時に自律走行再開指示を出す
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      再始動指示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      速度制限
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      ノードの動作開始通知
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      ノードのバージョン情報を取得
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_camera_capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_camera_capture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_camera_capture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      主な機能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新履歴
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更新履歴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#120" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.0
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camera_capture-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      camera_capture API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="camera_capture API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      カメラ画像受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      カメラ情報受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      カメラデバイス一覧取得
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      カメラデバイスの起動・終了
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camera-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      camera format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-multiple-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      use multiple camera
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_streaming_images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_streaming_images
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_streaming_images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v120" class="md-nav__link">
+    <span class="md-ellipsis">
+      v1.2.0 変更点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensor_msgsmsgimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      sensor_msgs/msg/Image
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mqtt" class="md-nav__link">
+    <span class="md-ellipsis">
+      MQTT 出力
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_navigation_manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_navigation_manager
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_navigation_manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      備考
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_drive_pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_drive_pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_drive_pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      主な機能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新履歴
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更新履歴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#120_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.0
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      励磁オン
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      励磁オフ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      速度ベクトル指示による移動
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動距離指示による相対移動
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      モータードライバの設定変更
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動停止
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      トルク設定変更
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      ライフタイムの設定
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      運転モード
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      リフトアップ/リフトダウン
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボットステータスの定期送信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      オドメトリの定期送信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      バージョン情報の定期送信
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      速度ベクトル指示による移動（速度到達確認あり）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動距離指示による相対移動（移動完了確認あり）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      モーターステータス取得
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      エラー履歴の取得
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      励磁オン
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      励磁オフ
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_dead_reckoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_dead_reckoning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_dead_reckoning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#package-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      オドメトリデータを受信して自己位置推定に利用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vslam" class="md-nav__link">
+    <span class="md-ellipsis">
+      VSLAM推定姿勢データを受信して自己位置推定に利用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      デッドレコニング推定結果を配信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      ノードの動作開始通知
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      ノードのバージョン情報を取得
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mqtt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      MQTT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MQTT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      id
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publish" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publish
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscribe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscribe
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_vslam_tf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_vslam_tf
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_vslam_tf">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      主な機能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新履歴
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更新履歴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#110_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.0
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vslam_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボット姿勢(VSLAM座標系)を取得
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボット現在位置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボット現在位置（平面内）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_navigation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_navigation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新履歴
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更新履歴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#120_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.0
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force" class="md-nav__link">
+    <span class="md-ellipsis">
+      動作モード(forceフラグ)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      自律移動を終了する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      世界座標系目標位置指示による移動
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pid" class="md-nav__link">
+    <span class="md-ellipsis">
+      自律移動時のPIDゲインを設定する
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動距離指示による相対移動
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      自律移動完結果
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      世界座標系目標位置指示による移動（移動完了結果報告あり）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      世界座標系目標経路指示による移動（途中経過、移動完了結果報告あり）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_drive_vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_drive_vector
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_drive_vector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動指令を取得
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動指令を取得
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動方向
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      ノードの動作開始通知
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      ノードのバージョン情報を取得
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_tagslam_manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_tagslam_manager
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_tagslam_manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-stella_vslam_ros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: stella_vslam_ros
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: stella_vslam_ros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#publish_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Publish トピック一覧
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscribe_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📥 Subscribe トピック一覧
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_rmf_bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_rmf_bridge
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_rmf_bridge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2-bypass-global-to-local-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROS2 Bypass Global to Local Topic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ROS2 Bypass Global to Local Topic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      マーカー座標系の目標位置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボット座標系の目標速度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#driving-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Driving mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      リフター動作指示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      停止指示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボット座標系の目標位置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_66" class="md-nav__link">
+    <span class="md-ellipsis">
+      アライメント開始
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_67" class="md-nav__link">
+    <span class="md-ellipsis">
+      アライメント終了
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fmswatchdog" class="md-nav__link">
+    <span class="md-ellipsis">
+      FMS用watchdog
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_68" class="md-nav__link">
+    <span class="md-ellipsis">
+      世界座標系の位置・姿勢へ向かう移動実行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_69" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボットアームタスクの指令用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_70" class="md-nav__link">
+    <span class="md-ellipsis">
+      拡張基盤用発進音声トピック
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_71" class="md-nav__link">
+    <span class="md-ellipsis">
+      拡張基盤用停止トピック
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2-bypass-local-to-global-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROS2 Bypass Local to Global Topic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ROS2 Bypass Local to Global Topic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_72" class="md-nav__link">
+    <span class="md-ellipsis">
+      世界座標系の位置・姿勢
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state" class="md-nav__link">
+    <span class="md-ellipsis">
+      リフターState
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_73" class="md-nav__link">
+    <span class="md-ellipsis">
+      リフターリザルト
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_74" class="md-nav__link">
+    <span class="md-ellipsis">
+      相対位置決めステータス配信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_75" class="md-nav__link">
+    <span class="md-ellipsis">
+      相対位置決め結果配信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_76" class="md-nav__link">
+    <span class="md-ellipsis">
+      自律移動完了結果配信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_77" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボットウォッチドッグ配信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_78" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボットステータス配信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_79" class="md-nav__link">
+    <span class="md-ellipsis">
+      ホストステータス配信
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_80" class="md-nav__link">
+    <span class="md-ellipsis">
+      パラメーター
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_except_handl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_except_handl
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_except_handl">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Config
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#confignode_checkjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      config/node_check.json
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confignode_name_restartsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      config/${node_name}_restart.sh
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_81" class="md-nav__link">
+    <span class="md-ellipsis">
+      エラーの受取り
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_82" class="md-nav__link">
+    <span class="md-ellipsis">
+      エラーの受取り（任意文字列版）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_83" class="md-nav__link">
+    <span class="md-ellipsis">
+      警告の受取り
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_84" class="md-nav__link">
+    <span class="md-ellipsis">
+      警告の受取り（任意文字列版）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_85" class="md-nav__link">
+    <span class="md-ellipsis">
+      エラーリセットの実行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_86" class="md-nav__link">
+    <span class="md-ellipsis">
+      監視対象ノード追加
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_87" class="md-nav__link">
+    <span class="md-ellipsis">
+      監視対象ノード削除
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_88" class="md-nav__link">
+    <span class="md-ellipsis">
+      エラー履歴の発行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_89" class="md-nav__link">
+    <span class="md-ellipsis">
+      エラー履歴の発行（文字列版）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_90" class="md-nav__link">
+    <span class="md-ellipsis">
+      警告履歴の発行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_91" class="md-nav__link">
+    <span class="md-ellipsis">
+      警告履歴の発行（文字列版）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_92" class="md-nav__link">
+    <span class="md-ellipsis">
+      エラー件数の発行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_93" class="md-nav__link">
+    <span class="md-ellipsis">
+      警告件数の発行
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pkgs-collab/Reference_API/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    協調移動API
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../TriOrb-ROS2-Types/README_types/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ROS2 Interface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../triorb-core/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    制御ECU通信ライブラリ
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sample/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    サンプルプログラム
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../History/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    変更履歴
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_gpio
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_gpio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      主な機能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      利用可能なGPIOピン
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      設定の保存
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpio_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIOの入出力モード設定（複数）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpio_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIOの出力値設定（複数）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpiohilo" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIOのHi/Lo値（複数）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_host_info" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_host_info
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_host_info">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ホストコンピュータのシステムモニター
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_sls_drive_manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_sls_drive_manager
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_sls_drive_manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      install &amp; setup
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボットへの絶対位置指示を受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      推定された運転ベクトル（進行方向・速度など）を受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボット状態を受信（励磁やステータス等）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      一時停止指示(障害物検知)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      障害物消失時に自律走行再開指示を出す
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      再始動指示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      速度制限
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      ノードの動作開始通知
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      ノードのバージョン情報を取得
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_camera_capture" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_camera_capture
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_camera_capture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      主な機能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新履歴
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更新履歴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#120" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.0
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camera_capture-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      camera_capture API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="camera_capture API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      カメラ画像受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      カメラ情報受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      カメラデバイス一覧取得
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      カメラデバイスの起動・終了
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camera-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      camera format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-multiple-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      use multiple camera
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_streaming_images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_streaming_images
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_streaming_images">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#v120" class="md-nav__link">
+    <span class="md-ellipsis">
+      v1.2.0 変更点
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensor_msgsmsgimage" class="md-nav__link">
+    <span class="md-ellipsis">
+      sensor_msgs/msg/Image
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mqtt" class="md-nav__link">
+    <span class="md-ellipsis">
+      MQTT 出力
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_navigation_manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_navigation_manager
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_navigation_manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      備考
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_drive_pico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_drive_pico
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_drive_pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      主な機能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新履歴
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更新履歴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#120_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.0
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      励磁オン
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      励磁オフ
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_24" class="md-nav__link">
+    <span class="md-ellipsis">
+      速度ベクトル指示による移動
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_25" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動距離指示による相対移動
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      モータードライバの設定変更
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_27" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動停止
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      トルク設定変更
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      ライフタイムの設定
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      運転モード
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      リフトアップ/リフトダウン
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボットステータスの定期送信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      オドメトリの定期送信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      バージョン情報の定期送信
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      速度ベクトル指示による移動（速度到達確認あり）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動距離指示による相対移動（移動完了確認あり）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      モーターステータス取得
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      エラー履歴の取得
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      励磁オン
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      励磁オフ
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_dead_reckoning" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_dead_reckoning
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_dead_reckoning">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#package-description" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      オドメトリデータを受信して自己位置推定に利用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vslam" class="md-nav__link">
+    <span class="md-ellipsis">
+      VSLAM推定姿勢データを受信して自己位置推定に利用
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_42" class="md-nav__link">
+    <span class="md-ellipsis">
+      デッドレコニング推定結果を配信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_43" class="md-nav__link">
+    <span class="md-ellipsis">
+      ノードの動作開始通知
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_44" class="md-nav__link">
+    <span class="md-ellipsis">
+      ノードのバージョン情報を取得
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mqtt_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      MQTT
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="MQTT">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#id" class="md-nav__link">
+    <span class="md-ellipsis">
+      id
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publish" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publish
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscribe" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscribe
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_vslam_tf" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_vslam_tf
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_vslam_tf">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_45" class="md-nav__link">
+    <span class="md-ellipsis">
+      主な機能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_46" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新履歴
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更新履歴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#110_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.0
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vslam_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボット姿勢(VSLAM座標系)を取得
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_47" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボット現在位置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_48" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボット現在位置（平面内）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_navigation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_navigation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_navigation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_49" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新履歴
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更新履歴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#120_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.0
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#force" class="md-nav__link">
+    <span class="md-ellipsis">
+      動作モード(forceフラグ)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_50" class="md-nav__link">
+    <span class="md-ellipsis">
+      自律移動を終了する
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_51" class="md-nav__link">
+    <span class="md-ellipsis">
+      世界座標系目標位置指示による移動
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pid" class="md-nav__link">
+    <span class="md-ellipsis">
+      自律移動時のPIDゲインを設定する
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_52" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動距離指示による相対移動
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_53" class="md-nav__link">
+    <span class="md-ellipsis">
+      自律移動完結果
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_54" class="md-nav__link">
+    <span class="md-ellipsis">
+      世界座標系目標位置指示による移動（移動完了結果報告あり）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_55" class="md-nav__link">
+    <span class="md-ellipsis">
+      世界座標系目標経路指示による移動（途中経過、移動完了結果報告あり）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_drive_vector" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_drive_vector
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_drive_vector">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_56" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動指令を取得
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_57" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動指令を取得
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_58" class="md-nav__link">
+    <span class="md-ellipsis">
+      移動方向
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_59" class="md-nav__link">
+    <span class="md-ellipsis">
+      ノードの動作開始通知
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_60" class="md-nav__link">
+    <span class="md-ellipsis">
+      ノードのバージョン情報を取得
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_tagslam_manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_tagslam_manager
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_tagslam_manager">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#service_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Service
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#action_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Action
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Action">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-stella_vslam_ros" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: stella_vslam_ros
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: stella_vslam_ros">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#publish_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      🔄 Publish トピック一覧
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscribe_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      📥 Subscribe トピック一覧
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_rmf_bridge" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_rmf_bridge
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_rmf_bridge">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#description_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Description
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2-bypass-global-to-local-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROS2 Bypass Global to Local Topic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ROS2 Bypass Global to Local Topic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_61" class="md-nav__link">
+    <span class="md-ellipsis">
+      マーカー座標系の目標位置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_62" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボット座標系の目標速度
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#driving-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      Driving mode
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_63" class="md-nav__link">
+    <span class="md-ellipsis">
+      リフター動作指示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_64" class="md-nav__link">
+    <span class="md-ellipsis">
+      停止指示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_65" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボット座標系の目標位置
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_66" class="md-nav__link">
+    <span class="md-ellipsis">
+      アライメント開始
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_67" class="md-nav__link">
+    <span class="md-ellipsis">
+      アライメント終了
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fmswatchdog" class="md-nav__link">
+    <span class="md-ellipsis">
+      FMS用watchdog
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_68" class="md-nav__link">
+    <span class="md-ellipsis">
+      世界座標系の位置・姿勢へ向かう移動実行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_69" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボットアームタスクの指令用
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_70" class="md-nav__link">
+    <span class="md-ellipsis">
+      拡張基盤用発進音声トピック
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_71" class="md-nav__link">
+    <span class="md-ellipsis">
+      拡張基盤用停止トピック
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ros2-bypass-local-to-global-topic" class="md-nav__link">
+    <span class="md-ellipsis">
+      ROS2 Bypass Local to Global Topic
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="ROS2 Bypass Local to Global Topic">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_72" class="md-nav__link">
+    <span class="md-ellipsis">
+      世界座標系の位置・姿勢
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#state" class="md-nav__link">
+    <span class="md-ellipsis">
+      リフターState
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_73" class="md-nav__link">
+    <span class="md-ellipsis">
+      リフターリザルト
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_74" class="md-nav__link">
+    <span class="md-ellipsis">
+      相対位置決めステータス配信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_75" class="md-nav__link">
+    <span class="md-ellipsis">
+      相対位置決め結果配信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_76" class="md-nav__link">
+    <span class="md-ellipsis">
+      自律移動完了結果配信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_77" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボットウォッチドッグ配信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_78" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボットステータス配信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_79" class="md-nav__link">
+    <span class="md-ellipsis">
+      ホストステータス配信
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_80" class="md-nav__link">
+    <span class="md-ellipsis">
+      パラメーター
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#package-triorb_except_handl" class="md-nav__link">
+    <span class="md-ellipsis">
+      Package: triorb_except_handl
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_except_handl">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#config" class="md-nav__link">
+    <span class="md-ellipsis">
+      Config
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Config">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#confignode_checkjson" class="md-nav__link">
+    <span class="md-ellipsis">
+      config/node_check.json
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#confignode_name_restartsh" class="md-nav__link">
+    <span class="md-ellipsis">
+      config/${node_name}_restart.sh
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_81" class="md-nav__link">
+    <span class="md-ellipsis">
+      エラーの受取り
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_82" class="md-nav__link">
+    <span class="md-ellipsis">
+      エラーの受取り（任意文字列版）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_83" class="md-nav__link">
+    <span class="md-ellipsis">
+      警告の受取り
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_84" class="md-nav__link">
+    <span class="md-ellipsis">
+      警告の受取り（任意文字列版）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_85" class="md-nav__link">
+    <span class="md-ellipsis">
+      エラーリセットの実行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_86" class="md-nav__link">
+    <span class="md-ellipsis">
+      監視対象ノード追加
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_87" class="md-nav__link">
+    <span class="md-ellipsis">
+      監視対象ノード削除
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_88" class="md-nav__link">
+    <span class="md-ellipsis">
+      エラー履歴の発行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_89" class="md-nav__link">
+    <span class="md-ellipsis">
+      エラー履歴の発行（文字列版）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_90" class="md-nav__link">
+    <span class="md-ellipsis">
+      警告履歴の発行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_91" class="md-nav__link">
+    <span class="md-ellipsis">
+      警告履歴の発行（文字列版）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_92" class="md-nav__link">
+    <span class="md-ellipsis">
+      エラー件数の発行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_93" class="md-nav__link">
+    <span class="md-ellipsis">
+      警告件数の発行
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="api-reference-v120-2025-07-17">自律移動 API Reference v1.2.0 (2025-07-17)</h1>
+<h2 id="package-triorb_gpio">Package: triorb_gpio</h2>
+<p>このパッケージは、AMRに搭載されたGPIOインターフェースを通じて、外部デバイス（例：ランプ、ブザー、リレーなど）を制御するノードを提供します。</p>
+<h3 id="_1">主な機能</h3>
+<ul>
+<li>外部信号出力（ブザー、警告灯）</li>
+<li>GPIOトリガによる動作制御</li>
+<li>エラー通知とログ</li>
+</ul>
+<h3 id="gpio">利用可能なGPIOピン</h3>
+<pre><code>7,11,12,13,15,16,18,22,29,31,32,33,35,36,37,38,40
+</code></pre>
+<h3 id="_2">設定の保存</h3>
+<p>GPIOの入出力モード設定は、<code>/params/gpio.yaml</code>ファイルに保存されます。出力ピンのHi/Lo状態は保存されません。</p>
+<hr />
+<h3 id="subscriber">Subscriber</h3>
+<h4 id="gpio_1">GPIOの入出力モード設定（複数）</h4>
+<ul>
+<li>Topic: /gpios/set_direction</li>
+<li>Type: std_msgs/msg/Int8MultiArray</li>
+<li>Values: -2: NotSet, -1: None, 0: Output, 1: Input</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">## pin 37を非管理、pin 38を入力、pin 40を出力、その他は変更なしに設定
+root@agx-orin-XXXX:/ws# ros2 topic pub -1 /gpios/set_direction std_msgs/msg/Int8MultiArray 'data: [-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-1,1,0]'
+</code></pre>
+<h4 id="gpio_2">GPIOの出力値設定（複数）</h4>
+<ul>
+<li>Topic: /gpios/set_value</li>
+<li>Type: std_msgs/msg/Int8MultiArray</li>
+<li>Values: -2: NotSet, -1: NotSet, 0: Low, 1: High</li>
+<li>Usage:</li>
+</ul>
+<pre><code class="language-bash">## pin 40をHighに、その他は変更なし
+root@agx-orin-XXXX:/ws# ros2 topic pub -1 /gpios/set_value std_msgs/msg/Int8MultiArray 'data: [-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-1,-1,1]'
+</code></pre>
+<h4 id="publisher">Publisher</h4>
+<h4 id="gpiohilo">GPIOのHi/Lo値（複数）</h4>
+<ul>
+<li>Topic: /gpios/value</li>
+<li>Type: std_msgs/msg/Int8MultiArray</li>
+<li>Values: -1: None, 0: Low, 1: High</li>
+<li>Frequency: 1Hz + エッジトリガ</li>
+</ul>
+<h2 id="package-triorb_host_info">Package: triorb_host_info</h2>
+<h3 id="_3">ホストコンピュータのシステムモニター</h3>
+<p>Topic：(prefix)/host/status
+Type：triorb_static_interface/msg/HostStatus
+Frequency：1/1.0 Hz
+Usage：</p>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 topic echo --once /host/status
+header:
+  stamp:
+    sec: 1753410530
+    nanosec: 830279666
+  frame_id: host_device
+memory_percent: 39.599998474121094
+cpu_percent: 86.9000015258789
+host_temperature: 70.81199645996094
+wlan_ssid: TriOrb-WiFi
+wlan_signal: 58
+wlan_freq: 5180
+ping: 10.668999671936035
+gateway:
+- 192
+- 168
+- 25
+- 1
+---
+</code></pre>
+<h2 id="package-triorb_sls_drive_manager">Package: triorb_sls_drive_manager</h2>
+<h3 id="description">Description</h3>
+<ul>
+<li>SLS(sick社製)のサンプルモジュール</li>
+</ul>
+<h3 id="install-setup">install &amp; setup</h3>
+<ul>
+<li>Ethernet通信 : サービスとして登録</li>
+<li>進行方向の取得 : triorb_drive_vector</li>
+</ul>
+<pre><code class="language-bash">sudo bash ./setup.bash
+</code></pre>
+<h3 id="subscriber_1">Subscriber</h3>
+<h4 id="_4">ロボットへの絶対位置指示を受信</h4>
+<ul>
+<li>Topic: (prefix)/drive/set_pos</li>
+<li>Type: triorb_drive_interface/msg/TriorbSetPos3</li>
+</ul>
+<h4 id="_5">推定された運転ベクトル（進行方向・速度など）を受信</h4>
+<ul>
+<li>Topic: (prefix)/drive/std_vector</li>
+<li>Type: std_msgs/msg/Float32MultiArray</li>
+<li>Usage: 進行方向のSLSのセンシング範囲を判断する為</li>
+</ul>
+<h4 id="_6">ロボット状態を受信（励磁やステータス等）</h4>
+<ul>
+<li>Topic: (prefix)/robot/status</li>
+<li>Type: triorb_static_interface/msg/RobotStatus</li>
+</ul>
+<h3 id="publisher_1">Publisher</h3>
+<h4 id="_7">一時停止指示(障害物検知)</h4>
+<ul>
+<li>Topic: /drive/pause</li>
+<li>Type: std_msgs/msg/Empty</li>
+</ul>
+<h4 id="_8">障害物消失時に自律走行再開指示を出す</h4>
+<ul>
+<li>Topic: /drive/wakeup</li>
+<li>Type: std_msgs/msg/Empty</li>
+</ul>
+<h4 id="_9">再始動指示</h4>
+<ul>
+<li>Topic: /drive/restart</li>
+<li>Type: std_msgs/msg/Empty</li>
+</ul>
+<h4 id="_10">速度制限</h4>
+<ul>
+<li>Topic: /drive/speed_limit_by_safety_plc</li>
+<li>Type: std_msgs/msg/Float32</li>
+</ul>
+<h4 id="_11">ノードの動作開始通知</h4>
+<ul>
+<li>Topic: (prefix)/_{ノード名}</li>
+<li>Type: std_msgs/msg/Empty</li>
+</ul>
+<h3 id="service">Service</h3>
+<h4 id="_12">ノードのバージョン情報を取得</h4>
+<ul>
+<li>Topic: (prefix)/get/version/{ノード名}</li>
+<li>Type: triorb_static_interface/srv/Version</li>
+</ul>
+<h3 id="action">Action</h3>
+<p>本パッケージではActionは利用していません。</p>
+<h2 id="package-triorb_camera_capture">Package: triorb_camera_capture</h2>
+<p>カメラ映像をキャプチャし, Image型のtopicとしてpublishするためのパッケージ. </p>
+<h3 id="_13">主な機能</h3>
+<ul>
+<li>ioctlによるカメラ映像の取得</li>
+<li>画像の平均輝度が一定範囲に収まるように露光・ゲインの調整</li>
+</ul>
+<h3 id="_14">更新履歴</h3>
+<h4 id="120">1.2.0</h4>
+<ul>
+<li>カメラ状態を通知するtopic追加</li>
+<li>エラー・ワーニング履歴の通知部分を追加</li>
+<li>起動時にUSBカメラが1つでも存在していない場合, プログラムが停止するバグ修正</li>
+</ul>
+<h4 id="110">1.1.0</h4>
+<ul>
+<li>画像のENQUEUEをtimer_callbackの最後に全カメラ同時に行うように変更</li>
+<li>gainを設定可能</li>
+<li>gain, exposureを設定時にauto_exposureをオフにするように変更</li>
+</ul>
+<h3 id="camera_capture-api">camera_capture API</h3>
+<h4 id="_15">カメラ画像受信</h4>
+<ul>
+<li>Topic：(prefix)/camera(0-N) # 末尾の整数はカメラのID</li>
+<li>Node：(prefix)_camera_capture</li>
+<li>Type：sensor_msgs/Image</li>
+<li>Frequency：最大1/0.02 Hz</li>
+<li>Usage：</li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 topic info /camera0; ros2 topic hz /camera0
+Type: sensor_msgs/msg/Image
+Publisher count: 1
+Subscription count: 0
+average rate: 9.537
+        min: 0.072s max: 0.240s std dev: 0.04572s window: 13
+...
+average rate: 10.766
+        min: 0.064s max: 0.240s std dev: 0.02494s window: 266
+</code></pre>
+<h4 id="_16">カメラ情報受信</h4>
+<ul>
+<li>Topic：(prefix)/camera(0-N)_device # 末尾の整数はカメラのID</li>
+<li>Node：(prefix)_camera_capture</li>
+<li>Type：triorb_sensor_interface/msg/CameraDevice</li>
+<li>Usage：</li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 topic echo /camera0_device
+header:
+  stamp:
+    sec: 1753408673
+    nanosec: 447031540
+  frame_id: cam0
+device: /dev/video-csi0
+topic: /camera0
+id: cam0
+state: sleep
+rotation: 0
+exposure: 0
+gamma: 0.0
+timer: 0.30000001192092896
+</code></pre>
+<h4 id="_17">カメラデバイス一覧取得</h4>
+<ul>
+<li>Topic：(prefix)/get/camera/state</li>
+<li>Node：(prefix)_camera_capture</li>
+<li>Type：triorb_sensor_interface/srv/CameraDevice</li>
+<li>Usage：</li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 service call /get/camera/state triorb_sensor_interface/srv/CameraDevice
+...
+response:
+triorb_sensor_interface.srv.CameraDevice_Response(result=[triorb_sensor_interface.msg.CameraDevice(device='/dev/video0', topic='/camera0', id='cam0', state='awake', rotation=0, exposure=800, gamma=1.0, timer=0.02), ...])
+</code></pre>
+<h4 id="_18">カメラデバイスの起動・終了</h4>
+<ul>
+<li>Topic：(prefix)/set/camera/state</li>
+<li>Node：(prefix)_camera_capture</li>
+<li>Type：triorb_sensor_interface/srv/CameraCapture</li>
+<li>Usage：</li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 service call /set/camera/state triorb_sensor_interface/srv/CameraCapture '{request: [{device: /dev/video0, topic: /camera0, id: camera0, state: wakeup, rotation: 0, exposure: 500, gamma: 1.0, timer: 0.1}, {device: /dev/video2, topic: /camera1, id: camera1, state: wakeup, rotation: 0, exposure: 500, gamma: 1.0, timer: 0.1}]}'
+...
+response:
+triorb_sensor_interface.srv.CameraCamture_Response(result=['success','success'])
+</code></pre>
+<h3 id="camera-format">camera format</h3>
+<ul>
+<li>width  1600</li>
+<li>height 1300</li>
+<li>pixel format GREY (gray scale 8bit)</li>
+</ul>
+<p>If you want use other formats, change following variables.
+- width, height in cap_cam.cpp (for width and height)
+- V4L2_PIX_FMT_GREY in CameraCapture.cpp (for pixel format)</p>
+<h3 id="use-multiple-camera">use multiple camera</h3>
+<ul>
+<li>see launch/multi_camera_launch.xml</li>
+</ul>
+<h2 id="package-triorb_streaming_images">Package: triorb_streaming_images</h2>
+<p>このパッケージは、ROS 2 の <code>sensor_msgs/msg/Image</code> トピックから画像をサブスクリプションし、圧縮後に <strong>MQTT トピックへ配信</strong>するストリーミングノードです。</p>
+<hr />
+<h3 id="v120">v1.2.0 変更点</h3>
+<ul>
+<li><strong>画像配信方式が MQTT に移行</strong>しました（従来のWebSocket配信は廃止）</li>
+<li>ROS 2 トピックから受信した画像を <code>.webp</code> 形式で圧縮</li>
+<li>Base64 エンコードし、MQTT ブローカーへ配信します</li>
+</ul>
+<hr />
+<h3 id="subscriber_2">Subscriber</h3>
+<h4 id="sensor_msgsmsgimage"><code>sensor_msgs/msg/Image</code></h4>
+<ul>
+<li>Topic: (可変)</li>
+<li>Type: sensor_msgs/msg/Image</li>
+</ul>
+<h3 id="publisher_2">Publisher</h3>
+<h4 id="mqtt">MQTT 出力</h4>
+<ul>
+<li><strong>Payload</strong>: <code>.webp</code> 形式に圧縮 → Base64 文字列にエンコード</li>
+<li><strong>Topic</strong>: <code>camera/stream</code></li>
+<li><strong>Protocol</strong>: <code>paho-mqtt</code> による MQTT publish</li>
+</ul>
+<h2 id="package-triorb_navigation_manager">Package: triorb_navigation_manager</h2>
+<h3 id="overview">Overview</h3>
+<p>このパッケージは、TriOrb社の移動ロボット向けに、CSVベースの経路ナビゲーション、アクション制御、状態管理、協調走行、地図切替等を統合管理するROS 2ノードです。ナビゲーションはwaypointベースで動作し、各種アクション（リフター、イベント発行、TagSLAM等）を含むシーケンスを制御します。</p>
+<hr />
+<h3 id="subscriber_3">Subscriber</h3>
+<h4 id="description_1">Description</h4>
+<ul>
+<li>Topic: <code>/nav/route_csv_name</code>  </li>
+<li>Type: <code>std_msgs/msg/String</code>  </li>
+<li>Usage: 経路CSVファイル名を受信し、waypointsをロードします。</li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub /nav/route_csv_name std_msgs/msg/String &quot;data: 'sample_route.csv'&quot;
+</code></pre>
+<hr />
+<ul>
+<li>Topic: <code>/nav/action</code>  </li>
+<li>Type: <code>std_msgs/msg/String</code>  </li>
+<li>Usage: ナビゲーション制御コマンド（start/stop/pause/resume）を受信します。</li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub /nav/action std_msgs/msg/String &quot;data: 'start,1.0,0.0,0.0,1'&quot;
+</code></pre>
+<hr />
+<ul>
+<li>Topic: <code>/drive/result</code>  </li>
+<li>Type: <code>triorb_drive_interface/msg/TriorbRunResult</code>  </li>
+<li>Usage: ドライブ結果を受信して状態更新を行います。</li>
+</ul>
+<pre><code class="language-bash">ros2 topic echo /drive/result
+</code></pre>
+<hr />
+<ul>
+<li>Topic: <code>/collab/drive/completed</code>  </li>
+<li>Type: <code>triorb_drive_interface/msg/TriorbRunResultStamped</code>  </li>
+<li>Usage: 協調走行結果を受信します。</li>
+</ul>
+<pre><code class="language-bash">ros2 topic echo /collab/drive/completed
+</code></pre>
+<hr />
+<ul>
+<li>Topic: <code>/lifter/result</code>  </li>
+<li>Type: <code>std_msgs/msg/String</code>  </li>
+<li>Usage: リフター操作結果を受信します（"success" など）。</li>
+</ul>
+<pre><code class="language-bash">ros2 topic echo /lifter/result
+</code></pre>
+<hr />
+<ul>
+<li>Topic: <code>/triorb/request_nav_state</code>  </li>
+<li>Type: <code>std_msgs/msg/Empty</code>  </li>
+<li>Usage: ナビゲーション状態の即時取得要求。</li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub /triorb/request_nav_state std_msgs/msg/Empty &quot;{}&quot;
+</code></pre>
+<hr />
+<h3 id="publisher_3">Publisher</h3>
+<h4 id="description_2">Description</h4>
+<ul>
+<li>Topic: <code>/triorb/nav/state</code>  </li>
+<li>Type: <code>std_msgs/msg/Int8MultiArray</code>  </li>
+<li>Usage: 現在のナビゲーション状態を配信します。</li>
+</ul>
+<pre><code class="language-bash">ros2 topic echo /triorb/nav/state
+</code></pre>
+<hr />
+<ul>
+<li>Topic: <code>/triorb/nav/result</code>  </li>
+<li>Type: <code>std_msgs/msg/String</code>  </li>
+<li>Usage: ナビゲーション完了やエラー結果を通知します。</li>
+</ul>
+<pre><code class="language-bash">ros2 topic echo /triorb/nav/result
+</code></pre>
+<hr />
+<ul>
+<li>Topic: <code>/drive/init_path_follow</code>  </li>
+<li>Type: <code>std_msgs/msg/Empty</code>  </li>
+<li>Usage: 経路ナビ開始の初期化を通知。</li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub /drive/init_path_follow std_msgs/msg/Empty &quot;{}&quot;
+</code></pre>
+<hr />
+<ul>
+<li>Topic: <code>/drive/set_pos</code>  </li>
+<li>Type: <code>triorb_drive_interface/msg/TriorbSetPos3</code>  </li>
+<li>Usage: 次の目標地点をロボットに送信。</li>
+</ul>
+<pre><code class="language-bash">## 要スクリプト発行（例示）
+</code></pre>
+<hr />
+<ul>
+<li>Topic: <code>/drive/pause</code> / <code>/drive/restart</code> / <code>/drive/stop</code>  </li>
+<li>Type: <code>std_msgs/msg/Empty</code>  </li>
+<li>Usage: 走行の一時停止／再開／停止を通知。</li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub /drive/stop std_msgs/msg/Empty &quot;{}&quot;
+</code></pre>
+<hr />
+<ul>
+<li>Topic: <code>/run_slam/set/marker_only</code>, <code>/run_slam/set/marker_exclude</code>  </li>
+<li>Type: <code>std_msgs/msg/Bool</code>  </li>
+<li>Usage: マーカー設定モードの切替。</li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub /run_slam/set/marker_only std_msgs/msg/Bool &quot;data: true&quot;
+</code></pre>
+<hr />
+<ul>
+<li>Topic: <code>/run_slam/set/enable_camera</code>  </li>
+<li>Type: <code>std_msgs/msg/Int8MultiArray</code>  </li>
+<li>Usage: 使用するカメラのインデックス設定。</li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub /run_slam/set/enable_camera std_msgs/msg/Int8MultiArray &quot;data: [1, 1, 0, 1]&quot;
+</code></pre>
+<hr />
+<ul>
+<li>Topic: <code>/tagslam/drive/init_path_follow</code>  </li>
+<li>Type: <code>std_msgs/msg/Empty</code>  </li>
+<li>Usage: TagSLAM経由のナビゲーション初期化。</li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub /tagslam/drive/init_path_follow std_msgs/msg/Empty &quot;{}&quot;
+</code></pre>
+<hr />
+<h3 id="service_1">Service</h3>
+<h4 id="description_3">Description</h4>
+<ul>
+<li>Topic: <code>/get/version/&lt;node_name&gt;</code>  </li>
+<li>Type: <code>triorb_static_interface/srv/Version</code>  </li>
+<li>Usage: ノードバージョンの問い合わせ。</li>
+</ul>
+<pre><code class="language-bash">ros2 service call /get/version/triorb_navigation_manager triorb_static_interface/srv/Version &quot;{}&quot;
+</code></pre>
+<hr />
+<h3 id="action_1">Action</h3>
+<h4 id="description_4">Description</h4>
+<p>本ノードはROS 2の<code>action</code>型通信は使用せず、すべての処理を<code>topic</code>ベースで制御しています。<br />
+アクション的な機能（リフター、イベント、待機、カメラ切替など）は全てwaypointタイプや文字列コマンドで表現されています。</p>
+<hr />
+<h3 id="_19">備考</h3>
+<ul>
+<li>経路ファイルは<code>/data/route/*.csv</code>に配置してください。</li>
+<li>ノード名はスクリプトファイル名に基づき自動決定されます（例: <code>_triorb_navigation_manager</code>）</li>
+<li><code>ROS_PREFIX</code> 環境変数により名前空間を柔軟に切り替え可能。</li>
+</ul>
+<h2 id="package-triorb_drive_pico">Package: triorb_drive_pico</h2>
+<p>モーターの制御ECUと通信し, 移動指示の送信やステータス取得するためのパッケージ. </p>
+<h3 id="_20">主な機能</h3>
+<ul>
+<li>移動指示によるロボットの駆動</li>
+<li>ロボットの内部状態の通知</li>
+</ul>
+<h3 id="_21">更新履歴</h3>
+<h4 id="120_1">1.2.0</h4>
+<ul>
+<li>各バージョン取得serviceをtopicに変更、10秒に1回publishするように変更</li>
+<li>picoから最大速度・最小速度を取得し、Jetson内に保存するコードを追加</li>
+<li>picoからエラー履歴を取得するservice追加</li>
+<li>特定の条件で速度指示を無視していたバグ修正</li>
+</ul>
+<h4 id="110_1">1.1.0</h4>
+<ul>
+<li>nodeのバージョン取得serviceを追加（有効になるようにバグ修正）</li>
+<li>picoのバージョン取得serviceを追加</li>
+<li>triorb_coreのバージョン取得serviceを追加</li>
+<li>励磁オン・オフのservice版を追加</li>
+<li>速度0命令は連続でない限りスキップしない</li>
+</ul>
+<h3 id="subscriber_4">Subscriber</h3>
+<h4 id="_22">励磁オン</h4>
+<ul>
+<li>Topic: (prefix)/drive/wakeup</li>
+<li>Type: std_msgs/msg/Empty</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/wakeup std_msgs/msg/Empty 
+</code></pre>
+<h4 id="_23">励磁オフ</h4>
+<ul>
+<li>Topic: (prefix)/drive/sleep</li>
+<li>Type: std_msgs/msg/Empty</li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/sleep std_msgs/msg/Empty
+</code></pre>
+<h4 id="_24">速度ベクトル指示による移動</h4>
+<ul>
+<li>Topic: (prefix)/drive/run_vel</li>
+<li>Type: triorb_drive_interface/msg/TriorbRunVel3</li>
+<li>Note: 前回適用された指示と比較して, 以下の条件を両方満たす場合はスキップする.<ul>
+<li>0.2秒以下の間隔</li>
+<li>速度指示値velocityのx,y,wの差が0.001以下</li>
+</ul>
+</li>
+</ul>
+<h4 id="_25">移動距離指示による相対移動</h4>
+<ul>
+<li>Topic: (prefix)/drive/run_pos</li>
+<li>Type: triorb_drive_interface/msg/TriorbRunPos3</li>
+</ul>
+<h4 id="_26">モータードライバの設定変更</h4>
+<ul>
+<li>Topic: (prefix)/set/motor/params</li>
+<li>Type: triorb_drive_interface/msg/MotorParams</li>
+<li>Note: 全ての値を0にすると, 出荷時の設定を書き込む.</li>
+</ul>
+<h4 id="_27">移動停止</h4>
+<ul>
+<li>Topic: (prefix)/drive/stop</li>
+<li>Type: std_msgs/msg/Empty</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/stop std_msgs/msg/Empty
+</code></pre>
+<h4 id="_28">トルク設定変更</h4>
+<ul>
+<li>Topic: (prefix)/set/motor/torque</li>
+<li>Type: std_msgs/msg/Float32</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 topic pub -1 /set/motor/torque std_msgs/msg/Float32 &quot;data: 100.0&quot; # 10%
+</code></pre>
+<h4 id="_29">ライフタイムの設定</h4>
+<ul>
+<li>Topic: (prefix)/drive/set_life_time</li>
+<li>Type: std_msgs/msg/UInt16</li>
+<li>Note: ライフタイム[ms]を設定する. 速度ベクトル指示後, ロボットはライフタイム経過後にエラー扱いで停止する. この時間は速度ベクトル指示の度に0からカウントされる. 0を設定すると無効になる.</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/set_life_time std_msgs/msg/UInt16 &quot;data: 1000&quot; # 1000ms
+</code></pre>
+<h4 id="_30">運転モード</h4>
+<ul>
+<li>Topic: (prefix)/mutex/set_drive_mode</li>
+<li>Type: std_msgs/msg/UInt8</li>
+<li>Note: 速度ベクトル指示での制御を変更する. </li>
+<li>16: 速度制御. モーターは加速時間にしたがって加速し, 減速時間にしたがって減速する. 指示の与え方によっては意図しない回転成分が入るため非推奨.</li>
+<li>17: 押し当て制御. 負荷に押し当たった場合に加圧を続ける. トルクは100%に制限される.</li>
+<li>19: サイクリック制御（デフォルト）. 他の制御方式と比較して, 意図しない回転成分が入りにくい.</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 topic pub -1 /mutex/set_drive_mode std_msgs/msg/UInt8 &quot;data: 16&quot;
+</code></pre>
+<h4 id="_31">リフトアップ/リフトダウン</h4>
+<ul>
+<li>Topic: (prefix)/drive/run_lifter</li>
+<li>Type: std_msgs/msg/String</li>
+<li>Note: リフター付きモデル限定.</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/run_lifter std_msgs/msg/String &quot;data: up&quot;
+</code></pre>
+<h3 id="publisher_4">Publisher</h3>
+<h4 id="_32">ロボットステータスの定期送信</h4>
+<ul>
+<li>Topic: (prefix)/robot/status</li>
+<li>Type: triorb_static_interface/msg/RobotStatus</li>
+<li>Note: 1.5秒間隔で送信される.</li>
+<li>Note： Accepting move instruction, Generating mapフラグおよびvoltageは未実装 </li>
+</ul>
+<pre><code class="language-bash">triorb@orin-nx-XXX:~/$ ros2 topic echo --once /robot/status 
+header: 
+  stamp: 
+    sec: 1717491443 
+    nanosec: 313522765 
+  frame_id: robot 
+voltage: 0.0 
+btns: 0 
+state: 53248 
+error: 0
+</code></pre>
+<h4 id="_33">オドメトリの定期送信</h4>
+<ul>
+<li>Topic: (prefix)/triorb/odom</li>
+<li>Type: geometry_msgs/msg/Vector3Stamped</li>
+<li>Note: 0.2秒間隔で送信される.</li>
+</ul>
+<h4 id="_34">バージョン情報の定期送信</h4>
+<ul>
+<li>Topic: (prefix)/triorb/version/drive</li>
+<li>Topic: (prefix)/triorb/version/pico</li>
+<li>Topic: (prefix)/triorb/version/core</li>
+<li>Type: std_msgs/msg/String</li>
+<li>Note: 10秒間隔で送信される.</li>
+</ul>
+<h3 id="service_2">Service</h3>
+<h4 id="_35">速度ベクトル指示による移動（速度到達確認あり）</h4>
+<ul>
+<li>Topic: (prefix)/srv/drive/run_vel</li>
+<li>Type: triorb_drive_interface/srv/TriorbRunVel3</li>
+<li>Usage： </li>
+</ul>
+<pre><code class="language-bash">triorb@orin-nx-XXX:~/$ ros2 service call /get/motor/status triorb_drive_interface/srv/MotorStatus  
+requester: making request: triorb_drive_interface.srv.MotorStatus_Request(request=std_msgs.msg.Empty()) 
+
+response: 
+triorb_drive_interface.srv.MotorStatus_Response(result=triorb_drive_interface.msg.MotorStatus(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1709711017, nanosec=956667335), frame_id='serial'), last_error_value=0, last_error_motor=255, voltage=0.0, state=0, power=0.0)) 
+</code></pre>
+<h4 id="_36">移動距離指示による相対移動（移動完了確認あり）</h4>
+<ul>
+<li>Topic: (prefix)/srv/drive/run_pos</li>
+<li>Type: triorb_drive_interface/srv/TriorbRunPos3</li>
+<li>Usage： </li>
+</ul>
+<pre><code class="language-bash">triorb@orin-nx-XXX:~/$ ros2 service call /srv/drive/run_pos \
+triorb_drive_interface/srv/TriorbRunPos3 &quot;{request: {speed: {acc: 500, dec: 500, xy: 0.1, w: 0.0}, position: {x: 0.0, y: 1.0, deg: 0.0} }  }&quot; 
+## コマンド以上 
+
+waiting for service to become available... 
+requester: making request: 
+triorb_drive_interface.srv.TriorbRunPos3_Request(request=triorb_drive_interface.msg.TriorbRunPos3(speed=triorb_drive_interface.msg.TriorbSpeed(acc=500, dec=500, xy=0.1, w=0.0), position=triorb_drive_interface.msg.TriorbPos3(x=0.0, y=1.0, deg=0.0))) 
+
+response: 
+triorb_drive_interface.srv.TriorbRunPos3_Response(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1717490931, nanosec=365277011), frame_id='serial'), result=2) 
+</code></pre>
+<h4 id="_37">モーターステータス取得</h4>
+<ul>
+<li>Topic：(prefix)/get/motor/status</li>
+<li>Type： triorb_drive_interface/srv/MotorStatus</li>
+<li>Usage：</li>
+</ul>
+<pre><code class="language-bash">triorb@orin-nx-XXX:~/$ ros2 service call /get/motor/status triorb_drive_interface/srv/MotorStatus 
+requester: making request: triorb_drive_interface.srv.MotorStatus_Request(request=std_msgs.msg.Empty())
+
+response:
+triorb_drive_interface.srv.MotorStatus_Response(result=triorb_drive_interface.msg.MotorStatus(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=1709711017, nanosec=956667335), frame_id='serial'), last_error_value=0, last_error_motor=255, voltage=0.0, state=0, power=0.0))
+</code></pre>
+<h4 id="_38">エラー履歴の取得</h4>
+<ul>
+<li>Topic：(prefix)/get/error/history</li>
+<li>Type： triorb_static_interface/srv/ErrorList</li>
+<li>Note: Responseに表示されるstampはpicoが起動してから経過した時間を表しており, Jetson内のタイムスタンプとは関係がない.</li>
+<li>Usage：</li>
+</ul>
+<pre><code class="language-bash">triorb@orin-nx-XXX:~/$ ros2 service call /get/error/history triorb_static_interface/srv/ErrorList
+waiting for service to become available...
+requester: making request: triorb_static_interface.srv.ErrorList_Request(request=std_msgs.msg.Empty())
+
+response:
+triorb_static_interface.srv.ErrorList_Response(errors=[triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error0'), error=0), triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error1'), error=0), triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error2'), error=0), triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error3'), error=0), triorb_static_interface.msg.RobotError(header=std_msgs.msg.Header(stamp=builtin_interfaces.msg.Time(sec=0, nanosec=0), frame_id='pico_error4'), error=0)])
+</code></pre>
+<h4 id="_39">励磁オン</h4>
+<ul>
+<li>Topic: (prefix)/srv/drive/wakeup</li>
+<li>Type: std_srvs/srv/Empty</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 service call /srv/drive/wakeup std_srvs/srv/Empty
+</code></pre>
+<h4 id="_40">励磁オフ</h4>
+<ul>
+<li>Topic: (prefix)/srv/drive/sleep</li>
+<li>Type: std_srvs/srv/Empty</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 service call /srv/drive/sleep std_srvs/srv/Empty
+</code></pre>
+<h2 id="package-triorb_dead_reckoning">Package: triorb_dead_reckoning</h2>
+<h3 id="package-description">Package Description</h3>
+<ul>
+<li>IMU・オドメトリ・VSLAMデータを統合し、iSAM2グラフ最適化を用いたデッドレコニングによる自己位置推定を行うROS2ノードです。推定結果はトピック配信、デバッグモードでCSVログの出力をします。</li>
+</ul>
+<h3 id="subscriber_5">Subscriber</h3>
+<h4 id="_41">オドメトリデータを受信して自己位置推定に利用</h4>
+<ul>
+<li>Topic: (prefix)/triorb/odom</li>
+<li>Type: geometry_msgs/msg/Vector3Stamped</li>
+</ul>
+<h4 id="vslam">VSLAM推定姿勢データを受信して自己位置推定に利用</h4>
+<ul>
+<li>Topic: (prefix)/vslam/rig_tf</li>
+<li>Type: geometry_msgs/msg/TransformStamped</li>
+</ul>
+<h3 id="publisher_5">Publisher</h3>
+<h4 id="_42">デッドレコニング推定結果を配信</h4>
+<ul>
+<li>Topic: (prefix)/triorb/dead_reckoning</li>
+<li>Type: geometry_msgs/msg/Vector3Stamped</li>
+</ul>
+<h4 id="_43">ノードの動作開始通知</h4>
+<ul>
+<li>Topic: (prefix)/_{ノード名}
+Type: std_msgs/msg/Empty</li>
+</ul>
+<h3 id="service_3">Service</h3>
+<h4 id="_44">ノードのバージョン情報を取得</h4>
+<ul>
+<li>Topic: (prefix)/get/version/{ノード名}</li>
+<li>Type: triorb_static_interface/srv/Version</li>
+</ul>
+<h3 id="action_2">Action</h3>
+<p>本パッケージではActionは利用していません。</p>
+<h3 id="mqtt_1">MQTT</h3>
+<h4 id="id">id</h4>
+<ul>
+<li>triorb_dead_reckoning_stream_{random.randint(0, 10000)}</li>
+</ul>
+<h4 id="publish">Publish</h4>
+<ul>
+<li>Topic: /dead_reckoning/stream<ul>
+<li>jeson format
+<code>bash
+{
+"imu_acc":[x,x,z]
+"imu_gyro":[x,x,z]
+"odometry":[x,x,w]
+"vslam":[x,x,w]
+"gtsam":[x,x,w]
+"serial_status":"状態をstring"
+"vslam_off":"状態をTrue/False"
+}</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="subscribe">Subscribe</h4>
+<ul>
+<li>Topic: /dead_reckoning/debug/start<ul>
+<li>デバッグモード開始 Emptyメッセージ</li>
+</ul>
+</li>
+<li>Topic: /dead_reckoning/debug/end<ul>
+<li>デバッグモード終了 Emptyメッセージ</li>
+</ul>
+</li>
+<li>Topic: /dead_reckoning/vslam/off<ul>
+<li>vslam/rig_tfを無視 Emptyメッセージ</li>
+</ul>
+</li>
+</ul>
+<h2 id="package-triorb_vslam_tf">Package: triorb_vslam_tf</h2>
+<p>VSLAMで計算された姿勢をTriOrbで使用するための姿勢に変換し, tf2 bufferにbroadcastするパッケージ. <br>
+変換した姿勢はロボットコントローラ上での表示や, 自律移動の際の現在位置として利用される. <br></p>
+<h3 id="_45">主な機能</h3>
+<ul>
+<li>ロボット姿勢(VSLAM座標系)をTriOrb座標系に変換</li>
+<li>ロボット姿勢をtf2 bufferにbroadcast</li>
+</ul>
+<h3 id="_46">更新履歴</h3>
+<h4 id="110_2">1.1.0</h4>
+<ul>
+<li>tf_broadcast時の robot および rig にprefixを追加</li>
+<li>ROS_LOCALHOST_ONLY=0のロボットが複数いる場合に別ロボットの姿勢を参照することがある問題の対策のため</li>
+</ul>
+<h3 id="subscriber_6">Subscriber</h3>
+<h4 id="vslam_1">ロボット姿勢(VSLAM座標系)を取得</h4>
+<ul>
+<li>Topic: (prefix)/run_slam/camera_pose</li>
+<li>Type: nav_msgs/msg/Odometry</li>
+</ul>
+<h3 id="publisher_6">Publisher</h3>
+<h4 id="_47">ロボット現在位置</h4>
+<ul>
+<li>Topic: (prefix)/vslam/rig_tf</li>
+<li>Type: geometry_msgs/msg/TransformStamped</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">triorb@orin-nx-XXX:~/$ ros2 topic echo --once /vslam/rig_tf 
+header: 
+  stamp: 
+    sec: 1715249621 
+    nanosec: 829307689 
+  frame_id: triorb_map 
+child_frame_id: robot 
+transform: 
+  translation: 
+    x: 0.20051919812047725 
+    y: -0.10789784916572422 
+    z: -0.11166990297891966 
+  rotation: 
+    x: -0.0017948546889115379 
+    y: -0.006014784536615234 
+    z: 0.005654869190860537 
+    w: 0.9999643110221774
+</code></pre>
+<h4 id="_48">ロボット現在位置（平面内）</h4>
+<ul>
+<li>Topic: (prefix)/vslam/robot_pose</li>
+<li>Type: triorb_drive_interface/msg/TriorbPos3</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">triorb@orin-nx-XXX:~/$ ros2 topic echo --once /vslam/robot_pose
+x: 0.06437481194734573
+y: 0.05932913348078728
+deg: 4.468038082122803
+</code></pre>
+<h2 id="package-triorb_navigation">Package: triorb_navigation</h2>
+<h3 id="_49">更新履歴</h3>
+<h4 id="120_2">1.2.0</h4>
+<ul>
+<li>forceのモード追加. <ul>
+<li>レーン維持モード追加</li>
+</ul>
+</li>
+<li>Jetson内に保存された最低速度と最高速度(triorb_drive_picoでpicoから取得)を反映.</li>
+<li>斜め方向並進移動で最高速度を越えないように修正.</li>
+</ul>
+<h4 id="110_3">1.1.0</h4>
+<ul>
+<li>forceのモード追加. bitフラグで指定できるように変更.<ul>
+<li>回転のみモード追加</li>
+<li>並進のみモード追加</li>
+<li>速度指示モード追加(要調整)</li>
+<li>事後フィードバック制御モード追加</li>
+</ul>
+</li>
+<li>無フィードバック制御版が必ず失敗になっていたバグ修正</li>
+<li>速度指示用のPIDパラメータ追加</li>
+<li>lookup_transformの参照先(robot)にprefixを追加</li>
+<li>ROS_LOCALHOST_ONLY=0のロボットが複数いる場合に別ロボットの姿勢を参照することがある問題の対策のため</li>
+<li>速度指示モードではlifetimeを設定</li>
+</ul>
+<h3 id="force">動作モード(forceフラグ)</h3>
+<p>各bitの組合せで指定
+- フィードバック制御フラグ(0b00000001)
+    - 0でフィードバック制御しない
+    - 1でフィードバック制御する
+    - 速度指示モードと事後フィードバック制御モードでは無効
+- 事後フィードバック制御フラグ(0b00000010)
+    - フィードバック制御しない場合、移動完了後にフィードバック制御を行う
+    - おおまかに位置決めした後に精密位置合わせしたい場合に使用
+- 回転モードフラグ(0b00001000)
+    - 並進指示値が常に0になり、並進方向の精度を無視する
+    - 並進モードフラグと併用できない（移動しないが常に成功判定になる）
+- レーン維持モード(0b00010000)
+    - 速度指示モードと同時に使用する(0b10010000)。
+    - 経由点間を結ぶ直線に沿って移動する。
+    - 回転を伴う移動中は、均等に回転させる。
+- 並進モードフラグ(0b00010000)
+    - 回転指示値が常に0になり、回転方向の精度を無視する
+    - 何らかの原因でロボットが回転した場合でも元の角度に復帰することはない
+    - 回転モードフラグと併用すると正常に動作しない
+- 速度指示モード(0b10000000)
+    - 速度指示モードになり、見た目上なめらかに動く
+    - フィードバック制御フラグに関わらずフィードバック制御を行う</p>
+<h3 id="subscriber_7">Subscriber</h3>
+<h4 id="_50">自律移動を終了する</h4>
+<ul>
+<li>Topic: (prefix)/drive/stop</li>
+<li>Type: std_msgs/msg/Empty</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/stop std_msgs/msg/Empty 
+</code></pre>
+<h4 id="_51">世界座標系目標位置指示による移動</h4>
+<ul>
+<li>Topic: (prefix)/drive/set_pos</li>
+<li>Type: triorb_drive_interface/msg/TriorbSetPos3</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash"></code></pre>
+<h4 id="pid">自律移動時のPIDゲインを設定する</h4>
+<ul>
+<li>Topic: (prefix)/setting/drive/gains</li>
+<li>Type: triorb_drive_interface/msg/DriveGains</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash"></code></pre>
+<h3 id="publisher_7">Publisher</h3>
+<h4 id="_52">移動距離指示による相対移動</h4>
+<ul>
+<li>Topic: (prefix)/drive/run_pos</li>
+<li>Type: triorb_drive_interface/msg/TriorbRunPos3</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash"></code></pre>
+<h4 id="_53">自律移動完結果</h4>
+<ul>
+<li>Topic: (prefix)/drive/result</li>
+<li>Type: triorb_drive_interface/msg/TriorbRunResult</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash"></code></pre>
+<h3 id="service_4">Service</h3>
+<h4 id="_54">世界座標系目標位置指示による移動（移動完了結果報告あり）</h4>
+<ul>
+<li>Topic: (prefix)/srv/drive/set_pos</li>
+<li>Type: triorb_drive_interface/srv/TriorbSetPos3</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">triorb@orin-nx-XXX:~/$ ros2 service call /srv/drive/set_pos \ 
+triorb_drive_interface/srv/TriorbSetPos3 &quot;{pos: { setting: { tx: 0.01, ty: 0.01, tr: 1.0, force: 1} , pos: {speed: {acc: 500, dec: 500, xy: 0.1, w: 0.0}, position: {x: 0.6037, y: 0.3599, deg: 0.3176}}}}&quot; 
+## コマンド以上 
+
+waiting for service to become available... 
+requester: making request: 
+triorb_drive_interface.srv.TriorbSetPos3_Request(pos=triorb_drive_interface.msg.TriorbSetPos3(pos=triorb_drive_interface.msg.TriorbRunPos3(speed=triorb_drive_interface.msg.TriorbSpeed(acc=500, dec=500, xy=0.1, w=0.0), position=triorb_drive_interface.msg.TriorbPos3(x=0.6037, y=0.3599, deg=0.3176)), setting=triorb_drive_interface.msg.TriorbRunSetting(tx=0.01, ty=0.01, tr=1.0, force=1))) 
+
+response: 
+triorb_drive_interface.srv.TriorbSetPos3_Response(result=triorb_drive_interface.msg.TriorbRunResult(success=True, position=triorb_drive_interface.msg.TriorbPos3(x=0.5981971025466919, y=0.3542609214782715, deg=0.3284424841403961)))
+</code></pre>
+<h3 id="action_3">Action</h3>
+<h4 id="_55">世界座標系目標経路指示による移動（途中経過、移動完了結果報告あり）</h4>
+<ul>
+<li>Topic: (prefix)/action/drive/set_path</li>
+<li>Type: triorb_drive_interface/action/TriorbSetPath</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">triorb@orin-nx-XXX:~/$ ros2 action send_goal /action/drive/set_path \ 
+triorb_drive_interface/action/TriorbSetPath &quot;{path: \ 
+  [ \ 
+    { \ 
+      setting: {tx: 0.01, ty: 0.01, tr: 1.0, force: 1}, \ 
+      pos: { \ 
+        speed: {acc: 500, dec: 500, xy: 0.1, w: 0.0}, \ 
+        position: {x: 0.6033, y: 0.3756, deg: 0.3506} \ 
+      } \ 
+    }, \ 
+    { \ 
+      setting: {tx: 0.01, ty: 0.01, tr: 1.0, force: 1}, \ 
+      pos: { \ 
+        speed: {acc: 500, dec: 500, xy: 0.1, w: 0.0}, \ 
+        position: {x: 0.2765, y: -0.3236, deg: 0.7407} \ 
+      } \ 
+    }, \ 
+    { \ 
+      setting: {tx: 0.01, ty: 0.01, tr: 1.0, force: 1}, \ 
+      pos: { \ 
+        speed: {acc: 500, dec: 500, xy: 0.1, w: 0.0}, \ 
+        position: {x: 0.6033, y: 0.3756, deg: 0.3506} \ 
+      } \ 
+    } \ 
+  ] \ 
+}&quot; --feedback 
+## コマンド以上 
+
+Goal accepted with ID: cd019fbfa70349789c87ea90fdd10239 
+
+Feedback: 
+    way_idx: 0 
+now: 
+  x: 0.6081861257553101 
+  y: 0.38933515548706055 
+  deg: 0.1585390269756317 
+## ---- (フィードバック略) ---- 
+
+Feedback: 
+    way_idx: 2 
+now: 
+  x: 0.5898382663726807 
+  y: 0.35128170251846313 
+  deg: -0.009930066764354706 
+
+Result: 
+    result: 
+  success: true 
+  position: 
+    x: 0.5965888500213623 
+    y: 0.3684644103050232 
+    deg: 0.07557345926761627 
+
+Goal finished with status: SUCCEEDED 
+</code></pre>
+<h2 id="package-triorb_drive_vector">Package: triorb_drive_vector</h2>
+<h3 id="description_5">Description</h3>
+<ul>
+<li>制御指令値からロボットの進行方向や停止・回転などの状態判定を行う。SLSやLED制御向け。</li>
+<li>閾値設定はdrive_vector.xml</li>
+</ul>
+<h3 id="subscriber_8">Subscriber</h3>
+<h4 id="_56">移動指令を取得</h4>
+<ul>
+<li>Topic: /drive/run_pos</li>
+<li>Type: triorb_drive_interface/msg/TriorbRunPos3</li>
+<li>Usage:</li>
+</ul>
+<h4 id="_57">移動指令を取得</h4>
+<ul>
+<li>Topic: /drive/run_vel</li>
+<li>Type: triorb_drive_interface/msg/TriorbRunPos3</li>
+<li>Usage:</li>
+</ul>
+<h3 id="publisher_8">Publisher</h3>
+<h4 id="_58">移動方向</h4>
+<ul>
+<li>Topic: /drive/std_vector</li>
+<li>Type: Float32MultiArray</li>
+<li>配列フォーマット
+  <code>bash
+  direction: 方向
+  speed: 速度
+  f_rotate: 時計回り 1 / 反時計回り -1
+  f_stop: 停止と判定した際 1 / その他 -1</code></li>
+</ul>
+<h4 id="_59">ノードの動作開始通知</h4>
+<ul>
+<li>Topic: (prefix)/_{ノード名}</li>
+<li>Type: std_msgs/msg/Empty</li>
+</ul>
+<h3 id="service_5">Service</h3>
+<h4 id="_60">ノードのバージョン情報を取得</h4>
+<ul>
+<li>Topic: (prefix)/get/version/{ノード名}</li>
+<li>Type: triorb_static_interface/srv/Version</li>
+</ul>
+<h3 id="action_4">Action</h3>
+<p>本パッケージではActionは利用していません。</p>
+<h2 id="package-triorb_tagslam_manager">Package: triorb_tagslam_manager</h2>
+<h3 id="subscriber_9">Subscriber</h3>
+<h4 id="description_6">Description</h4>
+<ul>
+<li>Topic: </li>
+<li>Type: </li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash"></code></pre>
+<h3 id="publisher_9">Publisher</h3>
+<h4 id="description_7">Description</h4>
+<ul>
+<li>Topic: </li>
+<li>Type: </li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash"></code></pre>
+<h3 id="service_6">Service</h3>
+<h4 id="description_8">Description</h4>
+<ul>
+<li>Topic: </li>
+<li>Type: </li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash"></code></pre>
+<h3 id="action_5">Action</h3>
+<h4 id="description_9">Description</h4>
+<ul>
+<li>Topic: </li>
+<li>Type: </li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash"></code></pre>
+<h2 id="package-stella_vslam_ros">Package: stella_vslam_ros</h2>
+<p>このドキュメントは、<code>/run_slam</code> ノードにおける ROS2 Publish / Subscribe トピックの一覧を示します。</p>
+<hr />
+<h3 id="publish_1">🔄 Publish トピック一覧</h3>
+<table>
+<thead>
+<tr>
+<th>トピック名</th>
+<th>メッセージ型</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/run_slam/camera_pose</code></td>
+<td><code>nav_msgs::msg::Odometry</code></td>
+<td>推定されたカメラ姿勢</td>
+</tr>
+<tr>
+<td><code>/run_slam/keyframes</code></td>
+<td><code>geometry_msgs::msg::PoseArray</code></td>
+<td>キーフレーム群</td>
+</tr>
+<tr>
+<td><code>/run_slam/keyframes_2d</code></td>
+<td><code>geometry_msgs::msg::PoseArray</code></td>
+<td>平面に投影されたキーフレーム</td>
+</tr>
+<tr>
+<td><code>/run_slam/pose_2d</code></td>
+<td><code>geometry_msgs::msg::Pose2D</code></td>
+<td>2D平面上のカメラ姿勢</td>
+</tr>
+<tr>
+<td><code>/run_slam/keyframe_landmarks</code></td>
+<td><code>triorb_slam_interface::msg::UInt32MultiArrayStamped</code></td>
+<td>キーフレームごとのランドマーク数</td>
+</tr>
+<tr>
+<td><code>/run_slam/matched_landmarks</code></td>
+<td><code>triorb_slam_interface::msg::UInt32MultiArrayStamped</code></td>
+<td>マッチしたランドマーク数</td>
+</tr>
+<tr>
+<td><code>/run_slam/matched_points</code></td>
+<td><code>triorb_slam_interface::msg::PointArrayStamped</code></td>
+<td>マッチした3D点群</td>
+</tr>
+<tr>
+<td><code>/run_slam/camera_pose_dev</code></td>
+<td><code>triorb_slam_interface::msg::PoseDevStamped</code></td>
+<td>カメラ姿勢推定結果（validフラグ付き）</td>
+</tr>
+<tr>
+<td><code>/run_slam/matched_landmarks_per_camera</code></td>
+<td><code>triorb_slam_interface::msg::CamerasLandmarkInfo</code></td>
+<td>カメラごとのランドマーク情報</td>
+</tr>
+<tr>
+<td><code>/run_slam/cameras_pose</code></td>
+<td><code>triorb_slam_interface::msg::CamerasPose</code></td>
+<td>複数カメラの姿勢</td>
+</tr>
+<tr>
+<td><code>/run_slam/enable_camera</code></td>
+<td><code>std_msgs::msg::Int8MultiArray</code></td>
+<td>使用カメラの有効/無効状態</td>
+</tr>
+<tr>
+<td><code>/run_slam/marker_only</code></td>
+<td><code>std_msgs::msg::Bool</code></td>
+<td>マーカーのみを使うか</td>
+</tr>
+<tr>
+<td><code>/run_slam/marker_exclude</code></td>
+<td><code>std_msgs::msg::Bool</code></td>
+<td>マーカー領域の除外フラグ</td>
+</tr>
+<tr>
+<td><code>/run_slam/map_file_path</code></td>
+<td><code>std_msgs::msg::String</code></td>
+<td>現在のマップファイルパス</td>
+</tr>
+<tr>
+<td><code>/run_slam/map_file_changed</code></td>
+<td><code>std_msgs::msg::String</code></td>
+<td>マップファイル変更通知</td>
+</tr>
+<tr>
+<td><code>/run_slam/local_map_file_path</code></td>
+<td><code>std_msgs::msg::String</code></td>
+<td>ローカルマップファイルパス</td>
+</tr>
+<tr>
+<td><code>/run_slam/current_keyframes</code></td>
+<td><code>triorb_slam_interface::msg::KeyframeArray</code></td>
+<td>現在のキーフレーム情報</td>
+</tr>
+<tr>
+<td><code>/run_slam/map_freeze</code></td>
+<td><code>std_msgs::msg::Bool</code></td>
+<td>地図固定モードの状態</td>
+</tr>
+<tr>
+<td><code>/except_handl/node/add</code></td>
+<td><code>std_msgs::msg::String</code></td>
+<td>例外発生ノード通知</td>
+</tr>
+<tr>
+<td><code>/triorb/error/str/add</code></td>
+<td><code>std_msgs::msg::String</code></td>
+<td>エラーメッセージ通知</td>
+</tr>
+<tr>
+<td><code>/triorb/warn/str/add</code></td>
+<td><code>std_msgs::msg::String</code></td>
+<td>ワーニング通知</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="subscribe_1">📥 Subscribe トピック一覧</h3>
+<table>
+<thead>
+<tr>
+<th>トピック名</th>
+<th>メッセージ型</th>
+<th>説明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/run_slam/set/enable_camera</code></td>
+<td><code>std_msgs::msg::Int8MultiArray</code></td>
+<td>使用カメラ切り替え</td>
+</tr>
+<tr>
+<td><code>/run_slam/set/mask_positive</code></td>
+<td><code>triorb_slam_interface::msg::XyArrayStamped</code></td>
+<td>特徴点マスク（許容）</td>
+</tr>
+<tr>
+<td><code>/run_slam/set/mask_negative</code></td>
+<td><code>triorb_slam_interface::msg::XyArrayStamped</code></td>
+<td>特徴点マスク（除外）</td>
+</tr>
+<tr>
+<td><code>/run_slam/set/clear_mask_all</code></td>
+<td><code>std_msgs::msg::Empty</code></td>
+<td>マスク初期化</td>
+</tr>
+<tr>
+<td><code>/run_slam/set/save_mask_to_yaml</code></td>
+<td><code>std_msgs::msg::Empty</code></td>
+<td>マスクYAML保存指示</td>
+</tr>
+<tr>
+<td><code>/run_slam/set/marker_only</code></td>
+<td><code>std_msgs::msg::Bool</code></td>
+<td>マーカーのみ利用設定</td>
+</tr>
+<tr>
+<td><code>/run_slam/set/marker_exclude</code></td>
+<td><code>std_msgs::msg::Bool</code></td>
+<td>マーカー領域除外設定</td>
+</tr>
+<tr>
+<td><code>/run_slam/set/change_map_file_path</code></td>
+<td><code>std_msgs::msg::String</code></td>
+<td>地図ファイル変更指示</td>
+</tr>
+<tr>
+<td><code>/run_slam/set/enter_local_map_file_path</code></td>
+<td><code>std_msgs::msg::String</code></td>
+<td>ローカル地図ファイル切替</td>
+</tr>
+<tr>
+<td><code>/run_slam/set/map_freeze</code></td>
+<td><code>std_msgs::msg::Bool</code></td>
+<td>地図固定切替</td>
+</tr>
+<tr>
+<td><code>/run_slam/set/manual_keyframes</code></td>
+<td><code>triorb_slam_interface::msg::KeyframeArray</code></td>
+<td>手動リローカライズ要求</td>
+</tr>
+<tr>
+<td><code>/triorb/odom</code></td>
+<td><code>geometry_msgs::msg::Vector3Stamped</code></td>
+<td>オドメトリ情報（Odomono/OdoRig）</td>
+</tr>
+</tbody>
+</table>
+<h2 id="package-triorb_rmf_bridge">Package: triorb_rmf_bridge</h2>
+<h3 id="description_10">Description</h3>
+<ul>
+<li>単体自律移動のFMS用Topicのバイパスを行う。</li>
+<li>ROS_LOCALHOST_ONLY=0と1のブリッジも担うため、global/local両方のコンテナで本パッケージを起動する必要がある。</li>
+<li>ブリッジ対象のtopicがglobal⇔localで無限ループする可能性がある場合は"RecentNSet<std::size_t>"を使った防御を行うこと。</li>
+<li>Global（FMS/上位管理システム）とLocal（ロボット）を跨いで送受信されるメッセージがあるとき、Global側のTopic名は末尾にHash値が付加されたメッセージを使う</li>
+</ul>
+<pre><code class="language-bash">    # Global（上位管理システム）側から見たメッセージ定義：
+    Topic：(prefix)/drive/run_vel
+    Type：triorb_drive_interface/msg/TriorbRunVel3
+    # Local（ロボット）側から見たメッセージ定義：
+    Topic：(prefix)/drive/run_vel
+    Type：triorb_drive_interface/msg/TriorbRunVel3
+</code></pre>
+<h3 id="ros2-bypass-global-to-local-topic">ROS2 Bypass Global to Local Topic</h3>
+<h4 id="_61">マーカー座標系の目標位置</h4>
+<ul>
+<li>Topic：(prefix)/drive/align_pos</li>
+<li>Type：triorb_drive_interface/msg/TriorbAlignPos3 </li>
+</ul>
+<h4 id="_62">ロボット座標系の目標速度</h4>
+<ul>
+<li>Topic：(prefix)/drive/run_vel</li>
+<li>Type：triorb_drive_interface/msg/TriorbRunVel3</li>
+</ul>
+<h4 id="driving-mode">Driving mode</h4>
+<ul>
+<li>Topic：(prefix)/drive/set_mode</li>
+<li>Type：std_msgs/msg/String</li>
+</ul>
+<h4 id="_63">リフター動作指示</h4>
+<ul>
+<li>Topic：(prefix)/drive/run_lifter</li>
+<li>Type：std_msgs/msg/String</li>
+</ul>
+<h4 id="_64">停止指示</h4>
+<ul>
+<li>Topic：(prefix)/drive/stop</li>
+<li>Type：std_msgs/msg/Empty</li>
+</ul>
+<h4 id="_65">ロボット座標系の目標位置</h4>
+<ul>
+<li>Topic：(prefix)/drive/run_pos</li>
+<li>Type：triorb_drive_interface/msg/TriorbRunPos3</li>
+</ul>
+<h4 id="_66">アライメント開始</h4>
+<ul>
+<li>Topic：(prefix)/drive/alignment/start</li>
+<li>Type：std_msgs/msg/String</li>
+</ul>
+<h4 id="_67">アライメント終了</h4>
+<ul>
+<li>Topic：(prefix)/drive/alignment/terminate</li>
+<li>Type：std_msgs/msg/String</li>
+</ul>
+<h4 id="fmswatchdog">FMS用watchdog</h4>
+<ul>
+<li>Topic：(prefix)/fms_watchdog</li>
+<li>Type：std_msgs/msg/Int32</li>
+</ul>
+<h4 id="_68">世界座標系の位置・姿勢へ向かう移動実行</h4>
+<ul>
+<li>Topic：(prefix)/fms/set_pos</li>
+<li>Type：triorb_drive_interface/msg/TriorbSetPos3</li>
+</ul>
+<h4 id="_69">ロボットアームタスクの指令用</h4>
+<ul>
+<li>Topic：(prefix)/arm_task_list</li>
+<li>Type：std_msgs/msg/String</li>
+</ul>
+<h4 id="_70">拡張基盤用発進音声トピック</h4>
+<ul>
+<li>Topic：(prefix)/ext_pico/start_auto_move</li>
+<li>Type：std_msgs/msg/Empty</li>
+</ul>
+<h4 id="_71">拡張基盤用停止トピック</h4>
+<ul>
+<li>Topic：(prefix)/ext_pico/end_auto_move</li>
+<li>Type：std_msgs/msg/Empty</li>
+</ul>
+<h3 id="ros2-bypass-local-to-global-topic">ROS2 Bypass Local to Global Topic</h3>
+<h4 id="_72">世界座標系の位置・姿勢</h4>
+<ul>
+<li>Topic：(prefix)/vslam/rig_tf</li>
+<li>Type：geometry_msgs/msg/TransformStamped</li>
+</ul>
+<h4 id="state">リフターState</h4>
+<ul>
+<li>Topic：(prefix)/lifter/state</li>
+<li>std_msgs/msg/String</li>
+</ul>
+<h4 id="_73">リフターリザルト</h4>
+<ul>
+<li>Topic：(prefix)/lifter/result</li>
+<li>std_msgs/msg/String</li>
+</ul>
+<h4 id="_74">相対位置決めステータス配信</h4>
+<ul>
+<li>Topic: (prefix)/drive/alignment/status</li>
+<li>Type: std_msgs/msg/String</li>
+</ul>
+<h4 id="_75">相対位置決め結果配信</h4>
+<ul>
+<li>Topic: (prefix)/drive/alignment/result</li>
+<li>Type: std_msgs/msg/String</li>
+</ul>
+<h4 id="_76">自律移動完了結果配信</h4>
+<ul>
+<li>Topic: (prefix)/drive/result</li>
+<li>Type: triorb_drive_interface/msg/TriorbRunResult</li>
+</ul>
+<h4 id="_77">ロボットウォッチドッグ配信</h4>
+<ul>
+<li>Topic: (prefix)/amr_robot_watchdog</li>
+<li>Type: std_msgs/msg/String</li>
+</ul>
+<h4 id="_78">ロボットステータス配信</h4>
+<ul>
+<li>Topic: (prefix)/robot/status</li>
+<li>Type: triorb_static_interface/msg/RobotStatus</li>
+</ul>
+<h4 id="_79">ホストステータス配信</h4>
+<ul>
+<li>Topic: (prefix)/host/status</li>
+<li>Type: triorb_static_interface/msg/HostStatus</li>
+</ul>
+<h2 id="_80">パラメーター</h2>
+<ul>
+<li>BRIDGE_IP : Global ⇔ Local ブリッジに使うIPアドレス（recommend: 127.0.0.1）</li>
+<li>BRIDGE_PORT_G2L : Global ⇒ Local ブリッジに使うポート (default 60000)</li>
+<li>BRIDGE_PORT_L2G : Global ⇒ Local ブリッジに使うポート (default 60001)</li>
+</ul>
+<h2 id="package-triorb_except_handl">Package: triorb_except_handl</h2>
+<h3 id="config">Config</h3>
+<h4 id="confignode_checkjson">config/node_check.json</h4>
+<ul>
+<li>node_list: 存在しない場合ERRORとするnode名を記入(string)<ul>
+<li>/except_handl/node/add トピックから追記可能</li>
+<li>/except_handl/node/remove トピックから削除可能</li>
+</ul>
+</li>
+<li>delay_sec: Node監視の開始遅延時間(float)[s]</li>
+</ul>
+<h4 id="confignode_name_restartsh">config/${node_name}_restart.sh</h4>
+<p>nodeが存在しなかった場合にホスト側で実行するshell script</p>
+<h3 id="subscriber_10">Subscriber</h3>
+<h4 id="_81">エラーの受取り</h4>
+<ul>
+<li>Topic: (prefix)/triorb/error/add</li>
+<li>Type: std_msgs::msg::UInt16</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub --once /triorb/error/add std_msgs/msg/UInt16 '{&quot;data&quot;:49}'
+</code></pre>
+<h4 id="_82">エラーの受取り（任意文字列版）</h4>
+<ul>
+<li>Topic: (prefix)/triorb/error/str/add</li>
+<li>Type: std_msgs::msg::String</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub --once /triorb/error/str/add std_msgs/msg/String '{&quot;data&quot;: &quot;Sample error message&quot;}'
+</code></pre>
+<h4 id="_83">警告の受取り</h4>
+<ul>
+<li>Topic: (prefix)/triorb/warn/add</li>
+<li>Type: std_msgs::msg::UInt16</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub --once /triorb/warn/add std_msgs/msg/UInt16 '{&quot;data&quot;:1}'
+</code></pre>
+<h4 id="_84">警告の受取り（任意文字列版）</h4>
+<ul>
+<li>Topic: (prefix)/triorb/warn/str/add</li>
+<li>Type: std_msgs::msg::String</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub --once /triorb/warn/add std_msgs/msg/String '{&quot;data&quot;: &quot;Sample warning message&quot;}'
+</code></pre>
+<h4 id="_85">エラーリセットの実行</h4>
+<ul>
+<li>Topic: (prefix)/triorb/error/reset</li>
+<li>Type: std_msgs/msg/Uint8</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub --once /triorb/error/reset std_msgs/msg/UInt8 '{&quot;data&quot;:1}' # dataが1以上のときリセット実行
+</code></pre>
+<h4 id="_86">監視対象ノード追加</h4>
+<ul>
+<li>Topic: (prefix)/except_handl/node/add</li>
+<li>Type: std_msgs/msg/String</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub --once /except_handl/node/add std_msgs/msg/String '{&quot;data&quot;:&quot;sample_node&quot;}'
+</code></pre>
+<h4 id="_87">監視対象ノード削除</h4>
+<ul>
+<li>Topic: (prefix)/except_handl/node/remove</li>
+<li>Type: std_msgs/msg/String</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">ros2 topic pub --once /except_handl/node/remove std_msgs/msg/String '{&quot;data&quot;:&quot;sample_node&quot;}'
+</code></pre>
+<h3 id="publisher_10">Publisher</h3>
+<h4 id="_88">エラー履歴の発行</h4>
+<ul>
+<li>Topic: (prefix)/triorb/error/log</li>
+<li>Type: std_msgs::msg::UInt16MultiArray</li>
+</ul>
+<h4 id="_89">エラー履歴の発行（文字列版）</h4>
+<ul>
+<li>Topic: (prefix)/triorb/error/str/log</li>
+<li>Type: std_msgs::msg::String</li>
+<li>Format: 1件1行の平文</li>
+</ul>
+<h4 id="_90">警告履歴の発行</h4>
+<ul>
+<li>Topic: (prefix)/triorb/warn/log</li>
+<li>Type: std_msgs::msg::UInt16MultiArray</li>
+</ul>
+<h4 id="_91">警告履歴の発行（文字列版）</h4>
+<ul>
+<li>Topic: (prefix)/triorb/warn/log</li>
+<li>Type: std_msgs::msg::String</li>
+<li>Format: 1件1行の平文</li>
+</ul>
+<h4 id="_92">エラー件数の発行</h4>
+<ul>
+<li>Topic: (prefix)/triorb/error/num</li>
+<li>Type: std_msgs::msg::UInt8</li>
+</ul>
+<h4 id="_93">警告件数の発行</h4>
+<ul>
+<li>Topic: (prefix)/triorb/warn/num</li>
+<li>Type: std_msgs::msg::UInt8</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright © 2025 TriOrb Inc.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      
+        <script src="../../../javascripts/lunr.stemmer.support.js"></script>
+      
+        <script src="../../../javascripts/tinyseg.js"></script>
+      
+        <script src="../../../javascripts/lunr.ja.js"></script>
+      
+        <script src="../../../javascripts/mkdocs_search_config.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,53 @@
+site_name: TriOrb BASE 開発ガイド
+
+# MkDocsのテーマ設定
+theme:
+  name: material
+  logo: 'https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png'
+  favicon: 'https://triorb.co.jp/favicon.ico'
+  palette:
+    - scheme: default
+      primary: custom
+      accent: blue
+      toggle:
+        icon: material/weather-night
+        name: ダークモードに切り替え
+    - scheme: slate
+      primary: custom
+      accent: blue
+      toggle:
+        icon: material/weather-sunny
+        name: ライトモードに切り替え
+  features:
+    - navigation.instant
+    - navigation.expand
+    - navigation.sections
+    # - toc.integrate # ナビゲーションツリー展開
+
+# ナビゲーションバーの設定
+nav:
+  - Home: index.md
+  - 自律移動API: TriOrb-AMR-Package/pkgs/Reference_API.md
+  - 協調移動API: TriOrb-AMR-Package/pkgs-collab/Reference_API.md
+  - ROS2 Interface: TriOrb-AMR-Package/pkgs/TriOrb-ROS2-Types/README_types.md
+  - 制御ECU通信ライブラリ: triorb-core/README.md
+  - サンプルプログラム: TriOrb-AMR-Package/sample/README.md
+  - 変更履歴: TriOrb-AMR-Package/History.md
+
+# スタイルシート
+extra_css:
+  - stylesheets/extra.css
+
+# Copyright
+copyright: Copyright © 2025 TriOrb Inc.
+
+# Plugins
+plugins:
+  - search
+
+# JavaScriptの設定
+extra_javascript:
+  - javascripts/lunr.stemmer.support.js # 検索用
+  - javascripts/tinyseg.js # 日本語検索用
+  - javascripts/lunr.ja.js # 日本語検索用
+  - javascripts/mkdocs_search_config.js # 検索設定用
