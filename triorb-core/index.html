@@ -555,13 +555,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#triorb_corerobotset_vel_relativevx-vy-vw-accnone-decnone" class="md-nav__link">
+  <a href="#triorb_corerobotset_vel_relativevx-vy-vw-accnone-decnone-life_timenone-drive_modenone" class="md-nav__link">
     <span class="md-ellipsis">
-      triorb_core.robot.set_vel_relative(vx, vy, vw, acc=None, dec=None)
+      triorb_core.robot.set_vel_relative(vx, vy, vw, acc=None, dec=None, life_time=None, drive_mode=None)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="triorb_core.robot.set_vel_relative(vx, vy, vw, acc=None, dec=None)">
+    <nav class="md-nav" aria-label="triorb_core.robot.set_vel_relative(vx, vy, vw, acc=None, dec=None, life_time=None, drive_mode=None)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1077,14 +1077,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-to-get-motor-error" class="md-nav__link">
+  <a href="#triorb_corerobotget_error_history" class="md-nav__link">
     <span class="md-ellipsis">
-      How to get motor error
+      triorb_core.robot.get_error_history()
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How to get motor error">
+    <nav class="md-nav" aria-label="triorb_core.robot.get_error_history()">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns:
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
@@ -1371,13 +1389,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#triorb_corerobotset_vel_relativevx-vy-vw-accnone-decnone" class="md-nav__link">
+  <a href="#triorb_corerobotset_vel_relativevx-vy-vw-accnone-decnone-life_timenone-drive_modenone" class="md-nav__link">
     <span class="md-ellipsis">
-      triorb_core.robot.set_vel_relative(vx, vy, vw, acc=None, dec=None)
+      triorb_core.robot.set_vel_relative(vx, vy, vw, acc=None, dec=None, life_time=None, drive_mode=None)
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="triorb_core.robot.set_vel_relative(vx, vy, vw, acc=None, dec=None)">
+    <nav class="md-nav" aria-label="triorb_core.robot.set_vel_relative(vx, vy, vw, acc=None, dec=None, life_time=None, drive_mode=None)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1893,14 +1911,32 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#how-to-get-motor-error" class="md-nav__link">
+  <a href="#triorb_corerobotget_error_history" class="md-nav__link">
     <span class="md-ellipsis">
-      How to get motor error
+      triorb_core.robot.get_error_history()
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="How to get motor error">
+    <nav class="md-nav" aria-label="triorb_core.robot.get_error_history()">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parameters_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parameters:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#returns_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Returns:
+    </span>
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#example" class="md-nav__link">
@@ -1947,9 +1983,10 @@
 import triorb_core
 r = triorb_core.robot(&quot;/dev/ttyACM0&quot;)
 r.wakeup()
+time.sleep(1.0) # Wait for excitation
 r.set_vel_relative(0.0, 0.1, 0.0, acc=1000)
-time.sleep(1.0)
-r.brake() # Stops after moving forward for 1 second at a speed of 0.1 m/s.
+time.sleep(5.0)
+r.brake() # Stops after moving forward for 5 second at a speed of 0.1 m/s.
 r.sleep()
 </code></pre>
 <h2 id="api-reference">API Reference</h2>
@@ -1993,7 +2030,7 @@ r.wakeup()
 #---&lt;Control the robot&gt;---
 r.sleep()
 </code></pre>
-<h3 id="triorb_corerobotset_vel_relativevx-vy-vw-accnone-decnone">triorb_core.robot.set_vel_relative(vx, vy, vw, acc=None, dec=None)</h3>
+<h3 id="triorb_corerobotset_vel_relativevx-vy-vw-accnone-decnone-life_timenone-drive_modenone">triorb_core.robot.set_vel_relative(vx, vy, vw, acc=None, dec=None, life_time=None, drive_mode=None)</h3>
 <p>Sets the movement speed based on the current robot posture. Note that the robot starts moving immediately after the setting.</p>
 <h4 id="parameters_1">Parameters:</h4>
 <ul>
@@ -2002,14 +2039,21 @@ r.sleep()
 <li>vw - Rotation speed around Z-axis (Yaw rate) [rad/s]</li>
 <li>acc - (optional) Acceleration time [ms]</li>
 <li>dec - (optional) Deceleration time [ms]</li>
+<li>life_time - (optional) Life time of this command [ms]</li>
+<li>drive_mode - (optional) Motor's drive mode </li>
 </ul>
 <h4 id="returns_2">Returns:</h4>
 <h4 id="return-type-list-of-response_2">Return type: list of response</h4>
 <h4 id="usage_4">Usage:</h4>
-<pre><code class="language-python">import triorb_core
+<pre><code class="language-python">import time
+import triorb_core
 r = triorb_core.robot()
 r.wakeup()
+time.sleep(1.0)
 r.set_vel_relative(0.0, 0.1, 0.0, acc=1000) # The robot moves forward at a speed of 0.1m/s while accelerating for 1000ms.
+time.sleep(5.0)
+r.set_vel_relative(0.0, -0.1, 0.0, life_time=5000) # The robot will move backward for 5 seconds and then stop.
+time.sleep(10.0)
 </code></pre>
 <h3 id="triorb_corerobotset_pos_relativex-y-w-accnone-decnone-vel_xynone-vel_wnone">triorb_core.robot.set_pos_relative(x, y, w, acc=None, dec=None, vel_xy=None, vel_w=None)</h3>
 <p>Set the amount of movement based on the current robot posture. Note that the movement starts immediately after the setting.</p>
@@ -2026,10 +2070,13 @@ r.set_vel_relative(0.0, 0.1, 0.0, acc=1000) # The robot moves forward at a speed
 <h4 id="returns_3">Returns:</h4>
 <h4 id="return-type-list-of-response_3">Return type: list of response</h4>
 <h4 id="usage_5">Usage:</h4>
-<pre><code class="language-python">import triorb_core
+<pre><code class="language-python">import time
+import triorb_core
 r = triorb_core.robot()
 r.wakeup()
+time.sleep(1.0)
 r.set_pos_absolute(-1.0, 0.5, 0.0, vel_xy=0.2) # Moves sideways -1m, forward 0.5m, at a speed of 0.2m/s.
+time.sleep(3.0)
 </code></pre>
 <h3 id="triorb_corerobotset_vel_absolutevx-vy-vw-accnone-decnone">triorb_core.robot.set_vel_absolute(vx, vy, vw, acc=None, dec=None)</h3>
 <p>Set the movement speed with respect to the odometry origin. Note that the movement starts immediately after the setting.</p>
@@ -2066,9 +2113,11 @@ r.set_pos_absolute(-1.0, 0.5, 0.0, vel_xy=0.2) # Moves sideways -1m, forward 0.5
 <h3 id="triorb_corerobotjoin">triorb_core.robot.join()</h3>
 <p>Wait until the robot movement is completed. Note that this function only works after the set_pos function is executed.</p>
 <h4 id="usage_8">Usage:</h4>
-<pre><code class="language-python">import triorb_core
+<pre><code class="language-python">import time
+import triorb_core
 r = triorb_core.robot()
 r.wakeup()
+time.sleep(1.0)
 r.set_pos_relative(0.0, 0.5, 0.0)
 r.join()
 print(&quot;Done.&quot;) # &quot;Done.&quot; is displayed when the forward movement of 0.5m is completed.
@@ -2082,6 +2131,7 @@ print(&quot;Done.&quot;) # &quot;Done.&quot; is displayed when the forward movem
 import triorb_core
 r = triorb_core.robot()
 r.wakeup()
+time.sleep(1.0)
 r.set_vel_relative(0.0, 0.1, 0.0)
 time.sleep(1.0)
 r.brake() # Stops after moving forward for 1 second at a speed of 0.1 m/s.
@@ -2198,17 +2248,19 @@ for i in range(limit_sec):
   time.sleep(1)
 
 </code></pre>
-<h3 id="how-to-get-motor-error">How to get motor error</h3>
+<h3 id="triorb_corerobotget_error_history">triorb_core.robot.get_error_history()</h3>
 <p>The robot periodically(every 2 seconds) checks for errors and resets them if any are found. <br>
-To check for errors, you must run the get error command before the reset.</p>
+Up to five errors will be retained.</p>
+<h4 id="parameters_9">Parameters:</h4>
+<ul>
+<li>None</li>
+</ul>
+<h4 id="returns_13">Returns:</h4>
+<p>A combination of the error ID and the time(Counting from start-up) it occurred.</p>
 <h4 id="example">example:</h4>
 <pre><code class="language-python">import triorb_core
-import time
 r = triorb_core.robot()
-while True:
-    ret = r.get_motor_status(params=[&quot;error&quot;], _id=[1,2,3]))
-    print(ret)
-    time.sleep(1.0)
+print(r.get_error_history())
 </code></pre>
 
 
