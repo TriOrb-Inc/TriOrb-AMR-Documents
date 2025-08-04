@@ -1,4 +1,4 @@
-# TriOrb BASE 開発ガイド v1.2.0 (2025-7-17)
+# TriOrb BASE 開発ガイド v1.2.2 (2025-8-XX)
 
 ## 製品ドキュメント
 - [TriOrb Setup Guide](https://triorb.notion.site/22cb60b1eaf381a29e70e14a4d7021b5)
@@ -26,6 +26,10 @@
 ## [TriOrb AMR 制御用サンプルプログラム](./TriOrb-AMR-Package/sample/README.md)
 - TriOrb AMRを上位PCなどから制御するためのサンプルプログラム
 - (非公開) [GitHub / TriOrb-AMR-Package / sample](https://github.com/TriOrb-Inc/TriOrb-AMR-Package/tree/master/sample)
+
+## [自律移動API（WebAPI）](https://triorb-inc.github.io/TriOrb-AMR-Robot-Controller/)
+- WebAPIを用いてTriOrbを動かす場合のインターフェース仕様
+- ※自律移動パッケージ起動後に利用可能
 
 ## [変更履歴](./TriOrb-AMR-Package/History.md)
 
