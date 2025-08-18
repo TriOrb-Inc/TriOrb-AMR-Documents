@@ -1,6 +1,11 @@
 # TriOrb-ROS2-Types
 TriOrb AMRのROS2パッケージのためのInterface
 
+# Environment setup
+```bash
+sudo apt install libssl-dev
+```
+
 # Clone and install
 ```bash
 cd ~/

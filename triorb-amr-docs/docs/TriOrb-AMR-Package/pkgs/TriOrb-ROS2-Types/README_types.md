@@ -160,6 +160,26 @@ uint16[] x              # x array
 uint16[] y              # y array
 ```
 
+### triorb_slam_interface/msg/SlamStatus.msg
+```bash
+#==SLAMの実行状況==
+string map_name  # map name
+uint8 state      # mapping now, fix map... etc
+uint8 error      # not working, map load failed... etc
+
+#---slam operation status (bit flag)---
+# 0b00000001: mapping mode(0), fix map(1)
+# 0b00000010: lost(0), localize(1)
+# 0b00000100: processing save map 
+# 0b00001000: processing load map
+ 
+#---error state (bit flag)---
+# 0b00000001: slam is not working
+# 0b00000010: Never detected a known landmark
+# 0b00000100: save map failed
+# 0b00001000: load map failed (cannot find map)
+```
+
 ### triorb_slam_interface/msg/PointArrayStamped.msg
 ```bash
 #==point array（Header付）==
@@ -203,6 +223,20 @@ std_msgs/Header header         # header
 PoseDevStamped[] camera        # pose info
 ```
 
+# triorb_field_interface 
+## triorb_field_interface/msg 
+### triorb_field_interface/msg/Dummy.msg
+```bash
+uint8 dummy
+```
+
+# triorb_project_interface 
+## triorb_project_interface/msg 
+### triorb_project_interface/msg/Dummy.msg
+```bash
+uint8 dummy
+```
+
 # triorb_drive_interface 
 ## triorb_drive_interface/msg 
 ### triorb_drive_interface/msg/MotorParams.msg
@@ -224,6 +258,23 @@ uint8 stiffness         # machine stiffness selection (0-15)
 std_msgs/Header header      # Header
 TriorbVel3 vel_max          # 最大速度
 TriorbVel3 vel_min          # 最小速度
+```
+
+### triorb_drive_interface/msg/TriorbRunState.msg
+```bash
+#==自律移動pkgの状態通知トピック==
+TriorbPos3 goal_pos     # Latest goal position
+uint8 state             # Navigate state
+float32 cap_vxy         # Capability of velocity xy [m/s]
+float32 cap_vw          # Capability of velocity w  [rad/s]
+
+#---state values---
+# 0: stand by ( No topic subscribed or subscribe /drive/stop )
+# 1: navigating now
+# 2: pause ( Subscribe /drive/pause )
+# 3: success ( Success navigation. )
+# 4: failed ( Failed navigation. Mostly lost. )
+# 5: leave goal ( Success navigation. But, leave from goal_pos. )
 ```
 
 ### triorb_drive_interface/msg/TriorbSpeed.msg
@@ -301,6 +352,7 @@ float32 deg     # [deg]
 #==自律移動結果==
 std_msgs/Header header      # Header
 bool success                # Moving result (true: Compleat, false: Feild)
+uint8 info                  # Moving result info ( substitution NAVIGATE_RESULT )
 TriorbPos3 position         # Last robot position
 ```
 
@@ -308,6 +360,7 @@ TriorbPos3 position         # Last robot position
 ```bash
 #==自律移動結果==
 bool success                # Moving result (true: Compleat, false: Feild)
+uint8 info                  # Moving result info ( substitution NAVIGATE_RESULT )
 TriorbPos3 position         # Last robot position
 ```
 
@@ -356,6 +409,7 @@ float32 ty                  # Target error in Y-axis direction [±m].
 float32 tr                  # Target error in rotation [±deg].
 uint8 force                 # Target force level
 uint8 gain_no               # Number of gain type (not set:0, basic:1)
+uint32 timeout_ms           # Timeout (in ms) for the operation to complete (set:0, disable)
 uint8[] disable_camera_idx  # Camera Index to be excluded from robot pose estimation
 ```
 

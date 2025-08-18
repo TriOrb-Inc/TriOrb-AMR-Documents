@@ -748,6 +748,10 @@ deg: 4.468038082122803
 ## Package: triorb_navigation
 
 ### 更新履歴
+#### 1.2.1
+- 自律移動の状態通知用のトピックを追加
+ - 1秒周期で通知する
+
 #### 1.2.0
 - forceのモード追加. 
     - レーン維持モード追加
@@ -791,6 +795,24 @@ deg: 4.468038082122803
     - 速度指示モードになり、見た目上なめらかに動く
     - フィードバック制御フラグに関わらずフィードバック制御を行う
 
+### 自律移動状態(state変数)
+- 待機中(state=0)
+  - 自律移動指示を一度も受け取っていない
+  - /drive/stopトピックにより、自律移動が終了した
+- 自律移動中(state=1)
+  - 自律移動指示を受け移動中
+- 中断(state=2)
+  - /drive/pauseトピックにより、自律移動が中断した
+- 成功終了(state=3)
+  - 目標地点に到達した
+  - ロボットがゴール地点から離れると、state=5に遷移する
+- 失敗終了(state=4)
+  - 目標地点に到達できなかった
+  - force=0を除き、自己位置認識できないことが原因
+- 目標地点から離脱(state=5)
+  - 成功終了後、何らかの移動指示により目標地点から離れた
+
+
 ### Subscriber
 #### 自律移動を終了する
 - Topic: (prefix)/drive/stop
@@ -823,6 +845,13 @@ root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/stop std_msgs/msg/Empty
 #### 自律移動完結果
 - Topic: (prefix)/drive/result
 - Type: triorb_drive_interface/msg/TriorbRunResult
+- Usage: 
+```bash
+```
+
+#### 自律移動状態
+- Topic: (prefix)/drive/state
+- Type: triorb_drive_interface/msg/TriorbRunState
 - Usage: 
 ```bash
 ```
