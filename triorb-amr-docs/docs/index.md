@@ -28,6 +28,8 @@
 - (非公開) [GitHub / TriOrb-AMR-Package / sample](https://github.com/TriOrb-Inc/TriOrb-AMR-Package/tree/master/sample)
 
 ## [ロボットAPI (WebAPI)](https://triorb-inc.github.io/TriOrb-AMR-Robot-Controller/)
+- WebAPIを用いてTriOrbを動かす場合のインターフェース仕様
+- ※自律移動パッケージ起動後に利用可能
 
 ## [変更履歴](./TriOrb-AMR-Package/History.md)
 
