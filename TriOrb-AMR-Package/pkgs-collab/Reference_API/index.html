@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="https://triorb.co.jp/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.7e37652d.min.css">
       
         
         <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
@@ -355,7 +355,43 @@
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      各ロボットの入力（ジョイ、状態など）
+      コントローラー入力受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      各ロボットのバインド姿勢設定
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      各ロボットのバインド姿勢情報受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      各ロボットの最大速度受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      協調グループへの速度指示受信
     </span>
   </a>
   
@@ -377,45 +413,90 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#amr" class="md-nav__link">
     <span class="md-ellipsis">
-      実行速度の指令
+      AMR自身への速度指令
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      リフト動作の指令
+      ライフタイム設定
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#node" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      本Node情報をエラー監視モジュールに追加する
+      トルク制限値設定
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
-      エラーを発行する
+      バインド姿勢情報（親）
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
-      警告を発行する
+      バインド情報送信用タイマー
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wakeup" class="md-nav__link">
+    <span class="md-ellipsis">
+      協調グループの起動（Wakeup）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sleep" class="md-nav__link">
+    <span class="md-ellipsis">
+      協調グループの停止（Sleep）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      協調グループの速度指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      リフター動作指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      協調剛体の最大速度
     </span>
   </a>
   
@@ -442,7 +523,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       主な機能
     </span>
@@ -451,28 +532,64 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#subscriber_1" class="md-nav__link">
+  <a href="#vslam" class="md-nav__link">
     <span class="md-ellipsis">
-      Subscriber
+      VSLAM 地図状態
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Subscriber">
+    <nav class="md-nav" aria-label="VSLAM 地図状態">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
-      経路追従制御の開始命令
+      地図ファイルパスの送信
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
-      一時停止/再開/停止
+      地図ファイルパスの受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      地図ファイル変更通知の送信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      地図ファイル変更通知の受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      各ロボットの地図ファイルパス受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      各ロボットの地図変更通知受信
     </span>
   </a>
   
@@ -484,55 +601,256 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#publisher_1" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
-      Publisher
+      ロボット状態・姿勢
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Publisher">
+    <nav class="md-nav" aria-label="ロボット状態・姿勢">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
-      搬送完了通知
+      各ロボットのステータス受信
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
-      姿勢共有情報
+      各ロボットの姿勢受信
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#node_1" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
-      本Node情報をエラー監視モジュールに追加する
+      協調グループの姿勢受信
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     <span class="md-ellipsis">
-      エラーを発行する
+      協調グループの最大速度受信
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waypoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waypoint 管理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Waypoint 管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      地点記録リクエスト受信
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     <span class="md-ellipsis">
-      警告を発行する
+      地点記録失敗の通知
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      地点記録実行指示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      自律移動制御
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自律移動制御">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setpos" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetPos リクエスト受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setpos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetPos 実行指示（協調グループへ）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setpos_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetPos 実行指示（自身へ）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行結果受信（通常）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行結果受信（協調）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      協調グループの完了通知
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行状態制御（停止・一時停止・再開）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実行状態制御（停止・一時停止・再開）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行終了通知
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行一時停止・再開指示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      協調グループからの操作指示受信
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      パス追従初期化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パス追従初期化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      パス追従初期化の実行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      パス追従初期化の受信
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      フェールセーフ（通信断処理）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="フェールセーフ（通信断処理）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      最後の通信検知
     </span>
   </a>
   
@@ -559,7 +877,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_42" class="md-nav__link">
     <span class="md-ellipsis">
       主な機能
     </span>
@@ -568,7 +886,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#subscriber_2" class="md-nav__link">
+  <a href="#subscriber_1" class="md-nav__link">
     <span class="md-ellipsis">
       Subscriber
     </span>
@@ -578,7 +896,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vslam" class="md-nav__link">
+  <a href="#vslam_1" class="md-nav__link">
     <span class="md-ellipsis">
       VSLAMからの姿勢受信
     </span>
@@ -587,7 +905,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_43" class="md-nav__link">
     <span class="md-ellipsis">
       各ロボットの姿勢受信
     </span>
@@ -596,7 +914,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_44" class="md-nav__link">
     <span class="md-ellipsis">
       バインド姿勢情報受信
     </span>
@@ -610,7 +928,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#publisher_2" class="md-nav__link">
+  <a href="#publisher_1" class="md-nav__link">
     <span class="md-ellipsis">
       Publisher
     </span>
@@ -620,34 +938,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#node_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      本Node情報をエラー監視モジュールに追加する
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      エラーを発行する
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      警告を発行する
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vslam_1" class="md-nav__link">
+  <a href="#vslam_2" class="md-nav__link">
     <span class="md-ellipsis">
       VSLAMからの姿勢リパブリッシュ
     </span>
@@ -656,7 +947,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_45" class="md-nav__link">
     <span class="md-ellipsis">
       協調グループの姿勢リパブリッシュ
     </span>
@@ -680,7 +971,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_46" class="md-nav__link">
     <span class="md-ellipsis">
       協調グループの姿勢
     </span>
@@ -709,7 +1000,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_47" class="md-nav__link">
     <span class="md-ellipsis">
       主な機能
     </span>
@@ -718,7 +1009,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#subscriber_3" class="md-nav__link">
+  <a href="#subscriber_2" class="md-nav__link">
     <span class="md-ellipsis">
       Subscriber
     </span>
@@ -728,7 +1019,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_48" class="md-nav__link">
     <span class="md-ellipsis">
       協調搬送対象ロボットの状態購読
     </span>
@@ -742,7 +1033,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#publisher_3" class="md-nav__link">
+  <a href="#publisher_2" class="md-nav__link">
     <span class="md-ellipsis">
       Publisher
     </span>
@@ -752,7 +1043,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#node_3" class="md-nav__link">
+  <a href="#node" class="md-nav__link">
     <span class="md-ellipsis">
       本Node情報をエラー監視モジュールに追加する
     </span>
@@ -761,7 +1052,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_49" class="md-nav__link">
     <span class="md-ellipsis">
       エラーを発行する
     </span>
@@ -770,7 +1061,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_50" class="md-nav__link">
     <span class="md-ellipsis">
       警告を発行する
     </span>
@@ -942,7 +1233,43 @@
           <li class="md-nav__item">
   <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
-      各ロボットの入力（ジョイ、状態など）
+      コントローラー入力受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      各ロボットのバインド姿勢設定
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      各ロボットのバインド姿勢情報受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      各ロボットの最大速度受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      協調グループへの速度指示受信
     </span>
   </a>
   
@@ -964,45 +1291,90 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#amr" class="md-nav__link">
     <span class="md-ellipsis">
-      実行速度の指令
+      AMR自身への速度指令
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
-      リフト動作の指令
+      ライフタイム設定
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#node" class="md-nav__link">
+  <a href="#_8" class="md-nav__link">
     <span class="md-ellipsis">
-      本Node情報をエラー監視モジュールに追加する
+      トルク制限値設定
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     <span class="md-ellipsis">
-      エラーを発行する
+      バインド姿勢情報（親）
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     <span class="md-ellipsis">
-      警告を発行する
+      バインド情報送信用タイマー
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#wakeup" class="md-nav__link">
+    <span class="md-ellipsis">
+      協調グループの起動（Wakeup）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sleep" class="md-nav__link">
+    <span class="md-ellipsis">
+      協調グループの停止（Sleep）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      協調グループの速度指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      リフター動作指令
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      協調剛体の最大速度
     </span>
   </a>
   
@@ -1029,7 +1401,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     <span class="md-ellipsis">
       主な機能
     </span>
@@ -1038,28 +1410,64 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#subscriber_1" class="md-nav__link">
+  <a href="#vslam" class="md-nav__link">
     <span class="md-ellipsis">
-      Subscriber
+      VSLAM 地図状態
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Subscriber">
+    <nav class="md-nav" aria-label="VSLAM 地図状態">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     <span class="md-ellipsis">
-      経路追従制御の開始命令
+      地図ファイルパスの送信
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     <span class="md-ellipsis">
-      一時停止/再開/停止
+      地図ファイルパスの受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      地図ファイル変更通知の送信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      地図ファイル変更通知の受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      各ロボットの地図ファイルパス受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      各ロボットの地図変更通知受信
     </span>
   </a>
   
@@ -1071,55 +1479,256 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#publisher_1" class="md-nav__link">
+  <a href="#_21" class="md-nav__link">
     <span class="md-ellipsis">
-      Publisher
+      ロボット状態・姿勢
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Publisher">
+    <nav class="md-nav" aria-label="ロボット状態・姿勢">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_22" class="md-nav__link">
     <span class="md-ellipsis">
-      搬送完了通知
+      各ロボットのステータス受信
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_23" class="md-nav__link">
     <span class="md-ellipsis">
-      姿勢共有情報
+      各ロボットの姿勢受信
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#node_1" class="md-nav__link">
+  <a href="#_24" class="md-nav__link">
     <span class="md-ellipsis">
-      本Node情報をエラー監視モジュールに追加する
+      協調グループの姿勢受信
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_25" class="md-nav__link">
     <span class="md-ellipsis">
-      エラーを発行する
+      協調グループの最大速度受信
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#waypoint" class="md-nav__link">
+    <span class="md-ellipsis">
+      Waypoint 管理
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Waypoint 管理">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_26" class="md-nav__link">
+    <span class="md-ellipsis">
+      地点記録リクエスト受信
     </span>
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_27" class="md-nav__link">
     <span class="md-ellipsis">
-      警告を発行する
+      地点記録失敗の通知
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_28" class="md-nav__link">
+    <span class="md-ellipsis">
+      地点記録実行指示
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_29" class="md-nav__link">
+    <span class="md-ellipsis">
+      自律移動制御
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="自律移動制御">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#setpos" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetPos リクエスト受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setpos_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetPos 実行指示（協調グループへ）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#setpos_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      SetPos 実行指示（自身へ）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_30" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行結果受信（通常）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_31" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行結果受信（協調）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_32" class="md-nav__link">
+    <span class="md-ellipsis">
+      協調グループの完了通知
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_33" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行状態制御（停止・一時停止・再開）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="実行状態制御（停止・一時停止・再開）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_34" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行終了通知
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_35" class="md-nav__link">
+    <span class="md-ellipsis">
+      実行一時停止・再開指示
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_36" class="md-nav__link">
+    <span class="md-ellipsis">
+      協調グループからの操作指示受信
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_37" class="md-nav__link">
+    <span class="md-ellipsis">
+      パス追従初期化
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="パス追従初期化">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_38" class="md-nav__link">
+    <span class="md-ellipsis">
+      パス追従初期化の実行
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_39" class="md-nav__link">
+    <span class="md-ellipsis">
+      パス追従初期化の受信
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_40" class="md-nav__link">
+    <span class="md-ellipsis">
+      フェールセーフ（通信断処理）
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="フェールセーフ（通信断処理）">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_41" class="md-nav__link">
+    <span class="md-ellipsis">
+      最後の通信検知
     </span>
   </a>
   
@@ -1146,7 +1755,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_42" class="md-nav__link">
     <span class="md-ellipsis">
       主な機能
     </span>
@@ -1155,7 +1764,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#subscriber_2" class="md-nav__link">
+  <a href="#subscriber_1" class="md-nav__link">
     <span class="md-ellipsis">
       Subscriber
     </span>
@@ -1165,7 +1774,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#vslam" class="md-nav__link">
+  <a href="#vslam_1" class="md-nav__link">
     <span class="md-ellipsis">
       VSLAMからの姿勢受信
     </span>
@@ -1174,7 +1783,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_43" class="md-nav__link">
     <span class="md-ellipsis">
       各ロボットの姿勢受信
     </span>
@@ -1183,7 +1792,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_16" class="md-nav__link">
+  <a href="#_44" class="md-nav__link">
     <span class="md-ellipsis">
       バインド姿勢情報受信
     </span>
@@ -1197,7 +1806,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#publisher_2" class="md-nav__link">
+  <a href="#publisher_1" class="md-nav__link">
     <span class="md-ellipsis">
       Publisher
     </span>
@@ -1207,34 +1816,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#node_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      本Node情報をエラー監視モジュールに追加する
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_17" class="md-nav__link">
-    <span class="md-ellipsis">
-      エラーを発行する
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_18" class="md-nav__link">
-    <span class="md-ellipsis">
-      警告を発行する
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#vslam_1" class="md-nav__link">
+  <a href="#vslam_2" class="md-nav__link">
     <span class="md-ellipsis">
       VSLAMからの姿勢リパブリッシュ
     </span>
@@ -1243,7 +1825,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_19" class="md-nav__link">
+  <a href="#_45" class="md-nav__link">
     <span class="md-ellipsis">
       協調グループの姿勢リパブリッシュ
     </span>
@@ -1267,7 +1849,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_20" class="md-nav__link">
+  <a href="#_46" class="md-nav__link">
     <span class="md-ellipsis">
       協調グループの姿勢
     </span>
@@ -1296,7 +1878,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_21" class="md-nav__link">
+  <a href="#_47" class="md-nav__link">
     <span class="md-ellipsis">
       主な機能
     </span>
@@ -1305,7 +1887,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#subscriber_3" class="md-nav__link">
+  <a href="#subscriber_2" class="md-nav__link">
     <span class="md-ellipsis">
       Subscriber
     </span>
@@ -1315,7 +1897,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_22" class="md-nav__link">
+  <a href="#_48" class="md-nav__link">
     <span class="md-ellipsis">
       協調搬送対象ロボットの状態購読
     </span>
@@ -1329,7 +1911,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#publisher_3" class="md-nav__link">
+  <a href="#publisher_2" class="md-nav__link">
     <span class="md-ellipsis">
       Publisher
     </span>
@@ -1339,7 +1921,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#node_3" class="md-nav__link">
+  <a href="#node" class="md-nav__link">
     <span class="md-ellipsis">
       本Node情報をエラー監視モジュールに追加する
     </span>
@@ -1348,7 +1930,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_23" class="md-nav__link">
+  <a href="#_49" class="md-nav__link">
     <span class="md-ellipsis">
       エラーを発行する
     </span>
@@ -1357,7 +1939,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_24" class="md-nav__link">
+  <a href="#_50" class="md-nav__link">
     <span class="md-ellipsis">
       警告を発行する
     </span>
@@ -1402,167 +1984,394 @@
 </ul>
 <hr />
 <h3 id="subscriber">Subscriber</h3>
-<h4 id="_2">各ロボットの入力（ジョイ、状態など）</h4>
+<h4 id="_2">コントローラー入力受信</h4>
 <ul>
-<li>Topic: /collab/joy, /collab/sleep, /collab/wakeup</li>
-<li>Type: sensor_msgs::msg::Joy / std_msgs::msg::Empty</li>
+<li><strong>Topic:</strong> <code>/collab/joy</code>  </li>
+<li><strong>Type:</strong> <code>sensor_msgs::msg::Joy</code>  </li>
+<li><strong>QoS:</strong> <code>rclcpp::SensorDataQoS()</code>  </li>
+<li><strong>概要:</strong> 協調グループの手動操作用ジョイスティック入力を受信します。</li>
+</ul>
+<hr />
+<h4 id="_3">各ロボットのバインド姿勢設定</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/bc/collab/bind/set</code>  </li>
+<li><strong>Type:</strong> <code>triorb_collaboration_interface::msg::ParentBind</code>  </li>
+<li><strong>QoS:</strong> <code>rclcpp::ParametersQoS()</code>  </li>
+<li><strong>概要:</strong> 各ロボットに対して指定されたバインド姿勢を受信・適用します。</li>
+</ul>
+<hr />
+<h4 id="_4">各ロボットのバインド姿勢情報受信</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/bc/collab/bind/info</code>  </li>
+<li><strong>Type:</strong> <code>triorb_collaboration_interface::msg::ParentBind</code>  </li>
+<li><strong>QoS:</strong> <code>rclcpp::SensorDataQoS()</code>  </li>
+<li><strong>概要:</strong> 各ロボットから報告される現在のバインド姿勢情報を受信します。</li>
+</ul>
+<hr />
+<h4 id="_5">各ロボットの最大速度受信</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/bc/collab/max_vel</code>  </li>
+<li><strong>Type:</strong> <code>triorb_drive_interface::msg::RobotParams</code>  </li>
+<li><strong>QoS:</strong> <code>rclcpp::SensorDataQoS()</code>  </li>
+<li><strong>概要:</strong> 協調グループ内の各ロボットの最大速度制限パラメータを受信します。</li>
+</ul>
+<hr />
+<h4 id="_6">協調グループへの速度指示受信</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/bc/collab/run_vel</code>  </li>
+<li><strong>Type:</strong> <code>triorb_drive_interface::msg::TriorbRunVel3Stamped</code>  </li>
+<li><strong>QoS:</strong> <code>rclcpp::SensorDataQoS()</code>  </li>
+<li><strong>概要:</strong> 協調グループ向けに上位から与えられた速度指令を受信し、自律動作に反映します。</li>
 </ul>
 <h3 id="publisher">Publisher</h3>
-<h4 id="_3">実行速度の指令</h4>
+<h4 id="amr">AMR自身への速度指令</h4>
 <ul>
-<li>Topic: /collab/run_vel</li>
-<li>Type: geometry_msgs::msg::Twist</li>
+<li><strong>Topic:</strong> <code>/drive/run_vel</code>  </li>
+<li><strong>Type:</strong> <code>triorb_drive_interface::msg::TriorbRunVel3</code>  </li>
+<li><strong>QoS:</strong> <code>rclcpp::SensorDataQoS()</code>  </li>
+<li><strong>概要:</strong> 自身の移動速度（並進＋回転）を指示します。</li>
 </ul>
-<h4 id="_4">リフト動作の指令</h4>
+<hr />
+<h4 id="_7">ライフタイム設定</h4>
 <ul>
-<li>Topic: /collab/run_lifter</li>
-<li>Type: std_msgs::msg::String</li>
+<li><strong>Topic:</strong> <code>/drive/set_life_time</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::UInt16</code>  </li>
+<li><strong>QoS:</strong> <code>rclcpp::ParametersQoS()</code>  </li>
+<li><strong>概要:</strong> ノードの動作ライフタイム（タイムアウト）を設定します。</li>
 </ul>
-<h4 id="node">本Node情報をエラー監視モジュールに追加する</h4>
+<hr />
+<h4 id="_8">トルク制限値設定</h4>
 <ul>
-<li>Topic: /except_handl/node/add</li>
-<li>Type: std_msgs::msg::String</li>
+<li><strong>Topic:</strong> <code>/set/motor/torque</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::Float32</code>  </li>
+<li><strong>QoS:</strong> <code>rclcpp::ParametersQoS()</code>  </li>
+<li><strong>概要:</strong> モーターの最大トルク制限値を設定します。</li>
 </ul>
-<h4 id="_5">エラーを発行する</h4>
+<hr />
+<h4 id="_9">バインド姿勢情報（親）</h4>
 <ul>
-<li>Topic: /triorb/error/str/add</li>
-<li>Type: std_msgs::msg::String</li>
+<li><strong>Topic:</strong> <code>/collab/bind/info</code>  </li>
+<li><strong>Type:</strong> <code>triorb_collaboration_interface::msg::ParentBind</code>  </li>
+<li><strong>QoS:</strong> <code>rclcpp::SensorDataQoS()</code>  </li>
+<li><strong>概要:</strong> 自律搬送協調におけるバインド情報を定期送信します。</li>
 </ul>
-<h4 id="_6">警告を発行する</h4>
+<hr />
+<h4 id="_10">バインド情報送信用タイマー</h4>
 <ul>
-<li>Topic: /triorb/warn/str/add</li>
-<li>Type: std_msgs::msg::String</li>
+<li><strong>周期:</strong> 1000 ms  </li>
+<li><strong>処理関数:</strong> <code>DriveCollabNode::callback_info_timer</code>  </li>
+<li><strong>概要:</strong> <code>/collab/bind/info</code> を周期的に送信するためのタイマーです。</li>
+</ul>
+<hr />
+<h4 id="wakeup">協調グループの起動（Wakeup）</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/collab/wakeup</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::Empty</code>  </li>
+<li><strong>QoS:</strong> <code>rclcpp::ParametersQoS()</code>  </li>
+<li><strong>概要:</strong> 協調搬送グループに対する起動命令を送信します。</li>
+</ul>
+<hr />
+<h4 id="sleep">協調グループの停止（Sleep）</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/collab/sleep</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::Empty</code>  </li>
+<li><strong>QoS:</strong> <code>rclcpp::ParametersQoS()</code>  </li>
+<li><strong>概要:</strong> 協調搬送グループに対する停止命令を送信します。</li>
+</ul>
+<hr />
+<h4 id="_11">協調グループの速度指令</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/collab/run_vel</code>  </li>
+<li><strong>Type:</strong> <code>triorb_drive_interface::msg::TriorbRunVel3Stamped</code>  </li>
+<li><strong>QoS:</strong> <code>rclcpp::SensorDataQoS()</code>  </li>
+<li><strong>概要:</strong> 協調搬送グループ全体に対する移動速度を指示します。</li>
+</ul>
+<hr />
+<h4 id="_12">リフター動作指令</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/collab/run_lifter</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::String</code>  </li>
+<li><strong>QoS:</strong> <code>rclcpp::ParametersQoS()</code>  </li>
+<li><strong>概要:</strong> 協調グループに対してリフターの動作（上下など）を指示します。</li>
+</ul>
+<hr />
+<h4 id="_13">協調剛体の最大速度</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/collab/vel_max</code>  </li>
+<li><strong>Type:</strong> <code>triorb_drive_interface::msg::TriorbVel3</code>  </li>
+<li><strong>QoS:</strong> <code>rclcpp::SensorDataQoS()</code>  </li>
+<li><strong>概要:</strong> 協調構成体の最大移動速度を外部に通知します。</li>
 </ul>
 <h2 id="package-triorb_collab_navi">Package: triorb_collab_navi</h2>
 <p>このパッケージは、複数のAMRによる協調搬送中のナビゲーションを担当します。干渉を避けながら、各ロボットが協調して目的地まで搬送を行えるよう支援します。</p>
-<h3 id="_7">主な機能</h3>
+<h3 id="_14">主な機能</h3>
 <ul>
 <li>経路計画と経路追従</li>
 <li>衝突回避と速度調整</li>
 <li>複数ロボット間の同期ナビゲーション</li>
 </ul>
 <hr />
-<h3 id="subscriber_1">Subscriber</h3>
-<h4 id="_8">経路追従制御の開始命令</h4>
+<h3 id="vslam">VSLAM 地図状態</h3>
+<h4 id="_15">地図ファイルパスの送信</h4>
 <ul>
-<li>Topic: /drive/init_path_follow</li>
-<li>Type: std_msgs::msg::Empty</li>
+<li><strong>Topic:</strong> <code>/collab/run_slam/map_file_path</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::String</code>  </li>
+<li><strong>Direction:</strong> Publisher  </li>
+<li><strong>概要:</strong> 自ロボットの地図ファイルパスを協調グループへ通知します。</li>
 </ul>
-<h4 id="_9">一時停止/再開/停止</h4>
+<h4 id="_16">地図ファイルパスの受信</h4>
 <ul>
-<li>Topic: /drive/pause, /drive/resume, /drive/stop</li>
-<li>Type: std_msgs::msg::Empty</li>
+<li><strong>Topic:</strong> <code>/run_slam/map_file_path</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::String</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> 自身の地図ファイルパスを受信し、上記トピックへ再送します。</li>
 </ul>
-<h3 id="publisher_1">Publisher</h3>
-<h4 id="_10">搬送完了通知</h4>
+<h4 id="_17">地図ファイル変更通知の送信</h4>
 <ul>
-<li>Topic: /collab/drive/finish</li>
-<li>Type: std_msgs::msg::Empty</li>
+<li><strong>Topic:</strong> <code>/collab/run_slam/map_file_changed</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::String</code>  </li>
+<li><strong>Direction:</strong> Publisher  </li>
+<li><strong>概要:</strong> 地図ファイルの更新通知を協調グループへ送信します。</li>
 </ul>
-<h4 id="_11">姿勢共有情報</h4>
+<h4 id="_18">地図ファイル変更通知の受信</h4>
 <ul>
-<li>Topic: /collab/group_pose</li>
-<li>Type: geometry_msgs::msg::PoseArray</li>
+<li><strong>Topic:</strong> <code>/run_slam/map_file_changed</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::String</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> 更新通知を受信し、協調トピックへ中継します。</li>
 </ul>
-<h4 id="node_1">本Node情報をエラー監視モジュールに追加する</h4>
+<h4 id="_19">各ロボットの地図ファイルパス受信</h4>
 <ul>
-<li>Topic: /except_handl/node/add</li>
-<li>Type: std_msgs::msg::String</li>
+<li><strong>Topic:</strong> <code>/bc/collab/run_slam/map_file_path</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::String</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> 他ロボットの地図パスを受信します。</li>
 </ul>
-<h4 id="_12">エラーを発行する</h4>
+<h4 id="_20">各ロボットの地図変更通知受信</h4>
 <ul>
-<li>Topic: /triorb/error/str/add</li>
-<li>Type: std_msgs::msg::String</li>
+<li><strong>Topic:</strong> <code>/bc/collab/run_slam/map_file_changed</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::String</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> 他ロボットの地図更新通知を受信します。</li>
 </ul>
-<h4 id="_13">警告を発行する</h4>
+<hr />
+<h3 id="_21">ロボット状態・姿勢</h3>
+<h4 id="_22">各ロボットのステータス受信</h4>
 <ul>
-<li>Topic: /triorb/warn/str/add</li>
-<li>Type: std_msgs::msg::String</li>
+<li><strong>Topic:</strong> <code>/bc/collab/robot/status</code>  </li>
+<li><strong>Type:</strong> <code>triorb_static_interface::msg::RobotStatus</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> 各ロボットの状態（通信・エラー等）を受信します。</li>
 </ul>
+<h4 id="_23">各ロボットの姿勢受信</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/bc/collab/robot_pose</code>  </li>
+<li><strong>Type:</strong> <code>triorb_drive_interface::msg::TriorbPos3Stamped</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> 各ロボットの位置・姿勢情報を受信します。</li>
+</ul>
+<h4 id="_24">協調グループの姿勢受信</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/collab/group_pose</code>  </li>
+<li><strong>Type:</strong> <code>triorb_drive_interface::msg::TriorbPos3Stamped</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> 協調体全体の代表姿勢を受信します。</li>
+</ul>
+<h4 id="_25">協調グループの最大速度受信</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/collab/vel_max</code>  </li>
+<li><strong>Type:</strong> <code>triorb_drive_interface::msg::TriorbVel3</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> グループ全体における速度上限を受信します。</li>
+</ul>
+<hr />
+<h3 id="waypoint">Waypoint 管理</h3>
+<h4 id="_26">地点記録リクエスト受信</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/bc/collab/save_waypoint_hash</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::String</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> 地点記録のためのハッシュデータを受信します。</li>
+</ul>
+<h4 id="_27">地点記録失敗の通知</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/collab/save_waypoint_failed</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::String</code>  </li>
+<li><strong>Direction:</strong> Publisher  </li>
+<li><strong>概要:</strong> 地点の保存が失敗した場合の通知です。</li>
+</ul>
+<h4 id="_28">地点記録実行指示</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/drive/save_waypoint</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::String</code>  </li>
+<li><strong>Direction:</strong> Publisher  </li>
+<li><strong>概要:</strong> 実際に地点を保存するための実行指示を送信します。</li>
+</ul>
+<hr />
+<h3 id="_29">自律移動制御</h3>
+<h4 id="setpos">SetPos リクエスト受信</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/bc/collab/request/set_pos</code>  </li>
+<li><strong>Type:</strong> <code>triorb_drive_interface::msg::TriorbSetPos3</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> 指定位置への移動を要求されます。</li>
+</ul>
+<h4 id="setpos_1">SetPos 実行指示（協調グループへ）</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/collab/drive/set_pos</code>  </li>
+<li><strong>Type:</strong> <code>triorb_drive_interface::msg::TriorbSetPos3</code>  </li>
+<li><strong>Direction:</strong> Publisher  </li>
+<li><strong>概要:</strong> 協調搬送時にグループへ位置指定を共有します。</li>
+</ul>
+<h4 id="setpos_2">SetPos 実行指示（自身へ）</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/drive/set_pos</code>  </li>
+<li><strong>Type:</strong> <code>triorb_drive_interface::msg::TriorbSetPos3</code>  </li>
+<li><strong>Direction:</strong> Publisher  </li>
+<li><strong>概要:</strong> 自ノードの制御モジュールへ移動指示を行います。</li>
+</ul>
+<h4 id="_30">実行結果受信（通常）</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/bc/drive/result</code>  </li>
+<li><strong>Type:</strong> <code>triorb_drive_interface::msg::TriorbRunResult</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> 単体実行の結果を受信します。</li>
+</ul>
+<h4 id="_31">実行結果受信（協調）</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/bc/collab/drive/result</code>  </li>
+<li><strong>Type:</strong> <code>triorb_drive_interface::msg::TriorbRunResultStamped</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> 協調制御での結果を受信します。</li>
+</ul>
+<h4 id="_32">協調グループの完了通知</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/collab/drive/completed</code>  </li>
+<li><strong>Type:</strong> <code>triorb_drive_interface::msg::TriorbRunResultStamped</code>  </li>
+<li><strong>Direction:</strong> Publisher  </li>
+<li><strong>概要:</strong> 結果完了を他ノードと共有します。</li>
+</ul>
+<hr />
+<h3 id="_33">実行状態制御（停止・一時停止・再開）</h3>
+<h4 id="_34">実行終了通知</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/drive/finish</code>, <code>/collab/drive/finish</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::Bool</code>  </li>
+<li><strong>Direction:</strong> Publisher  </li>
+<li><strong>概要:</strong> 実行の終了を明示的に通知します。</li>
+</ul>
+<h4 id="_35">実行一時停止・再開指示</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/drive/pause</code>, <code>/drive/resume</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::Empty</code>  </li>
+<li><strong>Direction:</strong> Publisher  </li>
+<li><strong>概要:</strong> 処理を一時停止または再開します。</li>
+</ul>
+<h4 id="_36">協調グループからの操作指示受信</h4>
+<ul>
+<li><strong>Topic:</strong>  </li>
+<li><code>/bc/collab/drive/stop</code>  </li>
+<li><code>/bc/collab/drive/pause</code>  </li>
+<li><code>/bc/collab/drive/resume</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::Empty</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> グループからの停止／一時停止／再開命令を受信します。</li>
+</ul>
+<hr />
+<h3 id="_37">パス追従初期化</h3>
+<h4 id="_38">パス追従初期化の実行</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/drive/init_path_follow</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::Empty</code>  </li>
+<li><strong>Direction:</strong> Publisher  </li>
+<li><strong>概要:</strong> 自律移動時のパス追従を初期化します。</li>
+</ul>
+<h4 id="_39">パス追従初期化の受信</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/bc/collab/drive/init_path_follow</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::Empty</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> 協調グループからの初期化指令を受信します。</li>
+</ul>
+<hr />
+<h3 id="_40">フェールセーフ（通信断処理）</h3>
+<h4 id="_41">最後の通信検知</h4>
+<ul>
+<li><strong>Topic:</strong> <code>/bc/collab/last_will</code>  </li>
+<li><strong>Type:</strong> <code>std_msgs::msg::String</code>  </li>
+<li><strong>Direction:</strong> Subscriber  </li>
+<li><strong>概要:</strong> 通信断（Last Will）を受信し、強制停止を実施します。</li>
+</ul>
+<hr />
 <h2 id="package-triorb_collab_pose">Package: triorb_collab_pose</h2>
 <p>このパッケージは、拡張カルマンフィルターなどのセンサフュージョン技術を用いて、AMR自身および協調搬送中の荷物の中心位置を推定します。</p>
-<h3 id="_14">主な機能</h3>
+<h3 id="_42">主な機能</h3>
 <ul>
 <li>AMRの自己位置推定</li>
 <li>複数ロボットからの情報統合</li>
 <li>荷物中心位置の推定と共有</li>
 </ul>
 <hr />
-<h3 id="subscriber_2">Subscriber</h3>
-<h4 id="vslam">VSLAMからの姿勢受信</h4>
+<h3 id="subscriber_1">Subscriber</h3>
+<h4 id="vslam_1">VSLAMからの姿勢受信</h4>
 <ul>
 <li>Topic: <code>/vslam/robot_pose</code></li>
 <li>Type: <code>triorb_drive_interface::msg::TriorbPos3</code></li>
 </ul>
-<h4 id="_15">各ロボットの姿勢受信</h4>
+<h4 id="_43">各ロボットの姿勢受信</h4>
 <ul>
 <li>Topic: <code>/bc/collab/robot_pose</code></li>
 <li>Type: <code>triorb_drive_interface::msg::TriorbPos3Stamped</code></li>
 </ul>
-<h4 id="_16">バインド姿勢情報受信</h4>
+<h4 id="_44">バインド姿勢情報受信</h4>
 <ul>
 <li>Topic: <code>/bc/collab/bind/info</code></li>
 <li>Type: <code>triorb_collaboration_interface::msg::ParentBind</code></li>
 </ul>
-<h3 id="publisher_2">Publisher</h3>
-<h4 id="node_2">本Node情報をエラー監視モジュールに追加する</h4>
-<ul>
-<li>Topic: <code>/except_handl/node/add</code></li>
-<li>Type: <code>std_msgs::msg::String</code></li>
-</ul>
-<h4 id="_17">エラーを発行する</h4>
-<ul>
-<li>Topic: <code>/triorb/error/str/add</code></li>
-<li>Type: <code>std_msgs::msg::String</code></li>
-</ul>
-<h4 id="_18">警告を発行する</h4>
-<ul>
-<li>Topic: <code>/triorb/warn/str/add</code></li>
-<li>Type: <code>std_msgs::msg::String</code></li>
-</ul>
-<h4 id="vslam_1">VSLAMからの姿勢リパブリッシュ</h4>
+<h3 id="publisher_1">Publisher</h3>
+<h4 id="vslam_2">VSLAMからの姿勢リパブリッシュ</h4>
 <ul>
 <li>Topic: <code>/collab/robot_pose</code></li>
 <li>Type: <code>triorb_drive_interface::msg::TriorbPos3Stamped</code></li>
 </ul>
-<h4 id="_19">協調グループの姿勢リパブリッシュ</h4>
+<h4 id="_45">協調グループの姿勢リパブリッシュ</h4>
 <ul>
 <li>Topic: <code>/collab/group_pose</code></li>
 <li>Type: <code>triorb_drive_interface::msg::TriorbPos3Stamped</code></li>
 </ul>
 <h3 id="transformbroadcaster">TransformBroadcaster</h3>
-<h4 id="_20">協調グループの姿勢</h4>
+<h4 id="_46">協調グループの姿勢</h4>
 <ul>
 <li>Child Frame ID: <code>${グループ名}</code></li>
 <li>Parent Frame ID: <code>triorb_map</code></li>
 </ul>
 <h2 id="package-triorb_collab_lift">Package: triorb_collab_lift</h2>
 <p>このパッケージは、複数のAMR（自律移動ロボット）による協調リフト制御を提供します。ロボット間の動作を同期させることで、荷物を安定かつ安全に持ち上げることができます。</p>
-<h3 id="_21">主な機能</h3>
+<h3 id="_47">主な機能</h3>
 <ul>
 <li>複数ロボットのリフト動作の同期制御</li>
 <li>荷物持ち上げ時の姿勢安定化</li>
 <li>リフト完了時の信号通知</li>
 </ul>
 <hr />
-<h3 id="subscriber_3">Subscriber</h3>
-<h4 id="_22">協調搬送対象ロボットの状態購読</h4>
+<h3 id="subscriber_2">Subscriber</h3>
+<h4 id="_48">協調搬送対象ロボットの状態購読</h4>
 <ul>
 <li>Topic: /collab/robot/status</li>
 <li>Type: std_msgs::msg::String</li>
 </ul>
-<h3 id="publisher_3">Publisher</h3>
-<h4 id="node_3">本Node情報をエラー監視モジュールに追加する</h4>
+<h3 id="publisher_2">Publisher</h3>
+<h4 id="node">本Node情報をエラー監視モジュールに追加する</h4>
 <ul>
 <li>Topic: /except_handl/node/add</li>
 <li>Type: std_msgs::msg::String</li>
 </ul>
-<h4 id="_23">エラーを発行する</h4>
+<h4 id="_49">エラーを発行する</h4>
 <ul>
 <li>Topic: /triorb/error/str/add</li>
 <li>Type: std_msgs::msg::String</li>
 </ul>
-<h4 id="_24">警告を発行する</h4>
+<h4 id="_50">警告を発行する</h4>
 <ul>
 <li>Topic: /triorb/warn/str/add</li>
 <li>Type: std_msgs::msg::String</li>
@@ -1619,10 +2428,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
         <script src="../../../javascripts/lunr.stemmer.support.js"></script>
       

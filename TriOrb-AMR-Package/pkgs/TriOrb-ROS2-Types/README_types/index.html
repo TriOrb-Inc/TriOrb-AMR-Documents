@@ -16,7 +16,7 @@
       
       
       <link rel="icon" href="https://triorb.co.jp/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.17">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.7e37652d.min.css">
       
         
         <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
@@ -554,6 +554,24 @@ std_msgs/Header header  # header
 uint16[] x              # x array
 uint16[] y              # y array
 </code></pre>
+<h3 id="triorb_slam_interfacemsgslamstatusmsg">triorb_slam_interface/msg/SlamStatus.msg</h3>
+<pre><code class="language-bash">#==SLAMの実行状況==
+string map_name  # map name
+uint8 state      # mapping now, fix map... etc
+uint8 error      # not working, map load failed... etc
+
+#---slam operation status (bit flag)---
+# 0b00000001: mapping mode(0), fix map(1)
+# 0b00000010: lost(0), localize(1)
+# 0b00000100: processing save map 
+# 0b00001000: processing load map
+
+#---error state (bit flag)---
+# 0b00000001: slam is not working
+# 0b00000010: Never detected a known landmark
+# 0b00000100: save map failed
+# 0b00001000: load map failed (cannot find map)
+</code></pre>
 <h3 id="triorb_slam_interfacemsgpointarraystampedmsg">triorb_slam_interface/msg/PointArrayStamped.msg</h3>
 <pre><code class="language-bash">#==point array（Header付）==
 std_msgs/Header header              # header
@@ -585,6 +603,16 @@ bool valid                          # valid
 std_msgs/Header header         # header
 PoseDevStamped[] camera        # pose info
 </code></pre>
+<h1 id="triorb_field_interface">triorb_field_interface</h1>
+<h2 id="triorb_field_interfacemsg">triorb_field_interface/msg</h2>
+<h3 id="triorb_field_interfacemsgdummymsg">triorb_field_interface/msg/Dummy.msg</h3>
+<pre><code class="language-bash">uint8 dummy
+</code></pre>
+<h1 id="triorb_project_interface">triorb_project_interface</h1>
+<h2 id="triorb_project_interfacemsg">triorb_project_interface/msg</h2>
+<h3 id="triorb_project_interfacemsgdummymsg">triorb_project_interface/msg/Dummy.msg</h3>
+<pre><code class="language-bash">uint8 dummy
+</code></pre>
 <h1 id="triorb_drive_interface">triorb_drive_interface</h1>
 <h2 id="triorb_drive_interfacemsg">triorb_drive_interface/msg</h2>
 <h3 id="triorb_drive_interfacemsgmotorparamsmsg">triorb_drive_interface/msg/MotorParams.msg</h3>
@@ -603,6 +631,21 @@ uint8 stiffness         # machine stiffness selection (0-15)
 std_msgs/Header header      # Header
 TriorbVel3 vel_max          # 最大速度
 TriorbVel3 vel_min          # 最小速度
+</code></pre>
+<h3 id="triorb_drive_interfacemsgtriorbrunstatemsg">triorb_drive_interface/msg/TriorbRunState.msg</h3>
+<pre><code class="language-bash">#==自律移動pkgの状態通知トピック==
+TriorbPos3 goal_pos     # Latest goal position
+uint8 state             # Navigate state
+float32 cap_vxy         # Capability of velocity xy [m/s]
+float32 cap_vw          # Capability of velocity w  [rad/s]
+
+#---state values---
+# 0: stand by ( No topic subscribed or subscribe /drive/stop )
+# 1: navigating now
+# 2: pause ( Subscribe /drive/pause )
+# 3: success ( Success navigation. )
+# 4: failed ( Failed navigation. Mostly lost. )
+# 5: leave goal ( Success navigation. But, leave from goal_pos. )
 </code></pre>
 <h3 id="triorb_drive_interfacemsgtriorbspeedmsg">triorb_drive_interface/msg/TriorbSpeed.msg</h3>
 <pre><code class="language-bash">#==加減速時間・速度の設定==
@@ -664,11 +707,13 @@ float32 deg     # [deg]
 <pre><code class="language-bash">#==自律移動結果==
 std_msgs/Header header      # Header
 bool success                # Moving result (true: Compleat, false: Feild)
+uint8 info                  # Moving result info ( substitution NAVIGATE_RESULT )
 TriorbPos3 position         # Last robot position
 </code></pre>
 <h3 id="triorb_drive_interfacemsgtriorbrunresultmsg">triorb_drive_interface/msg/TriorbRunResult.msg</h3>
 <pre><code class="language-bash">#==自律移動結果==
 bool success                # Moving result (true: Compleat, false: Feild)
+uint8 info                  # Moving result info ( substitution NAVIGATE_RESULT )
 TriorbPos3 position         # Last robot position
 </code></pre>
 <h3 id="triorb_drive_interfacemsgpathsettingmsg">triorb_drive_interface/msg/PathSetting.msg</h3>
@@ -707,6 +752,7 @@ float32 ty                  # Target error in Y-axis direction [±m].
 float32 tr                  # Target error in rotation [±deg].
 uint8 force                 # Target force level
 uint8 gain_no               # Number of gain type (not set:0, basic:1)
+uint32 timeout_ms           # Timeout (in ms) for the operation to complete (set:0, disable)
 uint8[] disable_camera_idx  # Camera Index to be excluded from robot pose estimation
 </code></pre>
 <h3 id="triorb_drive_interfacemsgtriorbpos3stampedmsg">triorb_drive_interface/msg/TriorbPos3Stamped.msg</h3>
@@ -1009,10 +1055,10 @@ triorb_collaboration_interface/ParentBind[] robots  # Robot informations
     
     
       
-      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections"], "search": "../../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.92b07e13.min.js"></script>
       
         <script src="../../../../javascripts/lunr.stemmer.support.js"></script>
       
