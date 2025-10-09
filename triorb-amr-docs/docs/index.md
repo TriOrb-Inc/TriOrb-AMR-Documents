@@ -6,6 +6,10 @@
 - [Version 1.0.0～1.2.0からのアップグレード手順](https://triorb.notion.site/v-e-r-1-1-1-23bb60b1eaf380858d49ccd2112f0d0b)
 - [【B500P100-U-06】TriOrb BASE取扱説明書.pdf](https://app.box.com/shared/static/hlpgcnet2bru1wy5u55dlvvhxgojwsb9.pdf)
 - [【BAMR01-05】TriOrbBASE自律移動パッケージ_ユーザーズマニュアル.pdf](https://app.box.com/shared/static/bj8ywg2j4v8wezqwebeu6ve6ek59ee0q.pdf)
+### In English
+- [【B500P100-U-06】TriOrb BASE Operating Manual.pdf](https://app.box.com/shared/static/y9hivu1vo2vqmhzfv75tv0fesc6g8zxt.pdf)
+- [【BAMR01-05】TriOrb BASE Autonomous Navigation Package - User Manual.pdf](https://app.box.com/shared/static/263saiuom9qpl27r9s4g6gwcckkzv4xu.pdf)
+
 
 ## [自律移動API (ROS2)](./TriOrb-AMR-Package/pkgs/Reference_API.md)
 - ROS2を用いてTriOrbを動かす場合のTopic等インターフェース仕様
