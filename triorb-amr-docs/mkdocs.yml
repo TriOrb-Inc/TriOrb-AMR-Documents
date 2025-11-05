@@ -32,7 +32,14 @@ nav:
   - ROS2 Interface: TriOrb-AMR-Package/pkgs/TriOrb-ROS2-Types/README_types.md
   - 制御ECU通信ライブラリ: triorb-core/README.md
   - サンプルプログラム: TriOrb-AMR-Package/sample/README.md
+  - WebAPI: https://triorb-inc.github.io/TriOrb-AMR-Robot-Controller/
   - 変更履歴: TriOrb-AMR-Package/History.md
+
+# バージョン切り替え設定（mike使用）
+extra:
+  version:
+    provider: mike
+    default: latest
 
 # スタイルシート
 extra_css:
@@ -44,6 +51,8 @@ copyright: Copyright © 2025 TriOrb Inc.
 # Plugins
 plugins:
   - search
+  - mike:
+      canonical_version: latest
 
 # JavaScriptの設定
 extra_javascript:

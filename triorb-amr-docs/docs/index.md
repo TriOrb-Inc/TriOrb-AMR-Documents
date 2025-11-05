@@ -1,7 +1,7 @@
 # TriOrb BASE 開発ガイド v1.2.2 (2025-8-18)
 
 ## 製品ドキュメント
-- [TriOrb Setup Guide](https://triorb.notion.site/22cb60b1eaf381a29e70e14a4d7021b5)
+- [TriOrb Start-up Guide](https://triorb.notion.site/TriOrb-Start-up-Guide-ver-1-2-2-Rev-2-29bb60b1eaf381e5831ce92f008fa9df)
 - [Version 1.0.0からのアップグレード手順](https://app.box.com/shared/static/duvgm7ft3d153x2y8ljcgcrqk6o6fjsy.pdf)
 - [Version 1.0.0～1.2.0からのアップグレード手順](https://triorb.notion.site/v-e-r-1-1-1-23bb60b1eaf380858d49ccd2112f0d0b)
 - [【B500P100-U-06】TriOrb BASE取扱説明書.pdf](https://app.box.com/shared/static/hlpgcnet2bru1wy5u55dlvvhxgojwsb9.pdf)
@@ -40,3 +40,8 @@
 ---
 
 APIに関する質問や不具合報告はGitHubの[Issue](https://github.com/TriOrb-Inc/TriOrb-AMR-Documents/issues)または[Discussions](https://github.com/TriOrb-Inc/TriOrb-AMR-Documents/discussions)を利用してください。
+
+## Appendix
+- [TriOrb markers generator](https://triorb-inc.github.io/TriOrb_Marker_Generator/)
+    - [特徴点補助シート生成の設定例](https://triorb-inc.github.io/TriOrb_Marker_Generator/?width=210&height=297&polygons=50)
+    - [マーカーシート生成の設定例](https://triorb-inc.github.io/TriOrb_Marker_Generator/?dict=april_36h11&size=100&id=0&num=2&width=210&height=297&polygons=0&marker-layout=v-stack)

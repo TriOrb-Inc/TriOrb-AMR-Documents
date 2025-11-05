@@ -27,15 +27,28 @@ python3 gather_md.py
 ### Markdownからビルド
 ```bash
 source .venv/bin/activate
+pip install -r mkdocs_requirements.txt
 cd triorb-amr-docs
 mkdocs build
 ```
 
-### GitHub Pagesにデプロイ
+### バージョン付きデプロイ（mike）
 ```bash
 source .venv/bin/activate
+pip install -r mkdocs_requirements.txt
 cd triorb-amr-docs
-mkdocs gh-deploy
+mike deploy v1.2.2 # 手元でビルドするだけ
+mike deploy --push --branch gh-pages v1.2.2 # 単に個別バージョンをデプロイ
+mike deploy --push --branch gh-pages --update-aliases v1.2.2 latest # latestに紐づけてデプロイ
+mike set-default --push --branch gh-pages latest
+
+# 公開済みバージョンを確認
+mike list
+```
+
+`mike deploy` 時に `--title` オプションを指定すると、バージョン切り替えメニューに表示する名称を任意に設定できます。
+
+> `--branch` にはデプロイ先を指定します（GitHub Pages を利用する場合は通常 `gh-pages`）。初回のみ `mike set-default` で既定バージョンを設定してください。
 ```
 
 ## Tips
@@ -56,6 +69,7 @@ mkdocs new triorb-amr-docs
 ```bash
 source .venv/bin/activate
 cd triorb-amr-docs
-mkdocs serve -a 0.0.0.0:18000
+#mkdocs serve -a 0.0.0.0:18000
+mike serve -a 0.0.0.0:18000
 # ブラウザで http://${HOST_IP}:18000 を開く
 ```
