@@ -1,4 +1,4 @@
-# 協調移動 API Reference v1.2.0 (2025-07-17)
+# 協調移動 API Reference v1.2.3 (2025-07-17)
 
 ## Package: triorb_drive_collaboration
 
@@ -380,9 +380,28 @@
 - Topic: /collab/robot/status
 - Type: std_msgs::msg::String
 
+#### 協調リフト制御指令購読(本ロボットへ動作指示)
+- Topic: /bc/collab/run_lifter
+- Type: std_msgs::msg::String
+- Message: "up", "down", "stop"
+
+#### 協調リフト結果購読(各ロボットからの結果受信)
+- Topic: /bc/collab/lifter/result
+- Type: std_msgs::msg::String
+
 ### Publisher
 #### 本Node情報をエラー監視モジュールに追加する
 - Topic: /except_handl/node/add
+- Type: std_msgs::msg::String
+
+pub_run_lifter_
+#### 協調リフト制御指令発行(本ロボットへ動作指示)
+- Topic: /drive/run_lifter
+- Type: std_msgs::msg::String
+- Message: "up", "down", "stop"
+
+#### 協調リフト結果発行(全ロボットのリフト操作結果を配信)
+- Topic: /collab/lifter/result
 - Type: std_msgs::msg::String
 
 #### エラーを発行する

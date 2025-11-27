@@ -1,9 +1,9 @@
-# TriOrb BASE 開発ガイド v1.2.2 (2025-8-18)
+# TriOrb BASE 開発ガイド v1.2.3 (2025-11-28)
 
 ## 製品ドキュメント
 - [TriOrb Start-up Guide](https://triorb.notion.site/TriOrb-Start-up-Guide-ver-1-2-2-Rev-2-29bb60b1eaf381e5831ce92f008fa9df)
 - [Version 1.0.0からのアップグレード手順](https://app.box.com/shared/static/duvgm7ft3d153x2y8ljcgcrqk6o6fjsy.pdf)
-- [Version 1.0.0～1.2.0からのアップグレード手順](https://triorb.notion.site/v-e-r-1-1-1-23bb60b1eaf380858d49ccd2112f0d0b)
+- [Version 1.0.0～1.2.2からのアップグレード手順](https://triorb.notion.site/v-e-r-1-1-1-23bb60b1eaf380858d49ccd2112f0d0b)
 - [【B500P100-U-06】TriOrb BASE取扱説明書.pdf](https://app.box.com/shared/static/hlpgcnet2bru1wy5u55dlvvhxgojwsb9.pdf)
 - [【BAMR01-05】TriOrbBASE自律移動パッケージ_ユーザーズマニュアル.pdf](https://app.box.com/shared/static/bj8ywg2j4v8wezqwebeu6ve6ek59ee0q.pdf)
 ### In English
