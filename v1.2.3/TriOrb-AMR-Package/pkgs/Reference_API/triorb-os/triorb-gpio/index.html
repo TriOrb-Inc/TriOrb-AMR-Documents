@@ -16,14 +16,14 @@
     
     
       
-        <title>自律移動 API Reference v1.2.3 (2025-11-28) - TriOrb BASE 開発ガイド</title>
+        <title>triorb_gpio - TriOrb BASE 開発ガイド</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,9 +42,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#api-reference-v123-2025-11-28" class="md-skip">
+        <a href="#triorb_gpio" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="TriOrb BASE 開発ガイド" class="md-header__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
+    <a href="../../../../.." title="TriOrb BASE 開発ガイド" class="md-header__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
       
   <img src="https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png" alt="logo">
 
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              自律移動 API Reference v1.2.3 (2025-11-28)
+              triorb_gpio
             
           </span>
         </div>
@@ -213,7 +213,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="TriOrb BASE 開発ガイド" class="md-nav__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
+    <a href="../../../../.." title="TriOrb BASE 開発ガイド" class="md-nav__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
       
   <img src="https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png" alt="logo">
 
@@ -230,7 +230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   
@@ -252,7 +252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="./" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -274,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pkgs-collab/Reference_API/" class="md-nav__link">
+      <a href="../../../../pkgs-collab/Reference_API/" class="md-nav__link">
         
   
   
@@ -296,7 +296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TriOrb-ROS2-Types/README_types/" class="md-nav__link">
+      <a href="../../../TriOrb-ROS2-Types/README_types/" class="md-nav__link">
         
   
   
@@ -318,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../triorb-core/" class="md-nav__link">
+      <a href="../../../../../triorb-core/" class="md-nav__link">
         
   
   
@@ -340,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sample/" class="md-nav__link">
+      <a href="../../../../sample/" class="md-nav__link">
         
   
   
@@ -384,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../History/" class="md-nav__link">
+      <a href="../../../../History/" class="md-nav__link">
         
   
   
@@ -426,11 +426,95 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#package-triorb_gpio" class="md-nav__link">
     <span class="md-ellipsis">
-      目次
+      Package: triorb_gpio
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_gpio">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      主な機能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpio" class="md-nav__link">
+    <span class="md-ellipsis">
+      利用可能なGPIOピン
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      設定の保存
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subscriber" class="md-nav__link">
+    <span class="md-ellipsis">
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#gpio_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIOの入出力モード設定（複数）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpio_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIOの出力値設定（複数）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#publisher" class="md-nav__link">
+    <span class="md-ellipsis">
+      Publisher
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gpiohilo" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPIOのHi/Lo値（複数）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -450,45 +534,51 @@
 
 
 
-<h1 id="api-reference-v123-2025-11-28">自律移動 API Reference v1.2.3 (2025-11-28)</h1>
-<p>各パッケージのリファレンスをセクションごとに分割した構成です。
-ページ上部の目次、もしくはサイドバーの階層ナビゲーションから目的のパッケージに移動できます。</p>
-<h2 id="_1">目次</h2>
+<h1 id="triorb_gpio">triorb_gpio</h1>
+<p><strong>パス</strong>: <code>triorb_os/triorb_gpio</code><br />
+<strong>説明</strong>: GPIOを通じてAMRの外部デバイス（ランプ・ブザー・トリガ等）を制御するためのノードを提供するパッケージです。</p>
+<h2 id="package-triorb_gpio">Package: triorb_gpio</h2>
+<p>このパッケージは、AMRに搭載されたGPIOインターフェースを通じて、外部デバイス（例：ランプ、ブザー、リレーなど）を制御するノードを提供します。</p>
+<h3 id="_1">主な機能</h3>
 <ul>
-<li><a href="stella-vslam-ros/">stella_vslam_ros</a></li>
-<li><a href="stella-vslam-ros/stella-vslam-ros/">stella_vslam_ros</a></li>
-<li><a href="tagslam-ws/">tagslam_ws</a></li>
-<li><a href="tagslam-ws/triorb-tagslam-manager/">triorb_tagslam_manager</a></li>
-<li><a href="triorb-drive/">triorb_drive</a></li>
-<li><a href="triorb-drive/triorb-dead-reckoning/">triorb_dead_reckoning</a></li>
-<li><a href="triorb-drive/triorb-drive-pico/">triorb_drive_pico</a></li>
-<li><a href="triorb-drive/triorb-drive-vector/">triorb_drive_vector</a></li>
-<li><a href="triorb-drive/triorb-navigation/">triorb_navigation</a></li>
-<li><a href="triorb-drive/triorb-navigation-manager/">triorb_navigation_manager</a></li>
-<li><a href="triorb-drive/triorb-safe-run-cpp/">triorb_safe_run_cpp</a></li>
-<li><a href="triorb-drive/triorb-vslam-tf/">triorb_vslam_tf</a></li>
-<li><a href="triorb-fleet/">triorb_fleet</a></li>
-<li><a href="triorb-fleet/triorb-rmf-bridge/">triorb_rmf_bridge</a></li>
-<li><a href="triorb-os/">triorb_os</a></li>
-<li><a href="triorb-os/triorb-gpio/">triorb_gpio</a></li>
-<li><a href="triorb-os/triorb-host-info/">triorb_host_info</a></li>
-<li><a href="triorb-os/triorb-socket/">triorb_socket</a></li>
-<li><a href="triorb-sensor/">triorb_sensor</a></li>
-<li><a href="triorb-sensor/sick-flexi-soft/">sick_flexi_soft</a></li>
-<li><a href="triorb-sensor/sick-safetyscanners2/">sick_safetyscanners2</a></li>
-<li><a href="triorb-sensor/sick-safetyscanners2-interfaces/">sick_safetyscanners2_interfaces</a></li>
-<li><a href="triorb-sensor/sick-safetyscanners-base/">sick_safetyscanners_base</a></li>
-<li><a href="triorb-sensor/triorb-sick-plc-wrapper/">triorb_sick_plc_wrapper</a></li>
-<li><a href="triorb-sensor/triorb-sls-wrapper/">triorb_sls_wrapper</a></li>
-<li><a href="triorb-sensor/triorb-camera-argus/">triorb_camera_argus</a></li>
-<li><a href="triorb-sensor/triorb-camera-capture/">triorb_camera_capture</a></li>
-<li><a href="triorb-sensor/triorb-gamepad/">triorb_gamepad</a></li>
-<li><a href="triorb-sensor/triorb-sls-drive-manager/">triorb_sls_drive_manager</a></li>
-<li><a href="triorb-sensor/triorb-streaming-image-cpp/">triorb_streaming_image_cpp</a></li>
-<li><a href="triorb-sensor/triorb-streaming-images/">triorb_streaming_images</a></li>
-<li><a href="triorb-service/">triorb_service</a></li>
-<li><a href="triorb-service/triorb-beacon/">triorb_beacon</a></li>
-<li><a href="triorb-service/triorb-except-handl/">triorb_except_handl</a></li>
+<li>外部信号出力（ブザー、警告灯）</li>
+<li>GPIOトリガによる動作制御</li>
+<li>エラー通知とログ</li>
+</ul>
+<h3 id="gpio">利用可能なGPIOピン</h3>
+<pre><code>7,11,12,13,15,16,18,22,29,31,32,33,35,36,37,38,40
+</code></pre>
+<h3 id="_2">設定の保存</h3>
+<p>GPIOの入出力モード設定は、<code>/params/gpio.yaml</code>ファイルに保存されます。出力ピンのHi/Lo状態は保存されません。</p>
+<hr />
+<h3 id="subscriber">Subscriber</h3>
+<h4 id="gpio_1">GPIOの入出力モード設定（複数）</h4>
+<ul>
+<li>Topic: /gpios/set_direction</li>
+<li>Type: std_msgs/msg/Int8MultiArray</li>
+<li>Values: -2: NotSet, -1: None, 0: Output, 1: Input</li>
+<li>Usage: </li>
+</ul>
+<pre><code class="language-bash">## pin 37を非管理、pin 38を入力、pin 40を出力、その他は変更なしに設定
+root@agx-orin-XXXX:/ws# ros2 topic pub -1 /gpios/set_direction std_msgs/msg/Int8MultiArray 'data: [-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-1,1,0]'
+</code></pre>
+<h4 id="gpio_2">GPIOの出力値設定（複数）</h4>
+<ul>
+<li>Topic: /gpios/set_value</li>
+<li>Type: std_msgs/msg/Int8MultiArray</li>
+<li>Values: -2: NotSet, -1: NotSet, 0: Low, 1: High</li>
+<li>Usage:</li>
+</ul>
+<pre><code class="language-bash">## pin 40をHighに、その他は変更なし
+root@agx-orin-XXXX:/ws# ros2 topic pub -1 /gpios/set_value std_msgs/msg/Int8MultiArray 'data: [-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-2,-1,-1,1]'
+</code></pre>
+<h4 id="publisher">Publisher</h4>
+<h4 id="gpiohilo">GPIOのHi/Lo値（複数）</h4>
+<ul>
+<li>Topic: /gpios/value</li>
+<li>Type: std_msgs/msg/Int8MultiArray</li>
+<li>Values: -1: None, 0: Low, 1: High</li>
+<li>Frequency: 1Hz + エッジトリガ</li>
 </ul>
 
 
@@ -542,18 +632,18 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections"], "search": "../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
-        <script src="../../../javascripts/lunr.stemmer.support.js"></script>
+        <script src="../../../../../javascripts/lunr.stemmer.support.js"></script>
       
-        <script src="../../../javascripts/tinyseg.js"></script>
+        <script src="../../../../../javascripts/tinyseg.js"></script>
       
-        <script src="../../../javascripts/lunr.ja.js"></script>
+        <script src="../../../../../javascripts/lunr.ja.js"></script>
       
-        <script src="../../../javascripts/mkdocs_search_config.js"></script>
+        <script src="../../../../../javascripts/mkdocs_search_config.js"></script>
       
     
   </body>

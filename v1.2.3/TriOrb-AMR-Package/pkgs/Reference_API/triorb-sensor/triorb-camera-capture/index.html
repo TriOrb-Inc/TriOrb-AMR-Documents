@@ -16,14 +16,14 @@
     
     
       
-        <title>自律移動 API Reference v1.2.3 (2025-11-28) - TriOrb BASE 開発ガイド</title>
+        <title>triorb_camera_capture - TriOrb BASE 開発ガイド</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,9 +42,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#api-reference-v123-2025-11-28" class="md-skip">
+        <a href="#triorb_camera_capture" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="TriOrb BASE 開発ガイド" class="md-header__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
+    <a href="../../../../.." title="TriOrb BASE 開発ガイド" class="md-header__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
       
   <img src="https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png" alt="logo">
 
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              自律移動 API Reference v1.2.3 (2025-11-28)
+              triorb_camera_capture
             
           </span>
         </div>
@@ -213,7 +213,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="TriOrb BASE 開発ガイド" class="md-nav__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
+    <a href="../../../../.." title="TriOrb BASE 開発ガイド" class="md-nav__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
       
   <img src="https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png" alt="logo">
 
@@ -230,7 +230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   
@@ -252,7 +252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="./" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -274,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pkgs-collab/Reference_API/" class="md-nav__link">
+      <a href="../../../../pkgs-collab/Reference_API/" class="md-nav__link">
         
   
   
@@ -296,7 +296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TriOrb-ROS2-Types/README_types/" class="md-nav__link">
+      <a href="../../../TriOrb-ROS2-Types/README_types/" class="md-nav__link">
         
   
   
@@ -318,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../triorb-core/" class="md-nav__link">
+      <a href="../../../../../triorb-core/" class="md-nav__link">
         
   
   
@@ -340,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sample/" class="md-nav__link">
+      <a href="../../../../sample/" class="md-nav__link">
         
   
   
@@ -384,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../History/" class="md-nav__link">
+      <a href="../../../../History/" class="md-nav__link">
         
   
   
@@ -426,11 +426,128 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#package-triorb_camera_capture" class="md-nav__link">
     <span class="md-ellipsis">
-      目次
+      Package: triorb_camera_capture
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Package: triorb_camera_capture">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      主な機能
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新履歴
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更新履歴">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#120" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#110" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.1.0
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camera_capture-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      camera_capture API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="camera_capture API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      カメラ画像受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      カメラ情報受信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      カメラデバイス一覧取得
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      カメラデバイスの起動・終了
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#camera-format" class="md-nav__link">
+    <span class="md-ellipsis">
+      camera format
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-multiple-camera" class="md-nav__link">
+    <span class="md-ellipsis">
+      use multiple camera
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -450,45 +567,106 @@
 
 
 
-<h1 id="api-reference-v123-2025-11-28">自律移動 API Reference v1.2.3 (2025-11-28)</h1>
-<p>各パッケージのリファレンスをセクションごとに分割した構成です。
-ページ上部の目次、もしくはサイドバーの階層ナビゲーションから目的のパッケージに移動できます。</p>
-<h2 id="_1">目次</h2>
+<h1 id="triorb_camera_capture">triorb_camera_capture</h1>
+<p><strong>パス</strong>: <code>triorb_sensor/triorb_camera_capture</code><br />
+<strong>説明</strong>: カメラキャプチャーのためのパッケージ</p>
+<h2 id="package-triorb_camera_capture">Package: triorb_camera_capture</h2>
+<p>カメラ映像をキャプチャし, Image型のtopicとしてpublishするためのパッケージ. </p>
+<h3 id="_1">主な機能</h3>
 <ul>
-<li><a href="stella-vslam-ros/">stella_vslam_ros</a></li>
-<li><a href="stella-vslam-ros/stella-vslam-ros/">stella_vslam_ros</a></li>
-<li><a href="tagslam-ws/">tagslam_ws</a></li>
-<li><a href="tagslam-ws/triorb-tagslam-manager/">triorb_tagslam_manager</a></li>
-<li><a href="triorb-drive/">triorb_drive</a></li>
-<li><a href="triorb-drive/triorb-dead-reckoning/">triorb_dead_reckoning</a></li>
-<li><a href="triorb-drive/triorb-drive-pico/">triorb_drive_pico</a></li>
-<li><a href="triorb-drive/triorb-drive-vector/">triorb_drive_vector</a></li>
-<li><a href="triorb-drive/triorb-navigation/">triorb_navigation</a></li>
-<li><a href="triorb-drive/triorb-navigation-manager/">triorb_navigation_manager</a></li>
-<li><a href="triorb-drive/triorb-safe-run-cpp/">triorb_safe_run_cpp</a></li>
-<li><a href="triorb-drive/triorb-vslam-tf/">triorb_vslam_tf</a></li>
-<li><a href="triorb-fleet/">triorb_fleet</a></li>
-<li><a href="triorb-fleet/triorb-rmf-bridge/">triorb_rmf_bridge</a></li>
-<li><a href="triorb-os/">triorb_os</a></li>
-<li><a href="triorb-os/triorb-gpio/">triorb_gpio</a></li>
-<li><a href="triorb-os/triorb-host-info/">triorb_host_info</a></li>
-<li><a href="triorb-os/triorb-socket/">triorb_socket</a></li>
-<li><a href="triorb-sensor/">triorb_sensor</a></li>
-<li><a href="triorb-sensor/sick-flexi-soft/">sick_flexi_soft</a></li>
-<li><a href="triorb-sensor/sick-safetyscanners2/">sick_safetyscanners2</a></li>
-<li><a href="triorb-sensor/sick-safetyscanners2-interfaces/">sick_safetyscanners2_interfaces</a></li>
-<li><a href="triorb-sensor/sick-safetyscanners-base/">sick_safetyscanners_base</a></li>
-<li><a href="triorb-sensor/triorb-sick-plc-wrapper/">triorb_sick_plc_wrapper</a></li>
-<li><a href="triorb-sensor/triorb-sls-wrapper/">triorb_sls_wrapper</a></li>
-<li><a href="triorb-sensor/triorb-camera-argus/">triorb_camera_argus</a></li>
-<li><a href="triorb-sensor/triorb-camera-capture/">triorb_camera_capture</a></li>
-<li><a href="triorb-sensor/triorb-gamepad/">triorb_gamepad</a></li>
-<li><a href="triorb-sensor/triorb-sls-drive-manager/">triorb_sls_drive_manager</a></li>
-<li><a href="triorb-sensor/triorb-streaming-image-cpp/">triorb_streaming_image_cpp</a></li>
-<li><a href="triorb-sensor/triorb-streaming-images/">triorb_streaming_images</a></li>
-<li><a href="triorb-service/">triorb_service</a></li>
-<li><a href="triorb-service/triorb-beacon/">triorb_beacon</a></li>
-<li><a href="triorb-service/triorb-except-handl/">triorb_except_handl</a></li>
+<li>ioctlによるカメラ映像の取得</li>
+<li>画像の平均輝度が一定範囲に収まるように露光・ゲインの調整</li>
+</ul>
+<h3 id="_2">更新履歴</h3>
+<h4 id="120">1.2.0</h4>
+<ul>
+<li>カメラ状態を通知するtopic追加</li>
+<li>エラー・ワーニング履歴の通知部分を追加</li>
+<li>起動時にUSBカメラが1つでも存在していない場合, プログラムが停止するバグ修正</li>
+</ul>
+<h4 id="110">1.1.0</h4>
+<ul>
+<li>画像のENQUEUEをtimer_callbackの最後に全カメラ同時に行うように変更</li>
+<li>gainを設定可能</li>
+<li>gain, exposureを設定時にauto_exposureをオフにするように変更</li>
+</ul>
+<h3 id="camera_capture-api">camera_capture API</h3>
+<h4 id="_3">カメラ画像受信</h4>
+<ul>
+<li>Topic：(prefix)/camera(0-N) # 末尾の整数はカメラのID</li>
+<li>Node：(prefix)_camera_capture</li>
+<li>Type：sensor_msgs/Image</li>
+<li>Frequency：最大1/0.02 Hz</li>
+<li>Usage：</li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 topic info /camera0; ros2 topic hz /camera0
+Type: sensor_msgs/msg/Image
+Publisher count: 1
+Subscription count: 0
+average rate: 9.537
+        min: 0.072s max: 0.240s std dev: 0.04572s window: 13
+...
+average rate: 10.766
+        min: 0.064s max: 0.240s std dev: 0.02494s window: 266
+</code></pre>
+<h4 id="_4">カメラ情報受信</h4>
+<ul>
+<li>Topic：(prefix)/camera(0-N)_device # 末尾の整数はカメラのID</li>
+<li>Node：(prefix)_camera_capture</li>
+<li>Type：triorb_sensor_interface/msg/CameraDevice</li>
+<li>Usage：</li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 topic echo /camera0_device
+header:
+  stamp:
+    sec: 1753408673
+    nanosec: 447031540
+  frame_id: cam0
+device: /dev/video-csi0
+topic: /camera0
+id: cam0
+state: sleep
+rotation: 0
+exposure: 0
+gamma: 0.0
+timer: 0.30000001192092896
+</code></pre>
+<h4 id="_5">カメラデバイス一覧取得</h4>
+<ul>
+<li>Topic：(prefix)/get/camera/state</li>
+<li>Node：(prefix)_camera_capture</li>
+<li>Type：triorb_sensor_interface/srv/CameraDevice</li>
+<li>Usage：</li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 service call /get/camera/state triorb_sensor_interface/srv/CameraDevice
+...
+response:
+triorb_sensor_interface.srv.CameraDevice_Response(result=[triorb_sensor_interface.msg.CameraDevice(device='/dev/video0', topic='/camera0', id='cam0', state='awake', rotation=0, exposure=800, gamma=1.0, timer=0.02), ...])
+</code></pre>
+<h4 id="_6">カメラデバイスの起動・終了</h4>
+<ul>
+<li>Topic：(prefix)/set/camera/state</li>
+<li>Node：(prefix)_camera_capture</li>
+<li>Type：triorb_sensor_interface/srv/CameraCapture</li>
+<li>Usage：</li>
+</ul>
+<pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 service call /set/camera/state triorb_sensor_interface/srv/CameraCapture '{request: [{device: /dev/video0, topic: /camera0, id: camera0, state: wakeup, rotation: 0, exposure: 500, gamma: 1.0, timer: 0.1}, {device: /dev/video2, topic: /camera1, id: camera1, state: wakeup, rotation: 0, exposure: 500, gamma: 1.0, timer: 0.1}]}'
+...
+response:
+triorb_sensor_interface.srv.CameraCamture_Response(result=['success','success'])
+</code></pre>
+<h3 id="camera-format">camera format</h3>
+<ul>
+<li>width  1600</li>
+<li>height 1300</li>
+<li>pixel format GREY (gray scale 8bit)</li>
+</ul>
+<p>If you want use other formats, change following variables.
+- width, height in cap_cam.cpp (for width and height)
+- V4L2_PIX_FMT_GREY in CameraCapture.cpp (for pixel format)</p>
+<h3 id="use-multiple-camera">use multiple camera</h3>
+<ul>
+<li>see launch/multi_camera_launch.xml</li>
 </ul>
 
 
@@ -542,18 +720,18 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections"], "search": "../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
-        <script src="../../../javascripts/lunr.stemmer.support.js"></script>
+        <script src="../../../../../javascripts/lunr.stemmer.support.js"></script>
       
-        <script src="../../../javascripts/tinyseg.js"></script>
+        <script src="../../../../../javascripts/tinyseg.js"></script>
       
-        <script src="../../../javascripts/lunr.ja.js"></script>
+        <script src="../../../../../javascripts/lunr.ja.js"></script>
       
-        <script src="../../../javascripts/mkdocs_search_config.js"></script>
+        <script src="../../../../../javascripts/mkdocs_search_config.js"></script>
       
     
   </body>

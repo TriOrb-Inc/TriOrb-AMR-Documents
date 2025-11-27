@@ -16,14 +16,14 @@
     
     
       
-        <title>自律移動 API Reference v1.2.3 (2025-11-28) - TriOrb BASE 開発ガイド</title>
+        <title>triorb_safe_run_cpp - TriOrb BASE 開発ガイド</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -42,9 +42,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#api-reference-v123-2025-11-28" class="md-skip">
+        <a href="#triorb_safe_run_cpp" class="md-skip">
           Skip to content
         </a>
       
@@ -90,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="TriOrb BASE 開発ガイド" class="md-header__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
+    <a href="../../../../.." title="TriOrb BASE 開発ガイド" class="md-header__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
       
   <img src="https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png" alt="logo">
 
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              自律移動 API Reference v1.2.3 (2025-11-28)
+              triorb_safe_run_cpp
             
           </span>
         </div>
@@ -213,7 +213,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="TriOrb BASE 開発ガイド" class="md-nav__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
+    <a href="../../../../.." title="TriOrb BASE 開発ガイド" class="md-nav__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
       
   <img src="https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png" alt="logo">
 
@@ -230,7 +230,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   
@@ -252,7 +252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="./" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   
@@ -274,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pkgs-collab/Reference_API/" class="md-nav__link">
+      <a href="../../../../pkgs-collab/Reference_API/" class="md-nav__link">
         
   
   
@@ -296,7 +296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../TriOrb-ROS2-Types/README_types/" class="md-nav__link">
+      <a href="../../../TriOrb-ROS2-Types/README_types/" class="md-nav__link">
         
   
   
@@ -318,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../triorb-core/" class="md-nav__link">
+      <a href="../../../../../triorb-core/" class="md-nav__link">
         
   
   
@@ -340,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../sample/" class="md-nav__link">
+      <a href="../../../../sample/" class="md-nav__link">
         
   
   
@@ -384,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../History/" class="md-nav__link">
+      <a href="../../../../History/" class="md-nav__link">
         
   
   
@@ -426,11 +426,71 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#triorb_safe_run_cpp_1" class="md-nav__link">
     <span class="md-ellipsis">
-      目次
+      triorb_safe_run_cpp
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="triorb_safe_run_cpp">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node interface
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#building" class="md-nav__link">
+    <span class="md-ellipsis">
+      Building
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#running" class="md-nav__link">
+    <span class="md-ellipsis">
+      Running
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notes-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      Notes / Best practices
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -450,46 +510,119 @@
 
 
 
-<h1 id="api-reference-v123-2025-11-28">自律移動 API Reference v1.2.3 (2025-11-28)</h1>
-<p>各パッケージのリファレンスをセクションごとに分割した構成です。
-ページ上部の目次、もしくはサイドバーの階層ナビゲーションから目的のパッケージに移動できます。</p>
-<h2 id="_1">目次</h2>
+<h1 id="triorb_safe_run_cpp">triorb_safe_run_cpp</h1>
+<p><strong>パス</strong>: <code>triorb_drive/triorb_safe_run_cpp</code><br />
+<strong>説明</strong>: C++ implementation of the TriOrb safe run velocity filter.</p>
+<h2 id="triorb_safe_run_cpp_1">triorb_safe_run_cpp</h2>
+<p>C++ implementation of TriOrb's safe run-velocity filter node. The node synchronizes SICK point cloud streams, builds a lightweight occupancy map, and publishes safer <code>/drive/run_vel</code> commands derived from <code>/safe_drive/run_vel</code> by means of a potential-field based repulsive force model.</p>
+<h3 id="node-interface">Node interface</h3>
+<table>
+<thead>
+<tr>
+<th>Direction</th>
+<th>Topic</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subscribe</td>
+<td><code>/&lt;prefix&gt;/sick/point2d/right</code> (configurable)</td>
+<td><code>sensor_msgs/msg/PointCloud</code></td>
+<td>Synchronized via ApproximateTime. <code>point2d_topics</code> can list two or more streams.</td>
+</tr>
+<tr>
+<td>Subscribe</td>
+<td><code>/&lt;prefix&gt;/sick/point2d/left</code> (configurable)</td>
+<td><code>sensor_msgs/msg/PointCloud</code></td>
+<td>Same as above; add entries in config to change topics.</td>
+</tr>
+<tr>
+<td>Subscribe</td>
+<td><code>/&lt;prefix&gt;/safe_drive/run_vel</code></td>
+<td><code>triorb_drive_interface/msg/TriorbRunVel3</code></td>
+<td>Raw velocity command to be filtered.</td>
+</tr>
+<tr>
+<td>Publish</td>
+<td><code>/&lt;prefix&gt;/drive/run_vel</code></td>
+<td><code>triorb_drive_interface/msg/TriorbRunVel3</code></td>
+<td>Safe velocity command after potential-field filtering.</td>
+</tr>
+<tr>
+<td>Publish</td>
+<td><code>/&lt;prefix&gt;/drive/set_life_time</code></td>
+<td><code>std_msgs/msg/UInt16</code></td>
+<td>Optional watchdog lifetime (currently throttled).</td>
+</tr>
+<tr>
+<td>Publish</td>
+<td><code>/&lt;prefix&gt;/triorb_safe_run/debug/image/compressed</code></td>
+<td><code>sensor_msgs/msg/CompressedImage</code></td>
+<td>Enabled when <code>enable_image_pub=true</code>; shows occupancy &amp; vectors.</td>
+</tr>
+<tr>
+<td>Publish</td>
+<td><code>/&lt;prefix&gt;/except_handl/node/add</code> etc.</td>
+<td><code>std_msgs/msg/String</code></td>
+<td>Registration and diagnostic topics inherited from Python node.</td>
+</tr>
+<tr>
+<td>Service</td>
+<td><code>/&lt;prefix&gt;/triorb_safe_run/set_config</code></td>
+<td><code>triorb_static_interface/srv/SetString</code></td>
+<td>Pass a JSON string (first element of <code>request[]</code>) to replace the runtime configuration.</td>
+</tr>
+<tr>
+<td>Service</td>
+<td><code>/&lt;prefix&gt;/triorb_safe_run/get_config</code></td>
+<td><code>triorb_static_interface/srv/GetString</code></td>
+<td>Returns the current configuration as JSON text in <code>result</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Prefix depends on <code>ROS_PREFIX</code> env var (same mechanic as Python版) to allow namespace scoping.</p>
+<h3 id="repository-layout">Repository layout</h3>
 <ul>
-<li><a href="stella-vslam-ros/">stella_vslam_ros</a></li>
-<li><a href="stella-vslam-ros/stella-vslam-ros/">stella_vslam_ros</a></li>
-<li><a href="tagslam-ws/">tagslam_ws</a></li>
-<li><a href="tagslam-ws/triorb-tagslam-manager/">triorb_tagslam_manager</a></li>
-<li><a href="triorb-drive/">triorb_drive</a></li>
-<li><a href="triorb-drive/triorb-dead-reckoning/">triorb_dead_reckoning</a></li>
-<li><a href="triorb-drive/triorb-drive-pico/">triorb_drive_pico</a></li>
-<li><a href="triorb-drive/triorb-drive-vector/">triorb_drive_vector</a></li>
-<li><a href="triorb-drive/triorb-navigation/">triorb_navigation</a></li>
-<li><a href="triorb-drive/triorb-navigation-manager/">triorb_navigation_manager</a></li>
-<li><a href="triorb-drive/triorb-safe-run-cpp/">triorb_safe_run_cpp</a></li>
-<li><a href="triorb-drive/triorb-vslam-tf/">triorb_vslam_tf</a></li>
-<li><a href="triorb-fleet/">triorb_fleet</a></li>
-<li><a href="triorb-fleet/triorb-rmf-bridge/">triorb_rmf_bridge</a></li>
-<li><a href="triorb-os/">triorb_os</a></li>
-<li><a href="triorb-os/triorb-gpio/">triorb_gpio</a></li>
-<li><a href="triorb-os/triorb-host-info/">triorb_host_info</a></li>
-<li><a href="triorb-os/triorb-socket/">triorb_socket</a></li>
-<li><a href="triorb-sensor/">triorb_sensor</a></li>
-<li><a href="triorb-sensor/sick-flexi-soft/">sick_flexi_soft</a></li>
-<li><a href="triorb-sensor/sick-safetyscanners2/">sick_safetyscanners2</a></li>
-<li><a href="triorb-sensor/sick-safetyscanners2-interfaces/">sick_safetyscanners2_interfaces</a></li>
-<li><a href="triorb-sensor/sick-safetyscanners-base/">sick_safetyscanners_base</a></li>
-<li><a href="triorb-sensor/triorb-sick-plc-wrapper/">triorb_sick_plc_wrapper</a></li>
-<li><a href="triorb-sensor/triorb-sls-wrapper/">triorb_sls_wrapper</a></li>
-<li><a href="triorb-sensor/triorb-camera-argus/">triorb_camera_argus</a></li>
-<li><a href="triorb-sensor/triorb-camera-capture/">triorb_camera_capture</a></li>
-<li><a href="triorb-sensor/triorb-gamepad/">triorb_gamepad</a></li>
-<li><a href="triorb-sensor/triorb-sls-drive-manager/">triorb_sls_drive_manager</a></li>
-<li><a href="triorb-sensor/triorb-streaming-image-cpp/">triorb_streaming_image_cpp</a></li>
-<li><a href="triorb-sensor/triorb-streaming-images/">triorb_streaming_images</a></li>
-<li><a href="triorb-service/">triorb_service</a></li>
-<li><a href="triorb-service/triorb-beacon/">triorb_beacon</a></li>
-<li><a href="triorb-service/triorb-except-handl/">triorb_except_handl</a></li>
+<li><code>include/triorb_safe_run_cpp/</code> – public headers (<code>safe_run_node.hpp</code>).</li>
+<li><code>src/</code> – node implementation (<code>safe_run_node.cpp</code>).</li>
+<li><code>config/</code> – sample parameter files (copy <code>sample_config.json</code> and adjust per robot).</li>
+<li><code>launch/</code> – placeholder for future launch files.</li>
 </ul>
+<h3 id="key-features">Key features</h3>
+<ul>
+<li>ApproximateTime synchronized <code>sensor_msgs::msg::PointCloud</code> subscribers.</li>
+<li>Occupancy map persistence with optional decay (<code>map_decay</code>).</li>
+<li>Angle-weighted potential forces with velocity bias (<code>velocity_bias</code>) to keep repulsion even when vehicle speeds are low.</li>
+<li>Safety controller that blends filtered velocity commands and republishes <code>/drive/run_vel</code>.</li>
+<li>Optional debug compressed image publisher (<code>enable_image_pub</code>).</li>
+</ul>
+<h3 id="building">Building</h3>
+<pre><code class="language-bash">colcon build --packages-select triorb_safe_run_cpp
+source install/setup.bash
+</code></pre>
+<h3 id="running">Running</h3>
+<pre><code class="language-bash">ros2 run triorb_safe_run_cpp safe_run_cpp_node --ros-args -p config_file:=/path/to/your_config.json
+##ros2 run triorb_safe_run_cpp safe_run_cpp_node --ros-args -p config_file:=/ws/pkgs/triorb_drive/triorb_safe_run_cpp/config/sample_config.json
+</code></pre>
+<p>Common parameters (see <code>config/sample_config.json</code> for full list):
+- <code>point2d_topics</code>: array of SICK point cloud topics.
+- <code>point2d_topics_csv</code>: same as上記だがカンマ区切り文字列で指定したいときに使用 (<code>topic_a,topic_b,...</code>)。
+- <code>anker_points</code>: footprint vertices used for potential anchor calculations (mm units).
+- <code>anker_points_csv</code>: <code>x0,y0,x1,y1,...</code> 形式でアンカーポイントを一括指定。
+- <code>force_coeff_linear</code>, <code>watch_angle_coeff</code>, <code>velocity_bias</code>: tune repulsive force behavior.
+- <code>map_decay</code>: 0.0–1.0 blend factor to retain past obstacles.
+- <code>ctrl_ms</code>, <code>vel_decay_coeff</code>, <code>vel_filter_weight</code>: control loop cadence and smoothing.</p>
+<h3 id="notes-best-practices">Notes / Best practices</h3>
+<ol>
+<li>Ensure all <code>point2d_topics</code> publishers are available before launching; the node waits but exits if none are provided in the config.</li>
+<li>Disable <code>map_decay</code> (set to 0) if you require instantaneous obstacle clearing; otherwise a small decay (e.g., 0.4) stabilizes noisy scans.</li>
+<li><code>watch_angle_coeff</code> compresses or widens the effective FOV of repulsion; smaller values help catch side obstacles.</li>
+<li>When tuning, start with <code>velocity_bias = 0.0</code> and increase only if you need residual repulsion when nearly stopped.</li>
+<li>For visualization, set <code>enable_image_pub=true</code> and inspect <code>/triorb_safe_run/debug/image/compressed</code>.</li>
+</ol>
+<p>Contributions: please keep the README/Agent files updated as parameters or behavior change.</p>
 
 
 
@@ -542,18 +675,18 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "../../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections"], "search": "../../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
-        <script src="../../../javascripts/lunr.stemmer.support.js"></script>
+        <script src="../../../../../javascripts/lunr.stemmer.support.js"></script>
       
-        <script src="../../../javascripts/tinyseg.js"></script>
+        <script src="../../../../../javascripts/tinyseg.js"></script>
       
-        <script src="../../../javascripts/lunr.ja.js"></script>
+        <script src="../../../../../javascripts/lunr.ja.js"></script>
       
-        <script src="../../../javascripts/mkdocs_search_config.js"></script>
+        <script src="../../../../../javascripts/mkdocs_search_config.js"></script>
       
     
   </body>
