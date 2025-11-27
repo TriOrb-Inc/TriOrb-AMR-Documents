@@ -1,4 +1,4 @@
-# TriOrb BASE 開発ガイド v1.2.3 (2025-11-28)
+# **Preview** TriOrb BASE 開発ガイド v1.2.3 (2025-11-28)
 
 ## 製品ドキュメント
 - [TriOrb Start-up Guide](https://triorb.notion.site/TriOrb-Start-up-Guide-ver-1-2-2-Rev-2-29bb60b1eaf381e5831ce92f008fa9df)

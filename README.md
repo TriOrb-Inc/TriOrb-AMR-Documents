@@ -15,7 +15,7 @@ bash -c 'cd submodules/TriOrb-AMR-Package && git checkout master && git pull && 
 ```
 ## 自律移動パッケージのAPIリファレンス生成
 ```bash
-bash -c 'cd submodules/TriOrb-AMR-Package && sh dev/generate_document.sh'
+bash -c 'cd submodules/TriOrb-AMR-Package && sh dev/generate_document.sh ${VERSION} ${DATE}'
 ```
 
 ## 最新パッケージから*.mdと*.ipynbを収集

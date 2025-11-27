@@ -232,7 +232,7 @@ If you want use other formats, change following variables.
 
 
 
-## triorb_gamepad
+## Package: triorb_gamepad
 
 ### 概要
 TriOrb AMR を市販/専用ゲームパッドから安全に操作する ROS 2 ノードを提供するパッケージです。`/dev/input/js*` を監視して対応デバイスを自動検出し、JSON で定義されたボタン/スティック割り当てに従って走行・リフタ・非常停止などのコマンドを生成します。ノード名やトピック名は `ROS_PREFIX` 環境変数を先頭に付与して重複を避けます。
