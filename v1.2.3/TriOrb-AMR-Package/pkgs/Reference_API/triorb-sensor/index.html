@@ -451,7 +451,7 @@
 
 
 <h1 id="triorb_sensor">triorb_sensor</h1>
-<p>各種センサー・カメラ入出力やストリーミングを扱うパッケージ群です。</p>
+<p>Argusカメラ入出力、キャリブレーション、ゲームパッド、画像ストリーミングなどのI/Oを扱うパッケージ群です。</p>
 <h2 id="_1">パッケージ一覧</h2>
 <ul>
 <li><a href="sick-flexi-soft/">sick_flexi_soft</a> — TODO: Package description</li>
@@ -459,18 +459,18 @@
 <li><a href="sick-safetyscanners2-interfaces/">sick_safetyscanners2_interfaces</a> — Interfaces for the sick_safetyscanners ros2 driver</li>
 <li><a href="sick-safetyscanners-base/">sick_safetyscanners_base</a> — Provides an Interface to read the sensor output of a SICK
   Safety Scanner</li>
-<li><a href="triorb-sick-plc-wrapper/">triorb_sick_plc_wrapper</a> — TODO: Package description</li>
+<li><a href="triorb-sick-plc-wrapper/">triorb_sick_plc_wrapper</a> — SICK製PLCとのEtherNet/IPデータ交換を行い、速度ベクトルや安全入出力をROS 2メッセージとPLCアセンブリ間で変換するラッパーノードです。</li>
 <li>
 <p><a href="triorb-sls-wrapper/">triorb_sls_wrapper</a> — 
     Convert SICK SLS RawMicroScanData topics into sensor_msgs/PointCloud messages.</p>
 </li>
 <li>
-<p><a href="triorb-camera-argus/">triorb_camera_argus</a> — TODO: Package description</p>
+<p><a href="triorb-camera-argus/">triorb_camera_argus</a> — JetsonのArgus API経由で複数カメラ映像を取得し、回転補正やデバイス割当を行って画像トピックとして配信するノードです。</p>
 </li>
 <li><a href="triorb-camera-capture/">triorb_camera_capture</a> — カメラキャプチャーのためのパッケージ</li>
-<li><a href="triorb-gamepad/">triorb_gamepad</a> — TODO: Package description</li>
+<li><a href="triorb-gamepad/">triorb_gamepad</a> — ゲームパッド入力を監視し、走行・リフタ・非常停止などのコマンドをROS 2トピックへ出力するテレオペ用ノードです。</li>
 <li><a href="triorb-sls-drive-manager/">triorb_sls_drive_manager</a> — SICK SLS用ドライバマネージャ</li>
-<li><a href="triorb-streaming-image-cpp/">triorb_streaming_image_cpp</a> — TODO: Package description</li>
+<li><a href="triorb-streaming-image-cpp/">triorb_streaming_image_cpp</a> — カメラのImageトピックを購読し、JPEG/WEBP等へ圧縮してMQTTへ送出する軽量ストリーミングノードのC++実装です。</li>
 <li><a href="triorb-streaming-images/">triorb_streaming_images</a> — 映像配信のためのパッケージ</li>
 </ul>
 

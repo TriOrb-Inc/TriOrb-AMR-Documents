@@ -797,12 +797,12 @@
 <h3 id="stella_vslam_ros_1"><a href="stella-vslam-ros/stella-vslam-ros/">stella_vslam_ros</a></h3>
 <p>The ROS2 package for stella_vslam</p>
 <h2 id="tagslam_ws">tagslam_ws</h2>
-<p>TagSLAMワークスペース関連のサンプルと管理用パッケージ群です。</p>
+<p>TagSLAMの管理ノードやサンプルを含むタグSLAM用ワークスペースです。</p>
 <p><a href="tagslam-ws/">tagslam_ws のパッケージ一覧</a></p>
 <h3 id="triorb_tagslam_manager"><a href="tagslam-ws/triorb-tagslam-manager/">triorb_tagslam_manager</a></h3>
-<p>TODO: Package description</p>
+<p>TagSLAM用の地図保存・読込・初期化を一括管理し、tagslam系ノードの再起動や状態通知を行う管理ノードです。</p>
 <h2 id="triorb_drive">triorb_drive</h2>
-<p>走行制御・ナビゲーション・安全走行に関するパッケージ群です。</p>
+<p>経路生成・軌道追従・区域マップ・静的TF配信などAMR走行制御の基盤パッケージ群です。</p>
 <p><a href="triorb-drive/">triorb_drive のパッケージ一覧</a></p>
 <h3 id="triorb_dead_reckoning"><a href="triorb-drive/triorb-dead-reckoning/">triorb_dead_reckoning</a></h3>
 <p>vslam・odometry・imuデータからisam2で位置情報を推定する</p>
@@ -821,12 +821,12 @@
 <h3 id="triorb_vslam_tf"><a href="triorb-drive/triorb-vslam-tf/">triorb_vslam_tf</a></h3>
 <p>SLAMで推定した位置姿勢をTriOrb BASEの位置姿勢へ変換しPublishするためのパッケージ</p>
 <h2 id="triorb_fleet">triorb_fleet</h2>
-<p>RMF連携などフリート運用向けのブリッジパッケージです。</p>
+<p>RMF連携やジョブ監視、ナビゲーションブリッジなどフリート運用を支えるブリッジ系パッケージです。</p>
 <p><a href="triorb-fleet/">triorb_fleet のパッケージ一覧</a></p>
 <h3 id="triorb_rmf_bridge"><a href="triorb-fleet/triorb-rmf-bridge/">triorb_rmf_bridge</a></h3>
 <p>OpenRMF用のTopicのGloal⇔Localバイパスを行う</p>
 <h2 id="triorb_os">triorb_os</h2>
-<p>OSレイヤの設定やGPIO・ネットワークユーティリティをまとめています。</p>
+<p>Jetson設定・GPIO制御・ネットワークユーティリティなどOSレイヤの運用支援ツール群です。</p>
 <p><a href="triorb-os/">triorb_os のパッケージ一覧</a></p>
 <h3 id="triorb_gpio"><a href="triorb-os/triorb-gpio/">triorb_gpio</a></h3>
 <p>GPIOを通じてAMRの外部デバイス（ランプ・ブザー・トリガ等）を制御するためのノードを提供するパッケージです。</p>
@@ -835,7 +835,7 @@
 <h3 id="triorb_socket"><a href="triorb-os/triorb-socket/">triorb_socket</a></h3>
 <p>TCPソケット通信のためのパッケージ</p>
 <h2 id="triorb_sensor">triorb_sensor</h2>
-<p>各種センサー・カメラ入出力やストリーミングを扱うパッケージ群です。</p>
+<p>Argusカメラ入出力、キャリブレーション、ゲームパッド、画像ストリーミングなどのI/Oを扱うパッケージ群です。</p>
 <p><a href="triorb-sensor/">triorb_sensor のパッケージ一覧</a></p>
 <h3 id="sick_flexi_soft"><a href="triorb-sensor/sick-flexi-soft/">sick_flexi_soft</a></h3>
 <p>TODO: Package description</p>
@@ -847,29 +847,29 @@
 <p>Provides an Interface to read the sensor output of a SICK
   Safety Scanner</p>
 <h3 id="triorb_sick_plc_wrapper"><a href="triorb-sensor/triorb-sick-plc-wrapper/">triorb_sick_plc_wrapper</a></h3>
-<p>TODO: Package description</p>
+<p>SICK製PLCとのEtherNet/IPデータ交換を行い、速度ベクトルや安全入出力をROS 2メッセージとPLCアセンブリ間で変換するラッパーノードです。</p>
 <h3 id="triorb_sls_wrapper"><a href="triorb-sensor/triorb-sls-wrapper/">triorb_sls_wrapper</a></h3>
 <pre><code>Convert SICK SLS RawMicroScanData topics into sensor_msgs/PointCloud messages.
 </code></pre>
 <h3 id="triorb_camera_argus"><a href="triorb-sensor/triorb-camera-argus/">triorb_camera_argus</a></h3>
-<p>TODO: Package description</p>
+<p>JetsonのArgus API経由で複数カメラ映像を取得し、回転補正やデバイス割当を行って画像トピックとして配信するノードです。</p>
 <h3 id="triorb_camera_capture"><a href="triorb-sensor/triorb-camera-capture/">triorb_camera_capture</a></h3>
 <p>カメラキャプチャーのためのパッケージ</p>
 <h3 id="triorb_gamepad"><a href="triorb-sensor/triorb-gamepad/">triorb_gamepad</a></h3>
-<p>TODO: Package description</p>
+<p>ゲームパッド入力を監視し、走行・リフタ・非常停止などのコマンドをROS 2トピックへ出力するテレオペ用ノードです。</p>
 <h3 id="triorb_sls_drive_manager"><a href="triorb-sensor/triorb-sls-drive-manager/">triorb_sls_drive_manager</a></h3>
 <p>SICK SLS用ドライバマネージャ</p>
 <h3 id="triorb_streaming_image_cpp"><a href="triorb-sensor/triorb-streaming-image-cpp/">triorb_streaming_image_cpp</a></h3>
-<p>TODO: Package description</p>
+<p>カメラのImageトピックを購読し、JPEG/WEBP等へ圧縮してMQTTへ送出する軽量ストリーミングノードのC++実装です。</p>
 <h3 id="triorb_streaming_images"><a href="triorb-sensor/triorb-streaming-images/">triorb_streaming_images</a></h3>
 <p>映像配信のためのパッケージ</p>
 <h2 id="triorb_service">triorb_service</h2>
-<p>共通サービスや例外処理など、アプリケーション横断の基盤機能を提供します。</p>
+<p>例外処理や共通サービスノードなど、アプリケーション横断の基盤機能を提供します。</p>
 <p><a href="triorb-service/">triorb_service のパッケージ一覧</a></p>
 <h3 id="triorb_beacon"><a href="triorb-service/triorb-beacon/">triorb_beacon</a></h3>
 <p>ビーコン</p>
 <h3 id="triorb_except_handl"><a href="triorb-service/triorb-except-handl/">triorb_except_handl</a></h3>
-<p>TODO: Package description</p>
+<p>各ノードからの例外・警告を収集し、監視対象ノードの死活チェックや再起動スクリプト実行を行う例外ハンドリングノードです。</p>
 
 
 

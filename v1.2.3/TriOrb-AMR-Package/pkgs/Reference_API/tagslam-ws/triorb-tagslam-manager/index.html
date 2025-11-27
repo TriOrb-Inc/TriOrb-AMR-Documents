@@ -590,7 +590,7 @@
 
 <h1 id="triorb_tagslam_manager">triorb_tagslam_manager</h1>
 <p><strong>パス</strong>: <code>tagslam_ws/src/triorb_tagslam_manager</code><br />
-<strong>説明</strong>: TODO: Package description</p>
+<strong>説明</strong>: TagSLAM用の地図保存・読込・初期化を一括管理し、tagslam系ノードの再起動や状態通知を行う管理ノードです。</p>
 <h2 id="package-triorb_tagslam_manager">Package: triorb_tagslam_manager</h2>
 <h3 id="_1">概要</h3>
 <p>TriOrb製Tagslamシステムの運用をまとめて管理するROS 2ノードです。地図保存/読み込みの指示に応じて<code>tagslam</code>や<code>sync_and_detect</code>ノードをtmuxセッションで再起動し、地図ファイルの生成・差し替え、状態通知、tf配信、Version応答までを一括で行います。<code>ROS_PREFIX</code>環境変数で名前空間を付与しており、同じプレフィックスを持つトピック/サービスへ自動でリマップされます。</p>

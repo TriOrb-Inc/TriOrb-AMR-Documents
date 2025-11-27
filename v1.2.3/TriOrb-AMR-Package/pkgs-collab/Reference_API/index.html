@@ -496,16 +496,16 @@
 <p>各パッケージのリファレンスをセクションごとに分割した構成です。
 サイドバーの階層ナビゲーション、またはこのページの目次から目的のパッケージに移動できます。</p>
 <h2 id="triorb_drive">triorb_drive</h2>
-<p>協調搬送向けの走行・ポジショニング機能を提供するパッケージ群です。</p>
+<p>協調搬送向けの走行系パッケージ群で、姿勢推定、ナビゲーション仲介、リフト同期、統合ドライブ制御をまとめています。</p>
 <p><a href="triorb-drive/">triorb_drive のパッケージ一覧</a></p>
 <h3 id="triorb_collab_lift"><a href="triorb-drive/triorb-collab-lift/">triorb_collab_lift</a></h3>
-<p>複数のAMRによる協調リフト制御を提供するパッケージです。複数ロボット間でリフト動作を同期し、安全かつ安定的に荷物を持ち上げることを目的としています。</p>
+<p>協調グループからのリフター指示を各ロボットに配信し、結果を集約して完了可否を通知する協調リフト制御ノードです。</p>
 <h3 id="triorb_collab_navi"><a href="triorb-drive/triorb-collab-navi/">triorb_collab_navi</a></h3>
-<p>協調搬送中における複数AMRのナビゲーションを担当するパッケージです。経路計画と移動制御を同期させ、干渉のない搬送を実現します。</p>
+<p>協調搬送時のナビゲーション仲介ノードで、各ロボットのVSLAM地図状態や姿勢を共有しつつ、ウェイポイント保存・set_pos指令・停止/再開をグループ単位でハンドリングします。</p>
 <h3 id="triorb_collab_pose"><a href="triorb-drive/triorb-collab-pose/">triorb_collab_pose</a></h3>
-<p>センサフュージョン（拡張カルマンフィルターなど）により、AMR自身と荷物中心の姿勢を推定する協調ポーズ推定パッケージです。</p>
+<p>拡張カルマンフィルターとTF平均化で各ロボットのバインド姿勢や協調グループ中心を推定し、TFを配信する協調ポーズ推定パッケージです。</p>
 <h3 id="triorb_drive_collaboration"><a href="triorb-drive/triorb-drive-collaboration/">triorb_drive_collaboration</a></h3>
-<p>複数AMRによる協調搬送全体を統合的に制御するパッケージです。リフト、ナビゲーション、姿勢推定の各機能を統合し、協調搬送の実現を支援します。</p>
+<p>ゲームパッド入力や走行制限を協調グループ全体に配信し、リフト操作・速度指令・緊急停止をまとめて制御する協調搬送向け統合ドライブノードです。</p>
 
 
 
