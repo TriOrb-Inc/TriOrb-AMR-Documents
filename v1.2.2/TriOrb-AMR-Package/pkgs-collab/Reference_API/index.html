@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#api-reference-v123-2025-07-17" class="md-skip">
+        <a href="#api-reference-v120-2025-07-17" class="md-skip">
           Skip to content
         </a>
       
@@ -1031,24 +1031,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_49" class="md-nav__link">
-    <span class="md-ellipsis">
-      協調リフト制御指令購読(本ロボットへ動作指示)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_50" class="md-nav__link">
-    <span class="md-ellipsis">
-      協調リフト結果購読(各ロボットからの結果受信)
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -1074,25 +1056,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_51" class="md-nav__link">
-    <span class="md-ellipsis">
-      協調リフト制御指令発行(本ロボットへ動作指示)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_52" class="md-nav__link">
-    <span class="md-ellipsis">
-      協調リフト結果発行(全ロボットのリフト操作結果を配信)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_53" class="md-nav__link">
+  <a href="#_49" class="md-nav__link">
     <span class="md-ellipsis">
       エラーを発行する
     </span>
@@ -1101,7 +1065,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_54" class="md-nav__link">
+  <a href="#_50" class="md-nav__link">
     <span class="md-ellipsis">
       警告を発行する
     </span>
@@ -1967,24 +1931,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_49" class="md-nav__link">
-    <span class="md-ellipsis">
-      協調リフト制御指令購読(本ロボットへ動作指示)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_50" class="md-nav__link">
-    <span class="md-ellipsis">
-      協調リフト結果購読(各ロボットからの結果受信)
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -2010,25 +1956,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_51" class="md-nav__link">
-    <span class="md-ellipsis">
-      協調リフト制御指令発行(本ロボットへ動作指示)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_52" class="md-nav__link">
-    <span class="md-ellipsis">
-      協調リフト結果発行(全ロボットのリフト操作結果を配信)
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_53" class="md-nav__link">
+  <a href="#_49" class="md-nav__link">
     <span class="md-ellipsis">
       エラーを発行する
     </span>
@@ -2037,7 +1965,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_54" class="md-nav__link">
+  <a href="#_50" class="md-nav__link">
     <span class="md-ellipsis">
       警告を発行する
     </span>
@@ -2071,7 +1999,7 @@
 
 
 
-<h1 id="api-reference-v123-2025-07-17">協調移動 API Reference v1.2.3 (2025-07-17)</h1>
+<h1 id="api-reference-v120-2025-07-17">協調移動 API Reference v1.2.0 (2025-07-17)</h1>
 <h2 id="package-triorb_drive_collaboration">Package: triorb_drive_collaboration</h2>
 <p>このパッケージは、複数AMRによる協調搬送タスクを統合的に管理するフレームワークです。リフト・ナビゲーション・ポーズ推定などの各機能を統括し、効率的な搬送を実現します。</p>
 <h3 id="_1">主な機能</h3>
@@ -2458,41 +2386,18 @@
 <li>Topic: /collab/robot/status</li>
 <li>Type: std_msgs::msg::String</li>
 </ul>
-<h4 id="_49">協調リフト制御指令購読(本ロボットへ動作指示)</h4>
-<ul>
-<li>Topic: /bc/collab/run_lifter</li>
-<li>Type: std_msgs::msg::String</li>
-<li>Message: "up", "down", "stop"</li>
-</ul>
-<h4 id="_50">協調リフト結果購読(各ロボットからの結果受信)</h4>
-<ul>
-<li>Topic: /bc/collab/lifter/result</li>
-<li>Type: std_msgs::msg::String</li>
-</ul>
 <h3 id="publisher_2">Publisher</h3>
 <h4 id="node">本Node情報をエラー監視モジュールに追加する</h4>
 <ul>
 <li>Topic: /except_handl/node/add</li>
 <li>Type: std_msgs::msg::String</li>
 </ul>
-<p>pub_run_lifter_</p>
-<h4 id="_51">協調リフト制御指令発行(本ロボットへ動作指示)</h4>
-<ul>
-<li>Topic: /drive/run_lifter</li>
-<li>Type: std_msgs::msg::String</li>
-<li>Message: "up", "down", "stop"</li>
-</ul>
-<h4 id="_52">協調リフト結果発行(全ロボットのリフト操作結果を配信)</h4>
-<ul>
-<li>Topic: /collab/lifter/result</li>
-<li>Type: std_msgs::msg::String</li>
-</ul>
-<h4 id="_53">エラーを発行する</h4>
+<h4 id="_49">エラーを発行する</h4>
 <ul>
 <li>Topic: /triorb/error/str/add</li>
 <li>Type: std_msgs::msg::String</li>
 </ul>
-<h4 id="_54">警告を発行する</h4>
+<h4 id="_50">警告を発行する</h4>
 <ul>
 <li>Topic: /triorb/warn/str/add</li>
 <li>Type: std_msgs::msg::String</li>
