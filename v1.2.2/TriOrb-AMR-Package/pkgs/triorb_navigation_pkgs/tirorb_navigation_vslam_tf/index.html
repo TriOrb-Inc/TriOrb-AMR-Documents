@@ -10,22 +10,20 @@
       
       
       
-        <link rel="next" href="TriOrb-AMR-Package/pkgs/Reference_API/">
-      
       
       <link rel="icon" href="https://triorb.co.jp/favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.15">
     
     
       
-        <title>TriOrb BASE 開発ガイド</title>
+        <title>Package: triorb_navigation_vslam_tf - TriOrb BASE 開発ガイド</title>
       
     
     
-      <link rel="stylesheet" href="assets/stylesheets/main.342714a4.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.342714a4.min.css">
       
         
-        <link rel="stylesheet" href="assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.06af60db.min.css">
       
       
 
@@ -44,9 +42,9 @@
       
     
     
-      <link rel="stylesheet" href="stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -72,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#triorb-base-v123-2025-11-28" class="md-skip">
+        <a href="#package-triorb_navigation_vslam_tf" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +90,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="." title="TriOrb BASE 開発ガイド" class="md-header__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
+    <a href="../../../.." title="TriOrb BASE 開発ガイド" class="md-header__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
       
   <img src="https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png" alt="logo">
 
@@ -111,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Home
+              Package: triorb_navigation_vslam_tf
             
           </span>
         </div>
@@ -215,7 +213,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="." title="TriOrb BASE 開発ガイド" class="md-nav__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
+    <a href="../../../.." title="TriOrb BASE 開発ガイド" class="md-nav__button md-logo" aria-label="TriOrb BASE 開発ガイド" data-md-component="logo">
       
   <img src="https://triorb.co.jp/wp/wp-content/themes/triorb/img/logo-w.png" alt="logo">
 
@@ -229,32 +227,10 @@
       
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    Home
-    
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="." class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -265,122 +241,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      製品ドキュメント
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="製品ドキュメント">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#in-english" class="md-nav__link">
-    <span class="md-ellipsis">
-      In English
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api-ros2" class="md-nav__link">
-    <span class="md-ellipsis">
-      自律移動API (ROS2)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api-ros2_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      協調移動API (ROS2)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ros2-interface" class="md-nav__link">
-    <span class="md-ellipsis">
-      ROS2 Interface
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#eculibrary-python" class="md-nav__link">
-    <span class="md-ellipsis">
-      制御ECU通信Library (Python)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#triorb-amr" class="md-nav__link">
-    <span class="md-ellipsis">
-      TriOrb AMR 制御用サンプルプログラム
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api-webapi" class="md-nav__link">
-    <span class="md-ellipsis">
-      ロボットAPI (WebAPI)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      変更履歴
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#appendix" class="md-nav__link">
-    <span class="md-ellipsis">
-      Appendix
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -392,7 +252,7 @@
   
   
     <li class="md-nav__item">
-      <a href="TriOrb-AMR-Package/pkgs/Reference_API/" class="md-nav__link">
+      <a href="../../Reference_API/" class="md-nav__link">
         
   
   
@@ -414,7 +274,7 @@
   
   
     <li class="md-nav__item">
-      <a href="TriOrb-AMR-Package/pkgs-collab/Reference_API/" class="md-nav__link">
+      <a href="../../../pkgs-collab/Reference_API/" class="md-nav__link">
         
   
   
@@ -436,7 +296,7 @@
   
   
     <li class="md-nav__item">
-      <a href="TriOrb-AMR-Package/pkgs/TriOrb-ROS2-Types/README_types/" class="md-nav__link">
+      <a href="../../TriOrb-ROS2-Types/README_types/" class="md-nav__link">
         
   
   
@@ -458,7 +318,7 @@
   
   
     <li class="md-nav__item">
-      <a href="triorb-core/" class="md-nav__link">
+      <a href="../../../../triorb-core/" class="md-nav__link">
         
   
   
@@ -480,7 +340,7 @@
   
   
     <li class="md-nav__item">
-      <a href="TriOrb-AMR-Package/sample/" class="md-nav__link">
+      <a href="../../../sample/" class="md-nav__link">
         
   
   
@@ -524,7 +384,7 @@
   
   
     <li class="md-nav__item">
-      <a href="TriOrb-AMR-Package/History/" class="md-nav__link">
+      <a href="../../../History/" class="md-nav__link">
         
   
   
@@ -568,17 +428,35 @@
         <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
-      製品ドキュメント
+      主な機能
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="製品ドキュメント">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      更新履歴
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="更新履歴">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#in-english" class="md-nav__link">
+  <a href="#110" class="md-nav__link">
     <span class="md-ellipsis">
-      In English
+      1.1.0
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#123" class="md-nav__link">
+    <span class="md-ellipsis">
+      1.2.3
     </span>
   </a>
   
@@ -590,74 +468,59 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#api-ros2" class="md-nav__link">
+  <a href="#subscriber" class="md-nav__link">
     <span class="md-ellipsis">
-      自律移動API (ROS2)
+      Subscriber
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Subscriber">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vslam" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボット姿勢(VSLAM座標系)を取得
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#api-ros2_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      協調移動API (ROS2)
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#ros2-interface" class="md-nav__link">
+  <a href="#publisher" class="md-nav__link">
     <span class="md-ellipsis">
-      ROS2 Interface
+      Publisher
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Publisher">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      ロボット現在位置
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#eculibrary-python" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
-      制御ECU通信Library (Python)
+      ロボット現在位置（平面内）
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#triorb-amr" class="md-nav__link">
-    <span class="md-ellipsis">
-      TriOrb AMR 制御用サンプルプログラム
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#api-webapi" class="md-nav__link">
-    <span class="md-ellipsis">
-      ロボットAPI (WebAPI)
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      変更履歴
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#appendix" class="md-nav__link">
-    <span class="md-ellipsis">
-      Appendix
-    </span>
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -677,61 +540,66 @@
 
 
 
-<h1 id="triorb-base-v123-2025-11-28">TriOrb BASE 開発ガイド v1.2.3 (2025-11-28)</h1>
-<h2 id="_1">製品ドキュメント</h2>
+<h1 id="package-triorb_navigation_vslam_tf">Package: triorb_navigation_vslam_tf</h1>
+<p>VSLAMで計算された姿勢をTriOrbで使用するための姿勢に変換し, tf2 bufferにbroadcastするパッケージ. <br>
+変換した姿勢はロボットコントローラ上での表示や, 自律移動の際の現在位置として利用される. <br></p>
+<h2 id="_1">主な機能</h2>
 <ul>
-<li><a href="https://triorb.notion.site/TriOrb-Start-up-Guide-ver-1-2-2-Rev-2-29bb60b1eaf381e5831ce92f008fa9df">TriOrb Start-up Guide</a></li>
-<li><a href="https://app.box.com/shared/static/duvgm7ft3d153x2y8ljcgcrqk6o6fjsy.pdf">Version 1.0.0からのアップグレード手順</a></li>
-<li><a href="https://triorb.notion.site/v-e-r-1-1-1-23bb60b1eaf380858d49ccd2112f0d0b">Version 1.0.0～1.2.2からのアップグレード手順</a></li>
-<li><a href="https://app.box.com/shared/static/hlpgcnet2bru1wy5u55dlvvhxgojwsb9.pdf">【B500P100-U-06】TriOrb BASE取扱説明書.pdf</a></li>
-<li><a href="https://app.box.com/shared/static/bj8ywg2j4v8wezqwebeu6ve6ek59ee0q.pdf">【BAMR01-05】TriOrbBASE自律移動パッケージ_ユーザーズマニュアル.pdf</a></li>
+<li>ロボット姿勢(VSLAM座標系)をTriOrb座標系に変換</li>
+<li>ロボット姿勢をtf2 bufferにbroadcast</li>
 </ul>
-<h3 id="in-english">In English</h3>
+<h2 id="_2">更新履歴</h2>
+<h3 id="110">1.1.0</h3>
 <ul>
-<li><a href="https://app.box.com/shared/static/y9hivu1vo2vqmhzfv75tv0fesc6g8zxt.pdf">【B500P100-U-06】TriOrb BASE Operating Manual.pdf</a></li>
-<li><a href="https://app.box.com/shared/static/263saiuom9qpl27r9s4g6gwcckkzv4xu.pdf">【BAMR01-05】TriOrb BASE Autonomous Navigation Package - User Manual.pdf</a></li>
+<li>tf_broadcast時の robot および rig にprefixを追加</li>
+<li>ROS_LOCALHOST_ONLY=0のロボットが複数いる場合に別ロボットの姿勢を参照することがある問題の対策のため</li>
 </ul>
-<h2 id="api-ros2"><a href="TriOrb-AMR-Package/pkgs/Reference_API/">自律移動API (ROS2)</a></h2>
+<h3 id="123">1.2.3</h3>
 <ul>
-<li>ROS2を用いてTriOrbを動かす場合のTopic等インターフェース仕様</li>
-<li>(非公開) <a href="https://github.com/TriOrb-Inc/TriOrb-AMR-Package">GitHub / TriOrb-AMR-Package</a></li>
+<li>パッケージ名はtriorb_vslam_tfからtriorb_navigation_vslam_tfに変更。</li>
 </ul>
-<h2 id="api-ros2_1"><a href="TriOrb-AMR-Package/pkgs-collab/Reference_API/">協調移動API (ROS2)</a></h2>
+<h2 id="subscriber">Subscriber</h2>
+<h3 id="vslam">ロボット姿勢(VSLAM座標系)を取得</h3>
 <ul>
-<li>ROS2を用いて協調移動を実行する場合のTopic等インターフェース仕様</li>
-<li>(非公開) <a href="https://github.com/TriOrb-Inc/TriOrb-AMR-Package/tree/master/pkgs-collab">GitHub / TriOrb-AMR-Package / pkgs-collab</a></li>
+<li>Topic: (prefix)/run_slam/camera_pose</li>
+<li>Type: nav_msgs/msg/Odometry</li>
 </ul>
-<h2 id="ros2-interface"><a href="TriOrb-AMR-Package/pkgs/TriOrb-ROS2-Types/README_types/">ROS2 Interface</a></h2>
+<h2 id="publisher">Publisher</h2>
+<h3 id="_3">ロボット現在位置</h3>
 <ul>
-<li>ROS2を用いてTriOrbを動かす場合の通信型仕様</li>
-<li><a href="https://github.com/TriOrb-Inc/TriOrb-ROS2-Types">GitHub / TriOrb-ROS2-Types</a></li>
+<li>Topic: (prefix)/vslam/rig_tf</li>
+<li>Type: geometry_msgs/msg/TransformStamped</li>
+<li>Usage: </li>
 </ul>
-<h2 id="eculibrary-python"><a href="triorb-core/">制御ECU通信Library (Python)</a></h2>
+<pre><code class="language-bash">triorb@orin-nx-XXX:~/$ ros2 topic echo --once /vslam/rig_tf 
+header: 
+  stamp: 
+    sec: 1715249621 
+    nanosec: 829307689 
+  frame_id: triorb_map 
+child_frame_id: robot 
+transform: 
+  translation: 
+    x: 0.20051919812047725 
+    y: -0.10789784916572422 
+    z: -0.11166990297891966 
+  rotation: 
+    x: -0.0017948546889115379 
+    y: -0.006014784536615234 
+    z: 0.005654869190860537 
+    w: 0.9999643110221774
+</code></pre>
+<h3 id="_4">ロボット現在位置（平面内）</h3>
 <ul>
-<li>エンドユーザーPCからTriOrb制御ECUに直接指令する際のPythonライブラリ</li>
-<li><a href="https://github.com/TriOrb-Inc/triorb-core">GitHub / triorb-core</a></li>
+<li>Topic: (prefix)/vslam/robot_pose</li>
+<li>Type: triorb_drive_interface/msg/TriorbPos3</li>
+<li>Usage: </li>
 </ul>
-<h2 id="triorb-amr"><a href="TriOrb-AMR-Package/sample/">TriOrb AMR 制御用サンプルプログラム</a></h2>
-<ul>
-<li>TriOrb AMRを上位PCなどから制御するためのサンプルプログラム</li>
-<li>(非公開) <a href="https://github.com/TriOrb-Inc/TriOrb-AMR-Package/tree/master/sample">GitHub / TriOrb-AMR-Package / sample</a></li>
-</ul>
-<h2 id="api-webapi"><a href="https://triorb-inc.github.io/TriOrb-AMR-Robot-Controller/">ロボットAPI (WebAPI)</a></h2>
-<ul>
-<li>WebAPIを用いてTriOrbを動かす場合のインターフェース仕様</li>
-<li>※自律移動パッケージ起動後に利用可能</li>
-</ul>
-<h2 id="_2"><a href="TriOrb-AMR-Package/History/">変更履歴</a></h2>
-<hr />
-<p>APIに関する質問や不具合報告はGitHubの<a href="https://github.com/TriOrb-Inc/TriOrb-AMR-Documents/issues">Issue</a>または<a href="https://github.com/TriOrb-Inc/TriOrb-AMR-Documents/discussions">Discussions</a>を利用してください。</p>
-<h2 id="appendix">Appendix</h2>
-<ul>
-<li><a href="https://triorb-inc.github.io/TriOrb_Marker_Generator/">TriOrb markers generator</a><ul>
-<li><a href="https://triorb-inc.github.io/TriOrb_Marker_Generator/?width=210&amp;height=297&amp;polygons=50">特徴点補助シート生成の設定例</a></li>
-<li><a href="https://triorb-inc.github.io/TriOrb_Marker_Generator/?dict=april_36h11&amp;size=100&amp;id=0&amp;num=2&amp;width=210&amp;height=297&amp;polygons=0&amp;marker-layout=v-stack">マーカーシート生成の設定例</a></li>
-</ul>
-</li>
-</ul>
+<pre><code class="language-bash">triorb@orin-nx-XXX:~/$ ros2 topic echo --once /vslam/robot_pose
+x: 0.06437481194734573
+y: 0.05932913348078728
+deg: 4.468038082122803
+</code></pre>
 
 
 
@@ -784,18 +652,18 @@
     
     
       
-      <script id="__config" type="application/json">{"base": ".", "features": ["navigation.instant", "navigation.expand", "navigation.sections"], "search": "assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
+      <script id="__config" type="application/json">{"base": "../../../..", "features": ["navigation.instant", "navigation.expand", "navigation.sections"], "search": "../../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"default": "latest", "provider": "mike"}}</script>
     
     
-      <script src="assets/javascripts/bundle.56ea9cef.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.56ea9cef.min.js"></script>
       
-        <script src="javascripts/lunr.stemmer.support.js"></script>
+        <script src="../../../../javascripts/lunr.stemmer.support.js"></script>
       
-        <script src="javascripts/tinyseg.js"></script>
+        <script src="../../../../javascripts/tinyseg.js"></script>
       
-        <script src="javascripts/lunr.ja.js"></script>
+        <script src="../../../../javascripts/lunr.ja.js"></script>
       
-        <script src="javascripts/mkdocs_search_config.js"></script>
+        <script src="../../../../javascripts/mkdocs_search_config.js"></script>
       
     
   </body>
