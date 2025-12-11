@@ -558,6 +558,12 @@
 </tr>
 <tr>
 <td>Publish</td>
+<td><code>/&lt;prefix&gt;/triorb_safe_run/config</code></td>
+<td><code>std_msgs/msg/String</code></td>
+<td>現在の設定をJSON文字列で3秒周期に配信。</td>
+</tr>
+<tr>
+<td>Publish</td>
 <td><code>/&lt;prefix&gt;/triorb_safe_run/debug/image/compressed</code></td>
 <td><code>sensor_msgs/msg/CompressedImage</code></td>
 <td>Enabled when <code>enable_image_pub=true</code>; shows occupancy &amp; vectors.</td>
@@ -573,6 +579,12 @@
 <td><code>/&lt;prefix&gt;/triorb_safe_run/set_config</code></td>
 <td><code>triorb_static_interface/srv/SetString</code></td>
 <td>Pass a JSON string (first element of <code>request[]</code>) to replace the runtime configuration.</td>
+</tr>
+<tr>
+<td>Service</td>
+<td><code>/&lt;prefix&gt;/triorb_safe_run/set_param</code></td>
+<td><code>triorb_static_interface/srv/SetString</code></td>
+<td><code>request[0]</code>にJSONオブジェクトを渡すと複数パラメータをまとめて更新。<code>[キー1,値1(JSON),キー2,値2(JSON)...]</code>形式の偶数要素指定でも一括更新可。<code>[キー,値(JSON)]</code>形式は従来互換で1件更新。パース失敗時は例外を捕捉しエラー応答。</td>
 </tr>
 <tr>
 <td>Service</td>
@@ -611,14 +623,14 @@ source install/setup.bash
 - <code>point2d_topics_csv</code>: same as上記だがカンマ区切り文字列で指定したいときに使用 (<code>topic_a,topic_b,...</code>)。
 - <code>anker_points</code>: footprint vertices used for potential anchor calculations (mm units).
 - <code>anker_points_csv</code>: <code>x0,y0,x1,y1,...</code> 形式でアンカーポイントを一括指定。
-- <code>force_coeff_linear</code>, <code>watch_angle_coeff</code>, <code>velocity_bias</code>: tune repulsive force behavior.
+- <code>slowdown_gain</code>, <code>slowdown_gamma</code>, <code>slowdown_focus</code>: 減速挙動を決める集約パラメータ（詳細は<code>config/sample_config.json</code>参照）。実機走行でのチューニングが必要。
 - <code>map_decay</code>: 0.0–1.0 blend factor to retain past obstacles.
-- <code>ctrl_ms</code>, <code>vel_decay_coeff</code>, <code>vel_filter_weight</code>: control loop cadence and smoothing.</p>
+- <code>ctrl_ms</code>, <code>vel_filter_weight</code>: control loop cadence and smoothing（<code>vel_filter_weight</code>は実機での振る舞いに合わせてチューニングが必要）。</p>
 <h3 id="notes-best-practices">Notes / Best practices</h3>
 <ol>
 <li>Ensure all <code>point2d_topics</code> publishers are available before launching; the node waits but exits if none are provided in the config.</li>
 <li>Disable <code>map_decay</code> (set to 0) if you require instantaneous obstacle clearing; otherwise a small decay (e.g., 0.4) stabilizes noisy scans.</li>
-<li><code>watch_angle_coeff</code> compresses or widens the effective FOV of repulsion; smaller values help catch side obstacles.</li>
+<li>減速関連は <code>slowdown_gain</code>（強さ+減衰）、<code>slowdown_gamma</code>（距離依存）、<code>slowdown_focus</code>（角度と横移動のバランス）の3つだけを調整すると元の挙動に近いまま簡潔にチューニングできます。</li>
 <li>When tuning, start with <code>velocity_bias = 0.0</code> and increase only if you need residual repulsion when nearly stopped.</li>
 <li>For visualization, set <code>enable_image_pub=true</code> and inspect <code>/triorb_safe_run/debug/image/compressed</code>.</li>
 </ol>

@@ -426,29 +426,56 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#package-triorb_sick_plc_wrapper" class="md-nav__link">
+  <a href="#triorb_sick_plc_wrapper_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Package: triorb_sick_plc_wrapper
+      triorb_sick_plc_wrapper
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Package: triorb_sick_plc_wrapper">
+    <nav class="md-nav" aria-label="triorb_sick_plc_wrapper">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#subscriber" class="md-nav__link">
+  <a href="#node-interface" class="md-nav__link">
     <span class="md-ellipsis">
-      Subscriber
+      Node interface
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Subscriber">
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#repository-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      Repository layout
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#key-features" class="md-nav__link">
+    <span class="md-ellipsis">
+      Key features
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#plc-basic-bit-layout" class="md-nav__link">
     <span class="md-ellipsis">
-      Description
+      PLC basic bit layout
     </span>
   </a>
   
@@ -460,74 +487,29 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#publisher" class="md-nav__link">
+  <a href="#building" class="md-nav__link">
     <span class="md-ellipsis">
-      Publisher
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Publisher">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#description_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Description
+      Building
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
-  <a href="#service" class="md-nav__link">
+  <a href="#running" class="md-nav__link">
     <span class="md-ellipsis">
-      Service
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Service">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#description_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Description
+      Running
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
-  <a href="#action" class="md-nav__link">
+  <a href="#notes-best-practices" class="md-nav__link">
     <span class="md-ellipsis">
-      Action
+      Notes / Best practices
     </span>
   </a>
-  
-    <nav class="md-nav" aria-label="Action">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#description_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Description
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -555,39 +537,130 @@
 <h1 id="triorb_sick_plc_wrapper">triorb_sick_plc_wrapper</h1>
 <p><strong>パス</strong>: <code>triorb_sensor/sick/triorb_sick_plc_wrapper</code><br />
 <strong>説明</strong>: SICK製PLCとのEtherNet/IPデータ交換を行い、速度ベクトルや安全入出力をROS 2メッセージとPLCアセンブリ間で変換するラッパーノードです。</p>
-<h2 id="package-triorb_sick_plc_wrapper">Package: triorb_sick_plc_wrapper</h2>
-<h3 id="subscriber">Subscriber</h3>
-<h4 id="description">Description</h4>
+<h2 id="triorb_sick_plc_wrapper_1">triorb_sick_plc_wrapper</h2>
+<p>ROS 2 node that bridges TriOrb velocity commands to a SICK FlexiSoft PLC. The node translates <code>/drive/std_vector2</code> values into PLC assembly bytes, mirrors PLC feedback bits, and exposes services for emergency stop, PLC/SLS enabling, and watchdog handling.</p>
+<h3 id="node-interface">Node interface</h3>
+<table>
+<thead>
+<tr>
+<th>Direction</th>
+<th>Topic</th>
+<th>Type</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Subscribe</td>
+<td><code>/&lt;prefix&gt;/drive/std_vector2</code></td>
+<td><code>std_msgs/msg/Float32MultiArray</code></td>
+<td><code>[direction(rad), speed(m/s), rotate(rad/s)]</code>. Direction, speed, and rotate are scaled and packed into the outbound PLC assembly.</td>
+</tr>
+<tr>
+<td>Subscribe</td>
+<td><code>/&lt;prefix&gt;/flexisoft/Assem131/in_raw</code> (configurable)</td>
+<td><code>std_msgs/msg/UInt8MultiArray</code></td>
+<td>PLC inbound assembly. <code>topic_from_plc</code> selects the topic; <code>sub_basic_index</code> chooses the byte that holds basic status bits.</td>
+</tr>
+<tr>
+<td>Publish</td>
+<td><code>/&lt;prefix&gt;/flexisoft/Assem141/out_raw</code> (configurable)</td>
+<td><code>std_msgs/msg/UInt8MultiArray</code></td>
+<td>PLC outbound assembly populated with scaled velocity vectors and control bits. <code>topic_to_plc</code> selects the topic.</td>
+</tr>
+<tr>
+<td>Publish</td>
+<td><code>/&lt;prefix&gt;/except_handl/node/add</code></td>
+<td><code>std_msgs/msg/String</code></td>
+<td>Registers the node with the global exception handler when coming online.</td>
+</tr>
+<tr>
+<td>Publish</td>
+<td><code>/&lt;prefix&gt;/triorb/error/str/add</code></td>
+<td><code>std_msgs/msg/String</code></td>
+<td>Emits error diagnostics (e.g., PLC buffer overruns or scaling limits).</td>
+</tr>
+<tr>
+<td>Publish</td>
+<td><code>/&lt;prefix&gt;/triorb/warn/str/add</code></td>
+<td><code>std_msgs/msg/String</code></td>
+<td>Emits warnings (e.g., short PLC assemblies).</td>
+</tr>
+<tr>
+<td>Service</td>
+<td><code>/&lt;prefix&gt;/srv/plc/emergency_stop/request</code></td>
+<td><code>std_srvs/srv/Trigger</code></td>
+<td>Raises the PLC emergency-stop bit once and acknowledges the request.</td>
+</tr>
+<tr>
+<td>Service</td>
+<td><code>/&lt;prefix&gt;/srv/plc/change_to_plc_off</code></td>
+<td><code>std_srvs/srv/SetBool</code></td>
+<td><code>true</code> → request PLC deactivate, <code>false</code> → cancel the request.</td>
+</tr>
+<tr>
+<td>Service</td>
+<td><code>/&lt;prefix&gt;/srv/sls/change_to_sls_off</code></td>
+<td><code>std_srvs/srv/SetBool</code></td>
+<td><code>true</code> → request SLS monitor OFF, <code>false</code> → SLS ON.</td>
+</tr>
+</tbody>
+</table>
+<p>All topics are prefixed with <code>ROS_PREFIX</code> (if set) through the <code>GET_TOPIC_NAME()</code> helper so the node can be namespaced without remapping each interface.</p>
+<h3 id="repository-layout">Repository layout</h3>
 <ul>
-<li>Topic: </li>
-<li>Type: </li>
-<li>Usage: </li>
+<li><code>include/sick_plc_wrapper.hpp</code> – Node declaration, PLC bitfield definitions, and helpers.</li>
+<li><code>src/sick_plc_wrapper.cpp</code> – Implementation of the bridge, scaling logic, and services.</li>
+<li><code>src/ct.cpp</code>, <code>src/sha256.cpp</code> – License verification helpers.</li>
+<li><code>launch/plc_wrapper.launch.xml</code> – Example parameterization for FlexiSoft assemblies.</li>
 </ul>
-<pre><code class="language-bash"></code></pre>
-<h3 id="publisher">Publisher</h3>
-<h4 id="description_1">Description</h4>
+<h3 id="key-features">Key features</h3>
 <ul>
-<li>Topic: </li>
-<li>Type: </li>
-<li>Usage: </li>
+<li>Bidirectional byte-array interface to SICK FlexiSoft PLC assemblies with configurable offsets per field.</li>
+<li>Scaling of TriOrb drive vectors into PLC-friendly integer representations (direction 0.1°, speed cm/s, rotate °/s).</li>
+<li>Watchdog timer that toggles a Jetson → PLC bit while mirroring PLC watchdog responses.</li>
+<li>Exception-handler publishers for registration, warnings, and errors so operators see PLC issues in a unified feed.</li>
+<li>Runtime services to request emergency-stop, PLC deactivate, and SLS disable without touching the PLC UI.</li>
+<li>Startup guard that waits (up to 10 s) for both PLC topics to be connected before proceeding, emitting warnings if the FlexiSoft driver is absent.</li>
 </ul>
-<pre><code class="language-bash"></code></pre>
-<h3 id="service">Service</h3>
-<h4 id="description_2">Description</h4>
+<h3 id="configuration">Configuration</h3>
+<p>Parameters can be supplied via the launch file or CLI:
+- <code>topic_to_plc</code> (<code>string</code>, default <code>/flexisoft/Assem141/out_raw</code>) – Outbound PLC assembly topic.
+- <code>topic_from_plc</code> (<code>string</code>, default <code>/flexisoft/Assem131/in_raw</code>) – Inbound PLC assembly topic.
+- <code>assembly_size_to_plc</code> (<code>int</code>, default <code>10</code>) – Total byte length of the outbound array; must cover every configured index.
+- <code>speed_index</code>, <code>direction_index</code>, <code>rotate_index</code> (<code>int</code>) – Byte offsets (little-endian) where scaled data is written. Bounds are checked at runtime.
+- <code>pub_basic_index</code>, <code>sub_basic_index</code> (<code>int</code>) – Byte offsets that carry the basic control/status bitfields described below.
+- <code>scale_drive_vector_speed</code>, <code>scale_drive_vector_direction</code>, <code>scale_drive_vector_rotate</code> (<code>double</code>) – Unit conversions applied before packing (defaults: <code>100.0</code>, <code>10.0</code>, <code>180.0/M_PI</code>).
+- <code>watchdog_interval_ms</code> (<code>int</code>, default <code>500</code>) – Period for toggling <code>watchdog_request_from_jetson</code>.</p>
+<h4 id="plc-basic-bit-layout">PLC basic bit layout</h4>
 <ul>
-<li>Topic: </li>
-<li>Type: </li>
-<li>Usage: </li>
+<li>Publish byte (<code>PubBasicData</code>, defaults to watchdog response off / emergency-stop asserted): <code>bit0</code> watchdog response → PLC, <code>bit1</code> watchdog request from Jetson, <code>bit2</code> emergency stop request, <code>bit3</code> deactivate request, <code>bit4</code> SLS OFF request, <code>bit5-7</code> reserved.</li>
+<li>Subscribe byte (<code>SubBasicData</code>): <code>bit0</code> watchdog request from PLC, <code>bit1</code> watchdog response from PLC, <code>bit2</code> emergency stop active, <code>bit3</code> power cut active, <code>bit4</code> move permitted, <code>bit5-7</code> reserved.</li>
 </ul>
-<pre><code class="language-bash"></code></pre>
-<h3 id="action">Action</h3>
-<h4 id="description_3">Description</h4>
-<ul>
-<li>Topic: </li>
-<li>Type: </li>
-<li>Usage: </li>
-</ul>
-<pre><code class="language-bash"></code></pre>
+<h3 id="building">Building</h3>
+<pre><code class="language-bash">colcon build --packages-select triorb_sick_plc_wrapper
+source install/setup.bash
+</code></pre>
+<h3 id="running">Running</h3>
+<pre><code class="language-bash">## Launch with the default FlexiSoft wiring
+ros2 launch triorb_sick_plc_wrapper plc_wrapper.launch.xml
+
+## Run directly while overriding topics/indices
+ros2 run triorb_sick_plc_wrapper sick_plc_wrapper \
+  --ros-args \
+  -p topic_to_plc:=/flexisoft/Assem141/out_raw \
+  -p topic_from_plc:=/flexisoft/Assem131/in_raw \
+  -p assembly_size_to_plc:=10
+</code></pre>
+<p>Ensure <code>/drive/std_vector2</code> and the FlexiSoft PLC topics are available before starting; the node aborts if Pub/Sub connections are missing for 10 seconds. Provide <code>/install/license.yaml</code> so the built-in <code>KeyCertification</code> check can validate the runtime license.</p>
+<h3 id="notes-best-practices">Notes / Best practices</h3>
+<ol>
+<li>Keep <code>assembly_size_to_plc</code> consistent with the FlexiSoft configuration; an undersized buffer prevents the node from writing scaled vectors.</li>
+<li>Tune the <code>scale_*</code> factors and indices to match the PLC project any time FlexiSoft addresses change.</li>
+<li>Monitor <code>/triorb/error/str/add</code> for out-of-range speeds/angles; these indicate mis-scaled commands or upstream bugs.</li>
+<li>When testing, call <code>ros2 service call /srv/plc/emergency_stop/request std_srvs/srv/Trigger {}</code> to validate the PLC reacts as expected.</li>
+<li>Namespacing the node? Just set <code>ROS_PREFIX=myrobot</code> before launch to scope every topic/service automatically.</li>
+</ol>
 
 
 

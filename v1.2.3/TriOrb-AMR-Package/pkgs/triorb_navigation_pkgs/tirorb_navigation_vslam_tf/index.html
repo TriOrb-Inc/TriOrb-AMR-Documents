@@ -16,7 +16,7 @@
     
     
       
-        <title>Package: triorb_navigation_vslam_tf - TriOrb BASE 開発ガイド</title>
+        <title>triorb_navigation_vslam_tf - TriOrb BASE 開発ガイド</title>
       
     
     
@@ -70,7 +70,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#package-triorb_navigation_vslam_tf" class="md-skip">
+        <a href="#triorb_navigation_vslam_tf" class="md-skip">
           Skip to content
         </a>
       
@@ -109,7 +109,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Package: triorb_navigation_vslam_tf
+              triorb_navigation_vslam_tf
             
           </span>
         </div>
@@ -419,113 +419,6 @@
     
   
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      主な機能
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      更新履歴
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="更新履歴">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#110" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.1.0
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#123" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.2.3
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#subscriber" class="md-nav__link">
-    <span class="md-ellipsis">
-      Subscriber
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Subscriber">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vslam" class="md-nav__link">
-    <span class="md-ellipsis">
-      ロボット姿勢(VSLAM座標系)を取得
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#publisher" class="md-nav__link">
-    <span class="md-ellipsis">
-      Publisher
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Publisher">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      ロボット現在位置
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      ロボット現在位置（平面内）
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -540,66 +433,9 @@
 
 
 
-<h1 id="package-triorb_navigation_vslam_tf">Package: triorb_navigation_vslam_tf</h1>
-<p>VSLAMで計算された姿勢をTriOrbで使用するための姿勢に変換し, tf2 bufferにbroadcastするパッケージ. <br>
-変換した姿勢はロボットコントローラ上での表示や, 自律移動の際の現在位置として利用される. <br></p>
-<h2 id="_1">主な機能</h2>
-<ul>
-<li>ロボット姿勢(VSLAM座標系)をTriOrb座標系に変換</li>
-<li>ロボット姿勢をtf2 bufferにbroadcast</li>
-</ul>
-<h2 id="_2">更新履歴</h2>
-<h3 id="110">1.1.0</h3>
-<ul>
-<li>tf_broadcast時の robot および rig にprefixを追加</li>
-<li>ROS_LOCALHOST_ONLY=0のロボットが複数いる場合に別ロボットの姿勢を参照することがある問題の対策のため</li>
-</ul>
-<h3 id="123">1.2.3</h3>
-<ul>
-<li>パッケージ名はtriorb_vslam_tfからtriorb_navigation_vslam_tfに変更。</li>
-</ul>
-<h2 id="subscriber">Subscriber</h2>
-<h3 id="vslam">ロボット姿勢(VSLAM座標系)を取得</h3>
-<ul>
-<li>Topic: (prefix)/run_slam/camera_pose</li>
-<li>Type: nav_msgs/msg/Odometry</li>
-</ul>
-<h2 id="publisher">Publisher</h2>
-<h3 id="_3">ロボット現在位置</h3>
-<ul>
-<li>Topic: (prefix)/vslam/rig_tf</li>
-<li>Type: geometry_msgs/msg/TransformStamped</li>
-<li>Usage: </li>
-</ul>
-<pre><code class="language-bash">triorb@orin-nx-XXX:~/$ ros2 topic echo --once /vslam/rig_tf 
-header: 
-  stamp: 
-    sec: 1715249621 
-    nanosec: 829307689 
-  frame_id: triorb_map 
-child_frame_id: robot 
-transform: 
-  translation: 
-    x: 0.20051919812047725 
-    y: -0.10789784916572422 
-    z: -0.11166990297891966 
-  rotation: 
-    x: -0.0017948546889115379 
-    y: -0.006014784536615234 
-    z: 0.005654869190860537 
-    w: 0.9999643110221774
-</code></pre>
-<h3 id="_4">ロボット現在位置（平面内）</h3>
-<ul>
-<li>Topic: (prefix)/vslam/robot_pose</li>
-<li>Type: triorb_drive_interface/msg/TriorbPos3</li>
-<li>Usage: </li>
-</ul>
-<pre><code class="language-bash">triorb@orin-nx-XXX:~/$ ros2 topic echo --once /vslam/robot_pose
-x: 0.06437481194734573
-y: 0.05932913348078728
-deg: 4.468038082122803
-</code></pre>
+<h1 id="triorb_navigation_vslam_tf">triorb_navigation_vslam_tf</h1>
+<p>SLAMで推定した位置姿勢をTriOrb BASEの位置姿勢へ変換しPublishするためのパッケージ</p>
+<p>本パッケージのAPIリファレンスはAPI.mdを参照してください。</p>
 
 
 

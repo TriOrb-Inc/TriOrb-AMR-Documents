@@ -476,7 +476,7 @@
 
 <h1 id="stella_vslam_ros">stella_vslam_ros</h1>
 <p><strong>パス</strong>: <code>stella_vslam_ros</code><br />
-<strong>説明</strong>: The ROS2 package for stella_vslam</p>
+<strong>説明</strong>: Visual SLAM package</p>
 <h2 id="package-stella_vslam_ros">Package: stella_vslam_ros</h2>
 <p>このドキュメントは、<code>/run_slam</code> ノードにおける ROS2 Publish / Subscribe トピックの一覧を示します。</p>
 <hr />
@@ -504,11 +504,6 @@
 <td><code>/run_slam/keyframes_2d</code></td>
 <td><code>geometry_msgs::msg::PoseArray</code></td>
 <td>平面に投影されたキーフレーム</td>
-</tr>
-<tr>
-<td><code>/run_slam/pose_2d</code></td>
-<td><code>geometry_msgs::msg::Pose2D</code></td>
-<td>2D平面上のカメラ姿勢</td>
 </tr>
 <tr>
 <td><code>/run_slam/keyframe_landmarks</code></td>
@@ -539,6 +534,16 @@
 <td><code>/run_slam/cameras_pose</code></td>
 <td><code>triorb_slam_interface::msg::CamerasPose</code></td>
 <td>複数カメラの姿勢</td>
+</tr>
+<tr>
+<td><code>/run_slam/status</code></td>
+<td><code>triorb_slam_interface::msg::SlamStatus</code></td>
+<td><code>map_name</code> と <code>state</code>（bit0:地図固定, bit1:自己位置特定）を含むSLAM状態</td>
+</tr>
+<tr>
+<td><code>/run_slam/reliability</code></td>
+<td><code>std_msgs::msg::Float32</code></td>
+<td>マッチランドマーク数に基づく自己位置推定の信頼度（0.0〜1.0目安）</td>
 </tr>
 <tr>
 <td><code>/run_slam/enable_camera</code></td>
