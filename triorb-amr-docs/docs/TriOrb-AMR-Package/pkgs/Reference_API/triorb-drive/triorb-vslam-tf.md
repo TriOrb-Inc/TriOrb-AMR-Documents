@@ -3,18 +3,9 @@
 **パス**: `triorb_drive/triorb_vslam_tf`  
 **説明**: SLAMで推定した位置姿勢をTriOrb BASEの位置姿勢へ変換しPublishするためのパッケージ
 
-## Package: triorb_vslam_tf
-VSLAMで計算された姿勢をTriOrbで使用するための姿勢に変換し, tf2 bufferにbroadcastするパッケージ. <br>
-変換した姿勢はロボットコントローラ上での表示や, 自律移動の際の現在位置として利用される. <br>
+## triorb_vslam_tf
 
-### 主な機能
-- ロボット姿勢(VSLAM座標系)をTriOrb座標系に変換
-- ロボット姿勢をtf2 bufferにbroadcast
-
-### 更新履歴
-#### 1.1.0
-- tf_broadcast時の robot および rig にprefixを追加
-  - ROS_LOCALHOST_ONLY=0のロボットが複数いる場合に別ロボットの姿勢を参照することがある問題の対策のため
+SLAMで推定した位置姿勢をTriOrb BASEの位置姿勢へ変換しPublishするためのパッケージ
 
 ### Subscriber
 #### ロボット姿勢(VSLAM座標系)を取得

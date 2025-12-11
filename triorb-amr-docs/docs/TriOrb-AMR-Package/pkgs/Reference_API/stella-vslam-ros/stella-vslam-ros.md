@@ -1,7 +1,7 @@
 # stella_vslam_ros
 
 **パス**: `stella_vslam_ros`  
-**説明**: The ROS2 package for stella_vslam
+**説明**: Visual SLAM package
 
 ## Package: stella_vslam_ros
 
@@ -16,13 +16,14 @@
 | `/run_slam/camera_pose` | `nav_msgs::msg::Odometry` | 推定されたカメラ姿勢 |
 | `/run_slam/keyframes` | `geometry_msgs::msg::PoseArray` | キーフレーム群 |
 | `/run_slam/keyframes_2d` | `geometry_msgs::msg::PoseArray` | 平面に投影されたキーフレーム |
-| `/run_slam/pose_2d` | `geometry_msgs::msg::Pose2D` | 2D平面上のカメラ姿勢 |
 | `/run_slam/keyframe_landmarks` | `triorb_slam_interface::msg::UInt32MultiArrayStamped` | キーフレームごとのランドマーク数 |
 | `/run_slam/matched_landmarks` | `triorb_slam_interface::msg::UInt32MultiArrayStamped` | マッチしたランドマーク数 |
 | `/run_slam/matched_points` | `triorb_slam_interface::msg::PointArrayStamped` | マッチした3D点群 |
 | `/run_slam/camera_pose_dev` | `triorb_slam_interface::msg::PoseDevStamped` | カメラ姿勢推定結果（validフラグ付き） |
 | `/run_slam/matched_landmarks_per_camera` | `triorb_slam_interface::msg::CamerasLandmarkInfo` | カメラごとのランドマーク情報 |
 | `/run_slam/cameras_pose` | `triorb_slam_interface::msg::CamerasPose` | 複数カメラの姿勢 |
+| `/run_slam/status` | `triorb_slam_interface::msg::SlamStatus` | `map_name` と `state`（bit0:地図固定, bit1:自己位置特定）を含むSLAM状態 |
+| `/run_slam/reliability` | `std_msgs::msg::Float32` | マッチランドマーク数に基づく自己位置推定の信頼度（0.0〜1.0目安） |
 | `/run_slam/enable_camera` | `std_msgs::msg::Int8MultiArray` | 使用カメラの有効/無効状態 |
 | `/run_slam/marker_only` | `std_msgs::msg::Bool` | マーカーのみを使うか |
 | `/run_slam/marker_exclude` | `std_msgs::msg::Bool` | マーカー領域の除外フラグ |

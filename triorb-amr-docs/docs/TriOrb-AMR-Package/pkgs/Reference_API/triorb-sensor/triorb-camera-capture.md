@@ -3,23 +3,9 @@
 **パス**: `triorb_sensor/triorb_camera_capture`  
 **説明**: カメラキャプチャーのためのパッケージ
 
-## Package: triorb_camera_capture
-カメラ映像をキャプチャし, Image型のtopicとしてpublishするためのパッケージ. 
+## triorb_camera_capture
 
-### 主な機能
-- ioctlによるカメラ映像の取得
-- 画像の平均輝度が一定範囲に収まるように露光・ゲインの調整
-
-### 更新履歴
-#### 1.2.0
-- カメラ状態を通知するtopic追加
-- エラー・ワーニング履歴の通知部分を追加
-- 起動時にUSBカメラが1つでも存在していない場合, プログラムが停止するバグ修正
-
-#### 1.1.0
-- 画像のENQUEUEをtimer_callbackの最後に全カメラ同時に行うように変更
-- gainを設定可能
-- gain, exposureを設定時にauto_exposureをオフにするように変更
+カメラキャプチャーのためのパッケージ
 
 ### camera_capture API
 #### カメラ画像受信
@@ -86,17 +72,3 @@ root@orin-nx-XXX:~/$ ros2 service call /set/camera/state triorb_sensor_interface
 response:
 triorb_sensor_interface.srv.CameraCamture_Response(result=['success','success'])
 ```
-
-### camera format
-- width  1600
-- height 1300
-- pixel format GREY (gray scale 8bit)
-
-If you want use other formats, change following variables.
-- width, height in cap_cam.cpp (for width and height)
-- V4L2_PIX_FMT_GREY in CameraCapture.cpp (for pixel format)
-
-### use multiple camera
-- see launch/multi_camera_launch.xml
-
-

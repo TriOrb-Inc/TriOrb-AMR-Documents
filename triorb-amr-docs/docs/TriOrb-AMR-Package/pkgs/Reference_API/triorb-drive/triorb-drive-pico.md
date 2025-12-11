@@ -3,30 +3,9 @@
 **パス**: `triorb_drive/triorb_drive_pico`  
 **説明**: ROS2メッセージを用いてモーター制御ECUと通信するためのパッケージ
 
-## Package: triorb_drive_pico
-モーターの制御ECUと通信し, 移動指示の送信やステータス取得するためのパッケージ. 
+## triorb_drive_pico
 
-### 主な機能
-- 移動指示によるロボットの駆動
-- ロボットの内部状態の通知
-
-### 更新履歴
-#### 1.2.3
-- 現在実行中の指令が分かるように/drive/mode topicを追加
-- /drive/run_pos/result topicを追加し, 相対移動完了を通知するように変更
-
-#### 1.2.0
-- 各バージョン取得serviceをtopicに変更、10秒に1回publishするように変更
-- picoから最大速度・最小速度を取得し、Jetson内に保存するコードを追加
-- picoからエラー履歴を取得するservice追加
-- 特定の条件で速度指示を無視していたバグ修正
-
-#### 1.1.0
-- nodeのバージョン取得serviceを追加（有効になるようにバグ修正）
-- picoのバージョン取得serviceを追加
-- triorb_coreのバージョン取得serviceを追加
-- 励磁オン・オフのservice版を追加
-- 速度0命令は連続でない限りスキップしない
+ROS2メッセージを用いてモーター制御ECUと通信するためのパッケージ
 
 ### Subscriber
 

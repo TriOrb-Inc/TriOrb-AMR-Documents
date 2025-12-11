@@ -3,11 +3,9 @@
 **パス**: `triorb_drive/triorb_drive_vector`  
 **説明**: 制御指令値からロボットの進行方向や停止・回転などの状態判定を行う
 
-## Package: triorb_drive_vector
+## triorb_drive_vector
 
-### Description
-- 制御指令値からロボットの進行方向や停止・回転などの状態判定を行う。SLSやLED制御向け。
-- 閾値設定はdrive_vector.xml
+制御指令値からロボットの進行方向や停止・回転などの状態判定を行う
 
 ### Subscriber
 #### 移動指令を取得

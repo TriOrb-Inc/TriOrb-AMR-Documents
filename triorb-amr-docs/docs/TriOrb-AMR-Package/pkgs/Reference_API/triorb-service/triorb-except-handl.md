@@ -1,18 +1,11 @@
 # triorb_except_handl
 
 **パス**: `triorb_service/triorb_except_handl`  
-**説明**: TODO: Package description
+**説明**: 各ノードからの例外・警告を収集し、監視対象ノードの死活チェックや再起動スクリプト実行を行う例外ハンドリングノードです。
 
-## Package: triorb_except_handl
-### Config
-#### config/node_check.json
-- node_list: 存在しない場合ERRORとするnode名を記入(string)
-    - /except_handl/node/add トピックから追記可能
-    - /except_handl/node/remove トピックから削除可能
-- delay_sec: Node監視の開始遅延時間(float)[s]
+## triorb_except_handl
 
-#### config/${node_name}_restart.sh
-nodeが存在しなかった場合にホスト側で実行するshell script
+各ノードからの例外・警告を収集し、監視対象ノードの死活チェックや再起動スクリプト実行を行う例外ハンドリングノードです。
 
 ### Subscriber
 #### エラーの受取り
