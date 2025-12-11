@@ -432,6 +432,54 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="triorb_socket">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#active-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Active API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Active API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#json-joy" class="md-nav__link">
+    <span class="md-ellipsis">
+      JSON Joy購読
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#joy" class="md-nav__link">
+    <span class="md-ellipsis">
+      コラボレーションJoy配信
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      自律走行速度コマンド
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -454,7 +502,38 @@
 <p><strong>パス</strong>: <code>triorb_os/triorb_socket/triorb_socket</code><br />
 <strong>説明</strong>: TCPソケット通信のためのパッケージ</p>
 <h2 id="triorb_socket_1">triorb_socket</h2>
-<p>TCPソケット通信のためのパッケージ</p>
+<p>WebSocket 経由の JSON JOY データを ROS トピックへ変換します。</p>
+<h3 id="active-api">Active API</h3>
+<h4 id="json-joy">JSON Joy購読</h4>
+<ul>
+<li>Topic：(prefix)/vslam/joy （<code>joy_topic</code> パラメータで変更可）</li>
+<li>Node：(prefix)_triorb_socket</li>
+<li>Type： std_msgs/msg/String</li>
+<li>Note：SensorDataQoS。<code>{"target":"self","axes":[...],"buttons":&lt;uint32&gt;}</code> 形式で受信</li>
+<li>Usage：</li>
+</ul>
+<pre><code>ros2 topic pub /vslam/joy std_msgs/msg/String &quot;{data: '{\&quot;target\&quot;:\&quot;self\&quot;,\&quot;buttons\&quot;:3,\&quot;axes\&quot;:[0.1,0.2,0.0] }'}&quot; --once
+</code></pre>
+<h4 id="joy">コラボレーションJoy配信</h4>
+<ul>
+<li>Topic：(prefix)/collab/joy</li>
+<li>Node：(prefix)_triorb_socket</li>
+<li>Type： sensor_msgs/msg/Joy</li>
+<li>Note：<code>target != self</code> の入力をそのまま publish。<code>header.frame_id</code> には target を格納</li>
+<li>Usage：</li>
+</ul>
+<pre><code>ros2 topic echo /collab/joy
+</code></pre>
+<h4 id="_1">自律走行速度コマンド</h4>
+<ul>
+<li>Topic：(prefix)/drive/run_vel</li>
+<li>Node：(prefix)_triorb_socket</li>
+<li>Type： triorb_drive_interface/msg/TriorbRunVel3</li>
+<li>Note：<code>target=self</code> の場合に速度を計算して publish（現在は安全のため実送信を抑止中）</li>
+<li>Usage：</li>
+</ul>
+<pre><code>ros2 topic echo /drive/run_vel
+</code></pre>
 
 
 

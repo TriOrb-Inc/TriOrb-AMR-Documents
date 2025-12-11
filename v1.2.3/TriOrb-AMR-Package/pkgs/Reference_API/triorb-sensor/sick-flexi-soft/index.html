@@ -426,101 +426,38 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#package-triorb_sick_flexi_soft" class="md-nav__link">
+  <a href="#sick_flexi_soft_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Package: triorb_sick_flexi_soft
+      sick_flexi_soft
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Package: triorb_sick_flexi_soft">
+    <nav class="md-nav" aria-label="sick_flexi_soft">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#subscriber" class="md-nav__link">
+  <a href="#active-api" class="md-nav__link">
     <span class="md-ellipsis">
-      Subscriber
+      Active API
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Subscriber">
+    <nav class="md-nav" aria-label="Active API">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#description" class="md-nav__link">
+  <a href="#flexi-soft" class="md-nav__link">
     <span class="md-ellipsis">
-      Description
+      Flexi Soft入力バッファ配信
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
-  
-</li>
-        
           <li class="md-nav__item">
-  <a href="#publisher" class="md-nav__link">
+  <a href="#flexi-soft_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Publisher
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Publisher">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#description_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      Description
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#service" class="md-nav__link">
-    <span class="md-ellipsis">
-      Service
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Service">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#description_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      Description
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#action" class="md-nav__link">
-    <span class="md-ellipsis">
-      Action
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Action">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#description_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      Description
+      Flexi Soft出力バッファ受付
     </span>
   </a>
   
@@ -554,40 +491,30 @@
 
 <h1 id="sick_flexi_soft">sick_flexi_soft</h1>
 <p><strong>パス</strong>: <code>triorb_sensor/sick/sick_Flexi-Soft_ROS2/src</code><br />
-<strong>説明</strong>: TODO: Package description</p>
-<h2 id="package-triorb_sick_flexi_soft">Package: triorb_sick_flexi_soft</h2>
-<h3 id="subscriber">Subscriber</h3>
-<h4 id="description">Description</h4>
+<strong>説明</strong>: SICK PLCとEIP通信するためのパッケージ</p>
+<h2 id="sick_flexi_soft_1">sick_flexi_soft</h2>
+<p>Flexi Soft PLC の Input/Output アセンブリデータを ROS に橋渡しします。</p>
+<h3 id="active-api">Active API</h3>
+<h4 id="flexi-soft">Flexi Soft入力バッファ配信</h4>
 <ul>
-<li>Topic: </li>
-<li>Type: </li>
-<li>Usage: </li>
+<li>Topic：flexisoft/<assembly>/in_raw</li>
+<li>Node：(prefix)_sick_flexi_soft</li>
+<li>Type： std_msgs/msg/UInt8MultiArray</li>
+<li>Note：SensorDataQoS。EDS で検出した全 Input アセンブリ分の Raw バイト列を publish</li>
+<li>Usage：</li>
 </ul>
-<pre><code class="language-bash"></code></pre>
-<h3 id="publisher">Publisher</h3>
-<h4 id="description_1">Description</h4>
+<pre><code>ros2 topic echo flexisoft/standard_input/in_raw
+</code></pre>
+<h4 id="flexi-soft_1">Flexi Soft出力バッファ受付</h4>
 <ul>
-<li>Topic: </li>
-<li>Type: </li>
-<li>Usage: </li>
+<li>Topic：flexisoft/<assembly>/out_raw</li>
+<li>Node：(prefix)_sick_flexi_soft</li>
+<li>Type： std_msgs/msg/UInt8MultiArray</li>
+<li>Note：ParametersQoS。O-&gt;T データを書き戻すと PLC の出力マップに反映されます</li>
+<li>Usage：</li>
 </ul>
-<pre><code class="language-bash"></code></pre>
-<h3 id="service">Service</h3>
-<h4 id="description_2">Description</h4>
-<ul>
-<li>Topic: </li>
-<li>Type: </li>
-<li>Usage: </li>
-</ul>
-<pre><code class="language-bash"></code></pre>
-<h3 id="action">Action</h3>
-<h4 id="description_3">Description</h4>
-<ul>
-<li>Topic: </li>
-<li>Type: </li>
-<li>Usage: </li>
-</ul>
-<pre><code class="language-bash"></code></pre>
+<pre><code>ros2 topic pub flexisoft/standard_output/out_raw std_msgs/msg/UInt8MultiArray &quot;{data: [1,0,0,0]}&quot; --once
+</code></pre>
 
 
 

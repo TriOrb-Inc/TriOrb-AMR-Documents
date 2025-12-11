@@ -426,23 +426,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#package-triorb_collab_pose" class="md-nav__link">
+  <a href="#triorb_collab_pose_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Package: triorb_collab_pose
+      triorb_collab_pose
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Package: triorb_collab_pose">
+    <nav class="md-nav" aria-label="triorb_collab_pose">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      主な機能
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#subscriber" class="md-nav__link">
@@ -464,7 +455,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       各ロボットの姿勢受信
     </span>
@@ -473,7 +464,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       バインド姿勢情報受信
     </span>
@@ -506,7 +497,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       協調グループの姿勢リパブリッシュ
     </span>
@@ -530,7 +521,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       協調グループの姿勢
     </span>
@@ -567,27 +558,20 @@
 <h1 id="triorb_collab_pose">triorb_collab_pose</h1>
 <p><strong>パス</strong>: <code>triorb_drive/triorb_collab_pose</code><br />
 <strong>説明</strong>: 拡張カルマンフィルターとTF平均化で各ロボットのバインド姿勢や協調グループ中心を推定し、TFを配信する協調ポーズ推定パッケージです。</p>
-<h2 id="package-triorb_collab_pose">Package: triorb_collab_pose</h2>
-<p>このパッケージは、拡張カルマンフィルターなどのセンサフュージョン技術を用いて、AMR自身および協調搬送中の荷物の中心位置を推定します。</p>
-<h3 id="_1">主な機能</h3>
-<ul>
-<li>AMRの自己位置推定</li>
-<li>複数ロボットからの情報統合</li>
-<li>荷物中心位置の推定と共有</li>
-</ul>
-<hr />
+<h2 id="triorb_collab_pose_1">triorb_collab_pose</h2>
+<p>拡張カルマンフィルターとTF平均化で各ロボットのバインド姿勢や協調グループ中心を推定し、TFを配信する協調ポーズ推定パッケージです。</p>
 <h3 id="subscriber">Subscriber</h3>
 <h4 id="vslam">VSLAMからの姿勢受信</h4>
 <ul>
 <li>Topic: <code>/vslam/robot_pose</code></li>
 <li>Type: <code>triorb_drive_interface::msg::TriorbPos3</code></li>
 </ul>
-<h4 id="_2">各ロボットの姿勢受信</h4>
+<h4 id="_1">各ロボットの姿勢受信</h4>
 <ul>
 <li>Topic: <code>/bc/collab/robot_pose</code></li>
 <li>Type: <code>triorb_drive_interface::msg::TriorbPos3Stamped</code></li>
 </ul>
-<h4 id="_3">バインド姿勢情報受信</h4>
+<h4 id="_2">バインド姿勢情報受信</h4>
 <ul>
 <li>Topic: <code>/bc/collab/bind/info</code></li>
 <li>Type: <code>triorb_collaboration_interface::msg::ParentBind</code></li>
@@ -598,13 +582,13 @@
 <li>Topic: <code>/collab/robot_pose</code></li>
 <li>Type: <code>triorb_drive_interface::msg::TriorbPos3Stamped</code></li>
 </ul>
-<h4 id="_4">協調グループの姿勢リパブリッシュ</h4>
+<h4 id="_3">協調グループの姿勢リパブリッシュ</h4>
 <ul>
 <li>Topic: <code>/collab/group_pose</code></li>
 <li>Type: <code>triorb_drive_interface::msg::TriorbPos3Stamped</code></li>
 </ul>
 <h3 id="transformbroadcaster">TransformBroadcaster</h3>
-<h4 id="_5">協調グループの姿勢</h4>
+<h4 id="_4">協調グループの姿勢</h4>
 <ul>
 <li>Child Frame ID: <code>${グループ名}</code></li>
 <li>Parent Frame ID: <code>triorb_map</code></li>

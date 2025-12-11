@@ -426,47 +426,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#package-triorb_except_handl" class="md-nav__link">
+  <a href="#triorb_except_handl_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Package: triorb_except_handl
+      triorb_except_handl
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Package: triorb_except_handl">
+    <nav class="md-nav" aria-label="triorb_except_handl">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#config" class="md-nav__link">
-    <span class="md-ellipsis">
-      Config
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Config">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#confignode_checkjson" class="md-nav__link">
-    <span class="md-ellipsis">
-      config/node_check.json
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#confignode_name_restartsh" class="md-nav__link">
-    <span class="md-ellipsis">
-      config/${node_name}_restart.sh
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#subscriber" class="md-nav__link">
@@ -639,19 +606,8 @@
 <h1 id="triorb_except_handl">triorb_except_handl</h1>
 <p><strong>パス</strong>: <code>triorb_service/triorb_except_handl</code><br />
 <strong>説明</strong>: 各ノードからの例外・警告を収集し、監視対象ノードの死活チェックや再起動スクリプト実行を行う例外ハンドリングノードです。</p>
-<h2 id="package-triorb_except_handl">Package: triorb_except_handl</h2>
-<h3 id="config">Config</h3>
-<h4 id="confignode_checkjson">config/node_check.json</h4>
-<ul>
-<li>node_list: 存在しない場合ERRORとするnode名を記入(string)<ul>
-<li>/except_handl/node/add トピックから追記可能</li>
-<li>/except_handl/node/remove トピックから削除可能</li>
-</ul>
-</li>
-<li>delay_sec: Node監視の開始遅延時間(float)[s]</li>
-</ul>
-<h4 id="confignode_name_restartsh">config/${node_name}_restart.sh</h4>
-<p>nodeが存在しなかった場合にホスト側で実行するshell script</p>
+<h2 id="triorb_except_handl_1">triorb_except_handl</h2>
+<p>各ノードからの例外・警告を収集し、監視対象ノードの死活チェックや再起動スクリプト実行を行う例外ハンドリングノードです。</p>
 <h3 id="subscriber">Subscriber</h3>
 <h4 id="_1">エラーの受取り</h4>
 <ul>

@@ -426,23 +426,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#package-triorb_collab_lift" class="md-nav__link">
+  <a href="#triorb_collab_lift_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Package: triorb_collab_lift
+      triorb_collab_lift
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Package: triorb_collab_lift">
+    <nav class="md-nav" aria-label="triorb_collab_lift">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      主な機能
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#subscriber" class="md-nav__link">
@@ -455,7 +446,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       協調搬送対象ロボットの状態購読
     </span>
@@ -464,7 +455,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       協調リフト制御指令購読(本ロボットへ動作指示)
     </span>
@@ -473,7 +464,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       協調リフト結果購読(各ロボットからの結果受信)
     </span>
@@ -506,7 +497,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       協調リフト制御指令発行(本ロボットへ動作指示)
     </span>
@@ -515,7 +506,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       協調リフト結果発行(全ロボットのリフト操作結果を配信)
     </span>
@@ -524,7 +515,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       エラーを発行する
     </span>
@@ -533,7 +524,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       警告を発行する
     </span>
@@ -570,28 +561,21 @@
 <h1 id="triorb_collab_lift">triorb_collab_lift</h1>
 <p><strong>パス</strong>: <code>triorb_drive/triorb_collab_lift</code><br />
 <strong>説明</strong>: 協調グループからのリフター指示を各ロボットに配信し、結果を集約して完了可否を通知する協調リフト制御ノードです。</p>
-<h2 id="package-triorb_collab_lift">Package: triorb_collab_lift</h2>
-<p>このパッケージは、複数のAMR（自律移動ロボット）による協調リフト制御を提供します。ロボット間の動作を同期させることで、荷物を安定かつ安全に持ち上げることができます。</p>
-<h3 id="_1">主な機能</h3>
-<ul>
-<li>複数ロボットのリフト動作の同期制御</li>
-<li>荷物持ち上げ時の姿勢安定化</li>
-<li>リフト完了時の信号通知</li>
-</ul>
-<hr />
+<h2 id="triorb_collab_lift_1">triorb_collab_lift</h2>
+<p>協調グループからのリフター指示を各ロボットに配信し、結果を集約して完了可否を通知する協調リフト制御ノードです。</p>
 <h3 id="subscriber">Subscriber</h3>
-<h4 id="_2">協調搬送対象ロボットの状態購読</h4>
+<h4 id="_1">協調搬送対象ロボットの状態購読</h4>
 <ul>
 <li>Topic: /collab/robot/status</li>
 <li>Type: std_msgs::msg::String</li>
 </ul>
-<h4 id="_3">協調リフト制御指令購読(本ロボットへ動作指示)</h4>
+<h4 id="_2">協調リフト制御指令購読(本ロボットへ動作指示)</h4>
 <ul>
 <li>Topic: /bc/collab/run_lifter</li>
 <li>Type: std_msgs::msg::String</li>
 <li>Message: "up", "down", "stop"</li>
 </ul>
-<h4 id="_4">協調リフト結果購読(各ロボットからの結果受信)</h4>
+<h4 id="_3">協調リフト結果購読(各ロボットからの結果受信)</h4>
 <ul>
 <li>Topic: /bc/collab/lifter/result</li>
 <li>Type: std_msgs::msg::String</li>
@@ -603,23 +587,23 @@
 <li>Type: std_msgs::msg::String</li>
 </ul>
 <p>pub_run_lifter_</p>
-<h4 id="_5">協調リフト制御指令発行(本ロボットへ動作指示)</h4>
+<h4 id="_4">協調リフト制御指令発行(本ロボットへ動作指示)</h4>
 <ul>
 <li>Topic: /drive/run_lifter</li>
 <li>Type: std_msgs::msg::String</li>
 <li>Message: "up", "down", "stop"</li>
 </ul>
-<h4 id="_6">協調リフト結果発行(全ロボットのリフト操作結果を配信)</h4>
+<h4 id="_5">協調リフト結果発行(全ロボットのリフト操作結果を配信)</h4>
 <ul>
 <li>Topic: /collab/lifter/result</li>
 <li>Type: std_msgs::msg::String</li>
 </ul>
-<h4 id="_7">エラーを発行する</h4>
+<h4 id="_6">エラーを発行する</h4>
 <ul>
 <li>Topic: /triorb/error/str/add</li>
 <li>Type: std_msgs::msg::String</li>
 </ul>
-<h4 id="_8">警告を発行する</h4>
+<h4 id="_7">警告を発行する</h4>
 <ul>
 <li>Topic: /triorb/warn/str/add</li>
 <li>Type: std_msgs::msg::String</li>

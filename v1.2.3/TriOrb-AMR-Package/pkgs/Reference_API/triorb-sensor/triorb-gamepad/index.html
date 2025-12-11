@@ -426,98 +426,17 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#package-triorb_gamepad" class="md-nav__link">
+  <a href="#triorb_gamepad_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Package: triorb_gamepad
+      triorb_gamepad
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Package: triorb_gamepad">
+    <nav class="md-nav" aria-label="triorb_gamepad">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      概要
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      提供ノード
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="提供ノード">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#gamepad" class="md-nav__link">
-    <span class="md-ellipsis">
-      gamepad
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="gamepad">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      モード管理
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#subscriber" class="md-nav__link">
-    <span class="md-ellipsis">
-      購読インターフェース（Subscriber）
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="購読インターフェース（Subscriber）">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      外部からの呼び出し例
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      パラメータ
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       発行トピック
     </span>
@@ -527,7 +446,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       走行関連（標準モード）
     </span>
@@ -536,7 +455,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       走行関連（コラボレーションモード）
     </span>
@@ -544,53 +463,8 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    <span class="md-ellipsis">
-      例外通知
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
-    <span class="md-ellipsis">
-      ゲームパッドコマンド一覧
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
-    <span class="md-ellipsis">
-      ゲームパッド辞書ファイル
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
-    <span class="md-ellipsis">
-      利用手順
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
-    <span class="md-ellipsis">
-      エラー時の挙動
-    </span>
-  </a>
   
 </li>
         
@@ -618,103 +492,10 @@
 <h1 id="triorb_gamepad">triorb_gamepad</h1>
 <p><strong>パス</strong>: <code>triorb_sensor/triorb_gamepad</code><br />
 <strong>説明</strong>: ゲームパッド入力を監視し、走行・リフタ・非常停止などのコマンドをROS 2トピックへ出力するテレオペ用ノードです。</p>
-<h2 id="package-triorb_gamepad">Package: triorb_gamepad</h2>
-<h3 id="_1">概要</h3>
-<p>TriOrb AMR を市販/専用ゲームパッドから安全に操作する ROS 2 ノードを提供するパッケージです。<code>/dev/input/js*</code> を監視して対応デバイスを自動検出し、JSON で定義されたボタン/スティック割り当てに従って走行・リフタ・非常停止などのコマンドを生成します。ノード名やトピック名は <code>ROS_PREFIX</code> 環境変数を先頭に付与して重複を避けます。</p>
-<h3 id="_2">提供ノード</h3>
-<h4 id="gamepad"><code>gamepad</code></h4>
-<ul>
-<li><code>src/triorb_gamepad.cpp</code> の <code>_Node</code> クラスとして実装される単一ノードです。<code>UNIQUE_NODE</code> が有効なため同一名ノードが複数起動すると自動終了し、例外通知トピックへ状態を送出します。</li>
-<li><code>dev</code> パラメータが空のときは <code>/dev/input/js0..js15</code> をスキャンして最初に反応したゲームパッドを使用します。</li>
-<li>ゲームパッド情報（名称・軸数・ボタン数）を読み込み、ユーザー辞書または <code>share/triorb_gamepad/params</code> のプリセットからマッピング設定を決定します。</li>
-<li>イベントループでは <code>AMRCtrl</code> 構造体に速度/加減速/リフタ状態を蓄積し、変化が生じたときのみ TriOrb RunVel コマンドを発行します。</li>
-</ul>
-<h5 id="_3">モード管理</h5>
-<ul>
-<li>1 秒周期の <code>mode_check_timer</code> で購読者数を確認し、<code>/collab/wakeup</code> トピックに購読者がいる場合は「コラボレーションモード」に自動切替します。以後のコマンドは <code>/collab/...</code> 系トピックへ送出されます。</li>
-<li><code>safe_run_mode</code> は <code>safe_drive/run_vel</code> もしくは <code>/collab/safe_drive/run_vel</code> の購読者が存在するか、直前に SafeRun モードだったかで判定されます。安全速度トピックが有効な場合は通常の <code>/drive/run_vel</code> ではなく SafeRun トピックへ速度メッセージを発行します。</li>
-<li><code>active</code>/<code>inactive</code> コマンドによりゲームパッドの有効状態を明示でき、アクティブでない場合は速度を常に 0 とし、矛盾した状態が続くとデバイスを切断して再初期化させます。</li>
-</ul>
-<h3 id="subscriber">購読インターフェース（Subscriber）</h3>
-<p>本ノードは ROS 2 上で購読するトピックを持たず、Linux のジョイスティックデバイス <code>/dev/input/js*</code> を唯一の入力源とします。外部アプリケーションからソフトウェア的に入力を与えたい場合は、仮想ジョイスティックにイベントを書き込むことで擬似的に「Subscriber」へ publish できます。</p>
-<h4 id="_4">外部からの呼び出し例</h4>
-<p>以下は <code>evemu-play</code> を用いて <code>/dev/input/js0</code> にボタン押下イベントを送る例です。<code>triorb_gamepad</code> ノードは実ジョイスティックと同様にイベントを受信し、対応するコマンドを実行します。</p>
-<pre><code class="language-bash">sudo apt install evemu-tools
-sudo evemu-record /dev/input/js0 &gt; /tmp/js0.desc   # 事前にデバイス定義を保存（初回のみ）
-sudo evemu-play /dev/input/js0 &lt;&lt;'EOF'
-E: 0.000000 1 304 1   # ボタンID304(例: Aボタン)押下
-E: 0.010000 0 0 0
-E: 0.050000 1 304 0   # ボタンを離す
-E: 0.060000 0 0 0
-EOF
-</code></pre>
-<p>仮想デバイスを自作する場合は <code>uinput</code> を使う Python/C++ スクリプトで同様のイベントを送出できます。ジョイスティックの軸やボタン番号は README 下部に記載した JSON 辞書に合わせる必要があります。</p>
-<h3 id="_5">パラメータ</h3>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>型</th>
-<th>既定値</th>
-<th>説明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>dev</code></td>
-<td>string</td>
-<td><code>""</code></td>
-<td>使用するデバイスファイル（例: <code>/dev/input/js1</code>）。空の場合は自動検出。</td>
-</tr>
-<tr>
-<td><code>dict</code></td>
-<td>string</td>
-<td><code>/params/gamepad</code></td>
-<td>ユーザー定義のゲームパッド辞書を格納するディレクトリ。存在しない場合はノードが作成します。</td>
-</tr>
-<tr>
-<td><code>acc_min</code></td>
-<td>int</td>
-<td><code>50</code></td>
-<td><code>val_acc</code>/<code>val_dec</code> コマンドで生成される最小加速度 [ms]。</td>
-</tr>
-<tr>
-<td><code>acc_max</code></td>
-<td>int</td>
-<td><code>10000</code></td>
-<td>同最大加速度 [ms]。</td>
-</tr>
-<tr>
-<td><code>vel_xy_min</code></td>
-<td>double</td>
-<td><code>0.0006</code></td>
-<td>並進速度の最小値 [m/s]。</td>
-</tr>
-<tr>
-<td><code>vel_xy_max</code></td>
-<td>double</td>
-<td><code>0.6</code></td>
-<td>並進速度の最大値 [m/s]。</td>
-</tr>
-<tr>
-<td><code>vel_w_min</code></td>
-<td>double</td>
-<td><code>0.00175</code></td>
-<td>角速度の最小値 [rad/s]。</td>
-</tr>
-<tr>
-<td><code>vel_w_max</code></td>
-<td>double</td>
-<td><code>1.75</code></td>
-<td>角速度の最大値 [rad/s]。</td>
-</tr>
-</tbody>
-</table>
-<blockquote>
-<p><code>robot_config</code> を辞書ファイル内に記述した場合は、上記パラメータよりもファイル側の値が優先されます。</p>
-</blockquote>
-<h3 id="_6">発行トピック</h3>
-<h4 id="_7">走行関連（標準モード）</h4>
+<h2 id="triorb_gamepad_1">triorb_gamepad</h2>
+<p>ゲームパッド入力を監視し、走行・リフタ・非常停止などのコマンドをROS 2トピックへ出力するテレオペ用ノードです。</p>
+<h3 id="_1">発行トピック</h3>
+<h4 id="_2">走行関連（標準モード）</h4>
 <ul>
 <li><code>/drive/run_vel</code> (<code>triorb_drive_interface/msg/TriorbRunVel3</code>): 並進/回転速度と加減速設定。<code>safe_run_mode</code> が true の場合は代わりに <code>/safe_drive/run_vel</code> を使用。</li>
 <li><code>/safe_drive/run_vel</code> (<code>triorb_drive_interface/msg/TriorbRunVel3</code>): SafeRun 対応先への速度通知。</li>
@@ -724,109 +505,8 @@ EOF
 <li><code>/drive/run_lifter</code> (<code>std_msgs/msg/String</code>): <code>"up"</code>, <code>"down"</code>, <code>"stop"</code> を通知。</li>
 <li><code>/drive/set_life_time</code> (<code>std_msgs/msg/UInt16</code>): 予備。現状コマンド割当は定義されていません。</li>
 </ul>
-<h4 id="_8">走行関連（コラボレーションモード）</h4>
+<h4 id="_3">走行関連（コラボレーションモード）</h4>
 <p><code>/collab/drive/stop</code>, <code>/collab/sleep</code>, <code>/collab/wakeup</code>, <code>/collab/run_lifter</code>, <code>/collab/set_life_time</code>, <code>/collab/run_vel</code>, <code>/collab/safe_drive/run_vel</code> を標準モードと同じメッセージ型で発行します。</p>
-<h4 id="_9">例外通知</h4>
-<ul>
-<li><code>/except_handl/node/add</code> (<code>std_msgs/msg/String</code>): ノード登録通知。</li>
-<li><code>/triorb/error/str/add</code> (<code>std_msgs/msg/String</code>): デバイス欠如・読み取り失敗などの致命的エラーを通知。</li>
-<li><code>/triorb/warn/str/add</code> (<code>std_msgs/msg/String</code>): ゲームパッドの状態異常による切断など非致命的事象。</li>
-</ul>
-<p>本パッケージはサービス／アクションを提供しません。</p>
-<h3 id="_10">ゲームパッドコマンド一覧</h3>
-<p>JSON 辞書内で使用する <code>name</code> に応じて次の処理が実行されます。</p>
-<table>
-<thead>
-<tr>
-<th>コマンド名</th>
-<th>内容</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>val_x</code> / <code>val_y</code> / <code>val_w</code></td>
-<td>スティックの値を -1.0 〜 1.0 に正規化し、それぞれ <code>vx</code>, <code>vy</code>, <code>vw</code> に適用。</td>
-</tr>
-<tr>
-<td><code>val_acc</code> / <code>val_dec</code></td>
-<td>指定範囲にリニアマップして <code>acc</code>/<code>dec</code> [ms] を更新。</td>
-</tr>
-<tr>
-<td><code>val_vxy</code> / <code>val_vw</code></td>
-<td>並進 / 角速度の最大値にリニアマップ。</td>
-</tr>
-<tr>
-<td><code>acc_inc</code>, <code>acc_dec</code>, <code>dec_inc</code>, <code>dec_dec</code></td>
-<td>100 ms 単位で加減速を微調整。</td>
-</tr>
-<tr>
-<td><code>vel_vxy_inc</code>, <code>vel_vxy_dec</code>, <code>vel_vw_inc</code>, <code>vel_vw_dec</code></td>
-<td>0.05 m/s、0.157 rad/s 単位で速度比率を変更。</td>
-</tr>
-<tr>
-<td><code>wakeup</code>, <code>sleep</code></td>
-<td>ステート遷移。<code>sleep</code> 後は速度が 0 に固定。</td>
-</tr>
-<tr>
-<td><code>lift_up</code>, <code>lift_down</code>, <code>lift_stop</code></td>
-<td>リフタ制御文字列を生成。連続押下は無視。</td>
-</tr>
-<tr>
-<td><code>e_stop</code></td>
-<td>押下時に <code>/drive/stop</code>（コラボ時は <code>/collab/drive/stop</code>）を即時発行。</td>
-</tr>
-<tr>
-<td><code>active</code>, <code>inactive</code></td>
-<td>デバイスの状態監視に利用。アクティブでない場合は絶対に速度を出力しません。</td>
-</tr>
-</tbody>
-</table>
-<p>コマンドに該当しない名称はログに <code>[Unknown cmd_name]</code> として出力されます。</p>
-<h3 id="_11">ゲームパッド辞書ファイル</h3>
-<ul>
-<li>ファイル名は <code>&lt;デバイス名&gt;_&lt;軸数&gt;_&lt;ボタン数&gt;.json</code> とし、<code>dict</code> で指定したディレクトリ、または <code>share/triorb_gamepad/params</code> に配置します。例: <code>Generic X-Box pad_8_11.json</code>。</li>
-<li>典型的な構造:</li>
-</ul>
-<pre><code class="language-json">{
-  &quot;name&quot;: &quot;Generic X-Box pad&quot;,
-  &quot;axis_count&quot;: 8,
-  &quot;button_count&quot;: 11,
-  &quot;axis_cmds&quot;: [
-    {&quot;name&quot;: &quot;val_x&quot;, &quot;type&quot;: &quot;analog&quot;, &quot;min&quot;: -32767, &quot;max&quot;: 32767},
-    {&quot;name&quot;: &quot;val_y&quot;, &quot;type&quot;: &quot;analog&quot;, &quot;min&quot;: 32767, &quot;max&quot;: -32767},
-    {&quot;name&quot;: [&quot;acc_dec&quot;, &quot;dec_dec&quot;], &quot;type&quot;: &quot;digital&quot;}
-  ],
-  &quot;button_cmds&quot;: [
-    {&quot;name&quot;: &quot;lift_stop&quot;, &quot;type&quot;: &quot;digital&quot;},
-    {&quot;name&quot;: [&quot;vel_vxy_inc&quot;, &quot;vel_vw_inc&quot;], &quot;type&quot;: &quot;digital&quot;}
-  ],
-  &quot;robot_config&quot;: {
-    &quot;acc_min&quot;: 50,
-    &quot;acc_max&quot;: 10000,
-    &quot;vel_xy_min&quot;: 0.05,
-    &quot;vel_xy_max&quot;: 0.6,
-    &quot;vel_w_min&quot;: 0.1,
-    &quot;vel_w_max&quot;: 1.75
-  }
-}
-</code></pre>
-<ul>
-<li><code>axis_cmds</code>/<code>button_cmds</code> の要素数はデバイスが持つ軸・ボタン数と同じである必要があります。<code>name</code> を配列にすると 1 つの軸/ボタンに複数コマンドを割り当てられます。「未使用」は空文字列 <code>""</code> を指定してください。</li>
-<li><code>type</code> が <code>analog</code> の場合は <code>min</code>/<code>max</code> を必ず設定します。<code>digital</code> の場合は押下時 (<code>value &gt; 0</code>) にのみ実行されます。</li>
-</ul>
-<h3 id="_12">利用手順</h3>
-<ol>
-<li>TriOrb ワークスペースで依存関係を満たした状態にし、<code>colcon build --packages-select triorb_gamepad</code> でビルドします。</li>
-<li>ゲームパッドを接続し、必要であれば <code>~/.ros/gamepad</code> などの辞書格納先を用意し JSON を配置します。</li>
-<li><code>ros2 run triorb_gamepad triorb_gamepad --ros-args -p dict:=/home/robot/.ros/gamepad -p dev:=/dev/input/js0</code> のように実行します。</li>
-<li>起動時ログにデバイス名と割り当てが表示されます。意図したコマンドが発行されない場合は <code>axis_cmds</code>/<code>button_cmds</code> を確認してください。</li>
-</ol>
-<h3 id="_13">エラー時の挙動</h3>
-<ul>
-<li>デバイスが見つからない／読み込み中に <code>ENODEV</code>/<code>EIO</code> が発生した場合は <code>_Node</code> が終了し、例外トピックに詳細を投稿します。</li>
-<li>連続して不正値が送られ <code>need_disconnect()</code> が true になった場合は警告を発しデバイスを閉じて再検出します。</li>
-<li>ROS 2 ランタイムに致命的なエラーが無い限り、例外発生後も 1 秒待機して再接続を試みます。</li>
-</ul>
 
 
 

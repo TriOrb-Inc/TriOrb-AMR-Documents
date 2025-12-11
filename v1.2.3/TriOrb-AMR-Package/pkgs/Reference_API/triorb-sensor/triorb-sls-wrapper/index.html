@@ -436,37 +436,37 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#active-api" class="md-nav__link">
     <span class="md-ellipsis">
-      必要環境
+      Active API
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sickraw_datapointcloudpublishsrcraw_data_to_pointcloud_nodecpp" class="md-nav__link">
-    <span class="md-ellipsis">
-      /sick/raw_dataをサブスクライブしてPointCloudをPublishするノード（src/raw_data_to_pointcloud_node.cpp）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sickraw_datasrcraw_data_to_occupancy_nodecpp" class="md-nav__link">
-    <span class="md-ellipsis">
-      /sick/raw_dataを占有グリッドへ変換するノード（src/raw_data_to_occupancy_node.cpp）
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="/sick/raw_dataを占有グリッドへ変換するノード（src/raw_data_to_occupancy_node.cpp）">
+    <nav class="md-nav" aria-label="Active API">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#occupancygridpng" class="md-nav__link">
+  <a href="#rawmicroscandata" class="md-nav__link">
     <span class="md-ellipsis">
-      OccupancyGridをPNGとして保存するテストスクリプト
+      RawMicroScanData購読
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#occupancygrid" class="md-nav__link">
+    <span class="md-ellipsis">
+      OccupancyGrid出力
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pointcloud" class="md-nav__link">
+    <span class="md-ellipsis">
+      PointCloud出力
     </span>
   </a>
   
@@ -474,81 +474,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#sickraw_dataplot_raw_data_nodepy" class="md-nav__link">
-    <span class="md-ellipsis">
-      /sick/raw_dataをサブスクライブしてプロット（plot_raw_data_node.py）
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#raw_data-plot_raw_datapy" class="md-nav__link">
-    <span class="md-ellipsis">
-      raw_data のプロット (plot_raw_data.py)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="raw_data のプロット (plot_raw_data.py)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      主なオプション
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#generate_occupancypy" class="md-nav__link">
-    <span class="md-ellipsis">
-      占有グリッド生成 (generate_occupancy.py)
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="占有グリッド生成 (generate_occupancy.py)">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
-    <span class="md-ellipsis">
-      主なパラメータ
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    <span class="md-ellipsis">
-      出力
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      運用のヒント
-    </span>
-  </a>
   
 </li>
         
@@ -578,170 +503,38 @@
 <strong>説明</strong>: 
     Convert SICK SLS RawMicroScanData topics into sensor_msgs/PointCloud messages.</p>
 <h2 id="triorb_sls_wrapper_1">triorb_sls_wrapper</h2>
-<pre><code>Convert SICK SLS RawMicroScanData topics into sensor_msgs/PointCloud messages.
-</code></pre>
-<p>﻿# SICK SLS データツール</p>
-<p>SICK SLS センサから取得した <code>raw_data.log</code> を可視化し、ROS 2 互換の占有グリッドへ変換する Python スクリプト群です。センサの検出補償範囲（minimum detectable free space）は 3.0 m と仮定し、+Inf を返したビームも走行可能領域として扱えます。</p>
-<h3 id="_1">必要環境</h3>
+<p>RawMicroScanData を OccupancyGrid / PointCloud へ変換するノード群です。</p>
+<h3 id="active-api">Active API</h3>
+<h4 id="rawmicroscandata">RawMicroScanData購読</h4>
 <ul>
-<li>Python 3.9 以上</li>
-<li><a href="https://pyyaml.org/">PyYAML</a></li>
-<li><a href="https://numpy.org/">NumPy</a></li>
-<li><a href="https://matplotlib.org/">Matplotlib</a></li>
-<li><a href="https://python-pillow.org/">Pillow</a>（任意。PNG 出力に利用）</li>
+<li>Topic：(prefix)/sick/raw_data （<code>input_topic</code> で変更可）</li>
+<li>Node：(prefix)_raw_data_to_occupancy / (prefix)_raw_data_to_pointcloud</li>
+<li>Type： sick_safetyscanners2_interfaces/msg/RawMicroScanData</li>
+<li>Note：SensorDataQoS。シリアル番号や config に応じて自動フィルタリング</li>
+<li>Usage：</li>
 </ul>
-<p>インストール例:</p>
-<pre><code class="language-bash">pip install pyyaml numpy matplotlib pillow
+<pre><code>ros2 topic echo /sick/raw_data
 </code></pre>
-<blockquote>
-<p>Pillow が無い場合、<code>generate_occupancy.py</code> は Matplotlib を利用して PNG を保存します。</p>
-</blockquote>
-<h3 id="sickraw_datapointcloudpublishsrcraw_data_to_pointcloud_nodecpp">/sick/raw_dataをサブスクライブしてPointCloudをPublishするノード（<code>src/raw_data_to_pointcloud_node.cpp</code>）</h3>
-<p>ROS 2 ノードとして動作し、<code>/sick/raw_data</code> トピックからデータを受信して、serial-numberが一致したデータをPointCloud2メッセージとしてパブリッシュします。オフセット値はミリメートル単位で指定します。シリアル番号ごとのキャリブレーション値は JSON ファイルにまとめて読み込み、<code>serial_number_of_device</code> に応じて自動で切り替わります。</p>
-<p><code>config/sls_point2d_config.json</code>（インストール後は<code>share/triorb_sls_wrapper/config/</code>配下）を編集してください:</p>
-<pre><code class="language-json">{
-  &quot;default&quot;: {
-    &quot;angle_offset&quot;: 0.0,
-    &quot;offset_x&quot;: 0.0,
-    &quot;offset_y&quot;: 0.0,
-    &quot;pointcloud_topic&quot;: &quot;/sick/point2d&quot;
-  },
-  &quot;24050147&quot;: {
-    &quot;angle_offset&quot;: 290.0,
-    &quot;offset_x&quot;: 170.0,
-    &quot;offset_y&quot;: 156.0,
-    &quot;pointcloud_topic&quot;: &quot;/sick/point2d47&quot;
-  },
-  &quot;24050160&quot;: {
-    &quot;angle_offset&quot;: 70.0,
-    &quot;offset_x&quot;: -170.0,
-    &quot;offset_y&quot;: 156.0,
-    &quot;pointcloud_topic&quot;: &quot;/sick/point2d52&quot;
-  }
-}
-</code></pre>
-<p><code>pointcloud_topic</code> を省略した場合は <code>default</code> セクションの値が利用されます。<code>ROS_PREFIX</code> 環境変数が設定されている場合は接頭辞付きでトピックが生成されます。</p>
-<pre><code class="language-bash">colcon build &amp;&amp; source install/setup.bash &amp;&amp;\
-ros2 run triorb_sls_wrapper sls_point2d \
-  --ros-args \
-  -p config_file:=$(ros2 pkg prefix triorb_sls_wrapper)/share/triorb_sls_wrapper/config/sls_point2d_config.json
-</code></pre>
-<p>特定センサのみ処理したい場合は <code>-p serial_number:=&lt;value&gt;</code> と <code>-p filter_by_serial:=true</code> を併用してください。既定（<code>serial_number&lt;=0</code>）では全シリアルを受け付け、JSONで定義されていないシリアルは <code>default</code> セクションの補正値が適用されます。</p>
-<h3 id="sickraw_datasrcraw_data_to_occupancy_nodecpp">/sick/raw_dataを占有グリッドへ変換するノード（<code>src/raw_data_to_occupancy_node.cpp</code>）</h3>
-<p><code>/sick/raw_data</code> を購読し、スキャンごとに <code>nav_msgs/msg/OccupancyGrid</code> を生成してパブリッシュします。<code>generate_occupancy.py</code> のロジックをROS 2ノード化したもので、シリアル番号ごとに解像度や検知範囲、出力トピックを切り替えられます。</p>
-<p><code>config/sls_occupancy_config.json</code>（インストール後は<code>share/triorb_sls_wrapper/config/</code>配下）を編集してください:</p>
-<pre><code class="language-json">{
-  &quot;default&quot;: {
-    &quot;angle_offset&quot;: 0.0,
-    &quot;offset_x&quot;: 0.0,
-    &quot;offset_y&quot;: 0.0,
-    &quot;unit_scale&quot;: 0.001,
-    &quot;resolution&quot;: 0.05,
-    &quot;margin&quot;: 0.5,
-    &quot;xy_limit&quot;: 5.0,
-    &quot;detection_range&quot;: 10.0,
-    &quot;max_range&quot;: null,
-    &quot;beam_group_size&quot;: 4,
-    &quot;frame_id&quot;: &quot;map&quot;,
-    &quot;occupancy_topic&quot;: &quot;/sick/occupancy&quot;
-  },
-  &quot;24050160&quot;: {
-    &quot;angle_offset&quot;: 70.0,
-    &quot;offset_x&quot;: -170.0,
-    &quot;offset_y&quot;: 156.0,
-    &quot;xy_limit&quot;: 6.0,
-    &quot;beam_group_size&quot;: 4,
-    &quot;occupancy_topic&quot;: &quot;/sick/occupancy52&quot;
-  }
-}
-</code></pre>
-<p><code>occupancy_topic</code> を省略した場合は <code>default</code> の値が利用されます。<code>ROS_PREFIX</code> 環境変数を指定すると接頭辞付きトピックへ自動変換されます。</p>
-<p><code>detection_range</code> は +Inf ビームに対しても自由セルとして扱う最大距離を表し、範囲内は占有率 0 で塗りつぶされます。<code>beam_group_size</code> は角度方向のビームをまとめる単位数で、各グループの中から最も近い障害物を含むビーム（なければ任意のビーム）が選択されるため、計算負荷を抑えつつ近距離の障害物を優先的に反映できます。</p>
-<pre><code class="language-bash">colcon build &amp;&amp; source install/setup.bash &amp;&amp;\
-ros2 run triorb_sls_wrapper sls_occupancy \
-  --ros-args \
-  -p config_file:=$(ros2 pkg prefix triorb_sls_wrapper)/share/triorb_sls_wrapper/config/sls_occupancy_config.json
-</code></pre>
-<p><code>-p serial_number:=&lt;value&gt;</code> と <code>-p filter_by_serial:=true</code> を併用すれば、特定センサのみOccupancyGridを生成します。定義済みシリアルが1件だけの場合は自動でその設定が選択されます。</p>
-<h4 id="occupancygridpng">OccupancyGridをPNGとして保存するテストスクリプト</h4>
-<p><code>test/save_occupancy_png.py</code> を利用すると、任意の占有グリッドトピックを購読して最初のメッセージをPNGとして保存できます。Pillow (<code>pip install pillow</code>) を事前にインストールしてください。</p>
-<pre><code class="language-bash">python3 test/save_occupancy_png.py \
-  --topic /sick/occupancy52 \
-  --output occupancy_snapshot.png
-</code></pre>
-<p>未知セル (-1) は灰、自由セル (0) は白、占有セル (100) は黒で描画されます。メッセージを1度受信すると自動的にノードが終了します。</p>
-<h3 id="sickraw_dataplot_raw_data_nodepy">/sick/raw_dataをサブスクライブしてプロット（<code>plot_raw_data_node.py</code>）</h3>
-<p>パラメータは<code>plot_raw_data.py</code>と同様ですが、ROS 2 ノードとして動作し、<code>/sick/raw_data</code> トピックからデータを受信して、serial-numberが一致したデータをプロットします。オフセット値はミリメートル単位で指定します。</p>
-<pre><code class="language-bash">tmux new-session -s play -d &quot;ros2 bag play -l test/rosbag2_2025_11_05-00_06_02/&quot;
-python plot_raw_data_node.py \
-  --output raw_data_node_plot.svg \
-  --serial-number 24050160 \
-  --angle-offset 70 \
-  --offset-x -170 \
-  --offset-y 156
-</code></pre>
-<h3 id="raw_data-plot_raw_datapy">raw_data のプロット (<code>plot_raw_data.py</code>)</h3>
-<p>極座標ビューと XY ビューを生成し、反射率つきでスキャン結果を確認します。オフセット値はミリメートル単位で指定します。</p>
-<pre><code class="language-bash">python plot_raw_data.py \
-  --input raw_data.log \
-  --output raw_data_plot.svg \
-  --angle-offset 70 \
-  --offset-x -170 \
-  --offset-y 156 \
-  --xy-limit 2000 \
-  --dpi 1200
-</code></pre>
-<h4 id="_2">主なオプション</h4>
+<h4 id="occupancygrid">OccupancyGrid出力</h4>
 <ul>
-<li><code>--angle-offset</code> センサ取り付け角度の補正（度、時計回りが正）。</li>
-<li><code>--offset-x</code>, <code>--offset-y</code> センサ位置の平行移動量（ミリメートル）。<code>offset-y</code> の正値で下方向にシフト。</li>
-<li><code>--xy-limit</code> XY ビューの表示範囲（ミリメートル）。例: <code>2000</code> で ±2000 mm を描画。</li>
-<li><code>--dpi</code> 画像保存時の解像度。高くすると詳細になるがファイルサイズも増加。</li>
-<li><code>--show</code> 生成後に Matplotlib ウィンドウを表示。</li>
+<li>Topic：(prefix)/sick/occupancy （<code>occupancy_topic</code> / 個別設定で変更可）</li>
+<li>Node：(prefix)_raw_data_to_occupancy</li>
+<li>Type： nav_msgs/msg/OccupancyGrid</li>
+<li>Note：シリアル番号ごとにトピックを自動生成し、キャリブレーションに沿って 2D 投影</li>
+<li>Usage：</li>
 </ul>
-<p>Polar View には 0.1 ステップの補助円を追加、XY View は等倍率で描画します。</p>
-<h3 id="generate_occupancypy">占有グリッド生成 (<code>generate_occupancy.py</code>)</h3>
-<p><code>raw_data.log</code> から ROS 2 <code>nav_msgs::msg::OccupancyGrid</code> 互換の PNG と JSON メタデータを出力します。センサオフセットはミリメートル、その他の距離系はメートルで指定します。</p>
-<pre><code class="language-bash">python generate_occupancy.py \
-  --input raw_data.log \
-  --output occupancy_map.png \
-  --output-meta occupancy_map.json \
-  --resolution 0.03 \
-  --unit-scale 0.001 \
-  --angle-offset 70 \
-  --offset-x -170 \
-  --offset-y 156 \
-  --infinite-free-range 3.0 \
-  --detection-range 10.0 \
-  --xy-limit 5.0 \
-  --dpi 600
+<pre><code>ros2 topic echo /sick/occupancy
 </code></pre>
-<h4 id="_3">主なパラメータ</h4>
+<h4 id="pointcloud">PointCloud出力</h4>
 <ul>
-<li><code>--resolution</code> グリッド解像度（メートル/セル）。既定値は 0.01。</li>
-<li><code>--unit-scale</code> 距離の単位変換。ミリ -&gt; メートルなら 0.001。</li>
-<li><code>--xy-limit</code> センサ中心の正方形領域を ±値メートルでクリップ。未指定ならスキャン範囲に余白を加えて自動計算。</li>
-<li><code>--margin</code> <code>--xy-limit</code> 未指定時に周囲へ加える余白（メートル）。</li>
-<li><code>--max-range</code> 指定距離を超える計測値を除外（メートル）。</li>
-<li><code>--angle-offset</code> 角度補正（度）。<code>plot_raw_data.py</code> と同じ値を推奨。</li>
-<li><code>--offset-x</code>, <code>--offset-y</code> センサ位置の補正量（ミリメートル）。内部で <code>unit-scale</code> によりメートルへ換算。</li>
-<li><code>--infinite-free-range</code> +Inf（飽和）ビームに対して最低限走行可能とみなす距離（メートル）。既定値は 3.0 m（SICK 検出補償範囲）。</li>
-<li><code>--detection-range</code> 3.0 m から 10.0 m までを検出可能範囲とみなし、距離に応じて占有率 0~50 を割り当てます。</li>
-<li><code>--output-meta</code> ROS 用メタデータ (JSON) を保存。</li>
-<li><code>--show</code> Matplotlib を使って占有グリッドを表示。</li>
+<li>Topic：(prefix)/sick/pointcloud （<code>pointcloud_topic</code> で変更可）</li>
+<li>Node：(prefix)_raw_data_to_pointcloud</li>
+<li>Type： sensor_msgs/msg/PointCloud</li>
+<li>Note：Z 成分に反射強度を格納。必要に応じて <code>enable_pointcloud_debug_plot</code> を有効化</li>
+<li>Usage：</li>
 </ul>
-<h4 id="_4">出力</h4>
-<ul>
-<li><strong>occupancy_map.png</strong>: 占有セル (100) は黒、自由セル (0) は白、未知セル (-1) は灰。画像は ROS の座標系に合わせて下向き原点で保存。</li>
-<li><strong>occupancy_map.json</strong>: <code>resolution</code>、<code>width</code>、<code>height</code>、<code>origin</code> など <code>nav_msgs::msg::OccupancyGrid::info</code> に転記可能な情報を含む。</li>
-</ul>
-<p>ROS 2 側では画像を行優先（row-major）で読み込み、<code>origin</code> を踏まえて <code>data</code> 配列へ展開してください。</p>
-<h3 id="_5">運用のヒント</h3>
-<ul>
-<li>角度・平行移動オフセットは両スクリプトで統一すると結果が揃います。</li>
-<li>高 DPI 設定はファイルサイズが大きくなるため用途に応じて調整してください。</li>
-<li><code>--max-range</code> や <code>--infinite-free-range</code> を活用して、走行可能領域の解像度と範囲のバランスを取ってください。</li>
-</ul>
+<pre><code>ros2 topic echo /sick/pointcloud
+</code></pre>
 
 
 

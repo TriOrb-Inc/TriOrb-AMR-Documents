@@ -426,41 +426,13 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#package-triorb_navigation_manager" class="md-nav__link">
+  <a href="#triorb_navigation_manager_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Package: triorb_navigation_manager
+      triorb_navigation_manager
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Package: triorb_navigation_manager">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      概要
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
-    <span class="md-ellipsis">
-      主な機能
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#csv" class="md-nav__link">
-    <span class="md-ellipsis">
-      CSVベースの経路定義
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="CSVベースの経路定義">
+    <nav class="md-nav" aria-label="triorb_navigation_manager">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -469,11 +441,6 @@
       代表的なtypeと動作
     </span>
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
         
@@ -498,7 +465,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       呼び出し例
     </span>
@@ -544,7 +511,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       コマンド/メッセージ仕様
     </span>
@@ -585,24 +552,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    <span class="md-ellipsis">
-      エラー・状態管理
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
-    <span class="md-ellipsis">
-      運用上の注意
-    </span>
-  </a>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -630,26 +579,10 @@
    TriOrb製移動ロボット向けのROS 2ノードで、CSVベースの経路ナビゲーションを制御します。
    通常走行、協調走行、リフター動作、地図切替、イベント処理、状態通知などを統合的に管理し、
    TriOrbのドライブ・SLAMシステムと連携可能です。</p>
-<h2 id="package-triorb_navigation_manager">Package: triorb_navigation_manager</h2>
-<h3 id="_1">概要</h3>
-<p><code>triorb_navigation_manager</code>はTriOrb AMR向けのROS 2ノードであり、CSVで定義された経路に従ってナビゲーション・協調走行・リフター動作・TagSLAM/SLAM連携・安全装置制御・イベント連携を一元管理します。ROS 2 TopicとMQTTの双方を用いて外部モジュールと連携し、状態監視や再開制御、地図切替待機などを自動化します。ノード起動時に一意性チェックを行い、<code>ROS_PREFIX</code>に応じた名前空間付きトピックへ自動的に接続します。</p>
-<h3 id="_2">主な機能</h3>
-<ul>
-<li>経路CSV（<code>/data/route/&lt;name&gt;.csv</code>）のロード・解析とWayPoint管理（Start/End行を基準に自動抽出）</li>
-<li><code>nav/action</code>での開始・停止・一時停止・失敗復帰指示、速度係数や精度バイアスの適用</li>
-<li>走行（通常/協調/TagSLAM/相対移動）・リフター・イベント・地図操作・安全装置操作など多様なアクションを組み合わせ可能</li>
-<li>Drive/Lifter/MQTTイベントの成功判定と<code>NavResult</code>コードによる結果通知、失敗時は復帰位置を保持</li>
-<li><code>/triorb/nav/state</code>によるナビゲーション状態公開と<code>/triorb/request_nav_state</code>からの即時再送</li>
-<li>MQTT経由での地図待機時間取得・読み込みスキップ・VSLAM制御</li>
-</ul>
-<h3 id="csv">CSVベースの経路定義</h3>
-<ul>
-<li>ファイル配置: 既定で<code>/data/route/</code>配下。拡張子が無い場合は自動的に<code>.csv</code>を付与。</li>
-<li>行形式: <code>type,name,action,x,y,w,vxy,vw,acc_xy,acc_w,gain,camera,accel_ms,...</code></li>
-<li><code>type</code>が<code>route/Start</code>と<code>route/End</code>の行で経路範囲を自動決定。</li>
-<li><code>accel_ms</code>が未設定の場合は<code>DEFAULT_ACC=1000</code>、速度比は<code>nav/action</code>コマンドで与えた<code>ratio_speed</code>を乗算。</li>
-<li><code>check_waypoints</code>で<code>acc_xy</code>または<code>acc_w</code>がバイアス加算後に0以下の場合は開始前にエラー通知。</li>
-</ul>
+<h2 id="triorb_navigation_manager_1">triorb_navigation_manager</h2>
+<p>TriOrb製移動ロボット向けのROS 2ノードで、CSVベースの経路ナビゲーションを制御します。
+   通常走行、協調走行、リフター動作、地図切替、イベント処理、状態通知などを統合的に管理し、
+   TriOrbのドライブ・SLAMシステムと連携可能です。</p>
 <h4 id="type">代表的な<code>type</code>と動作</h4>
 <table>
 <thead>
@@ -780,7 +713,7 @@
 </tr>
 </tbody>
 </table>
-<h5 id="_3">呼び出し例</h5>
+<h5 id="_1">呼び出し例</h5>
 <pre><code class="language-bash">## 経路CSVをsample_route.csvへ切替
 ros2 topic pub /nav/route_csv_name std_msgs/msg/String &quot;data: 'sample_route.csv'&quot;
 
@@ -930,7 +863,7 @@ ros2 topic pub /triorb/request_nav_state std_msgs/msg/Empty &quot;{}&quot;
 </tr>
 </tbody>
 </table>
-<h3 id="_4">コマンド/メッセージ仕様</h3>
+<h3 id="_2">コマンド/メッセージ仕様</h3>
 <h4 id="navaction"><code>/nav/action</code></h4>
 <ul>
 <li><code>start,&lt;ratio_speed&gt;,&lt;bias_xy&gt;,&lt;bias_deg&gt;,&lt;loop&gt;</code><br />
@@ -987,20 +920,6 @@ ros2 topic pub /triorb/request_nav_state std_msgs/msg/Empty &quot;{}&quot;
 </tbody>
 </table>
 <p>アクション失敗時は<code>enter_failure_hold_state</code>で停止し、成功時は<code>check_compleated_operation</code>で次WayPointまたはLoop切り替えを実施。</p>
-<h3 id="_5">エラー・状態管理</h3>
-<ul>
-<li><code>reset_nav()</code>でWayPointポインタ、速度係数、バイアス、待機フラグ、エラーリスト、地図状態を初期化。</li>
-<li>タイマー (<code>0.5s</code>) で状態を定期送信。<code>/triorb/request_nav_state</code>受信時は即時再送。</li>
-<li>地図切替時はMQTT推定時間を待機し、タイムアウトすると<code>MAP_LOAD_TIME_OUT_ERROR</code>を通知してナビゲーションをリセット。</li>
-<li><code>wait_nav</code>などのフラグにより並列アクションを制御し、完了コールバックで次のWayPoint処理を進める。</li>
-</ul>
-<h3 id="_6">運用上の注意</h3>
-<ul>
-<li>ノード名はファイル名先頭の<code>_</code>を除き、<code>ROS_PREFIX</code>付きで決定されます。ノード起動時に同名ノードが存在すると起動を中止します。</li>
-<li>CSVには最低1つ以上のWayPoint（Start/End以外）が必要です。<code>idx_start &gt;= idx_end</code>またはWayPoint不足の場合は<code>WAYPOINTS_EMPTY_ERROR</code>を返します。</li>
-<li><code>MarkerSetting</code>はトピック送信直後に<code>/triorb/nav/state</code>へ反映されるため、UI側で状態確認してください。</li>
-<li>MQTTブローカー（既定: <code>localhost:1883</code>）に接続できない場合、地図切替アクションが正常に完了しません。必要に応じて<code>MQTTClient.connect()</code>のログを確認してください。</li>
-</ul>
 
 
 

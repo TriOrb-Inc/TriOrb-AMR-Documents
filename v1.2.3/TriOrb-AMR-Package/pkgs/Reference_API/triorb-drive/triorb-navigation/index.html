@@ -426,56 +426,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#package-triorb_navigation" class="md-nav__link">
+  <a href="#triorb_navigation_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Package: triorb_navigation
+      triorb_navigation
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Package: triorb_navigation">
+    <nav class="md-nav" aria-label="triorb_navigation">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      更新履歴
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="更新履歴">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#121" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.2.1
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#120" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.2.0
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#110" class="md-nav__link">
-    <span class="md-ellipsis">
-      1.1.0
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#force" class="md-nav__link">
@@ -506,7 +464,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_1" class="md-nav__link">
     <span class="md-ellipsis">
       自律移動を終了する
     </span>
@@ -515,7 +473,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     <span class="md-ellipsis">
       世界座標系目標位置指示による移動
     </span>
@@ -548,7 +506,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     <span class="md-ellipsis">
       移動距離指示による相対移動
     </span>
@@ -557,7 +515,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     <span class="md-ellipsis">
       自律移動完結果
     </span>
@@ -566,7 +524,7 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_6" class="md-nav__link">
+  <a href="#_5" class="md-nav__link">
     <span class="md-ellipsis">
       自律移動状態
     </span>
@@ -590,7 +548,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_7" class="md-nav__link">
+  <a href="#_6" class="md-nav__link">
     <span class="md-ellipsis">
       世界座標系目標位置指示による移動（移動完了結果報告あり）
     </span>
@@ -614,7 +572,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_8" class="md-nav__link">
+  <a href="#_7" class="md-nav__link">
     <span class="md-ellipsis">
       世界座標系目標経路指示による移動（途中経過、移動完了結果報告あり）
     </span>
@@ -651,37 +609,8 @@
 <h1 id="triorb_navigation">triorb_navigation</h1>
 <p><strong>パス</strong>: <code>triorb_drive/triorb_navigation</code><br />
 <strong>説明</strong>: 自律移動を行うためのパッケージ</p>
-<h2 id="package-triorb_navigation">Package: triorb_navigation</h2>
-<h3 id="_1">更新履歴</h3>
-<h4 id="121">1.2.1</h4>
-<ul>
-<li>自律移動の状態通知用のトピックを追加</li>
-<li>1秒周期で通知する</li>
-</ul>
-<h4 id="120">1.2.0</h4>
-<ul>
-<li>forceのモード追加. <ul>
-<li>レーン維持モード追加</li>
-</ul>
-</li>
-<li>Jetson内に保存された最低速度と最高速度(triorb_drive_picoでpicoから取得)を反映.</li>
-<li>斜め方向並進移動で最高速度を越えないように修正.</li>
-</ul>
-<h4 id="110">1.1.0</h4>
-<ul>
-<li>forceのモード追加. bitフラグで指定できるように変更.<ul>
-<li>回転のみモード追加</li>
-<li>並進のみモード追加</li>
-<li>速度指示モード追加(要調整)</li>
-<li>事後フィードバック制御モード追加</li>
-</ul>
-</li>
-<li>無フィードバック制御版が必ず失敗になっていたバグ修正</li>
-<li>速度指示用のPIDパラメータ追加</li>
-<li>lookup_transformの参照先(robot)にprefixを追加</li>
-<li>ROS_LOCALHOST_ONLY=0のロボットが複数いる場合に別ロボットの姿勢を参照することがある問題の対策のため</li>
-<li>速度指示モードではlifetimeを設定</li>
-</ul>
+<h2 id="triorb_navigation_1">triorb_navigation</h2>
+<p>自律移動を行うためのパッケージ</p>
 <h3 id="force">動作モード(forceフラグ)</h3>
 <p>各bitの組合せで指定
 - フィードバック制御フラグ(0b00000001)
@@ -724,7 +653,7 @@
 <li>成功終了後、何らかの移動指示により目標地点から離れた</li>
 </ul>
 <h3 id="subscriber">Subscriber</h3>
-<h4 id="_2">自律移動を終了する</h4>
+<h4 id="_1">自律移動を終了する</h4>
 <ul>
 <li>Topic: (prefix)/drive/stop</li>
 <li>Type: std_msgs/msg/Empty</li>
@@ -732,7 +661,7 @@
 </ul>
 <pre><code class="language-bash">root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/stop std_msgs/msg/Empty 
 </code></pre>
-<h4 id="_3">世界座標系目標位置指示による移動</h4>
+<h4 id="_2">世界座標系目標位置指示による移動</h4>
 <ul>
 <li>Topic: (prefix)/drive/set_pos</li>
 <li>Type: triorb_drive_interface/msg/TriorbSetPos3</li>
@@ -747,21 +676,21 @@
 </ul>
 <pre><code class="language-bash"></code></pre>
 <h3 id="publisher">Publisher</h3>
-<h4 id="_4">移動距離指示による相対移動</h4>
+<h4 id="_3">移動距離指示による相対移動</h4>
 <ul>
 <li>Topic: (prefix)/drive/run_pos</li>
 <li>Type: triorb_drive_interface/msg/TriorbRunPos3</li>
 <li>Usage: </li>
 </ul>
 <pre><code class="language-bash"></code></pre>
-<h4 id="_5">自律移動完結果</h4>
+<h4 id="_4">自律移動完結果</h4>
 <ul>
 <li>Topic: (prefix)/drive/result</li>
 <li>Type: triorb_drive_interface/msg/TriorbRunResult</li>
 <li>Usage: </li>
 </ul>
 <pre><code class="language-bash"></code></pre>
-<h4 id="_6">自律移動状態</h4>
+<h4 id="_5">自律移動状態</h4>
 <ul>
 <li>Topic: (prefix)/drive/state</li>
 <li>Type: triorb_drive_interface/msg/TriorbRunState</li>
@@ -769,7 +698,7 @@
 </ul>
 <pre><code class="language-bash"></code></pre>
 <h3 id="service">Service</h3>
-<h4 id="_7">世界座標系目標位置指示による移動（移動完了結果報告あり）</h4>
+<h4 id="_6">世界座標系目標位置指示による移動（移動完了結果報告あり）</h4>
 <ul>
 <li>Topic: (prefix)/srv/drive/set_pos</li>
 <li>Type: triorb_drive_interface/srv/TriorbSetPos3</li>
@@ -787,7 +716,7 @@ response:
 triorb_drive_interface.srv.TriorbSetPos3_Response(result=triorb_drive_interface.msg.TriorbRunResult(success=True, position=triorb_drive_interface.msg.TriorbPos3(x=0.5981971025466919, y=0.3542609214782715, deg=0.3284424841403961)))
 </code></pre>
 <h3 id="action">Action</h3>
-<h4 id="_8">世界座標系目標経路指示による移動（途中経過、移動完了結果報告あり）</h4>
+<h4 id="_7">世界座標系目標経路指示による移動（途中経過、移動完了結果報告あり）</h4>
 <ul>
 <li>Topic: (prefix)/action/drive/set_path</li>
 <li>Type: triorb_drive_interface/action/TriorbSetPath</li>

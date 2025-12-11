@@ -432,6 +432,45 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="triorb_beacon">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#active-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      Active API
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Active API">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      個体ビ―コン
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      グループビ―コン
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
     </ul>
@@ -454,7 +493,28 @@
 <p><strong>パス</strong>: <code>triorb_service/triorb_beacon</code><br />
 <strong>説明</strong>: ビーコン</p>
 <h2 id="triorb_beacon_1">triorb_beacon</h2>
-<p>ビーコン</p>
+<p>端末の IP・プレフィクス情報を定期送信し、グループ情報も FastAPI から取得して配信します。</p>
+<h3 id="active-api">Active API</h3>
+<h4 id="_1">個体ビ―コン</h4>
+<ul>
+<li>Topic：(prefix)/triorb/beacon2</li>
+<li>Node：(prefix)_triorb_beacon</li>
+<li>Type： std_msgs/msg/String</li>
+<li>Note：<code>{"hostname":"...","ip":"...","prefix":"..."}</code> JSON を 2 秒周期で publish</li>
+<li>Usage：</li>
+</ul>
+<pre><code>ros2 topic echo /triorb/beacon2
+</code></pre>
+<h4 id="_2">グループビ―コン</h4>
+<ul>
+<li>Topic：(prefix)/group/beacon2</li>
+<li>Node：(prefix)_triorb_beacon</li>
+<li>Type： std_msgs/msg/String</li>
+<li>Note：FastAPI <code>fastapi_group_url</code> が成功した場合のみ <code>group</code> を追加して publish</li>
+<li>Usage：</li>
+</ul>
+<pre><code>ros2 topic echo /group/beacon2
+</code></pre>
 
 
 

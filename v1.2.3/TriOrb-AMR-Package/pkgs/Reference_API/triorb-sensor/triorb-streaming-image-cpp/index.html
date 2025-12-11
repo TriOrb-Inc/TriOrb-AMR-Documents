@@ -426,23 +426,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#package-triorb_streaming_image_cpp" class="md-nav__link">
+  <a href="#triorb_streaming_image_cpp_1" class="md-nav__link">
     <span class="md-ellipsis">
-      Package: triorb_streaming_image_cpp
+      triorb_streaming_image_cpp
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Package: triorb_streaming_image_cpp">
+    <nav class="md-nav" aria-label="triorb_streaming_image_cpp">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
-    <span class="md-ellipsis">
-      更新履歴
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#subscriber" class="md-nav__link">
@@ -492,30 +483,6 @@
   
 </li>
         
-          <li class="md-nav__item">
-  <a href="#parameter" class="md-nav__link">
-    <span class="md-ellipsis">
-      Parameter
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Parameter">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#note" class="md-nav__link">
-    <span class="md-ellipsis">
-      note
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
       </ul>
     </nav>
   
@@ -540,12 +507,8 @@
 <h1 id="triorb_streaming_image_cpp">triorb_streaming_image_cpp</h1>
 <p><strong>パス</strong>: <code>triorb_sensor/triorb_streaming_image_cpp</code><br />
 <strong>説明</strong>: カメラのImageトピックを購読し、JPEG/WEBP等へ圧縮してMQTTへ送出する軽量ストリーミングノードのC++実装です。</p>
-<h2 id="package-triorb_streaming_image_cpp">Package: triorb_streaming_image_cpp</h2>
-<p>このパッケージは、ROS 2 の <code>sensor_msgs/msg/Image</code> トピックから画像をサブスクリプションし、圧縮後に <strong>MQTT トピックへ配信</strong>するストリーミングノードです。 <br>
-python版(triorb_streaming_images)の代替パッケージであり、処理負荷軽減のためv1.2.3から追加されました。</p>
-<hr />
-<h3 id="_1">更新履歴</h3>
-<hr />
+<h2 id="triorb_streaming_image_cpp_1">triorb_streaming_image_cpp</h2>
+<p>カメラのImageトピックを購読し、JPEG/WEBP等へ圧縮してMQTTへ送出する軽量ストリーミングノードのC++実装です。</p>
 <h3 id="subscriber">Subscriber</h3>
 <h4 id="sensor_msgsmsgimage"><code>sensor_msgs/msg/Image</code></h4>
 <ul>
@@ -558,78 +521,6 @@ python版(triorb_streaming_images)の代替パッケージであり、処理負�
 <li><strong>Payload</strong>: <code>.webp</code>, <code>.jpg</code>, <code>.png</code> 形式に圧縮 → Base64 文字列にエンコード</li>
 <li><strong>Topic</strong>: <code>camera/stream</code></li>
 <li><strong>Protocol</strong>: <code>paho-mqtt</code> による MQTT publish</li>
-</ul>
-<h3 id="parameter">Parameter</h3>
-<table>
-<thead>
-<tr>
-<th>param</th>
-<th>note</th>
-<th>type</th>
-<th>default</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>mqtt_address</td>
-<td>MQTT Broker Address</td>
-<td>string</td>
-<td>localhost</td>
-</tr>
-<tr>
-<td>mqtt_port</td>
-<td>MQTT Broker Port</td>
-<td>int</td>
-<td>1883</td>
-</tr>
-<tr>
-<td>mqtt_client_id</td>
-<td>MQTT Client ID</td>
-<td>string</td>
-<td>triorb_streamer_{PID}</td>
-</tr>
-<tr>
-<td>mqtt_topic</td>
-<td>MQTT Topic</td>
-<td>string</td>
-<td>camera/stream</td>
-</tr>
-<tr>
-<td>topic_name_raw</td>
-<td>ROS2 topic name</td>
-<td>string</td>
-<td>/camera0</td>
-</tr>
-<tr>
-<td>scale</td>
-<td>Stream scale</td>
-<td>double</td>
-<td>0.2</td>
-</tr>
-<tr>
-<td>fps</td>
-<td>Stream fps</td>
-<td>double</td>
-<td>1.0</td>
-</tr>
-<tr>
-<td>quality</td>
-<td>Image quality</td>
-<td>int</td>
-<td>20</td>
-</tr>
-<tr>
-<td>encode</td>
-<td>Encode format</td>
-<td>string</td>
-<td>webp</td>
-</tr>
-</tbody>
-</table>
-<h4 id="note">note</h4>
-<ul>
-<li>CPU usage: jpg &lt; webp &lt;&lt; png</li>
-<li>network trafic: webp &lt; jpg &lt;&lt;&lt; png</li>
 </ul>
 
 
