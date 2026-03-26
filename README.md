@@ -2,6 +2,12 @@
 このドキュメントは、API公開Webサイトの生成と更新に関するガイドです。
 公開ページのHomeは`triorb-amr-docs/docs/index.md`にあります。
 
+## TriOrb開発者がメンテナンスすべきファイル
+- `triorb-amr-docs/docs/index.md`: 公開サイトのトップページ
+- `submodules/TriOrb-AMR-Package/pkgs/folder_descriptions.json`: 各フォルダの説明文
+- `submodules/TriOrb-AMR-Package/pkgs-collab/folder_descriptions.json`: 各フォルダの説明文（協調移動パッケージ群）
+- `submodules/TriOrb-AMR-Package/**/package.xml`: 各パッケージのメタ情報のうち`<description>`タグ
+
 ## リポジトリ環境初期構築
 ```bash
 git clone git@github.com:TriOrb-Inc/TriOrb-AMR-Documents.git
@@ -15,7 +21,7 @@ bash -c 'cd submodules/TriOrb-AMR-Package && git checkout master && git pull && 
 ```
 ## 自律移動パッケージのAPIリファレンス生成
 ```bash
-bash -c 'cd submodules/TriOrb-AMR-Package && sh dev/generate_document.sh'
+bash -c 'cd submodules/TriOrb-AMR-Package && sh dev/generate_document.sh ${VERSION} ${DATE}'
 ```
 
 ## 最新パッケージから*.mdと*.ipynbを収集
@@ -37,9 +43,10 @@ mkdocs build
 source .venv/bin/activate
 pip install -r mkdocs_requirements.txt
 cd triorb-amr-docs
-mike deploy v1.2.2 # 手元でビルドするだけ
-mike deploy --push --branch gh-pages v1.2.2 # 単に個別バージョンをデプロイ
-mike deploy --push --branch gh-pages --update-aliases v1.2.2 latest # latestに紐づけてデプロイ
+git fetch origin gh-pages
+mike deploy v1.2.3 # 手元でビルドするだけ
+mike deploy --push --branch gh-pages v1.2.3 # 単に個別バージョンをデプロイ
+mike deploy --push --branch gh-pages --update-aliases v1.2.3 latest # latestに紐づけてデプロイ
 mike set-default --push --branch gh-pages latest
 
 # 公開済みバージョンを確認
