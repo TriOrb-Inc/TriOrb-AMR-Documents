@@ -41,6 +41,8 @@
 
 APIに関する質問や不具合報告はGitHubの[Issue](https://github.com/TriOrb-Inc/TriOrb-AMR-Documents/issues)または[Discussions](https://github.com/TriOrb-Inc/TriOrb-AMR-Documents/discussions)を利用してください。
 
+個人情報、機密情報または非公開での連絡を希望する場合は、公開投稿ではなく `info@triorb.co.jp` を利用してください。GitHub の Issue / Discussions は公開チャネルであり、投稿者 ID を含め匿名性は限定的です。
+
 ## Appendix
 - [TriOrb markers generator](https://triorb-inc.github.io/TriOrb_Marker_Generator/)
     - [特徴点補助シート生成の設定例](https://triorb-inc.github.io/TriOrb_Marker_Generator/?width=210&height=297&polygons=50)

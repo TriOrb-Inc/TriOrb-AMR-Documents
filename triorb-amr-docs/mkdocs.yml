@@ -34,6 +34,10 @@ nav:
   - サンプルプログラム: TriOrb-AMR-Package/sample/README.md
   - WebAPI: https://triorb-inc.github.io/TriOrb-AMR-Robot-Controller/
   - 変更履歴: TriOrb-AMR-Package/History.md
+  - 利用規約: Terms.md
+  - プライバシーポリシー: PrivacyPolicy.md
+  - Terms of Use (EN): Terms.en.md
+  - Privacy Policy (EN): PrivacyPolicy.en.md
 
 # バージョン切り替え設定（mike使用）
 extra:
