@@ -3,9 +3,9 @@
 **パス**: `triorb_drive/triorb_dead_reckoning`  
 **説明**: vslam・odometry・imuデータからisam2で位置情報を推定する
 
-## Package: triorb_dead_reckoning
-### Package Description
-- IMU・オドメトリ・VSLAMデータを統合し、iSAM2グラフ最適化を用いたデッドレコニングによる自己位置推定を行うROS2ノードです。推定結果はトピック配信、デバッグモードでCSVログの出力をします。
+## triorb_dead_reckoning
+
+vslam・odometry・imuデータからisam2で位置情報を推定する
 
 ### Subscriber
 #### オドメトリデータを受信して自己位置推定に利用

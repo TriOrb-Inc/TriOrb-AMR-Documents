@@ -7,28 +7,11 @@
    TriOrbのドライブ・SLAMシステムと連携可能です。
   
 
-## Package: triorb_navigation_manager
+## triorb_navigation_manager
 
-### 概要
-
-`triorb_navigation_manager`はTriOrb AMR向けのROS 2ノードであり、CSVで定義された経路に従ってナビゲーション・協調走行・リフター動作・TagSLAM/SLAM連携・安全装置制御・イベント連携を一元管理します。ROS 2 TopicとMQTTの双方を用いて外部モジュールと連携し、状態監視や再開制御、地図切替待機などを自動化します。ノード起動時に一意性チェックを行い、`ROS_PREFIX`に応じた名前空間付きトピックへ自動的に接続します。
-
-### 主な機能
-
-- 経路CSV（`/data/route/<name>.csv`）のロード・解析とWayPoint管理（Start/End行を基準に自動抽出）
-- `nav/action`での開始・停止・一時停止・失敗復帰指示、速度係数や精度バイアスの適用
-- 走行（通常/協調/TagSLAM/相対移動）・リフター・イベント・地図操作・安全装置操作など多様なアクションを組み合わせ可能
-- Drive/Lifter/MQTTイベントの成功判定と`NavResult`コードによる結果通知、失敗時は復帰位置を保持
-- `/triorb/nav/state`によるナビゲーション状態公開と`/triorb/request_nav_state`からの即時再送
-- MQTT経由での地図待機時間取得・読み込みスキップ・VSLAM制御
-
-### CSVベースの経路定義
-
-- ファイル配置: 既定で`/data/route/`配下。拡張子が無い場合は自動的に`.csv`を付与。
-- 行形式: `type,name,action,x,y,w,vxy,vw,acc_xy,acc_w,gain,camera,accel_ms,...`
-- `type`が`route/Start`と`route/End`の行で経路範囲を自動決定。
-- `accel_ms`が未設定の場合は`DEFAULT_ACC=1000`、速度比は`nav/action`コマンドで与えた`ratio_speed`を乗算。
-- `check_waypoints`で`acc_xy`または`acc_w`がバイアス加算後に0以下の場合は開始前にエラー通知。
+TriOrb製移動ロボット向けのROS 2ノードで、CSVベースの経路ナビゲーションを制御します。
+   通常走行、協調走行、リフター動作、地図切替、イベント処理、状態通知などを統合的に管理し、
+   TriOrbのドライブ・SLAMシステムと連携可能です。
 
 #### 代表的な`type`と動作
 
@@ -152,18 +135,3 @@ ros2 topic pub /triorb/request_nav_state std_msgs/msg/Empty "{}"
 | `UNKNOW_ACTION_ERROR` ほか | 想定外アクション |
 
 アクション失敗時は`enter_failure_hold_state`で停止し、成功時は`check_compleated_operation`で次WayPointまたはLoop切り替えを実施。
-
-### エラー・状態管理
-
-- `reset_nav()`でWayPointポインタ、速度係数、バイアス、待機フラグ、エラーリスト、地図状態を初期化。
-- タイマー (`0.5s`) で状態を定期送信。`/triorb/request_nav_state`受信時は即時再送。
-- 地図切替時はMQTT推定時間を待機し、タイムアウトすると`MAP_LOAD_TIME_OUT_ERROR`を通知してナビゲーションをリセット。
-- `wait_nav`などのフラグにより並列アクションを制御し、完了コールバックで次のWayPoint処理を進める。
-
-### 運用上の注意
-
-- ノード名はファイル名先頭の`_`を除き、`ROS_PREFIX`付きで決定されます。ノード起動時に同名ノードが存在すると起動を中止します。
-- CSVには最低1つ以上のWayPoint（Start/End以外）が必要です。`idx_start >= idx_end`またはWayPoint不足の場合は`WAYPOINTS_EMPTY_ERROR`を返します。
-- `MarkerSetting`はトピック送信直後に`/triorb/nav/state`へ反映されるため、UI側で状態確認してください。
-- MQTTブローカー（既定: `localhost:1883`）に接続できない場合、地図切替アクションが正常に完了しません。必要に応じて`MQTTClient.connect()`のログを確認してください。
-

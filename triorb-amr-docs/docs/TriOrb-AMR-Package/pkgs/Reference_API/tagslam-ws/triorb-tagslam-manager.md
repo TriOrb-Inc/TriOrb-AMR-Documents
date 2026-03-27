@@ -1,24 +1,12 @@
 # triorb_tagslam_manager
 
 **パス**: `tagslam_ws/src/triorb_tagslam_manager`  
-**説明**: TODO: Package description
+**説明**: TagSLAM用の地図保存・読込・初期化を一括管理し、tagslam系ノードの再起動や状態通知を行う管理ノードです。
 
-## Package: triorb_tagslam_manager
+## triorb_tagslam_manager
 
-### 概要
-TriOrb製Tagslamシステムの運用をまとめて管理するROS 2ノードです。地図保存/読み込みの指示に応じて`tagslam`や`sync_and_detect`ノードをtmuxセッションで再起動し、地図ファイルの生成・差し替え、状態通知、tf配信、Version応答までを一括で行います。`ROS_PREFIX`環境変数で名前空間を付与しており、同じプレフィックスを持つトピック/サービスへ自動でリマップされます。
+TagSLAM用の地図保存・読込・初期化を一括管理し、tagslam系ノードの再起動や状態通知を行う管理ノードです。
 
-### ノード実行
-```bash
-ros2 run triorb_tagslam_manager tagslam_manager_node
-```
-`UNIQUE_NODE=True`のため、同名ノードが既に起動していると即座に終了します。内部では`/params/tagslam`配下の設定ファイルや`/data/tagslam_map`配下の地図を参照/更新します。
-
-### パラメータ
-| 名前 | 型 | 既定値 | 説明 |
-| --- | --- | --- | --- |
-| `use_approx_sync` | bool | `True` | `tagslam`/`sync_and_detect`を起動する際に約同期を有効にするかどうか。 |
-| `replace_noise` | bool | `True` | 地図読込時に`position_noise`/`rotation_noise`を`1e-8`へ書き換えてタグ姿勢を固定するかどうか。 |
 
 ### Subscriber（外部からの呼び出し例付き）
 各トピック名は`ROS_PREFIX`が設定されていれば`/<prefix>/...`に変換されます。以下のコマンド例では`ROS_PREFIX=/robot`を想定しています。
@@ -91,11 +79,4 @@ ros2 run triorb_tagslam_manager tagslam_manager_node
 - `check_state()`が1秒周期で`tagslam`/`sync_and_detect`ノードの生存確認とロスト判定（2秒以内に`/odom/body_t_rig`更新が無い場合は`LOST`）を行い、`/tagslam/state`と`/tagslam/status`へ反映します。
 - `check_tf_tree()`が1秒周期で`tf_buffer`から既知タグ一覧を取得し、`/tagslam/tag_tf`に送出します。
 - `check_srv_call_result()`が地図保存のサービス応答を監視し、`ErrorValue`（BUSY/ TIMEOUT/ NOT_FOUND/ UNKNOWN）を付与します。
-
-### カメラ設定の扱い
-起動時に`/params/tagslam/cameras.yaml`を読み込み、`ROS_PREFIX`付きトピックへ書き換えた結果を`/params/tagslam/cameras_prefix.yaml`（既定`cameras_prefix.yaml`）として保存します。同時にカメラ検出トピックへSubscriberを張り、`detector_callback`で検出タグを記録することで、タグTFメッセージに「現在視認中か既知のみか」を付加します。
-
-### 補足
-- `tmux kill-session -t tagslam|detect`で既存セッションを切り替える設計のため、同名セッションを他用途で使わないでください。
-- `/params`および`/data`パスはDockerコンテナなどでボリュームマウントされている前提です。必要に応じてシンボリックリンクで実ファイルを差し替えてください。
 

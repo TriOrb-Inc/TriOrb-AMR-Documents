@@ -3,7 +3,9 @@
 **パス**: `triorb_os/triorb_host_info`  
 **説明**: ホストコンピューター（Jetson）関連の情報を表示するためのパッケージ
 
-## Package: triorb_host_info
+## triorb_host_info
+
+ホストコンピューター（Jetson）関連の情報を表示するためのパッケージ
 
 ### ホストコンピュータのシステムモニター
 Topic：(prefix)/host/status

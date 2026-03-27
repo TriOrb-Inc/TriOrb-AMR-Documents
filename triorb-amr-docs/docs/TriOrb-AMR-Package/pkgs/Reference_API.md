@@ -9,21 +9,25 @@
 
 ### [stella_vslam_ros](Reference_API/stella-vslam-ros/stella-vslam-ros.md)
 
-The ROS2 package for stella_vslam
+Visual SLAM package
 
 ## tagslam_ws
 
-TagSLAMワークスペース関連のサンプルと管理用パッケージ群です。
+TagSLAMの管理ノードやサンプルを含むタグSLAM用ワークスペースです。
 
 [tagslam_ws のパッケージ一覧](Reference_API/tagslam-ws/index.md)
 
+### [tagslam](Reference_API/tagslam-ws/tagslam.md)
+
+software package for fiducial-marker based SLAM
+
 ### [triorb_tagslam_manager](Reference_API/tagslam-ws/triorb-tagslam-manager.md)
 
-TODO: Package description
+TagSLAM用の地図保存・読込・初期化を一括管理し、tagslam系ノードの再起動や状態通知を行う管理ノードです。
 
 ## triorb_drive
 
-走行制御・ナビゲーション・安全走行に関するパッケージ群です。
+経路生成・軌道追従・区域マップ・静的TF配信などAMR走行制御の基盤パッケージ群です。
 
 [triorb_drive のパッケージ一覧](Reference_API/triorb-drive/index.md)
 
@@ -59,19 +63,9 @@ C++ implementation of the TriOrb safe run velocity filter.
 
 SLAMで推定した位置姿勢をTriOrb BASEの位置姿勢へ変換しPublishするためのパッケージ
 
-## triorb_fleet
-
-RMF連携などフリート運用向けのブリッジパッケージです。
-
-[triorb_fleet のパッケージ一覧](Reference_API/triorb-fleet/index.md)
-
-### [triorb_rmf_bridge](Reference_API/triorb-fleet/triorb-rmf-bridge.md)
-
-OpenRMF用のTopicのGloal⇔Localバイパスを行う
-
 ## triorb_os
 
-OSレイヤの設定やGPIO・ネットワークユーティリティをまとめています。
+Jetson設定・GPIO制御・ネットワークユーティリティなどOSレイヤの運用支援ツール群です。
 
 [triorb_os のパッケージ一覧](Reference_API/triorb-os/index.md)
 
@@ -89,13 +83,13 @@ TCPソケット通信のためのパッケージ
 
 ## triorb_sensor
 
-各種センサー・カメラ入出力やストリーミングを扱うパッケージ群です。
+Argusカメラ入出力、キャリブレーション、ゲームパッド、画像ストリーミングなどのI/Oを扱うパッケージ群です。
 
 [triorb_sensor のパッケージ一覧](Reference_API/triorb-sensor/index.md)
 
 ### [sick_flexi_soft](Reference_API/triorb-sensor/sick-flexi-soft.md)
 
-TODO: Package description
+SICK PLCとEIP通信するためのパッケージ
 
 ### [sick_safetyscanners2](Reference_API/triorb-sensor/sick-safetyscanners2.md)
 
@@ -112,7 +106,7 @@ Provides an Interface to read the sensor output of a SICK
 
 ### [triorb_sick_plc_wrapper](Reference_API/triorb-sensor/triorb-sick-plc-wrapper.md)
 
-TODO: Package description
+SICK製PLCとのEtherNet/IPデータ交換を行い、速度ベクトルや安全入出力をROS 2メッセージとPLCアセンブリ間で変換するラッパーノードです。
 
 ### [triorb_sls_wrapper](Reference_API/triorb-sensor/triorb-sls-wrapper.md)
 
@@ -122,7 +116,7 @@ TODO: Package description
 
 ### [triorb_camera_argus](Reference_API/triorb-sensor/triorb-camera-argus.md)
 
-TODO: Package description
+JetsonのArgus API経由で複数カメラ映像を取得し、回転補正やデバイス割当を行って画像トピックとして配信するノードです。
 
 ### [triorb_camera_capture](Reference_API/triorb-sensor/triorb-camera-capture.md)
 
@@ -130,7 +124,7 @@ TODO: Package description
 
 ### [triorb_gamepad](Reference_API/triorb-sensor/triorb-gamepad.md)
 
-TODO: Package description
+ゲームパッド入力を監視し、走行・リフタ・非常停止などのコマンドをROS 2トピックへ出力するテレオペ用ノードです。
 
 ### [triorb_sls_drive_manager](Reference_API/triorb-sensor/triorb-sls-drive-manager.md)
 
@@ -138,7 +132,7 @@ SICK SLS用ドライバマネージャ
 
 ### [triorb_streaming_image_cpp](Reference_API/triorb-sensor/triorb-streaming-image-cpp.md)
 
-TODO: Package description
+カメラのImageトピックを購読し、JPEG/WEBP等へ圧縮してMQTTへ送出する軽量ストリーミングノードのC++実装です。
 
 ### [triorb_streaming_images](Reference_API/triorb-sensor/triorb-streaming-images.md)
 
@@ -146,14 +140,14 @@ TODO: Package description
 
 ## triorb_service
 
-共通サービスや例外処理など、アプリケーション横断の基盤機能を提供します。
+例外処理や共通サービスノードなど、アプリケーション横断の基盤機能を提供します。
 
 [triorb_service のパッケージ一覧](Reference_API/triorb-service/index.md)
 
 ### [triorb_beacon](Reference_API/triorb-service/triorb-beacon.md)
 
-ビーコン
+ホストの IP・プレフィクス情報・グループ情報を定期的に配信
 
 ### [triorb_except_handl](Reference_API/triorb-service/triorb-except-handl.md)
 
-TODO: Package description
+各ノードからの例外・警告を収集し、監視対象ノードの死活チェックや再起動スクリプト実行を行う例外ハンドリングノードです。

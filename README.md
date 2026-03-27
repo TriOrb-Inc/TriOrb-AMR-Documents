@@ -43,6 +43,7 @@ mkdocs build
 source .venv/bin/activate
 pip install -r mkdocs_requirements.txt
 cd triorb-amr-docs
+git fetch origin gh-pages
 mike deploy v1.2.3 # 手元でビルドするだけ
 mike deploy --push --branch gh-pages v1.2.3 # 単に個別バージョンをデプロイ
 mike deploy --push --branch gh-pages --update-aliases v1.2.3 latest # latestに紐づけてデプロイ
