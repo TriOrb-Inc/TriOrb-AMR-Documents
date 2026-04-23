@@ -11,7 +11,7 @@
 #### コントローラー入力受信
 - **Topic:** `/collab/joy`  
 - **Type:** `sensor_msgs::msg::Joy`  
-- **QoS:** `rclcpp::SensorDataQoS()`  
+- **QoS:** `BestEffortOneQoS (KeepLast=1, Reliability=BestEffort, Durability=Volatile)`  
 - **概要:** 協調グループの手動操作用ジョイスティック入力を受信します。
 
 ---
@@ -27,7 +27,7 @@
 #### 各ロボットのバインド姿勢情報受信
 - **Topic:** `/bc/collab/bind/info`  
 - **Type:** `triorb_collaboration_interface::msg::ParentBind`  
-- **QoS:** `rclcpp::SensorDataQoS()`  
+- **QoS:** `BestEffortOneQoS (KeepLast=1, Reliability=BestEffort, Durability=Volatile)`  
 - **概要:** 各ロボットから報告される現在のバインド姿勢情報を受信します。
 
 ---
@@ -35,7 +35,7 @@
 #### 各ロボットの最大速度受信
 - **Topic:** `/bc/collab/max_vel`  
 - **Type:** `triorb_drive_interface::msg::RobotParams`  
-- **QoS:** `rclcpp::SensorDataQoS()`  
+- **QoS:** `BestEffortOneQoS (KeepLast=1, Reliability=BestEffort, Durability=Volatile)`  
 - **概要:** 協調グループ内の各ロボットの最大速度制限パラメータを受信します。
 
 ---
@@ -43,7 +43,7 @@
 #### 協調グループへの速度指示受信
 - **Topic:** `/bc/collab/run_vel`  
 - **Type:** `triorb_drive_interface::msg::TriorbRunVel3Stamped`  
-- **QoS:** `rclcpp::SensorDataQoS()`  
+- **QoS:** `BestEffortOneQoS (KeepLast=1, Reliability=BestEffort, Durability=Volatile)`  
 - **概要:** 協調グループ向けに上位から与えられた速度指令を受信し、自律動作に反映します。
 
 
@@ -51,7 +51,7 @@
 #### AMR自身への速度指令
 - **Topic:** `/drive/run_vel`  
 - **Type:** `triorb_drive_interface::msg::TriorbRunVel3`  
-- **QoS:** `rclcpp::SensorDataQoS()`  
+- **QoS:** `BestEffortOneQoS (KeepLast=1, Reliability=BestEffort, Durability=Volatile)`  
 - **概要:** 自身の移動速度（並進＋回転）を指示します。
 
 ---
@@ -75,7 +75,7 @@
 #### バインド姿勢情報（親）
 - **Topic:** `/collab/bind/info`  
 - **Type:** `triorb_collaboration_interface::msg::ParentBind`  
-- **QoS:** `rclcpp::SensorDataQoS()`  
+- **QoS:** `BestEffortOneQoS (KeepLast=1, Reliability=BestEffort, Durability=Volatile)`  
 - **概要:** 自律搬送協調におけるバインド情報を定期送信します。
 
 ---
@@ -106,7 +106,7 @@
 #### 協調グループの速度指令
 - **Topic:** `/collab/run_vel`  
 - **Type:** `triorb_drive_interface::msg::TriorbRunVel3Stamped`  
-- **QoS:** `rclcpp::SensorDataQoS()`  
+- **QoS:** `BestEffortOneQoS (KeepLast=1, Reliability=BestEffort, Durability=Volatile)`  
 - **概要:** 協調搬送グループ全体に対する移動速度を指示します。
 
 ---
@@ -122,5 +122,13 @@
 #### 協調剛体の最大速度
 - **Topic:** `/collab/vel_max`  
 - **Type:** `triorb_drive_interface::msg::TriorbVel3`  
-- **QoS:** `rclcpp::SensorDataQoS()`  
+- **QoS:** `BestEffortOneQoS (KeepLast=1, Reliability=BestEffort, Durability=Volatile)`  
 - **概要:** 協調構成体の最大移動速度を外部に通知します。
+
+---
+#### 協調グループに対する生存通知
+- **Topic:** `/collab/alive`
+- **Type:** `std_msgs::msg::Header`
+- **QoS:** `BestEffortOneQoS (KeepLast=1, Reliability=BestEffort, Durability=Volatile)`
+- **概要:** 協調グループに対して定期的に生存通知を送信します。協調グループが無くなった場合はトピックが発行されなくなります。
+

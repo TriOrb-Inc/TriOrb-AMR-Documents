@@ -1,7 +1,7 @@
 # triorb_dead_reckoning
 
 **パス**: `triorb_drive/triorb_dead_reckoning`  
-**説明**: vslam・odometry・imuデータからisam2で位置情報を推定する
+**説明**: VSLAM・オドメトリ・IMUを統合し自己位置を推定するデッドレコニングパッケージです。IMUセンサ確認用バイパスログ機能も含みます。
 
 ## triorb_dead_reckoning
 

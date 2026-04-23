@@ -1,6 +1,6 @@
 # triorb_sensor
 
-Argusカメラ入出力、キャリブレーション、ゲームパッド、画像ストリーミングなどのI/Oを扱うパッケージ群です。
+Argusカメラ入出力、キャリブレーション、ゲームパッド、画像ストリーミング、CANブリッジ、SICK製セーフティレーザスキャナ/PLCなどのI/Oを扱うパッケージ群です。
 
 ## パッケージ一覧
 
@@ -15,6 +15,7 @@ Argusカメラ入出力、キャリブレーション、ゲームパッド、画
   
 - [triorb_camera_argus](./triorb-camera-argus.md) — JetsonのArgus API経由で複数カメラ映像を取得し、回転補正やデバイス割当を行って画像トピックとして配信するノードです。
 - [triorb_camera_capture](./triorb-camera-capture.md) — カメラキャプチャーのためのパッケージ
+- [triorb_can](./triorb-can.md) — SocketCANを用いてCANバスとROS 2トピック（/can_bridge/rx, /can_bridge/tx）を相互接続するブリッジパッケージです。
 - [triorb_gamepad](./triorb-gamepad.md) — ゲームパッド入力を監視し、走行・リフタ・非常停止などのコマンドをROS 2トピックへ出力するテレオペ用ノードです。
 - [triorb_sls_drive_manager](./triorb-sls-drive-manager.md) — SICK SLS用ドライバマネージャ
 - [triorb_streaming_image_cpp](./triorb-streaming-image-cpp.md) — カメラのImageトピックを購読し、JPEG/WEBP等へ圧縮してMQTTへ送出する軽量ストリーミングノードのC++実装です。

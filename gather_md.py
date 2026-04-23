@@ -13,8 +13,6 @@ dst_root = "./triorb-amr-docs/docs/"
 
 EXCLUDE_KWDS = [
     'triorb_stub_pico/',
-    'tagslam_ws/src/flex_sync/',
-    'tagslam_ws/src/tagslam/',
     'pkgs-collab/triorb_collaboration/',
     'pkgs/rosbridge_suite/',
     'cuda_efficient_features/',
@@ -34,16 +32,13 @@ EXCLUDE_KWDS = [
     'GuideForMaintainer.md',
     'CONTRIBUTING.md',
     'TriOrb-AMR-Package/README.md',
+    'TriOrb-AMR-Package/package_check_report.md',
     'pkgs/triorb_navi_bridge/',
-    'pkgs/triorb_os/',
-    'pkgs/triorb_sensor/',
-    'pkgs/triorb_drive/',
-    'pkgs/tagslam_ws/',
-    'pkgs/TriOrb-ROS2-Types/triorb_drive_interface/',
     'pkgs/stella_vslam_ros/',
     'pkgs/triorb_fleet/',
-    'pkgs/triorb_service/',
-    'pkgs-collab/triorb_drive/',
+    'pkgs/triorb_navigation_pkgs/',
+    'TriOrb-AMR-Package/document/',
+    'pkgs-collab/',
 ]
 
 # Clean

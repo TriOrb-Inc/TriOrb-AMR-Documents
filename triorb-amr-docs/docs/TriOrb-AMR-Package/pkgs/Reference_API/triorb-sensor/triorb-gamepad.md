@@ -18,5 +18,5 @@
 - `/drive/set_life_time` (`std_msgs/msg/UInt16`): 予備。現状コマンド割当は定義されていません。
 
 #### 走行関連（コラボレーションモード）
-`/collab/drive/stop`, `/collab/sleep`, `/collab/wakeup`, `/collab/run_lifter`, `/collab/set_life_time`, `/collab/run_vel`, `/collab/safe_drive/run_vel` を標準モードと同じメッセージ型で発行します。
+`/collab/drive/stop`, `/collab/sleep`, `/collab/wakeup`, `/collab/run_lifter`, `/collab/set_life_time`, `/collab/run_vel` を標準モードと同じメッセージ型で発行します。
 

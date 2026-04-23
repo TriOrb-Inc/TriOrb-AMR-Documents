@@ -81,6 +81,10 @@ root@orin-nx-XXX:~/$ ros2 topic pub -1 /mutex/set_drive_mode std_msgs/msg/UInt8 
 - Topic: (prefix)/drive/run_lifter
 - Type: std_msgs/msg/String
 - Note: リフター付きモデル限定.
+  - "up": リフトを上昇させる
+  - "down": リフトを下降させる
+  - "stop": リフトの動作を停止する
+  - "middle": リフトを中間点に移動させる
 - Usage: 
 ```bash
 root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/run_lifter std_msgs/msg/String "data: up"
@@ -129,6 +133,27 @@ error: 0
     - "lift": リフター動作中
 - Note: 1.5秒間隔で送信される.
 - Node: [注意] モーターライフタイムタイムアウト時は"idle"に戻らない
+
+#### リフター状態の定期送信
+- Topic: (prefix)/robot/lifter_state
+- Type: std_msgs/msg/UInt8
+- Value:
+    -  0: 位置不明(起動直後など)
+    -  1: 停止命令時
+    -  2: リフトアップ状態
+    -  3: リフトダウン状態
+    -  4: リフトアップ中
+    -  5: リフトダウン中
+    -  6: 中間点移動中
+    -  7: 中間点到達状態
+    -  8: STOP_ONWAY 
+    -  9: リフトアップ状態、荷物偏り
+    - 10: リフトアップ状態、空荷
+    - 11: モータエラー（alarm）
+    - 12: モータエラー（qstop）
+    - 13: モータエラー（watchdog）
+    - 14: IO接続異常
+- Note: 1.5秒間隔で送信される.
 
 ### Service
 

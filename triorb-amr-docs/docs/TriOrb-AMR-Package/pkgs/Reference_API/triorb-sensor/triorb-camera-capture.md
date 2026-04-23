@@ -72,3 +72,14 @@ root@orin-nx-XXX:~/$ ros2 service call /set/camera/state triorb_sensor_interface
 response:
 triorb_sensor_interface.srv.CameraCamture_Response(result=['success','success'])
 ```
+
+#### オートゲイン目標値の設定
+- Service：(prefix)/set/camera/auto_gain_target
+- Node：(prefix)_camera_capture
+- Type：triorb_camera_argus/srv/AutoGainTarget
+- Note：`target` は EV 相当で、`[-2.0, 2.0]` にクランプされます
+- Usage：
+```bash
+root@orin-nx-XXX:~/$ ros2 service call /set/camera/auto_gain_target triorb_camera_argus/srv/AutoGainTarget "{target: 0.5}"
+```
+

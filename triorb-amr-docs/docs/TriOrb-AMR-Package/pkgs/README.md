@@ -88,35 +88,3 @@ source /ros_entrypoint.sh
 colcon build --install-base /install/${ROS_DISTRO} &&\
 source /install/${ROS_DISTRO}/setup.bash
 ```
-
-## run ( local )
-```bash
-echo 'ROS_DISTRO='${ROS_DISTRO}', ROS_LOCALHOST_ONLY='${ROS_LOCALHOST_ONLY}', ROS_DOMAIN_ID='${ROS_DOMAIN_ID}', ROS_PREFIX='${ROS_PREFIX} &&\
-ros2 launch basic.xml
-```
-
-## run ( global )
-```bash
-docker run -it --rm --name bridge --privileged --net=host --runtime=nvidia --gpus all \
-               --add-host=localhost:127.0.1.1 \
-               -e ROS_LOCALHOST_ONLY=0 \
-               -e ROS_DOMAIN_ID=$(cat /triorb/params/ROS_DOMAIN_ID) \
-               -e ROS_PREFIX=$(cat /triorb/params/ROS_PREFIX) \
-               -v /dev:/dev \
-               -v /sys/devices/:/sys/devices/ \
-               -v /triorb/log:/log \
-               -v /triorb/build:/build \
-               -v /triorb/install:/install \
-               -v /triorb/params:/params \
-               -v /triorb/data:/data \
-               -v /triorb/tslam:/tslam \
-               -v /etc/NetworkManager/system-connections:/etc/NetworkManager/system-connections \
-               -v /var/run/dbus:/var/run/dbus \
-               -v $(pwd):/ws \
-               -w /ws \
-               $(cat /triorb/params/DOCKER_IMAGE_ROS)
-source /ros_entrypoint.sh
-source /install/${ROS_DISTRO}/setup.bash
-echo 'ROS_DISTRO='${ROS_DISTRO}', ROS_LOCALHOST_ONLY='${ROS_LOCALHOST_ONLY}', ROS_DOMAIN_ID='${ROS_DOMAIN_ID}', ROS_PREFIX='${ROS_PREFIX} &&\
-ros2 launch global.xml
-```

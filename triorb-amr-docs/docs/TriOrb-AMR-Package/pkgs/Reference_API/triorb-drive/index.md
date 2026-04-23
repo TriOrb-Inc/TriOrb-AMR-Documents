@@ -4,7 +4,7 @@
 
 ## パッケージ一覧
 
-- [triorb_dead_reckoning](./triorb-dead-reckoning.md) — vslam・odometry・imuデータからisam2で位置情報を推定する
+- [triorb_dead_reckoning](./triorb-dead-reckoning.md) — VSLAM・オドメトリ・IMUを統合し自己位置を推定するデッドレコニングパッケージです。IMUセンサ確認用バイパスログ機能も含みます。
 - [triorb_drive_pico](./triorb-drive-pico.md) — ROS2メッセージを用いてモーター制御ECUと通信するためのパッケージ
 - [triorb_drive_vector](./triorb-drive-vector.md) — 制御指令値からロボットの進行方向や停止・回転などの状態判定を行う
 - [triorb_navigation](./triorb-navigation.md) — 自律移動を行うためのパッケージ
@@ -14,4 +14,5 @@
    TriOrbのドライブ・SLAMシステムと連携可能です。
   
 - [triorb_safe_run_cpp](./triorb-safe-run-cpp.md) — C++ implementation of the TriOrb safe run velocity filter.
+- [triorb_snr_mux_driver](./triorb-snr-mux-driver.md) — SNR-MUXボードとシリアル通信し、音声再生状態・発進待ち時間などを ROS 2 トピックへ配信するドライバです。navigate / navigation_manager の停止・一時停止の遅延を音声再生と連動させます。
 - [triorb_vslam_tf](./triorb-vslam-tf.md) — SLAMで推定した位置姿勢をTriOrb BASEの位置姿勢へ変換しPublishするためのパッケージ
