@@ -13,7 +13,7 @@ WebSocket 経由の JSON JOY データを ROS トピックへ変換します。
 - Topic：(prefix)/vslam/joy （`joy_topic` パラメータで変更可）
 - Node：(prefix)_triorb_socket
 - Type： std_msgs/msg/String
-- Note：SensorDataQoS。`{"target":"self","axes":[...],"buttons":<uint32>}` 形式で受信
+- Note：BestEffortOneQoS (KeepLast=1, Reliability=BestEffort, Durability=Volatile)。`{"target":"self","axes":[...],"buttons":<uint32>}` 形式で受信
 - Usage：
 ```
 ros2 topic pub /vslam/joy std_msgs/msg/String "{data: '{\"target\":\"self\",\"buttons\":3,\"axes\":[0.1,0.2,0.0] }'}" --once

@@ -39,3 +39,13 @@ ros2 topic echo /camera0_device --once
 ros2 topic echo /error/camera
 ```
 
+#### オートゲイン目標明るさ設定
+- Service：/set/camera/auto_gain_target
+- Node：(prefix)_triorb_camera_argus
+- Type： triorb_camera_argus/srv/AutoGainTarget
+- Note：オートゲインの目標明るさ（-2.0〜2.0）を設定。範囲外はクランプ
+- Usage：
+```
+ros2 service call /set/camera/auto_gain_target triorb_camera_argus/srv/AutoGainTarget "{target: 0.5}"
+```
+

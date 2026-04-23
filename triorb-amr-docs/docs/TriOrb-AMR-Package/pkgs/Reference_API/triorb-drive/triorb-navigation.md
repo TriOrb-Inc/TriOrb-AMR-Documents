@@ -75,21 +75,36 @@ root@orin-nx-XXX:~/$ ros2 topic pub -1 /drive/stop std_msgs/msg/Empty
 #### 移動距離指示による相対移動
 - Topic: (prefix)/drive/run_pos
 - Type: triorb_drive_interface/msg/TriorbRunPos3
+- 内容: Navigatorがロボット座標系の相対移動量を下位のdrive制御に指示する。標準ではタイマー周期0.15s（`timer_period`パラメータ）ごとに送信し、PLC側が自律移動を許可していない場合はPublishしない。
+- フィールド:
+  - `speed.acc / speed.dec` [ms], `speed.xy` [m/s], `speed.w` [rad/s]（安全速度`limited_speed_by_safety_plc_`でクリップ）
+  - `position.x / position.y` [m], `position.deg` [deg]（`force`フラグに応じて回転のみ/並進のみやFEEDBACK時のクリッピングを実施）
 - Usage: 
 ```bash
+## 相対移動指示の監視
+ros2 topic echo /drive/run_pos
 ```
 #### 自律移動完結果
 - Topic: (prefix)/drive/result
 - Type: triorb_drive_interface/msg/TriorbRunResult
-- Usage: 
+- 内容: 自律移動の完了・失敗・強制停止・リジェクト時に1度だけ通知される結果。`success`がtrueなら到達、falseなら失敗/中断。`position`には終了時の自己位置（map座標系換算）が入る。
+- info値（`NAVIGATE_RESULT`に対応）:
+  - 0: TIMEOUT_FAILED（タイムアウト）, 1: HALF_TIMEOUT, 2: TRANSFORM_FAILED, 3: NO_CHANGE_TIMESTAMP
+  - 4: FORCE_STOP（/drive/stopなどで強制停止）, 5: NAVIGATION_FAILED, 6: NAVIGATION_SUCCESS, 7: PROGRESS
+  - 8: FORCE_SUCCESS（force success指示）, 9: LOST_FAILED（ロスト判定）, 255: REJECT（移動中に来た指示や不正引数を拒否）
+- Usage:
 ```bash
+ros2 topic echo /drive/result
 ```
 
 #### 自律移動状態
 - Topic: (prefix)/drive/state
 - Type: triorb_drive_interface/msg/TriorbRunState
-- Usage: 
+- 内容: 1秒周期の状態通知。`goal_pos`は最後に受け付けた目標、`cap_vxy/cap_vw`は現在設定されている速度上限（ロボット上限でクリップ済み）。
+- state値: 0=待機(STAND_BY), 1=自律移動中, 2=中断(/drive/pause), 3=成功終了, 4=失敗終了, 5=目標離脱（成功後にゴールから外れた場合）。
+- Usage:
 ```bash
+ros2 topic echo /drive/state
 ```
 
 ### Service

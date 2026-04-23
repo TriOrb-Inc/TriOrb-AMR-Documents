@@ -1,4 +1,4 @@
-# TriOrb-ROS2-Types v1.2.3 (2025-11-28)
+# TriOrb-ROS2-Types v1.2.4 (2026-04-20)
 
 # triorb_cv_interface 
 ## triorb_cv_interface/msg 
@@ -30,6 +30,18 @@ sensor_msgs/Image image
 
 # triorb_sensor_interface 
 ## triorb_sensor_interface/msg 
+### triorb_sensor_interface/msg/BatteryStatus.msg
+```bash
+std_msgs/Header header          # header.stamp: 計測/受信時刻
+                                # header.frame_id: 任意（例 "battery"）
+
+uint32 remaining_mah            # 現在の残量 [mAh]
+float32 remaining_percent       # 残容量 [%] (0.0〜100.0)
+float32 total_voltage_v         # バッテリー全体電圧 [V]
+bool is_charging                # 充電Flag
+BatteryModuleStatus[] modules
+```
+
 ### triorb_sensor_interface/msg/CameraDevice.msg
 ```bash
 #==カメラデバイス==
@@ -51,6 +63,31 @@ std_msgs/Header header # Timestamp
 float32 yaw
 float32 pitch
 float32 roll
+```
+
+### triorb_sensor_interface/msg/CanFrame.msg
+```bash
+uint32 id
+bool is_rtr
+bool is_extended
+bool is_error
+uint8 dlc
+uint8[8] data
+```
+
+### triorb_sensor_interface/msg/BatteryModuleStatus.msg
+```bash
+# モジュール単位のバッテリー状態
+
+uint8 module_id                 # モジュールID（1,2,...）
+
+float32 voltage_v               # モジュール電圧 [V]
+
+# モジュール電流 [A]
+# 符号ルール:
+#   充電 = +（プラス）
+#   放電 = -（マイナス）
+float32 current_a
 ```
 
 ### triorb_sensor_interface/msg/Obstacles.msg
@@ -362,6 +399,19 @@ TriorbPos3 position         # Last robot position
 bool success                # Moving result (true: Compleat, false: Feild)
 uint8 info                  # Moving result info ( substitution NAVIGATE_RESULT )
 TriorbPos3 position         # Last robot position
+
+#---Moving result info---
+# 0: TIMEOUT_FAILED（タイムアウト）
+# 1: HALF_TIMEOUT
+# 2: TRANSFORM_FAILED
+# 3: NO_CHANGE_TIMESTAMP
+# 4: FORCE_STOP（/drive/stopなどで強制停止）
+# 5: NAVIGATION_FAILED
+# 6: NAVIGATION_SUCCESS
+# 7: PROGRESS
+# 8: FORCE_SUCCESS（force success指示）
+# 9: LOST_FAILED（ロスト判定）
+# 255: REJECT（移動中に来た指示や不正引数を拒否）
 ```
 
 ### triorb_drive_interface/msg/PathSetting.msg
@@ -548,6 +598,9 @@ uint16 btns             # Remote control operation status (bit flag)
 uint16 state            # Robot operation state (bit flag)
 uint16 error            # Error status of the robot (bit flag)
 float32 battery         # Battery level (0.0 - 1.0)
+string collab_id        # collab group id (empty: no group)
+bool manual_mode        # enable manual drive
+bool auto_mode          # enable auto drive
 
 #---Remote control operation status (bit flag)---
 # 0x8000: Remote control Y button
@@ -725,5 +778,36 @@ float32 deg                 # Relative position of the parent from you [deg]
 std_msgs/Header header                              # Header
 string master                                       # Master
 triorb_collaboration_interface/ParentBind[] robots  # Robot informations
+```
+
+# triorb_plc_interface 
+## triorb_plc_interface/msg 
+### triorb_plc_interface/msg/BasicDataToPLC.msg
+```bash
+#==PLCへ送信する基本データ==
+std_msgs/Header header              # timestamp
+uint8 index                         # Assembly index of the byte array
+bool watchdog_request_from_jetson   # JetsonからPLCへのウォッチドッグ要求
+bool watchdog_response_to_plc       # PLCへのウォッチドッグ応答
+bool emergency_stop_to_plc          # PLCへの非常停止要求(B接点)
+bool deactivate_request_to_plc      # PLCへの管理停止要求(A接点)
+bool sls_off_request_to_plc         # PLCへのSLS監視停止要求(A接点)
+bool error_reset_request_to_plc     # PLCへのエラーリセット要求(A接点)
+uint8 reserved                      # 予約（未使用ビット）
+```
+
+### triorb_plc_interface/msg/BasicDataFromPLC.msg
+```bash
+#==PLCから受信した基本データ==
+std_msgs/Header header              # timestamp
+uint8 index                         # Assembly index of the byte array
+bool watchdog_request_from_plc      # PLCからのウォッチドッグ要求
+bool watchdog_response_from_plc     # PLCからのウォッチドッグ応答
+bool emergency_stop_from_plc        # PLCが非常停止中(B接点)
+bool power_cut_from_plc             # PLCが動力遮断中(B接点)
+bool unknown_error_from_plc         # PLCからの不明なエラー(A接点)
+bool permit_auto_move_from_plc      # PLCからの自動移動許可信号(B接点)
+bool permit_manual_move_from_plc    # PLCからの自動移動許可信号(B接点)
+bool sls_off_from_plc               # PLCからのSLS監視停止状態信号(A接点)
 ```
 
