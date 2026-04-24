@@ -521,18 +521,14 @@ for pkg_rel, pkg_name in pairs:
 
     # Rewrite literalinclude paths: rosdoc2 emits relative paths anchored at the
     # container build dir. The container mounts the submodule at
-    # /ws/src/TriOrb-AMR-Package, so the generated RST goes up 6 levels then
-    # into src/TriOrb-AMR-Package/<pkg_rel>/<file>. On the host, the submodule
-    # lives at submodules/TriOrb-AMR-Package, reachable from
-    # docs-next/packages/<pkg_name>/<subdirs>/<file.rst>. Count up-levels per file.
+    # /ws/src/TriOrb-AMR-Package, so the generated RST goes up into
+    # src/TriOrb-AMR-Package/<pkg_rel>/<file>. On the host, the submodule lives
+    # at submodules/TriOrb-AMR-Package. Compute the relative prefix from each
+    # RST location so both docs-next/packages/ and docs-next/interfaces/ work.
     up_prefix_re = re.compile(r"(\.\./)+src/TriOrb-AMR-Package/")
+    submodule_root = repo_root / "submodules" / "TriOrb-AMR-Package"
     for rst in dest.rglob("*.rst"):
-        # rel_depth = number of intermediate directories between packages/ and the file.
-        # Example: packages/<pkg>/interfaces/msg/foo.rst → 3 intermediate dirs (<pkg>, interfaces, msg).
-        # Up from the rst to repo root: rel_depth + 2 levels (one for `packages/`, one for `docs-next/`).
-        rel_depth = len(rst.relative_to(packages_root).parts) - 1
-        ups = "../" * (rel_depth + 2)
-        target_prefix = f"{ups}submodules/TriOrb-AMR-Package/"
+        target_prefix = os.path.relpath(submodule_root, rst.parent) + "/"
         text = rst.read_text(encoding="utf-8")
         new_text, n = up_prefix_re.subn(target_prefix, text)
         if n:
