@@ -4,8 +4,6 @@ Effective date: March 27, 2026
 
 > This document is a draft prepared based on the current public content of the `TriOrb-AMR-Documents` repository and the `TriOrb BASE Developer Guide`. Before production use, it should be reviewed and adjusted to match TriOrb Inc.'s actual business operations, contract structure, sales model, and legal review.
 
-[Japanese version](./Terms.md)
-
 ## Scope
 
 These Terms of Use ("Terms") apply to the use of the following public information and related pages provided or managed by TriOrb Inc. ("we", "us", or "our"):
