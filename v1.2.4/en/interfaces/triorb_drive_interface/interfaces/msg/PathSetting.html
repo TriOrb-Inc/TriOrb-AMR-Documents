@@ -492,6 +492,35 @@
 <h1>PathSetting<a class="headerlink" href="#pathsetting" title="Permalink to this heading">¶</a></h1>
 <p>This is a ROS message definition.</p>
 <p><strong>Source</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#**</span>
+<span class="c1">#* Copyright 2023 TriOrb Inc.</span>
+<span class="c1">#*</span>
+<span class="c1">#* Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#* you may not use this file except in compliance with the License.</span>
+<span class="c1">#* You may obtain a copy of the License at</span>
+<span class="c1">#*</span>
+<span class="c1">#*     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#*</span>
+<span class="c1">#* Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#* distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#* See the License for the specific language governing permissions and</span>
+<span class="c1">#* limitations under the License.</span>
+<span class="c1">#**</span>
+
+<span class="c1">#==障害物マップを利用した経路生成(when param=0, default value is used)==</span>
+<span class="n">TriorbPos3</span> <span class="n">start</span>          <span class="c1"># start position -&gt; 現在位置を取得すればよい？</span>
+<span class="n">TriorbPos3</span> <span class="n">goal</span>           <span class="c1"># Goal position</span>
+<span class="n">float32</span> <span class="n">robot_w</span>           <span class="c1"># robot width  ( luggage width )  (default=0.5)</span>
+<span class="n">float32</span> <span class="n">robot_h</span>           <span class="c1"># robot height ( luggage height ) (default=0.5)</span>
+<span class="n">uint8</span> <span class="n">down_sample_rate</span>    <span class="c1"># image reduction size   (default=1)</span>
+<span class="n">float32</span> <span class="n">xy_reso</span>           <span class="c1"># m/px in obstacle map   (default=0.01)</span>
+<span class="n">float32</span> <span class="n">theta_reso</span>        <span class="c1"># minimum rotation [deg] (default=360/64)</span>
+<span class="n">float32</span> <span class="n">lam</span>               <span class="c1"># param (default=1.0)</span>
+<span class="n">float32</span> <span class="n">r</span>                 <span class="c1"># param (default=1.0/6.5)</span>
+<span class="n">float32</span> <span class="n">epsilon</span>           <span class="c1"># param (default=0.05)</span>
+</pre></div>
+</div>
 </section>
 
         </article>

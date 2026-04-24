@@ -492,6 +492,41 @@
 <h1>TriorbRunResult<a class="headerlink" href="#triorbrunresult" title="この見出しへのパーマリンク">¶</a></h1>
 <p>This is a ROS message definition.</p>
 <p><strong>Source</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#**</span>
+<span class="c1">#* Copyright 2023 TriOrb Inc.</span>
+<span class="c1">#*</span>
+<span class="c1">#* Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#* you may not use this file except in compliance with the License.</span>
+<span class="c1">#* You may obtain a copy of the License at</span>
+<span class="c1">#*</span>
+<span class="c1">#*     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#*</span>
+<span class="c1">#* Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#* distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#* See the License for the specific language governing permissions and</span>
+<span class="c1">#* limitations under the License.</span>
+<span class="c1">#**</span>
+
+<span class="c1">#==自律移動結果==</span>
+<span class="nb">bool</span> <span class="n">success</span>                <span class="c1"># Moving result (true: Compleat, false: Feild)</span>
+<span class="n">uint8</span> <span class="n">info</span>                  <span class="c1"># Moving result info ( substitution NAVIGATE_RESULT )</span>
+<span class="n">TriorbPos3</span> <span class="n">position</span>         <span class="c1"># Last robot position</span>
+
+<span class="c1">#---Moving result info---</span>
+<span class="c1"># 0: TIMEOUT_FAILED（タイムアウト）</span>
+<span class="c1"># 1: HALF_TIMEOUT</span>
+<span class="c1"># 2: TRANSFORM_FAILED</span>
+<span class="c1"># 3: NO_CHANGE_TIMESTAMP</span>
+<span class="c1"># 4: FORCE_STOP（/drive/stopなどで強制停止）</span>
+<span class="c1"># 5: NAVIGATION_FAILED</span>
+<span class="c1"># 6: NAVIGATION_SUCCESS</span>
+<span class="c1"># 7: PROGRESS</span>
+<span class="c1"># 8: FORCE_SUCCESS（force success指示）</span>
+<span class="c1"># 9: LOST_FAILED（ロスト判定）</span>
+<span class="c1"># 255: REJECT（移動中に来た指示や不正引数を拒否）</span>
+</pre></div>
+</div>
 </section>
 
         </article>

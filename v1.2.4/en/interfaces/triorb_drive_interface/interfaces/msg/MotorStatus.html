@@ -492,6 +492,41 @@
 <h1>MotorStatus<a class="headerlink" href="#motorstatus" title="Permalink to this heading">¶</a></h1>
 <p>This is a ROS message definition.</p>
 <p><strong>Source</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#**</span>
+<span class="c1">#* Copyright 2023 TriOrb Inc.</span>
+<span class="c1">#*</span>
+<span class="c1">#* Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#* you may not use this file except in compliance with the License.</span>
+<span class="c1">#* You may obtain a copy of the License at</span>
+<span class="c1">#*</span>
+<span class="c1">#*     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#*</span>
+<span class="c1">#* Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#* distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#* See the License for the specific language governing permissions and</span>
+<span class="c1">#* limitations under the License.</span>
+<span class="c1">#**</span>
+
+<span class="c1">#==モーターステータス==</span>
+<span class="n">std_msgs</span><span class="o">/</span><span class="n">Header</span> <span class="n">header</span>      <span class="c1"># Timestamp</span>
+<span class="n">uint16</span> <span class="n">last_error_value</span>     <span class="c1"># Last motor alert flag</span>
+<span class="n">uint8</span> <span class="n">last_error_motor</span>      <span class="c1"># Motor ID of the last alert</span>
+<span class="n">float32</span> <span class="n">voltage</span>             <span class="c1"># Mains voltage observed by the motor driver</span>
+<span class="n">uint16</span> <span class="n">state</span>                <span class="c1"># Operating state of each motor (bit flag)</span>
+<span class="n">float32</span> <span class="n">power</span>               <span class="c1"># Power consumption of each motor (W)</span>
+
+<span class="c1">#---Operating state of each motor (bit flag)---</span>
+<span class="c1"># 0x8000: Remote control Y button</span>
+<span class="c1"># 0x4000: Remote control B button</span>
+<span class="c1"># 0x2000: Remote control A button</span>
+<span class="c1"># 0x1000: Remote control X button</span>
+<span class="c1"># 0x0800: Rotating</span>
+<span class="c1"># 0x0400: Position control complete</span>
+<span class="c1"># 0x0200: Excitation in progress</span>
+<span class="c1"># 0x0100: Motor status acquired successfully</span>
+</pre></div>
+</div>
 </section>
 
         </article>

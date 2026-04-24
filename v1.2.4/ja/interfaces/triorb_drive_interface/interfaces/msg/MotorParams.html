@@ -492,6 +492,33 @@
 <h1>MotorParams<a class="headerlink" href="#motorparams" title="この見出しへのパーマリンク">¶</a></h1>
 <p>This is a ROS message definition.</p>
 <p><strong>Source</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1">#**</span>
+<span class="c1">#* Copyright 2023 TriOrb Inc.</span>
+<span class="c1">#*</span>
+<span class="c1">#* Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);</span>
+<span class="c1">#* you may not use this file except in compliance with the License.</span>
+<span class="c1">#* You may obtain a copy of the License at</span>
+<span class="c1">#*</span>
+<span class="c1">#*     http://www.apache.org/licenses/LICENSE-2.0</span>
+<span class="c1">#*</span>
+<span class="c1">#* Unless required by applicable law or agreed to in writing, software</span>
+<span class="c1">#* distributed under the License is distributed on an &quot;AS IS&quot; BASIS,</span>
+<span class="c1">#* WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.</span>
+<span class="c1">#* See the License for the specific language governing permissions and</span>
+<span class="c1">#* limitations under the License.</span>
+<span class="c1">#**</span>
+
+<span class="c1">#==モーター制御パラメーター==</span>
+<span class="nb">bool</span> <span class="n">lpf</span>                <span class="c1"># Use LPF for driving command filter (False: moving average)</span>
+<span class="n">uint8</span> <span class="n">filter_t</span>          <span class="c1"># Command filter time constant (0-200)[ms]</span>
+<span class="n">uint8</span> <span class="n">pos_p_gain</span>        <span class="c1"># Position loop gain (1-50)[Hz]</span>
+<span class="n">uint16</span> <span class="n">speed_p_gain</span>     <span class="c1"># speed loop gain (1-500) [Hz]</span>
+<span class="n">uint16</span> <span class="n">speed_i_gain</span>     <span class="c1"># speed loop integral time constant (1-10000) [0.01ms]</span>
+<span class="n">uint16</span> <span class="n">torque_filter</span>    <span class="c1"># torque filter (0-4700) [Hz]</span>
+<span class="n">uint8</span> <span class="n">speed_ff</span>          <span class="c1"># speed feed-forward (0-100) [%]</span>
+<span class="n">uint8</span> <span class="n">stiffness</span>         <span class="c1"># machine stiffness selection (0-15)</span>
+</pre></div>
+</div>
 </section>
 
         </article>
