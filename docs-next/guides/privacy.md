@@ -4,8 +4,6 @@ Effective date: March 27, 2026
 
 > This document is a draft prepared based on the current public content of the `TriOrb-AMR-Documents` repository and the `TriOrb BASE Developer Guide`. Before production use, it should be reviewed and adjusted to match TriOrb Inc.'s actual contact operations, service providers, retention policy, and legal review.
 
-[Japanese version](./PrivacyPolicy.md)
-
 ## Basic Policy
 
 TriOrb Inc. ("we", "us", or "our") handles user information obtained through the `TriOrb BASE Developer Guide`, the `TriOrb-AMR-Documents` repository, and related public pages managed or provided by us (collectively, "this site") in accordance with the Act on the Protection of Personal Information of Japan and other applicable laws and regulations.
