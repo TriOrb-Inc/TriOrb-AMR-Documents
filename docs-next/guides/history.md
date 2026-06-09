@@ -43,3 +43,26 @@ Notable merged PRs: #405 (`dev/std1.2.4` rollup), #397 (PICO timeout
 and `snr_mux` wait-time parameterization), #388 (`triorb_gamepad` axis
 zero range), #378 (release/std1.2.4 navigation stabilization and Bison
 feature landing).
+
+Headline functional changes in the `1.2.4.18` release (2026-06-09):
+
+The `1.2.4.18` release reflects issues and verification results found
+during field trials after `1.2.4.2`. It improves stability around
+collaboration transport, VSLAM / TagSLAM map operation, temporary
+localization loss, compute resources, hardware handshakes, UI / API
+behavior, and diagnostic logging.
+
+- Improved behavior so the robot is less likely to move toward a wrong
+  position immediately after map switching or temporary localization
+  loss.
+- Improved pose stability after camera ON / OFF switching.
+- Fixed communication loss, reconnection, pause, and resume behavior
+  during collaboration transport.
+- Faster map file loading and saving.
+- Added handshakes for safety sensors, PLC, lifter, and remote-control
+  operations.
+- Reduced process and communication resource usage to improve resistance
+  to resource exhaustion.
+
+Rollup PR:
+[TriOrb-AMR-Package #557](https://github.com/TriOrb-Inc/TriOrb-AMR-Package/pull/557)

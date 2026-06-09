@@ -183,6 +183,24 @@ HISTORY_MD_DICT = {
         "リリースノート全文:\n[TriOrb-AMR-Package 1.2.4.2](https://github.com/TriOrb-Inc/TriOrb-AMR-Package/releases/tag/1.2.4.2)",
     "Notable merged PRs: #405 (`dev/std1.2.4` rollup), #397 (PICO timeout and `snr_mux` wait-time parameterization), #388 (`triorb_gamepad` axis zero range), #378 (release/std1.2.4 navigation stabilization and Bison feature landing).":
         "主な取り込み PR: #405（`dev/std1.2.4` 反映）、#397（PICO timeout と `snr_mux` 待機時間パラメータ化）、#388（`triorb_gamepad` の axis zero range 対応）、#378（release/std1.2.4 向けナビ / 協調制御安定化と Bison 周辺機能反映）。",
+    "Headline functional changes in the `1.2.4.18` release (2026-06-09):":
+        "`1.2.4.18` リリース（2026-06-09）の主な機能変更:",
+    "The `1.2.4.18` release reflects issues and verification results found during field trials after `1.2.4.2`. It improves stability around collaboration transport, VSLAM / TagSLAM map operation, temporary localization loss, compute resources, hardware handshakes, UI / API behavior, and diagnostic logging.":
+        "`1.2.4.18` リリースでは、`1.2.4.2` 以降に実証現場で確認した課題と検証結果を反映し、安定性向上を実施しました。具体的には、協調搬送、VSLAM / TagSLAM の地図運用、自己位置ロスト時の継続動作、計算リソース対策、ハンドシェイク追加、UI / API 改善、ログや診断情報の追加を行いました。",
+    "Improved behavior so the robot is less likely to move toward a wrong position immediately after map switching or temporary localization loss.":
+        "地図切替直後や一時的に自己位置を見失った直後でも、誤った場所へ向かい難いよう改善しました。",
+    "Improved pose stability after camera ON / OFF switching.":
+        "カメラ ON / OFF 直後に自己位置が揺れやすい問題を改善しました。",
+    "Fixed communication loss, reconnection, pause, and resume behavior during collaboration transport.":
+        "協調搬送中の通信断、再接続、一時停止、再開の動きを修正しました。",
+    "Faster map file loading and saving.":
+        "地図ファイルの読み込み・保存を高速化しました。",
+    "Added handshakes for safety sensors, PLC, lifter, and remote-control operations.":
+        "安全センサー、PLC、リフター、リモコン操作について、ハンドシェイク処理を追加しました。",
+    "Reduced process and communication resource usage to improve resistance to resource exhaustion.":
+        "起動するプロセス数や通信リソースの使用量を削減し、リソース枯渇に対する耐性を改善しました。",
+    "Rollup PR:\n[TriOrb-AMR-Package #557](https://github.com/TriOrb-Inc/TriOrb-AMR-Package/pull/557)":
+        "統合PR:\n[TriOrb-AMR-Package #557](https://github.com/TriOrb-Inc/TriOrb-AMR-Package/pull/557)",
 }
 
 PKG_INDEX_DICT = {
